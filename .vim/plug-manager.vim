@@ -1,0 +1,82 @@
+" Shahzad's Vim Plugins Managed by vim-plug
+
+" ====================================[ Info ]===========================================
+"
+"        To install plugins run the command...                       :PlugInstall
+"        To update plugins run the command...                        :PlugUpdate
+"        To review the changes from last update use...               :PlugDiff
+"        To remove/delete(clean) the undeclared plugins type...      :PlugClean
+"
+"        Also Use 'vim +PlugInstall +qall' to install plugins just from terminal.
+" =======================================================================================
+
+" Makes sure the plug.vim file is in the autoload folder, if not then goes and gets it.
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+" Specify a directory for plugins to get downloaded in.
+call plug#begin('~/.vim/plug')
+" ===============================[ Start of all Plugins ]================================
+
+" Helps rename the current file by just :Rename <new-filename>.
+Plug 'vim-scripts/Rename'
+
+" Adds the vim surrounding feature, to surround things using s.
+Plug 'tpope/vim-surround'
+
+" Enables repeating the surround command with the dot(.).
+Plug 'tpope/vim-repeat'
+
+" Nerd Tree for easier files, directory navigation.
+Plug 'scrooloose/nerdtree'
+
+" To get the Table Mode.
+Plug 'dhruvasagar/vim-table-mode'
+
+" Advance C++ syntax and type highlighting.
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Install the solarized theme.
+Plug 'altercation/vim-colors-solarized'
+
+" Status bar.
+Plug 'vim-airline/vim-airline'
+
+" Status bar themes.
+Plug 'vim-airline/vim-airline-themes'
+
+" Super tab to make compatible YCM and UltiSnip with tab.
+Plug 'ervandew/supertab'
+
+" Auto completing suggestions.
+Plug 'Valloric/YouCompleteMe'
+
+" To get quick snippets.
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" ================================[ End of all Plugins ]=================================
+call plug#end()
+
+" C++ syntax highlight.
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let c_no_curly_error=1
+
+" Theme for airline.
+let g:airline_solarized_bg='dark'
+let g:airline_theme='solarized'
+
+" Make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" Better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
