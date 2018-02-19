@@ -39,9 +39,6 @@ Plug 'dhruvasagar/vim-table-mode'
 " Advance C++ syntax and type highlighting.
 Plug 'octol/vim-cpp-enhanced-highlight'
 
-" Install the solarized theme.
-Plug 'altercation/vim-colors-solarized'
-
 " Status bar.
 Plug 'vim-airline/vim-airline'
 
@@ -58,18 +55,18 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Install the gruvbox theme.
+Plug 'morhetz/gruvbox'
+
+
 " ================================[ End of all Plugins ]=================================
 call plug#end()
 
-" C++ syntax highlight.
+" C++ syntax highlight configurations.
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
-let c_no_curly_error=1
-
-" Theme for airline.
-let g:airline_solarized_bg='dark'
-let g:airline_theme='solarized'
+let g:c_no_curly_error=1
 
 " Make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -80,3 +77,10 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Theme for airline.
+let g:airline_theme='gruvbox'
+
+" GruvBox theme configurations.
+" Tells GruvBox to show comments in italics (this line should show in italics).
+let g:gruvbox_italic=1
