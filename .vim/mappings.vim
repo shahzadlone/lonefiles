@@ -89,6 +89,5 @@ noremap <Leader>J Jx
 " Pipe all the commands (all the lines) in file to bash, to get executed one by one.
 noremap <Leader>bash :%!bash<cr>
 
-" Delete all recovery files(swaps, undos, and backups).
-noremap <Leader>delrec :!rm ~/.vim/.recover/**/*[.~,.swm,.swn,.swo,.swp]<cr>
-
+" Delete all recovery files(swaps, undos, and backups), and come out of shell.
+noremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
