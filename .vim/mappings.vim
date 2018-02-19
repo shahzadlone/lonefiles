@@ -25,6 +25,10 @@ nnoremap <Leader>P "0P
 vnoremap <Leader>p "0p
 vnoremap <Leader>P "0P
 
+"Fix searching next and previous to center the screen, after taking me there.
+nnoremap n nzz
+nnoremap N Nzz
+
 " Make Y yank till end of the line (so behaves kind of like C and D).
 nnoremap Y y$
 
@@ -74,20 +78,44 @@ nnoremap <Leader>l <S-l>
 " Preserve M (go to the middle of the screen).
 nnoremap <Leader>m <S-m>
 
-" Open ~/.vimrc in a new tab.
-nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<cr>
-
 " Source ~/.vimrc file.
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<cr>`mzz
 
-" Join lines using leader, with only one space.
+" Open my vim config files that I modify the most in a new tab.
+nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<cr>
+                      \:tabe ~/.vim/plug-manager.vim<cr>
+                      \:tabe ~/.vim/options.vim<cr>
+                      \:tabe ~/.vim/theme.vim<cr>
+
+" Close all vim config files that are open in tabs, if possible (everything is saved).
+nnoremap <Leader>cvim :bd *.vim<C-a><cr>
+
+" Open my bash config files that I modify the most in a new tab.
+nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<cr>
+                       \:tabe ~/.bash/.bash_settings<cr>
+                       \:tabe ~/.bash/.bash_exports<cr>
+                       \:tabe ~/.bash/.bash_system_default<cr>
+
+" Close all bash config files that are open in tabs, if possible (nothing is unsaved).
+nnoremap <Leader>cbash :bd *bash_*<C-a><cr>
+
+" Map J to go down with x3 times the speed.
+noremap J 3j
+
+" Join lines using leader, with only one space (preserve J's behaviour).
 noremap <Leader>j J
 
 " Join lines without any spaces.
 noremap <Leader>J Jx
 
-" Pipe all the commands (all the lines) in file to bash, to get executed one by one.
-noremap <Leader>bash :%!bash<cr>
+" Map K to go up with x3 times the speed.
+noremap K 3k
 
-" Delete all recovery files(swaps, undos, and backups), and come out of shell.
+" Preserve K's behaviour (open man page of the command the cursor is on).
+noremap <Leader>man K
+
+" Pipe all the commands (all the lines) in file to bash, to get executed one by one.
+noremap <Leader>bsh :%!bash<cr>
+
+" Delete all recovery files(swaps, undos, and backups), and come out of the shell.
 noremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
