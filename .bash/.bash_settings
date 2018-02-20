@@ -1,6 +1,11 @@
 # Shahzad's Bash Settings.
 
 # -----[ Set bash shell options ]----- {{{
+# Make shell behave like vim.
+set -o vi
+# ------------------------------------ }}}
+
+# -----[ Settings for shopt ]----- {{{
 # Append to the history file, don't overwrite it.
 shopt -s histappend
 
