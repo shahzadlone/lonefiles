@@ -125,4 +125,5 @@ nnoremap <Leader>man K
 nnoremap <Leader>bsh :%!bash<cr>
 
 " Delete all recovery files(swaps, undos, and backups), and come out of the shell.
-noremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
+nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
+
