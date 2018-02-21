@@ -103,6 +103,9 @@ nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<cr>
 " Close all bash config files that are open in tabs, if possible (nothing is unsaved).
 nnoremap <Leader>cbash :bd *bash_*<C-a><cr>
 
+" Open my tmux configuration file.
+nnoremap <Leader>tmux :tabe ~/.tmux.conf<cr>
+
 " Map J to go down with x3 times the speed.
 noremap J 3j
 
