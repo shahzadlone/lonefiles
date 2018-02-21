@@ -107,22 +107,22 @@ nnoremap <Leader>cbash :bd *bash_*<C-a><cr>
 nnoremap <Leader>tmux :tabe ~/.tmux.conf<cr>
 
 " Map J to go down with x3 times the speed.
-noremap J 3j
+nnoremap J 3j
 
 " Join lines using leader, with only one space (preserve J's behaviour).
-noremap <Leader>j J
+nnoremap <Leader>j J
 
 " Join lines without any spaces.
-noremap <Leader>J Jx
+nnoremap <Leader>J Jx
 
 " Map K to go up with x3 times the speed.
-noremap K 3k
+nnoremap K 3k
 
 " Preserve K's behaviour (open man page of the command the cursor is on).
-noremap <Leader>man K
+nnoremap <Leader>man K
 
 " Pipe all the commands (all the lines) in file to bash, to get executed one by one.
-noremap <Leader>bsh :%!bash<cr>
+nnoremap <Leader>bsh :%!bash<cr>
 
 " Delete all recovery files(swaps, undos, and backups), and come out of the shell.
 noremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
