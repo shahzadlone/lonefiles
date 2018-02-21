@@ -127,3 +127,7 @@ nnoremap <Leader>bsh :%!bash<cr>
 " Delete all recovery files(swaps, undos, and backups), and come out of the shell.
 nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
 
+" Quick plug in managing mappings.
+nnoremap <Leader>plugi :wa<cr>:PlugInstall<cr>
+nnoremap <Leader>plugu :wa<cr>:PlugUpdate<cr>
+nnoremap <Leader>plugc :wa<cr>:PlugClean<cr>
