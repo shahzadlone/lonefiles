@@ -33,6 +33,9 @@ Plug 'tpope/vim-repeat'
 " Nerd Tree for easier files, directory navigation.
 Plug 'scrooloose/nerdtree'
 
+" For easier commenting using <Leader> and 'c' command with combinations.
+Plug 'scrooloose/nerdcommenter'
+
 " To get the Table Mode.
 Plug 'dhruvasagar/vim-table-mode'
 
@@ -58,7 +61,6 @@ Plug 'honza/vim-snippets'
 " Install the gruvbox theme.
 Plug 'morhetz/gruvbox'
 
-
 " ================================[ End of all Plugins ]=================================
 call plug#end()
 
@@ -77,6 +79,9 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Enable trimming of trailing whitespace when uncommenting, for nerdcommenter.
+let g:NERDTrimTrailingWhitespace = 1
 
 " Theme for airline.
 let g:airline_theme='gruvbox'
