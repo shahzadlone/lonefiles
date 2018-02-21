@@ -6,6 +6,9 @@ let mapleader = ","
 " Local Leader Key Mapping.
 let maplocalleader = "\\"
 
+" Setting the timeout, for leader keys(operator mode time limit) to 5 seconds.
+set timeout timeoutlen=5000
+
 " Open help in a vertical window instead of a horizontal window.
 cnoreabbrev help vert help
 
