@@ -4,4 +4,7 @@
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Detect any hidden file whose name starts with bash_ or bash- as a bash file.
-au BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
+autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
+
+" Automatically resize windows(to equal sizes) when the terminal size is changed.
+autocmd VimResized * wincmd =
