@@ -29,6 +29,3 @@ else
     noremap <C-l> <C-w>l
 endif
 "=======================================[End]============================================
-
-" Fix color issue with tmux
-set t_Co=256
