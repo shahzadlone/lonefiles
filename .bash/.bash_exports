@@ -2,10 +2,10 @@
 
 # -----[ BASH_IT ]----- {{{
 # Path to .bash_it
-export BASH_IT="/home/shahzad/.bash/.bash_it"
+#export BASH_IT="/home/shahzad/.bash/.bash_it"
 
 # Bash theme to use.
-export BASH_IT_THEME="axin"
+#export BASH_IT_THEME="zork"
 # ------------------------------ }}}
 
 # -----[ Color ]----- {{{
