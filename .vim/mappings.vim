@@ -100,6 +100,7 @@ nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<cr>
                        \:tabe ~/.bash/.bash_settings<cr>
                        \:tabe ~/.bash/.bash_exports<cr>
                        \:tabe ~/.bash/.bash_system_default<cr>
+                       \:tabe ~/.bashrc<cr>
 
 " Close all bash config files that are open in tabs, if possible (nothing is unsaved).
 nnoremap <Leader>cbash :bd *bash_*<C-a><cr>
