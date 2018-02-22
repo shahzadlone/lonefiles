@@ -1,9 +1,14 @@
 # Shahzad's Input Configurations.
 
+# My selected editing mode.
+set editing-mode vi
+
 # =====[ Modifications for vi mode. ]===== {{{
 $if mode=vi
 # Insert mode settings
     set keymap vi-insert
+
+    "\C-x\C-r": re-read-init-file
 
     "jj": vi-movement-mode
     "\C-p": history-search-backward
