@@ -9,6 +9,6 @@
 # ------------------------------ }}}
 
 # -----[ Color ]----- {{{
-# Set 256 terminal colorso
+# Set 256 terminal colors
 export TERM=xterm-256color
 # ------------------------------ }}}
