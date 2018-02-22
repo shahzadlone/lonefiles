@@ -17,3 +17,7 @@ if [ -f ~/.bash/.bash_aliases ]; then
     . ~/.bash/.bash_aliases;
 fi
 
+# Source the file containing all the exports, if there.
+if [ -f ~/.bash/.bash_exports ]; then
+    . ~/.bash/.bash_exports;
+fi
