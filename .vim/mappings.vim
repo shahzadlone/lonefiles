@@ -90,6 +90,7 @@ nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<cr>
                       \:tabe ~/.vim/options.vim<cr>
                       \:tabe ~/.vim/theme.vim<cr>
                       \:tabe ~/.vim/tmux.vim<cr>
+                      \:tabe ~/.vim/auto-commands.vim<cr>
 
 " Close all vim config files that are open in tabs, if possible (everything is saved).
 nnoremap <Leader>cvim :bd *.vim<C-a><cr>
