@@ -1,5 +1,10 @@
 # Shahzad's Bash Exports.
 
+# -----[ Color ]----- {{{
+# Set 256 terminal colors
+export TERM=xterm-256color
+# ------------------------------ }}}
+
 # -----[ BASH_IT ]----- {{{
 # Path to .bash_it
 #export BASH_IT="/home/shahzad/.bash/.bash_it"
@@ -8,7 +13,8 @@
 #export BASH_IT_THEME="zork"
 # ------------------------------ }}}
 
-# -----[ Color ]----- {{{
-# Set 256 terminal colors
-export TERM=xterm-256color
-# ------------------------------ }}}
+# -----[ Extras ]----- {{{
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/shahzad/.sdkman"
+[[ -s "/home/shahzad/.sdkman/bin/sdkman-init.sh" ]] && source "/home/shahzad/.sdkman/bin/sdkman-init.sh"
+# -------------------- }}}
