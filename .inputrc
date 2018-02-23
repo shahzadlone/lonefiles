@@ -1,10 +1,16 @@
 # Shahzad's Input Configurations.
 
+# Do tab complition on first tab.
+set show-all-if-ambiguous on
+
 # My selected editing mode.
 set editing-mode vi
 
 # =====[ Modifications for vi mode. ]===== {{{
 $if mode=vi
+
+    # Show mode we are in (insert or normal(command) ).
+    set show-mode-in-prompt on
 
     # Insert mode settings
     set keymap vi-insert
@@ -59,8 +65,6 @@ $if mode=vi
     # Disable left and right cursor movement
     # "\e[C": redraw-current-line
     # "\e[D": redraw-current-line
-
-    set show-mode-in-prompt on
 
 $endif
 # ======================================== }}}

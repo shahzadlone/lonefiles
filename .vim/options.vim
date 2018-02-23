@@ -34,11 +34,11 @@ set noshowmatch
 " Make incrementing 007 result into 008 rather than 010.
 set nrformats-=octal
 
-" Turn on my searching preference
-set hlsearch  " Highlight Search
-set ic        " Ignore Case
+" Turn on my searching preference.
+set hlsearch  " Highlight search.
+set ic        " Ignore case.
 set is
-set incsearch " search as characters are entered
+set incsearch " Search as characters are entered.
 
 " Set max allowed tabs to be opened.
 set tabpagemax=500
@@ -49,37 +49,37 @@ set splitright
 " Open horizontal panes to the bottom(not top).
 set splitbelow
 
-" Set highlight for 90 characters limit
+" Set highlight for 90 characters limit.
 set colorcolumn=90
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
-" Show “invisible” characters
+" Show “invisible” characters.
 set list
-set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:~,extends:>,precedes:<
+set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 
-" Show line numbers
+" Show line numbers.
 set number
 
-" highlight current line
+" Highlight current line.
 set cursorline
 
 " To show charcter(row) in line.
 set ruler
 
-" Show the editing mode on the last line
+" Show the editing mode on the last line.
 set showmode
 
-" highlight matching [{()}]
+" Highlight matching [{()}], to the best of vim's ability (not perfect).
 set showmatch
 
-" redraw only when we need to.v
+" Redraw only when we need to.
 set lazyredraw
 
-" Set CMD Mode options
+" Set CMD Mode options.
 set shortmess+=raIoOtT
 set cmdheight=2
 
-" visual autocomplete for command menu
+" Visual autocomplete for command menu.
 set wildmenu
 
 " Tell vim where to put backup, undo and swapfiles.
