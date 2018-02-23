@@ -5,8 +5,15 @@ set editing-mode vi
 
 # =====[ Modifications for vi mode. ]===== {{{
 $if mode=vi
-# Insert mode settings
+
+    # Insert mode settings
     set keymap vi-insert
+
+    # If want just a white indicator to show that we are in insert mode.
+    #set vi-ins-mode-string "+"
+
+    # If want a colored text to show that we are in insert mode.
+    set vi-ins-mode-string "\1\e[1;36m\2(insert)\1\e[0m\2"
 
     "\C-x\C-r": re-read-init-file
 
@@ -31,6 +38,12 @@ $if mode=vi
     # Command mode settings
     set keymap vi-command
 
+    # If want just a white indicator to show that we are in normal mode.
+    #set vi-cmd-mode-string ":"
+
+    # If want a colored text to show that we are in normal mode.
+    set vi-cmd-mode-string "\1\e[1;31m\2(normal)\1\e[0m\2"
+
     "gg": beginning-of-history
     "G": end-of-history
 
@@ -45,7 +58,10 @@ $if mode=vi
 
     # Disable left and right cursor movement
     # "\e[C": redraw-current-line
-# "\e[D": redraw-current-line
+    # "\e[D": redraw-current-line
+
+    set show-mode-in-prompt on
+
 $endif
 # ======================================== }}}
 
