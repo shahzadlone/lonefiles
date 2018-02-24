@@ -39,6 +39,9 @@ Plug 'scrooloose/nerdtree'
 " For easier commenting using <Leader> and 'c' command with combinations.
 Plug 'scrooloose/nerdcommenter'
 
+" To help make the interaction with tmux seemless.
+Plug 'benmills/vimux'
+
 " To get the Table Mode.
 Plug 'dhruvasagar/vim-table-mode'
 

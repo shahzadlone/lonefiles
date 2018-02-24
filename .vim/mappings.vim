@@ -47,46 +47,6 @@ nnoremap Y y$
 "" Copy to the clipboard.
 "noremap <Leader>y "+y
 
-" Mapping to easily merge a tab, as a right vertical split.
-nnoremap <Leader>tmerg :Tabmerge right<cr>
-
-" Mapping to nerd tree.
-nnoremap <Leader>nt :NERDTree<cr>
-
-" Mapping to table mode.
-nnoremap <Leader>tm :TableModeToggle<cr>
-
-" Mapping to comment the entire file from current line to the last line.
-nmap <Leader>cG mmVG<Leader>cc`mzz
-
-" Stay in visual mode when indenting.
-vnoremap > >gv
-vnoremap < <gv
-
-" Equal indent entire file and move my current line to the middle of the screen.
-nnoremap <F5> mmgg=G`mzz
-vnoremap <F5> =
-
-" Open the file under cursor(or visually selected) in a new tab.
-nnoremap gf <C-w>gf
-vnoremap gf <C-w>gf
-
-" For easy tab navigation.
-nnoremap <S-h> gT
-nnoremap <S-l> gt
-
-" Make(build) in current directory.
-nnoremap <S-m> :make!<cr>
-
-" Preserve H (go to the higest visible line on screen).
-nnoremap <Leader>h <S-h>
-
-" Preserve L (go to the lowest visible line on screen).
-nnoremap <Leader>l <S-l>
-
-" Preserve M (go to the middle of the screen).
-nnoremap <Leader>m <S-m>
-
 " Source ~/.vimrc file.
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<cr>`mzz
 
@@ -117,6 +77,31 @@ nnoremap <Leader>tmux :tabe ~/.tmux.conf<cr>
 " Open my input configuration file.
 nnoremap <Leader>input :tabe ~/.inputrc<cr>
 
+" Stay in visual mode when indenting.
+vnoremap > >gv
+vnoremap < <gv
+
+" Equal indent entire file and move my current line to the middle of the screen.
+nnoremap <F5> mmgg=G`mzz
+vnoremap <F5> =
+
+" Open the file under cursor(or visually selected) in a new tab.
+nnoremap gf <C-w>gf
+vnoremap gf <C-w>gf
+
+" For easy tab navigation.
+nnoremap H gT
+nnoremap L gt
+
+" Preserve H (go to the higest visible line on screen).
+nnoremap <Leader>hig H
+
+" Preserve L (go to the lowest visible line on screen).
+nnoremap <Leader>low L
+
+" Preserve M (go to the middle of the screen).
+nnoremap <Leader>mid M
+
 " Map J to go down with x3 times the speed.
 nnoremap J 3j
 
@@ -138,10 +123,8 @@ nnoremap <Leader>bsh :%!bash<cr>
 " Delete all recovery files(swaps, undos, and backups), and come out of the shell.
 nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
 
-" Quick plug in managing mappings.
-nnoremap <Leader>plugi :wa<cr>:PlugInstall<cr>
-nnoremap <Leader>plugu :wa<cr>:PlugUpdate<cr>
-nnoremap <Leader>plugc :wa<cr>:PlugClean<cr>
+" --------------------[ Pluggin Specific Mappings ]--------------------
+
 if exists('${TMUX}') " Only work if we are inside/using Tmux.
 
     " Run the last command executed by VimuxRunCommand
@@ -156,3 +139,21 @@ else " If NOT inside/using Tmux, then do this mapping.
     nnoremap M :make<CR>
 
 endif " End of the Tmux check mappings.
+
+" Quick pluggin managing mappings (not using my sov command to avoid using nmap).
+nnoremap <Leader>plugi mm:w<CR>:source $MYVIMRC<cr>`mzz:PlugInstall<cr>
+nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<cr>`mzz:PlugUpdate<cr>
+nnoremap <Leader>plugc mm:w<CR>:source $MYVIMRC<cr>`mzz:PlugClean<cr>
+
+" Mapping to easily merge a tab, as a right vertical split.
+nnoremap <Leader>tmerg :Tabmerge right<cr>
+
+" Mapping to nerd tree.
+nnoremap <Leader>nt :NERDTree<cr>
+
+" Mapping to table mode.
+nnoremap <Leader>tm :TableModeToggle<cr>
+
+" Mapping to comment the entire file from current line to the last line.
+nmap <Leader>cG mmVG<Leader>cc`mzz
+
