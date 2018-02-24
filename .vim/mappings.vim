@@ -104,15 +104,18 @@ nnoremap <Leader>mid M
 
 " Map J to go down with x3 times the speed.
 nnoremap J 3j
+vnoremap J 3j
 
 " Join lines using leader, with only one space (preserve J's behaviour).
 nnoremap <Leader>j J
+vnoremap <Leader>j J
 
-" Join lines without any spaces.
+" Join lines without any spaces(only works in normal mode).
 nnoremap <Leader>J Jx
 
 " Map K to go up with x3 times the speed.
 nnoremap K 3k
+vnoremap K 3k
 
 " Preserve K's behaviour (open man page of the command the cursor is on).
 nnoremap <Leader>man K
