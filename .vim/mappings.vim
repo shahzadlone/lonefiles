@@ -16,7 +16,7 @@ cnoreabbrev help vert help
 nnoremap j gj
 nnoremap k gk
 
-" Disable Arrow keys in Escape mode
+" Disable Arrow keys.
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
@@ -48,10 +48,13 @@ nnoremap Y y$
 "noremap <Leader>y "+y
 
 " Mapping to nerd tree.
-noremap <Leader>nt :NERDTree<cr>
+nnoremap <Leader>nt :NERDTree<cr>
 
 " Mapping to table mode.
-noremap <Leader>tm :TableModeToggle<cr>
+nnoremap <Leader>tm :TableModeToggle<cr>
+
+" Mapping to comment the entire file from current line to the last line.
+nmap <Leader>cG mmVG<Leader>cc`mzz
 
 " Stay in visual mode when indenting.
 vnoremap > >gv
