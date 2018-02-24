@@ -133,9 +133,9 @@ if exists('${TMUX}') " Only work if we are inside/using Tmux.
     " Run the last command executed by VimuxRunCommand
     nnoremap M :w<CR>:VimuxRunLastCommand<CR>
     " Prompt for a command to run in the other tmux pane.
-    nnoremap <Leader>cmd :VimuxPromptCommand<CR>
+    nnoremap <Leader>cmd :wa<CR>:VimuxPromptCommand<CR>
     " Run the make command in the other tmux pane.
-    nnoremap <Leader>M :VimuxPromptCommand("make && echo ${?}")<CR><CR>
+    nnoremap <Leader>M :wa<CR>:VimuxPromptCommand("make && echo ${?}")<CR><CR>
 
 else " If NOT inside/using Tmux, then do this mapping.
 
