@@ -47,6 +47,9 @@ nnoremap Y y$
 "" Copy to the clipboard.
 "noremap <Leader>y "+y
 
+" Mapping to easily merge a tab, as a right vertical split.
+nnoremap <Leader>tmerg :Tabmerge right<cr>
+
 " Mapping to nerd tree.
 nnoremap <Leader>nt :NERDTree<cr>
 

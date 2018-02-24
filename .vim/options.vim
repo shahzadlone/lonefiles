@@ -1,4 +1,4 @@
-"Shahzad's Vim Set Options
+" Shahzad's Vim Set Options
 
 " Disable auto insertion of comments. Only works for one(current session),
 "  my auto command fix should resolve that.

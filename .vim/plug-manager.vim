@@ -24,6 +24,9 @@ call plug#begin('~/.vim/plug')
 " Helps rename the current file by just :Rename <new-filename>.
 Plug 'vim-scripts/Rename'
 
+" Helps merge tabs, into splits.
+Plug 'vim-scripts/Tabmerge'
+
 " Adds the vim surrounding feature, to surround things using s.
 Plug 'tpope/vim-surround'
 
