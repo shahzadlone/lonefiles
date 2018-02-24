@@ -48,34 +48,34 @@ nnoremap Y y$
 "noremap <Leader>y "+y
 
 " Source ~/.vimrc file.
-nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<cr>`mzz
+nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>`mzz
 
 " Open my vim config files that I modify the most in a new tab.
-nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<cr>
-                      \:tabe ~/.vim/plug-manager.vim<cr>
-                      \:tabe ~/.vim/options.vim<cr>
-                      \:tabe ~/.vim/theme.vim<cr>
-                      \:tabe ~/.vim/tmux.vim<cr>
-                      \:tabe ~/.vim/auto-commands.vim<cr>
+nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<CR>
+                      \:tabe ~/.vim/plug-manager.vim<CR>
+                      \:tabe ~/.vim/options.vim<CR>
+                      \:tabe ~/.vim/theme.vim<CR>
+                      \:tabe ~/.vim/tmux.vim<CR>
+                      \:tabe ~/.vim/auto-commands.vim<CR>
 
 " Close all vim config files that are open in tabs, if possible (everything is saved).
-nnoremap <Leader>cvim :bd *.vim<C-a><cr>
+nnoremap <Leader>cvim :bd *.vim<C-a><CR>
 
 " Open my bash config files that I modify the most in a new tab.
-nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<cr>
-                       \:tabe ~/.bash/.bash_settings<cr>
-                       \:tabe ~/.bash/.bash_exports<cr>
-                       \:tabe ~/.bash/.bash_system_default<cr>
-                       \:tabe ~/.bashrc<cr>
+nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
+                       \:tabe ~/.bash/.bash_settings<CR>
+                       \:tabe ~/.bash/.bash_exports<CR>
+                       \:tabe ~/.bash/.bash_system_default<CR>
+                       \:tabe ~/.bashrc<CR>
 
 " Close all bash config files that are open in tabs, if possible (nothing is unsaved).
-nnoremap <Leader>cbash :bd *bash_*<C-a><cr>
+nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
 
 " Open my tmux configuration file.
-nnoremap <Leader>tmux :tabe ~/.tmux.conf<cr>
+nnoremap <Leader>tmux :tabe ~/.tmux.conf<CR>
 
 " Open my input configuration file.
-nnoremap <Leader>input :tabe ~/.inputrc<cr>
+nnoremap <Leader>input :tabe ~/.inputrc<CR>
 
 " Stay in visual mode when indenting.
 vnoremap > >gv
@@ -118,17 +118,17 @@ nnoremap K 3k
 nnoremap <Leader>man K
 
 " Pipe all the commands (all the lines) in file to bash, to get executed one by one.
-nnoremap <Leader>bsh :%!bash<cr>
+nnoremap <Leader>bsh :%!bash<CR>
 
 " Delete all recovery files(swaps, undos, and backups), and come out of the shell.
-nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
+nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 
 " --------------------[ Pluggin Specific Mappings ]--------------------
 
 if exists('${TMUX}') " Only work if we are inside/using Tmux.
 
     " Run the last command executed by VimuxRunCommand
-    nnoremap M :VimuxRunLastCommand<CR>
+    nnoremap M :w<CR>:VimuxRunLastCommand<CR>
     " Prompt for a command to run in the other tmux pane.
     nnoremap <Leader>cmd :VimuxPromptCommand<CR>
     " Run the make command in the other tmux pane.
@@ -141,18 +141,18 @@ else " If NOT inside/using Tmux, then do this mapping.
 endif " End of the Tmux check mappings.
 
 " Quick pluggin managing mappings (not using my sov command to avoid using nmap).
-nnoremap <Leader>plugi mm:w<CR>:source $MYVIMRC<cr>`mzz:PlugInstall<cr>
-nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<cr>`mzz:PlugUpdate<cr>
-nnoremap <Leader>plugc mm:w<CR>:source $MYVIMRC<cr>`mzz:PlugClean<cr>
+nnoremap <Leader>plugi mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugInstall<CR>
+nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugUpdate<CR>
+nnoremap <Leader>plugc mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugClean<CR>
 
 " Mapping to easily merge a tab, as a right vertical split.
-nnoremap <Leader>tmerg :Tabmerge right<cr>
+nnoremap <Leader>tmerg :Tabmerge right<CR>
 
 " Mapping to nerd tree.
-nnoremap <Leader>nt :NERDTree<cr>
+nnoremap <Leader>nt :NERDTree<CR>
 
 " Mapping to table mode.
-nnoremap <Leader>tm :TableModeToggle<cr>
+nnoremap <Leader>tm :TableModeToggle<CR>
 
 " Mapping to comment the entire file from current line to the last line.
 nmap <Leader>cG mmVG<Leader>cc`mzz
