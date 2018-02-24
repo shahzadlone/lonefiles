@@ -4,7 +4,7 @@
 "----------------------------------------------------------------------------------------
 " Helps switch between buffers(vim) and panes(tmux) using just CTRL with hjkl.
 "----------------------------------------------------------------------------------------
-if exists('$TMUX')
+if exists('${TMUX}')
     function! s:TmuxOrSplitSwitch(wincmd, tmuxdir)
         let previous_winnr = winnr()
         silent! execute 'wincmd ' . a:wincmd

@@ -142,3 +142,17 @@ nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<cr><cr>
 nnoremap <Leader>plugi :wa<cr>:PlugInstall<cr>
 nnoremap <Leader>plugu :wa<cr>:PlugUpdate<cr>
 nnoremap <Leader>plugc :wa<cr>:PlugClean<cr>
+if exists('${TMUX}') " Only work if we are inside/using Tmux.
+
+    " Run the last command executed by VimuxRunCommand
+    nnoremap M :VimuxRunLastCommand<CR>
+    " Prompt for a command to run in the other tmux pane.
+    nnoremap <Leader>cmd :VimuxPromptCommand<CR>
+    " Run the make command in the other tmux pane.
+    nnoremap <Leader>M :VimuxPromptCommand("make && echo ${?}")<CR><CR>
+
+else " If NOT inside/using Tmux, then do this mapping.
+
+    nnoremap M :make<CR>
+
+endif " End of the Tmux check mappings.
