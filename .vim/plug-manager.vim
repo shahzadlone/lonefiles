@@ -86,8 +86,15 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" NerdCommenter configurations.
 " Enable trimming of trailing whitespace when uncommenting, for nerdcommenter.
 let g:NERDTrimTrailingWhitespace = 1
+" Allow commenting/uncommenting empty lines (useful when commenting a region).
+let g:NERDCommentEmptyLines = 1
+" Align line-wise comment delimiters flush left instead of following code indentation.
+let g:NERDDefaultAlign = 'left'
+" Add spaces after comment delimiters by default.
+let g:NERDSpaceDelims = 1
 
 " Theme for airline.
 let g:airline_theme='gruvbox'

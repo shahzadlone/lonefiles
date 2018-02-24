@@ -160,3 +160,6 @@ nnoremap <Leader>tm :TableModeToggle<CR>
 " Mapping to comment the entire file from current line to the last line.
 nmap <Leader>cG mmVG<Leader>cc`mzz
 
+" Make backspace in normal and visual mode toggle commenting/uncommenting.
+nmap <BS> <Leader>cizz
+vmap <BS> <Leader>cigv
