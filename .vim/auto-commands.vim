@@ -8,3 +8,10 @@ autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
 
 " Automatically resize windows(to equal sizes) when the terminal size is changed.
 autocmd VimResized * wincmd =
+
+" When entering insert mode, turn relative line numbers off (show absolute line numbers).
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END

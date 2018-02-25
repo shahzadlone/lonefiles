@@ -1,5 +1,12 @@
 " Shahzad's Vim Set Options
 
+" Setting the timeout, for leader keys(operator mode time limit) to 5 seconds.
+set timeout timeoutlen=5000
+
+" Set hybrid line numbers (the current line is absolute and others are relative). I have
+"  an auto group with auto commands set up to only show absolute numbers in insert mode.
+set number relativenumber
+
 " Disable auto insertion of comments. Only works for one(current session),
 "  my auto command fix should resolve that.
 set formatoptions-=cro
@@ -56,9 +63,6 @@ highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 " Show “invisible” characters.
 set list
 set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
-
-" Show line numbers.
-set number
 
 " Highlight current line.
 set cursorline
