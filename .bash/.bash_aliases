@@ -1,10 +1,30 @@
 # Shahzad's Bash Aliases (Note: #!/bin/bash is not needed because not a script!)
 
-# -----[ For safety. ]----- {{{
-# Show a prompt to double check before copying, moving or deleting something.
+# -----[ Overwrite default programs/commands usage. ]----- {{{
+# For saftly show a prompt to double check before overwriting by the copying command.
 alias cp='cp -i'
+
+# For saftly show a prompt to double check before overwriting by the moving command.
 alias mv='mv -i'
+
+# For saftly show a prompt to double check before deleting anything(unless -f is used).
 alias rm='rm -i'
+
+# If no opening-file options(-p -o -O) given to vim with multiple files, then open
+#  all the files in seperate tabs by default.
+#  Note: If an option is specified then that option is given precedence.
+alias vim='vim -p'
+
+# By default enable colors if possible for ls, dir, vdir, grep, fgrep, egrep commands.
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 # ------------------------- }}}
 
 # -----[ For convinience. ]----- {{{
@@ -20,18 +40,6 @@ alias lh='ls -A1 | egrep "^\..*$"'
 alias sobash='source ~/.bashrc'
 # ----------------------------- }}}
 
-# -----[ Enable color support for various commands. ]----- {{{
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-# --------------------------------------------------------- }}}
-
 # -----[ Extras. ]----- {{{
 # Add an "alert" alias for long running commands. So can be notified after they finish.
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)"\
@@ -44,3 +52,4 @@ alias lit='/usr/bin/git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}"'
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
 # -------------------- }}}
+
