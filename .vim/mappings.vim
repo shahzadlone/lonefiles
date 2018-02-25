@@ -35,17 +35,15 @@ nnoremap N Nzz
 " Make Y yank till end of the line (so behaves kind of like C and D).
 nnoremap Y y$
 
-"" Insert the contents of the clipboard.
-"nnoremap <silent> <Localleader>P :set paste<CR>"*]P:set nopaste<CR>
-"nnoremap <silent> <Localleader>p :set paste<CR>"*]p:set nopaste<CR>
-"vnoremap          <Localleader>p "*p
-"vnoremap          <Localleader>P "*P
-"
-"" Copy the selected text into the clipboard.
-"noremap <Localleader>y "*y
-"
-"" Copy to the clipboard.
-"noremap <Leader>y "+y
+" Insert the contents of the clipboard.
+nnoremap <Localleader>P :set paste<CR>"+P:set nopaste<CR>
+nnoremap <Localleader>p :set paste<CR>"+p:set nopaste<CR>
+vnoremap <Localleader>p "+p
+vnoremap <Localleader>P "+P
+
+" Copy to the clipboaod.
+nnoremap <Leader>y "+y
+vnoremap <Leader>y "+y
 
 " Source ~/.vimrc file.
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>`mzz
