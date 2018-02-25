@@ -9,6 +9,9 @@ autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
 " Automatically resize windows(to equal sizes) when the terminal size is changed.
 autocmd VimResized * wincmd =
 
+" Open new buffers/files in a new tab (stops piling or opening things on top of one pane).
+autocmd BufAdd,BufNewFile * nested tab sball
+
 " When entering insert mode, turn relative line numbers off (show absolute line numbers).
 augroup numbertoggle
   autocmd!
