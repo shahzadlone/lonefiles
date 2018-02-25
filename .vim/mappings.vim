@@ -9,6 +9,9 @@ let maplocalleader = "\\"
 " Open help in a vertical window instead of a horizontal window.
 cnoreabbrev help vert help
 
+" Open a file in read-only mode, in a vertical spilt.
+cnoreabbrev vview vert sview
+
 " Move vertically by visual line (makes easy to work on wrapped lines).
 nnoremap j gj
 nnoremap k gk
