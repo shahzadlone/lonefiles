@@ -32,6 +32,10 @@ vnoremap <Leader>P "0P
 nnoremap n nzz
 nnoremap N Nzz
 
+" Whenever I go somewhere make it center the screen to that line.
+nnoremap gg ggzz
+nnoremap G Gzz
+
 " Make Y yank till end of the line (so behaves kind of like C and D).
 nnoremap Y y$
 
@@ -135,7 +139,7 @@ if exists('${TMUX}') " Only work if we are inside/using Tmux.
     " Run the make command in the other tmux pane.
     nnoremap <Leader>M :wa<CR>:VimuxPromptCommand("make && echo ${?}")<CR><CR>
 
-else " If NOT inside/using Tmux, then do this mapping.
+else " ========== If NOT inside/using Tmux, then do these mappings ==========.
 
     nnoremap M :make<CR>
 
