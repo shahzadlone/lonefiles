@@ -10,7 +10,7 @@ autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
 autocmd VimResized * wincmd =
 
 " Open new buffers/files in a new tab (stops piling or opening things on top of one pane).
-autocmd BufAdd,BufNewFile * nested tab sball
+" autocmd BufAdd,BufNewFile * nested tab sball
 
 " When entering insert mode, turn relative line numbers off (show absolute line numbers).
 augroup numbertoggle
