@@ -130,21 +130,6 @@ nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 
 " --------------------[ Pluggin Specific Mappings ]--------------------
 
-if exists('${TMUX}') " Only work if we are inside/using Tmux.
-
-    " Run the last command executed by VimuxRunCommand
-    nnoremap M :w<CR>:VimuxRunLastCommand<CR>
-    " Prompt for a command to run in the other tmux pane.
-    nnoremap <Leader>cmd :wa<CR>:VimuxPromptCommand<CR>
-    " Run the make command in the other tmux pane.
-    nnoremap <Leader>M :wa<CR>:VimuxPromptCommand("make && echo ${?}")<CR><CR>
-
-else " ========== If NOT inside/using Tmux, then do these mappings ==========.
-
-    nnoremap M :make<CR>
-
-endif " End of the Tmux check mappings.
-
 " Quick pluggin managing mappings (not using my sov command to avoid using nmap).
 nnoremap <Leader>plugi mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugInstall<CR>
 nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugUpdate<CR>
@@ -170,3 +155,17 @@ vmap <BS> <Leader>cigv
 
 " Visual mode mapping to toggle all lines the same way the first line is toggled.
 vmap <Leader><BS> <Leader>c<Space>gv
+
+" Default mappings, for when Tmux is not open.
+if !exists('${TMUX}') 
+
+    " Map normal vim pane movements 
+    noremap <C-h> <C-w>h
+    noremap <C-j> <C-w>j
+    noremap <C-k> <C-w>k
+    noremap <C-l> <C-w>l
+
+    " Make using vims built in make.
+    nnoremap M :make<CR>
+
+endif " End of the tmux check mappings (to default things, if not inside in tmux).
