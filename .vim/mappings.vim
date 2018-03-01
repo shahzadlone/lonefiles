@@ -136,8 +136,8 @@ nnoremap <Leader>plugi mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugInstall<CR>
 nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugUpdate<CR>
 nnoremap <Leader>plugc mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugClean<CR>
 
-" Mapping to easily merge a tab, as a right vertical split.
-nnoremap <Leader>tmerg :Tabmerge right<CR>
+" Mapping to easily merge a tab, as a right vertical split (default <C-w>T undos this).
+nnoremap <C-w>t :Tabmerge right<CR>
 
 " Mapping to nerd tree.
 nnoremap <Leader>nt :NERDTree<CR>
