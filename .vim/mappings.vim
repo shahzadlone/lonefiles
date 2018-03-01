@@ -139,6 +139,9 @@ nnoremap <Leader>plugc mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugClean<CR>
 " Mapping to easily merge a tab, as a right vertical split (default <C-w>T undoes this).
 nnoremap <C-w>t :Tabmerge right<CR>
 
+" Mapping to quickly open the YCM extra global config file.
+nnoremap <Leader>ycm :tabe ~/.vim/extra/YouCompleteMe/.ycm_extra_conf.py<CR>
+
 " Mapping to nerd tree.
 nnoremap <Leader>nt :NERDTree<CR>
 
