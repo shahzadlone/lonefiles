@@ -33,8 +33,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# List all hidden files only, that aren't .. or . on seperate lines.
-alias lh='ls -A1 | egrep "^\..*$"'
+# List all hidden files only, that aren't .. or . on seperate lines (append / to dirs).
+alias lh='ls -Ap1 | egrep "^\..*$"'
 
 # To easily source bashrc.
 alias sobash='source ~/.bashrc'
