@@ -126,7 +126,7 @@ nnoremap <Leader>man K
 " Pipe all the commands (all the lines) in file to bash, to get executed one by one.
 nnoremap <Leader>bsh :%!bash<CR>
 
-" Delete all recovery files(swaps, undos, and backups), and come out of the shell.
+" Delete all recovery files(swaps', undos', and backups'), and come out of the shell.
 nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 
 " --------------------[ Pluggin Specific Mappings ]--------------------
@@ -136,7 +136,7 @@ nnoremap <Leader>plugi mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugInstall<CR>
 nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugUpdate<CR>
 nnoremap <Leader>plugc mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugClean<CR>
 
-" Mapping to easily merge a tab, as a right vertical split (default <C-w>T undos this).
+" Mapping to easily merge a tab, as a right vertical split (default <C-w>T undoes this).
 nnoremap <C-w>t :Tabmerge right<CR>
 
 " Mapping to nerd tree.
