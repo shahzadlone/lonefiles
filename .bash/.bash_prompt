@@ -12,7 +12,7 @@
 # Set a happy emoji if the last command was successful, otherwise show a sad emoji.
 PS1="\[\e[01;32m\]\u@\h \[\e[01;34m\]\w \`
         if [ \${?} = 0 ]; then
-            echo -e '\[\e[01;32m\]\xE2\x98\xBA';
+            echo -e '\[\e[01;33m\]\xE2\x98\xBA';
         else
             echo -e '\[\e[01;31m\]\xE2\x98\xB9';
         fi
