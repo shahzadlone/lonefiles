@@ -7,6 +7,11 @@ if [ -f ~/.bash/.bash_system_default ]; then
     . ~/.bash/.bash_system_default;
 fi
 
+# Source the file that contains my terminal prompt configurations.
+if [ -f ~/.bash/.bash_prompt ]; then
+    . ~/.bash/.bash_prompt;
+fi
+
 # Source the file that contains my bash settings.
 if [ -f ~/.bash/.bash_settings ]; then
     . ~/.bash/.bash_settings;
