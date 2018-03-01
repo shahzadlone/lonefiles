@@ -78,7 +78,7 @@ nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
 nnoremap <Leader>tmux :tabe ~/.tmux.conf<CR>
 
 " Open my input configuration file.
-nnoremap <Leader>input :tabe ~/.inputrc<CR>
+nnoremap <Leader>inp :tabe ~/.inputrc<CR>
 
 " Stay in visual mode when indenting.
 vnoremap > >gv
