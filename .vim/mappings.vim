@@ -67,6 +67,7 @@ nnoremap <Leader>cvim :bd *.vim<C-a><CR>
 nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
                        \:tabe ~/.bash/.bash_settings<CR>
                        \:tabe ~/.bash/.bash_exports<CR>
+                       \:tabe ~/.bash/.bash_prompt<CR>
                        \:tabe ~/.bash/.bash_system_default<CR>
                        \:tabe ~/.bashrc<CR>
 
