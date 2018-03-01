@@ -161,10 +161,10 @@ vmap <Leader><BS> <Leader>c<Space>gv
 if !exists('${TMUX}') 
 
     " Map normal vim pane movements 
-    noremap <C-h> <C-w>h
-    noremap <C-j> <C-w>j
-    noremap <C-k> <C-w>k
-    noremap <C-l> <C-w>l
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-l> <C-w>l
 
     " Make using vims built in make.
     nnoremap M :make<CR>
