@@ -1,0 +1,19 @@
+# Shahzad's Bash Prompt Configurations
+
+# Set a :) (happy) if the last command was successful, otherwise show a :( (sad).
+PS1="\[\e[01;32m\]\u@\h \[\e[01;34m\]\W \`
+        if [ \${?} = 0 ]; then
+            echo -e '\[\e[01;32m\]:)';
+        else
+            echo -e '\[\e[01;31m\]:(';
+        fi
+     \` \[\e[01;34m\]$ \[\e[00m\]"
+
+# Set a happy emoji if the last command was successful, otherwise show a sad emoji.
+# PS1="\w \`
+        # if [ \$? = 0 ]; then
+            # echo -e '\[\e[01;32m\]\n\xE2\x98\xBA';
+        # else
+            # echo -e '\[\e[01;31m\]\n\xE2\x98\xB9';
+        # fi
+        # \` \[\e[01;34m\]\[\e[00m\]"
