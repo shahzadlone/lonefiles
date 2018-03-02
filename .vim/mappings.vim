@@ -123,6 +123,9 @@ vnoremap K 3k
 " Preserve K's behaviour (open man page of the command the cursor is on).
 nnoremap <Leader>man K
 
+" Substitue whatever I searched before with what's under my cursor. Don't <CR> it.
+nnoremap <Leader>sub :%s//<c-r><c-a>/gc
+
 " Pipe all the commands (all the lines) in file to bash, to get executed one by one.
 nnoremap <Leader>bsh :%!bash<CR>
 
