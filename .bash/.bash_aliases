@@ -49,6 +49,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Note: I call my dotfiles, lonefiles. Don't ask why I thought it was a good idea! :-)
 alias lit='\git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}"'
 
+# Quickly check the git status of the bare repo, which also shows unpushed commits.
+alias lits='lit status && \
+            printf "\nYour unpushed commits:\n" && \
+            lit log --stat --oneline @{u}...HEAD'
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
 # -------------------- }}}
