@@ -1,0 +1,6 @@
+# Shahzad's Environment Variables, this file may be sourced by .profile if we want
+#  to include these environment variables no matter what shell we are using  or by
+#  .bash_profile, if we are specifically using bash's profile while using the bash shell.
+
+# Add to the front of the PATH variable (whatever I add is given a higher precedence).
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
