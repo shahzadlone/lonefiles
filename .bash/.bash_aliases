@@ -53,6 +53,16 @@ alias lit='\git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}"'
 alias lits='lit status && \
             printf "\nYour unpushed commits:\n" && \
             lit log --stat --oneline @{u}...HEAD'
+
+# Short alias for committing the staged files (view them first in vim).
+alias litc='lit commit -v'
+
+# Short alias to quickly push my dotfiles (bare git repository).
+alias litp='lit push'
+
+# To quickly start staging modified dotfiles files, with the patch option (in hunks) 
+alias lita='lit add -p'
+
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
 # -------------------- }}}
