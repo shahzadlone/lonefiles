@@ -47,7 +47,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # To make working with the bare git repository easier (contains my dotfiles).
 # Note: I call my dotfiles, lonefiles. Don't ask why I thought it was a good idea! :-)
-alias lit='/usr/bin/git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}"'
+alias lit='\git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}"'
 
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
