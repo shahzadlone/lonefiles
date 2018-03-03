@@ -1,4 +1,4 @@
-# Shahzad's Bash Aliases (Note: #!/bin/bash is not needed because not a script!)
+# Shahzad's .bashrc (Note: #!/bin/bash is not needed because not a script!)
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
