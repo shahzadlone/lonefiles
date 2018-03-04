@@ -109,3 +109,20 @@ InstallGitLargeFileStorage() {
          | sudo bash;
     Download "${HashMapOfPackages[GitLargeFileStorage]}";
 }
+
+InstallBazel() {
+    local PACKAGE="${HashMapOfPackages[Bazel]}";
+
+    # Install JDK 8
+    Download "openjdk-8-jdk";
+
+    # Add bazel's distro
+    echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" \
+        | sudo tee /etc/apt/sources.list.d/bazel.list;
+    curl https://bazel.build/bazel-release.pub.gpg | apt-key add -;
+
+    # Update, install and upgrade bazel.
+    Update && Download "${PACKAGE}" && Upgrade "${PACKAGE}";
+
+    echo -e "[ BAZEL INSTALLATION DONE ]\n";
+}
