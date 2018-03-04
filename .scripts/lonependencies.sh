@@ -170,4 +170,34 @@ InstallAll() {
         exit -1;
     fi
 
+    # Show what packages we have before the installation began.
+    echo -e "Packages you already have installed on your system:\n";
+    PrintCurrentPackages;
+
+    # Install all the packages.
+    for package in "${!HashMapOfPackages[@]}"; do
+        local PACKAGE_ALREADY_EXISTS=$(Exists "${HashMapOfPackages[${package}]}";);
+
+        if [ "${PACKAGE_ALREADY_EXISTS}" -eq 0 ]; then
+            printf "${CYAN_COLOR}";
+            printf "==================================================================\n";
+            printf "************[ NOTE: ${package} is already installed! ]************\n";
+            printf "==================================================================\n";
+            printf "${NO_COLOR}";
+        else
+            printf "${YELLOW_COLOR}";
+            printf "==================================================================\n";
+            printf "*********************[ Installing ${package} ]********************\n";
+            printf "==================================================================\n";
+            printf "${BLUE_COLOR}";
+            Install"${package}";
+            printf "${NO_COLOR}";
+        fi
+    done
+
+    # Show what packages we now have, to check if all packages got installed properly.
+    echo -e "Check if now you have all packages installed:\n";
+    PrintCurrentPackages;
 }
+}
+
