@@ -162,3 +162,12 @@ InstallKcov() {
     echo -ne "kcov version now is: $("${PACKAGE}" --version)\n";
     echo -e "[==== KCOV INSTALLATION DONE ====]\n";
 }
+
+InstallAll() {
+    # Make sure the user is root
+    if [ $(whoami) != "root" ]; then
+        echo "ERROR: not root! (run the install script again using sudo)" >&2;
+        exit -1;
+    fi
+
+}
