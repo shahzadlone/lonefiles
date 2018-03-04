@@ -49,6 +49,7 @@ Upgrade() { sudo apt-get upgrade -y "${1}"; }
 Update() { sudo apt-get update -y; }
 
 Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
+
 # Show what packages from the hash map do we have installed on our system currently.
 PrintCurrentPackages() {
     printf "[ ${GREEN_COLOR}Green${NO_COLOR} means installed, and ";
@@ -70,3 +71,26 @@ PrintCurrentPackages() {
 
     printf "\n"
 }
+
+#========================================================================================
+# Installing Functions.
+#========================================================================================
+
+InstallCurl() { Download "${HashMapOfPackages[Curl]}"; }
+
+InstallGdb() { Download "${HashMapOfPackages[Gdb]}"; }
+
+InstallVim() { Download "${HashMapOfPackages[Vim]}"; }
+
+InstallTmux() { Download "${HashMapOfPackages[Tmux]}"; }
+
+InstallDoxygen() { Download "${HashMapOfPackages[Doxygen]}"; }
+
+InstallValgrind() { Download "${HashMapOfPackages[Valgrind]}"; }
+
+InstallOkular() { Download "${HashMapOfPackages[Okular]}"; }
+
+InstallSpellCheck() { Download "${HashMapOfPackages[SpellCheck]}"; }
+
+InstallGit() { Download "${HashMapOfPackages[Git]}"; }
+
