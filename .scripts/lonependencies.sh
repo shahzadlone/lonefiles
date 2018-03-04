@@ -48,3 +48,4 @@ Upgrade() { sudo apt-get upgrade -y "${1}"; }
 
 Update() { sudo apt-get update -y; }
 
+Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
