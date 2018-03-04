@@ -49,3 +49,24 @@ Upgrade() { sudo apt-get upgrade -y "${1}"; }
 Update() { sudo apt-get update -y; }
 
 Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
+# Show what packages from the hash map do we have installed on our system currently.
+PrintCurrentPackages() {
+    printf "[ ${GREEN_COLOR}Green${NO_COLOR} means installed, and ";
+    printf "${RED_COLOR}Red${NO_COLOR} means not installed. ]\n";
+    printf "Packages:\n\n"
+
+    for package in "${!HashMapOfPackages[@]}"; do
+        local PACKAGE_THERE=$(Exists "${HashMapOfPackages[${package}]}";);
+
+        if [ "${PACKAGE_THERE}" -eq 0 ]; then
+            printf "${GREEN_COLOR}${package}${NO_COLOR}\n";
+
+        else
+            printf "${RED_COLOR}${package}${NO_COLOR}\n";
+
+        fi
+
+    done
+
+    printf "\n"
+}
