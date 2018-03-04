@@ -213,3 +213,13 @@ InstallExtra() {
     printf "${NO_COLOR}";
 }
 
+#========================================================================================
+# Script Execution.
+#========================================================================================
+
+# Run the function that will install all the main hashmap packages.
+InstallAll;
+
+# Run the function that will install the extra, additional packages.
+InstallExtra ;
+
