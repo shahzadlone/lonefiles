@@ -33,3 +33,12 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["GitLargeFileStorage"]="git-lfs"
                                ["Bazel"]="bazel"
                                ["Kcov"]="kcov" );
+
+#========================================================================================
+# Helper Functions.
+#========================================================================================
+
+Download() { sudo apt-get install -y --show-progress --verbose-versions "${1}"; }
+
+SilentDownload() { sudo apt-get install -y "${1}" 2>&1 > /dev/null; }
+
