@@ -118,7 +118,7 @@ InstallBazel() {
 
     # Add bazel's distro
     echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" \
-        | sudo tee /etc/apt/sources.list.d/bazel.list;
+         | sudo tee /etc/apt/sources.list.d/bazel.list;
     curl https://bazel.build/bazel-release.pub.gpg | apt-key add -;
 
     # Update, install and upgrade bazel.
@@ -193,10 +193,13 @@ InstallAll() {
             Install"${package}";
             printf "${NO_COLOR}";
         fi
+
+        # To space out nicely.
+        printf "\n";
     done
 
     # Show what packages we now have, to check if all packages got installed properly.
-    echo -e "Check if now you have all packages installed:\n";
+    echo -e "Check if now you have all the main packages installed:\n";
     PrintCurrentPackages;
 }
 
@@ -204,12 +207,13 @@ InstallAll() {
 #  are not checkable by the ``which`` and ``command -v`` to see if they exist or not.
 InstallExtra() {
     printf "${YELLOW_COLOR}";
-    printf "Now installing some extra goodies to extend onto our normal packages...\n"
+    printf "Now installing some extra goodies to extend onto our normal packages..."
     SilentDownload "myspell-en-gb";
     SilentDownload "python3-pip";
     SilentDownload "mono-devel";
     SilentDownload "vim-gnome";
     SilentDownload "dconf-cli";
+    printf " DONE!! =)\n"
     printf "${NO_COLOR}";
 }
 
@@ -227,4 +231,4 @@ InstallExtra ;
 # End.
 #========================================================================================
 
-printf "${BLUE_COLOR}Finished building all dependencies.${NO_COLOR}\n";
+printf "\n${BLUE_COLOR}Finished building all dependencies.${NO_COLOR}\n\n";
