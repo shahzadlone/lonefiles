@@ -92,5 +92,14 @@ InstallOkular() { Download "${HashMapOfPackages[Okular]}"; }
 
 InstallSpellCheck() { Download "${HashMapOfPackages[SpellCheck]}"; }
 
+InstallPinta() {
+    # Add the PPA for pinta.
+    AddRep "ppa:pinta-maintainers/pinta-stable";
+    # Update.
+    Update;
+    # Install pinta.
+    Download "${HashMapOfPackages[Pinta]}";
+}
+
 InstallGit() { Download "${HashMapOfPackages[Git]}"; }
 
