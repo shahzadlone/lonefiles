@@ -223,3 +223,8 @@ InstallAll;
 # Run the function that will install the extra, additional packages.
 InstallExtra ;
 
+#========================================================================================
+# End.
+#========================================================================================
+
+printf "${BLUE_COLOR}Finished building all dependencies.${NO_COLOR}\n";
