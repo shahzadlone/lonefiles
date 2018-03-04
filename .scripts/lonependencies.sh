@@ -199,5 +199,17 @@ InstallAll() {
     echo -e "Check if now you have all packages installed:\n";
     PrintCurrentPackages;
 }
+
+# Most of these packages either add more functionality to the hashmap ones, or 
+#  are not checkable by the ``which`` and ``command -v`` to see if they exist or not.
+InstallExtra() {
+    printf "${YELLOW_COLOR}";
+    printf "Now installing some extra goodies to extend onto our normal packages...\n"
+    SilentDownload "myspell-en-gb";
+    SilentDownload "python3-pip";
+    SilentDownload "mono-devel";
+    SilentDownload "vim-gnome";
+    SilentDownload "dconf-cli";
+    printf "${NO_COLOR}";
 }
 
