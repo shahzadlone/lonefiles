@@ -126,3 +126,39 @@ InstallBazel() {
 
     echo -e "[ BAZEL INSTALLATION DONE ]\n";
 }
+
+InstallKcov() {
+    local PACKAGE="${HashMapOfPackages[Kcov]}";
+
+    # Create temporary path for kcov installation.
+    local TEMP_KCOV_DIR=$(mktemp -t -d kcov-XXXX --suffix=_install_temp);
+
+    # Install all the packages that kcov requires.
+    Download "cmake";
+    Download "libcurl4-openssl-dev";
+    Download "libdw-dev";
+    Download "libiberty-dev";
+    Download "binutils-dev";
+    Download "zlib1g-dev";
+
+    # Go to that temporary path.
+    cd ${TEMP_KCOV_DIR};
+
+    # Get the kcov source code from the git repository.
+    git clone https://github.com/SimonKagstrom/kcov.git kcov-source;
+
+    # Make a build directory and go to it.
+    mkdir kcov-build && cd kcov-build;
+
+    # Configure, build and then install kcov from source.
+    cmake ../kcov-source && make && make install;
+
+    # Remove the temporary path we made for kcov installation.
+    cd ${THIS_SCRIPT_DIR};
+    rm -rf ${TEMP_KCOV_DIR};
+
+    # Print where kov was installed (if it was installed that is).
+    echo -ne "kcov installed at this path: $(which "${PACKAGE}")\n";
+    echo -ne "kcov version now is: $("${PACKAGE}" --version)\n";
+    echo -e "[==== KCOV INSTALLATION DONE ====]\n";
+}
