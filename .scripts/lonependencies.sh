@@ -42,3 +42,9 @@ Download() { sudo apt-get install -y --show-progress --verbose-versions "${1}"; 
 
 SilentDownload() { sudo apt-get install -y "${1}" 2>&1 > /dev/null; }
 
+AddRep() { sudo add-apt-repository -y "${1}"; }
+
+Upgrade() { sudo apt-get upgrade -y "${1}"; }
+
+Update() { sudo apt-get update -y; }
+
