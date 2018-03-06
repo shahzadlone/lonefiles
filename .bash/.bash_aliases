@@ -63,6 +63,12 @@ alias litp='lit push'
 # To quickly start staging modified dotfiles files, with the patch option (in hunks) 
 alias lita='lit add -p'
 
+# To quickly show a diff of all the modified files.
+alias litd='lit diff'
+
+# To quickly show a diff of all the staged/cached files.
+alias litds='lit diff --cached'
+
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
 # -------------------- }}}
