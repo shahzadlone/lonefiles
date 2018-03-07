@@ -83,6 +83,9 @@ nnoremap <Leader>tmux :tabe ~/.tmux.conf<CR>
 " Open my input configuration file.
 nnoremap <Leader>inp :tabe ~/.inputrc<CR>
 
+" Open my configuration file that contains my environment variables.
+nnoremap <Leader>env :tabe ~/.environment_variables<CR>
+
 " Stay in visual mode when indenting.
 vnoremap > >gv
 vnoremap < <gv
