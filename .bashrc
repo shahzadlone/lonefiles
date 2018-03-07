@@ -26,3 +26,8 @@ fi
 if [ -f ~/.bash/.bash_exports ]; then
     . ~/.bash/.bash_exports;
 fi
+
+# Source the file containing all the functions, if there.
+if [ -f ~/.bash/.bash_functions ]; then
+    . ~/.bash/.bash_functions;
+fi
