@@ -143,6 +143,9 @@ nnoremap <Leader>bsh :%!bash<CR>
 " Delete all recovery files(swaps', undos', and backups'), and come out of the shell.
 nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 
+" When taking notes I write the code related things and keywords in ```. So map it.
+nnoremap <Leader>` o```yypO
+
 " --------------------[ Pluggin Specific Mappings ]--------------------
 
 " Quick pluggin managing mappings (not using my sov command to avoid using nmap).
