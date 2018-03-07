@@ -177,6 +177,9 @@ vmap <BS> <Leader>cigv
 " Visual mode mapping to toggle all lines the same way the first line is toggled.
 vmap <Leader><BS> <Leader>c<Space>gv
 
+" Quickly surround this WORD in a string using the surround plugin.
+nmap <Leader>str ysiW"
+
 " Default mappings, for when Tmux is not open.
 if !exists('${TMUX}') 
 
