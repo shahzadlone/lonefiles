@@ -23,7 +23,7 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
     nnoremap <silent> <C-k> :call <SID>TmuxOrSplitSwitch('k', 'U')<CR>
     nnoremap <silent> <C-l> :call <SID>TmuxOrSplitSwitch('l', 'R')<CR>
 
-    " -----[ Vimex plugin specific mappings. ]-----
+    " -----[ Vimex specific mappings. ]-----
     " Run the last command executed by VimuxRunCommand
     nnoremap M :w<CR>:VimuxRunLastCommand<CR>
 
@@ -31,6 +31,13 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
     nnoremap <Leader>cmd :wa<CR>:VimuxPromptCommand<CR>
 
     " Run the make command in the other tmux pane.
-    nnoremap <Leader>M :wa<CR>:VimuxPromptCommand("make && echo ${?}")<CR><CR>
+    nnoremap <Leader>M :wa<CR>:VimuxPromptCommand("make; echo ${?}")<CR><CR>
+
+    " Run the make command in the other tmux pane, and then run the executable. Also
+    "  show output of the return code. Look at ~/.bash/bash_functions for BINAME function.
+    nnoremap <Leader>R :wa<CR>:VimuxPromptCommand("
+                        \make; echo \"make[ ${?} ]\";
+                        \ ./$(BINAME); echo \"$(BINAME)[ ${?} ]\"
+                        \")<CR><CR>
 
 endif " End of the Tmux check mappings (Refer to mappings.vim for default mappings).
