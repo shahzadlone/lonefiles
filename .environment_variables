@@ -3,4 +3,4 @@
 #  .bash_profile, if we are specifically using bash's profile while using the bash shell.
 
 # Add to the front of the PATH variable (whatever I add is given a higher precedence).
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
