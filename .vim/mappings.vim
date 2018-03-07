@@ -57,22 +57,22 @@ nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>`mzz
 
 " Open my vim config files that I modify the most in a new tab.
 nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<CR>
-                      \:tabe ~/.vim/plug-manager.vim<CR>
-                      \:tabe ~/.vim/options.vim<CR>
-                      \:tabe ~/.vim/theme.vim<CR>
-                      \:tabe ~/.vim/tmux.vim<CR>
-                      \:tabe ~/.vim/auto-commands.vim<CR>
+                     \:tabe ~/.vim/plug-manager.vim<CR>
+                     \:tabe ~/.vim/options.vim<CR>
+                     \:tabe ~/.vim/theme.vim<CR>
+                     \:tabe ~/.vim/tmux.vim<CR>
+                     \:tabe ~/.vim/auto-commands.vim<CR>
 
 " Close all vim config files that are open in tabs, if possible (everything is saved).
 nnoremap <Leader>cvim :bd *.vim<C-a><CR>
 
 " Open my bash config files that I modify the most in a new tab.
 nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
-                       \:tabe ~/.bash/.bash_settings<CR>
-                       \:tabe ~/.bash/.bash_exports<CR>
-                       \:tabe ~/.bash/.bash_prompt<CR>
-                       \:tabe ~/.bash/.bash_system_default<CR>
-                       \:tabe ~/.bashrc<CR>
+                      \:tabe ~/.bash/.bash_settings<CR>
+                      \:tabe ~/.bash/.bash_exports<CR>
+                      \:tabe ~/.bash/.bash_functions<CR>
+                      \:tabe ~/.bash/.bash_prompt<CR>
+                      \:tabe ~/.bash/.bash_system_default<CR>
 
 " Close all bash config files that are open in tabs, if possible (nothing is unsaved).
 nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
