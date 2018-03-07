@@ -12,7 +12,8 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
         endif
     endfunction
 
-    let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+    let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"),
+                                            \'\n', '', '')
     let &t_ti = "\<Esc>]2;vim\<Esc>\\" .  &t_ti
     let &t_te = "\<Esc>]2;" .  previous_title . "\<Esc>\\" . &t_te
 
