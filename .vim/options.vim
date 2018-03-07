@@ -95,3 +95,9 @@ set undodir=~/.vim/.recover/undo//
 
 " To set path for searching file.
 set path=.,,**
+
+" Set the path to the words of the dictionary to use.
+set dictionary+=/usr/share/dict/words
+
+" Auto find words from dictionary with C-n and C-p (can turn off and on using my mapping).
+set complete+=k
