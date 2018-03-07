@@ -94,11 +94,14 @@ vnoremap < <gv
 nnoremap <F5> mmgg=G`mzz
 vnoremap <F5> =
 
-" Open file under cursor in a new tab, if it doesn't exist then make a new buffer of it.
-nnoremap gf :tabe <cfile><cr>
+" Only open the file under the cursor in a new tab if it exists.
+nnoremap gf <C-w>gf
 
 " Only open the visually selected file in a new tab if it exists.
 vnoremap gf <C-w>gf
+
+" Open file under cursor in a new tab, if it doesn't exist then make a new buffer of it.
+nnoremap <Leader>gf :tabe <cfile><CR>
 
 " For easy tab navigation.
 nnoremap H gT
