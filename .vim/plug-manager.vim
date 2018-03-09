@@ -39,6 +39,9 @@ Plug 'scrooloose/nerdtree'
 " For easier commenting using <Leader> and 'c' command with combinations.
 Plug 'scrooloose/nerdcommenter'
 
+" To get rainbow nested parenthesis.
+Plug 'luochen1990/rainbow'
+
 " To help make the interaction with tmux seemless.
 Plug 'benmills/vimux'
 
