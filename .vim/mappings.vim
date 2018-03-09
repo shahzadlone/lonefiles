@@ -165,6 +165,9 @@ nnoremap <Leader>ycm :tabe ~/.vim/extra/YouCompleteMe/.ycm_extra_conf.py<CR>
 " Mapping to nerd tree.
 nnoremap <Leader>nt :NERDTree<CR>
 
+" Mapping to toggle rainbow parenthesis on or off.
+nnoremap <Leader>rain :RainbowToggle<CR>
+
 " Mapping to table mode.
 nnoremap <Leader>tm :TableModeToggle<CR>
 
