@@ -51,6 +51,9 @@ Plug 'dhruvasagar/vim-table-mode'
 " Advance C++ syntax and type highlighting.
 Plug 'octol/vim-cpp-enhanced-highlight'
 
+" Git gutter to show modified lines in file.
+Plug 'airblade/vim-gitgutter'
+
 " Status bar.
 Plug 'vim-airline/vim-airline'
 
