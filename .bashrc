@@ -6,7 +6,6 @@
 [[ $- != *i* ]] && return
 [[ -z "${TMUX}" ]] && exec tmux
 
-
 # Source the file that contains my system's default settings (if it exists).
 if [ -f ~/.bash/.bash_system_default ]; then
     . ~/.bash/.bash_system_default;
