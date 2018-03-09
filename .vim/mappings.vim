@@ -80,6 +80,9 @@ nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
 " Open my tmux configuration file.
 nnoremap <Leader>tmux :tabe ~/.tmux.conf<CR>
 
+" Open my profile configuration file.
+nnoremap <Leader>pro :tabe ~/.profile<CR>
+
 " Open my input configuration file.
 nnoremap <Leader>inp :tabe ~/.inputrc<CR>
 
