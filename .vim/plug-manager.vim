@@ -80,7 +80,13 @@ call plug#end()
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
-let g:c_no_curly_error=1
+let g:c_no_curly_error = 1
+
+" GitGutter default configurations.
+let g:gitgutter_enabled = 1         " Default 1.
+let g:gitgutter_signs = 1           " Default 1.
+let g:gitgutter_highlight_lines = 0 " Default 0.
+let g:gitgutter_max_signs = 5000    " Default 500.
 
 " Make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
