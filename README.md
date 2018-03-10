@@ -7,6 +7,7 @@ This repository is to be used as a bare git repo, I will have a bunch of install
  plugins, change my default terminal to my theme and then map all my keys according
  to my preference (caps-lock to control when held and escape if tapped).
 
+
 ## Credits
 
   - People I have stolen stuff from online or learnt from in person. Their sources only there if available:
@@ -37,14 +38,15 @@ This repository is to be used as a bare git repo, I will have a bunch of install
         youtube.com/watch?v=XA2WjJbmmoM<br/>
         github.com/changemewtf/dotfiles<br/>
 
-    * [George Brocklehurst](github.com/nicknisi):<br/>
+    * [George Brocklehurst](github.com/georgebrock):<br/>
         youtube.com/watch?v=3TX3kV3TICU<br/>
+        github.com/georgebrock/dotfiles<br/>
 
-    * [Erik Hanchett](github.com/nicknisi):<br/>
+    * [Erik Hanchett](github.com/ErikCH):<br/>
         youtube.com/watch?v=tQtYCACsdtw<br/>
 
-    * [Brad Lushman](github.com/nicknisi):<br/>
-        cs.uwaterloo.ca/about/people/bmlushma<br/>
+    * [Brad Lushman](cs.uwaterloo.ca/about/people/bmlushma):<br/>
+
 
 ## License
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
