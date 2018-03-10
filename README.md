@@ -45,6 +45,9 @@ This repository is to be used as a bare git repo, I will have a bunch of install
     * [Erik Hanchett](https://github.com/ErikCH):<br/>
         [YouTube - Top 5 Best Vim Plugins](https://youtube.com/watch?v=tQtYCACsdtw)<br/>
 
+    * [Thought Bot](https://github.com/thoughtbot):<br/>
+        [Dotfiles](https://github.com/thoughtbot/dotfiles)<br/>
+
     * [Brad Lushman](https://cs.uwaterloo.ca/~bmlushma):<br/>
         My lecturer/professor at University of Waterloo.
 
