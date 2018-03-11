@@ -126,9 +126,11 @@ nnoremap <Leader>low L
 " Preserve M (go to the middle of the screen).
 nnoremap <Leader>mid M
 
-" Map J to go down with x3 times the speed.
+" Map J to go down with x3 times the speed, on normal lines in normal mode.
 nnoremap J 3j
-vnoremap J 3j
+
+" Map J to go down with x3 times the speed on wrapped lines in visual mode.
+vnoremap J 3gj
 
 " Join lines using leader, with only one space (preserve J's behaviour).
 nnoremap <Leader>j J
@@ -137,9 +139,11 @@ vnoremap <Leader>j J
 " Join lines without any spaces(only works in normal mode).
 nnoremap <Leader>J Jx
 
-" Map K to go up with x3 times the speed.
+" Map K to go up with x3 times the speed, on normal lines in normal mode.
 nnoremap K 3k
-vnoremap K 3k
+
+" Map K to go up with x3 times the speed on wrapped lines in visual mode.
+vnoremap K 3gk
 
 " Preserve K's behaviour (open man page of the command the cursor is on).
 nnoremap <Leader>man K
