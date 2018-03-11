@@ -15,21 +15,27 @@ cnoreabbrev vview vert sview
 " Make enter save the current file/buffer, turn highlight off and center the current line.
 nnoremap <Enter> :w<CR>:nohls<CR>zz
 
-" Move vertically by visual line (makes easy to work on wrapped lines).
-nnoremap j gj
-nnoremap k gk
-
-" Disable Arrow keys.
+" Disable Arrow keys for normal, visual(and select), and operator pending modes.
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
+
+" Disable Arrow keys for insert mode.
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 " Map Pasting only yanked
 nnoremap <Leader>p "0p
 nnoremap <Leader>P "0P
 vnoremap <Leader>p "0p
 vnoremap <Leader>P "0P
+
+" Move vertically by visual line (makes easy to work on wrapped lines).
+nnoremap j gj
+nnoremap k gk
 
 " Enable the . command (repeating) on all the visually selected lines.
 xnoremap . :normal .<CR>
