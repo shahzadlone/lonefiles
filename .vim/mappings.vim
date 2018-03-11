@@ -31,6 +31,9 @@ nnoremap <Leader>P "0P
 vnoremap <Leader>p "0p
 vnoremap <Leader>P "0P
 
+" Enable the . command (repeating) on all the visually selected lines.
+xnoremap . :normal .<CR>
+
 " Enable repeating macros on all the visually selected lines.
 xnoremap @ :<C-u>call VisualizeMacro()<CR>
 
