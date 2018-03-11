@@ -6,6 +6,12 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Automatically resize windows(to equal sizes) when the terminal size is changed.
 autocmd VimResized * wincmd =
 
+" When editing a file, always jump to the last known cursor position, if a valid
+"  position is known. Don't do if inside a commit messages or an event handler.
+autocmd BufReadPost * if &ft != 'gitcommit' &&
+                         \line("'\"") > 0 &&
+                         \line("'\"") <= line("$") | exe "normal g`\"" | endif
+
 " When entering insert mode, turn relative line numbers off (show absolute line numbers).
 augroup numbertoggle
   autocmd!
