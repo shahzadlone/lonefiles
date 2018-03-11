@@ -70,6 +70,12 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Quick latex completion.
+Plug 'brennier/quicktex'
+
+" Quick latex compilation.
+Plug 'lervag/vimtex'
+
 " Install the gruvbox theme.
 Plug 'morhetz/gruvbox'
 
