@@ -3,6 +3,9 @@
 " Setting the timeout, for leader keys(operator mode time limit) to 5 seconds.
 set timeout timeoutlen=5000
 
+" Setting the timeout for keycodes to be less than a 10th of a second.
+set timeout ttimeoutlen=99
+
 " Set hybrid line numbers (the current line is absolute and others are relative). I have
 "  an auto group with auto commands set up to only show absolute numbers in insert mode.
 set number relativenumber
