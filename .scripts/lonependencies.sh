@@ -208,11 +208,14 @@ InstallAll() {
 InstallExtra() {
     printf "${YELLOW_COLOR}";
     printf "Now installing some extra goodies to extend onto our normal packages..."
+
+    SilentDownload "texlive-full";
     SilentDownload "myspell-en-gb";
     SilentDownload "python3-pip";
     SilentDownload "mono-devel";
     SilentDownload "vim-gnome";
     SilentDownload "dconf-cli";
+
     printf " DONE!! =)\n"
     printf "${NO_COLOR}";
 }
