@@ -12,6 +12,9 @@ cnoreabbrev help vert help
 " Open a file in read-only mode, in a vertical spilt.
 cnoreabbrev vview vert sview
 
+" To quickly jump to normal mode from insert mode.
+inoremap jj <Esc>
+
 " Make enter save the current file/buffer, turn highlight off and center the current line.
 nnoremap <Enter> :w<CR>:nohls<CR>zz
 
