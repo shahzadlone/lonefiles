@@ -31,6 +31,9 @@ nnoremap <Leader>P "0P
 vnoremap <Leader>p "0p
 vnoremap <Leader>P "0P
 
+" Enable repeating macros on all the visually selected lines.
+xnoremap @ :<C-u>call VisualizeMacro()<CR>
+
 " Fix searching next and previous to center the screen, after taking me there.
 nnoremap n nzz
 nnoremap N Nzz
