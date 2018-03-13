@@ -82,6 +82,15 @@ nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<CR>
 " Close all vim config files that are open in tabs, if possible (everything is saved).
 nnoremap <Leader>cvim :bd *.vim<C-a><CR>
 
+" Open my tmux configuration file.
+nnoremap <Leader>tmux :tabe ~/.tmux/settings.tmux<CR>
+                      \:tabe ~/.tmux/bindings.tmux<CR>
+                      \:tabe ~/.tmux/theme.tmux<CR>
+                      \:tabe ~/.tmux/plugins.tmux<CR>
+
+" Close all tmux config files that are open in tabs, only if everything is saved.
+nnoremap <Leader>ctmux :bd *.tmux<C-a><CR>
+
 " Open my bash config files that I modify the most in a new tab.
 nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
                       \:tabe ~/.bash/.bash_settings<CR>
@@ -92,9 +101,6 @@ nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
 
 " Close all bash config files that are open in tabs, if possible (nothing is unsaved).
 nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
-
-" Open my tmux configuration file.
-nnoremap <Leader>tmux :tabe ~/.tmux.conf<CR>
 
 " Open my profile configuration file.
 nnoremap <Leader>pro :tabe ~/.profile<CR>
