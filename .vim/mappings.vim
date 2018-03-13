@@ -201,6 +201,9 @@ nnoremap <Leader>rain :RainbowToggle<CR>
 " Mapping to table mode.
 nnoremap <Leader>tm :TableModeToggle<CR>
 
+" Find matching header or source file and vs it (create the matching buffer if not there).
+nnoremap <silent> <Leader>O :FSSplitRight<CR>
+
 " Mapping to comment the entire file from current line to the last line.
 nmap <Leader>cG mmVG<Leader>cc`mzz
 

@@ -76,6 +76,9 @@ Plug 'brennier/quicktex'
 " Quick latex compilation.
 Plug 'lervag/vimtex'
 
+" Easily switch between the header and source files.
+Plug 'derekwyatt/vim-fswitch'
+
 " Install the gruvbox theme.
 Plug 'morhetz/gruvbox'
 
@@ -87,6 +90,10 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:c_no_curly_error = 1
+
+" Source and header files configurations for f-switch.
+au! BufEnter *.cpp,*.cc,*.c let b:fswitchdst = 'h,hpp' | let b:fswitchlocs = './,./**'
+au! BufEnter *.hpp,*.h let b:fswitchdst = 'cpp,cc,c' | let b:fswitchlocs = './,./**'
 
 " GitGutter default configurations.
 let g:gitgutter_enabled = 1         " Default 1.
