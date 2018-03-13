@@ -175,6 +175,10 @@ nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 " When taking notes I write the code related things and keywords in ```. So map it.
 nnoremap <Leader>` o```yypO
 
+" Set some mappings to quickly turn on or off the auto dictionary completion.
+nnoremap <Leader>dico :set complete+=k <CR>
+nnoremap <Leader>dicc :set complete-=k <CR>
+
 " --------------------[ Pluggin Specific Mappings ]--------------------
 
 " Quick pluggin managing mappings (not using my sov command to avoid using nmap).
@@ -211,10 +215,6 @@ vmap <Leader><BS> <Leader>c<Space>gv
 
 " Quickly surround this WORD in a string using the surround plugin.
 nmap <Leader>str ysiW"
-
-" Set some mappings to quickly turn on or off the auto dictionary completion.
-nnoremap <Leader>dico :set complete+=k <CR>
-nnoremap <Leader>dicc :set complete-=k <CR>
 
 " Default mappings, for when Tmux is not open.
 if !exists('${TMUX}') 
