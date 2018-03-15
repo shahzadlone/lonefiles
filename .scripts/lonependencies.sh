@@ -27,6 +27,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["Doxygen"]="doxygen"
                                ["Valgrind"]="valgrind"
                                ["Okular"]="okular"
+                               ["ImageViewer"]="feh"
                                ["Python3"]="python3"
                                ["Pinta"]="pinta"
                                ["Git"]="git"
@@ -90,7 +91,9 @@ InstallValgrind() { Download "${HashMapOfPackages[Valgrind]}"; }
 
 InstallOkular() { Download "${HashMapOfPackages[Okular]}"; }
 
-InstallSpellCheck() { Download "${HashMapOfPackages[SpellCheck]}"; }
+InstallImageViewer() { Download "${HashMapOfPackages[ImageViewer]}"; }
+
+InstallPython3() { Download "${HashMapOfPackages[Python3]}"; }
 
 InstallPinta() {
     # Add the PPA for pinta.
