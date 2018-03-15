@@ -175,6 +175,8 @@ nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 " When taking notes I write the code related things and keywords in ```. So map it.
 nnoremap <Leader>` o```yypO
 
+" Zoom the current split buffer horizantally and vertically as many times as I want.
+nnoremap <Leader>z :resize<CR>:vertical resize<CR>
 " Set some mappings to quickly turn on or off the auto dictionary completion.
 nnoremap <Leader>dico :set complete+=k <CR>
 nnoremap <Leader>dicc :set complete-=k <CR>
