@@ -29,6 +29,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["Okular"]="okular"
                                ["ImageViewer"]="feh"
                                ["Python3"]="python3"
+                               ["EncFs"]="gnome-encfs-manager"
                                ["Pinta"]="pinta"
                                ["Git"]="git"
                                ["GitLargeFileStorage"]="git-lfs"
@@ -94,6 +95,15 @@ InstallOkular() { Download "${HashMapOfPackages[Okular]}"; }
 InstallImageViewer() { Download "${HashMapOfPackages[ImageViewer]}"; }
 
 InstallPython3() { Download "${HashMapOfPackages[Python3]}"; }
+
+InstallEncFs() {
+    # Add the PPA for Encfs.
+    AddRep "ppa:gencfsm";
+    # Update.
+    Update;
+    # Install EncFs.
+    Download "${HashMapOfPackages[EncFs]}";
+}
 
 InstallPinta() {
     # Add the PPA for pinta.
