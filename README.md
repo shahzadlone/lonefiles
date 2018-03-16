@@ -16,6 +16,10 @@ This repository is to be used as a bare git repo, I will have a bunch of install
         [YouTube - vim + tmux](https://youtube.com/watch?v=5r6yzFEXajQ)<br/>
         [Dotfiles](https://github.com/nicknisi/dotfiles)<br/>
 
+    * [Nicola Paolucci](https://twitter.com/durdn):<br/>
+        [Atlassian - A bare Git repository](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo)<br/>
+        [Dotfiles](https://bitbucket.org/durdn/cfg)<br/>
+
     * Chris Olekas:<br/>
         While working at SSIMWAVE.<br/>
 
