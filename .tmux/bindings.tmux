@@ -15,11 +15,11 @@ unbind m
 bind M set-option -g mouse on \; display 'Mouse: ON'
 bind m set-option -g mouse off \; display 'Mouse: OFF'
 
-# Make splitting panes more intuitive.
+# Make splitting panes more intuitive (and also open the new panes to be in same path).
 unbind %
 unbind '"'
-bind | split-window -h
-bind - split-window -v
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
 
 # Resize tmux panes with ctrl + h j k l (recursive, meaning only press prefix once).
 unbind C-Left
