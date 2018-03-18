@@ -21,6 +21,9 @@ unbind '"'
 bind | split-window -h -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
 
+# Open the new window to be in the same path.
+bind c new-window -c "#{pane_current_path}"
+
 # Resize tmux panes with ctrl + h j k l (recursive, meaning only press prefix once).
 unbind C-Left
 unbind C-Down
