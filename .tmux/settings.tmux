@@ -16,3 +16,7 @@ setw -g mode-keys vi
 
 # To limit the scrollback buffer to 25 thousand lines:
 set -g history-limit 25000
+
+# Start windows and panes from index 1, not 0. (0 is at other side of the keyboard).
+set -g base-index 1
+setw -g pane-base-index 1
