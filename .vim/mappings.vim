@@ -16,7 +16,7 @@ cnoreabbrev vview vert sview
 inoremap jj <Esc>
 
 " Make enter save the current file/buffer, turn highlight off and center the current line.
-nnoremap <Enter> :w<CR>:nohls<CR>zz
+nnoremap <silent> <Enter> :w<CR>:nohls<CR>zz
 
 " Disable Arrow keys for normal, visual(and select), and operator pending modes.
 noremap <up> <nop>
