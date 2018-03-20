@@ -163,6 +163,9 @@ vnoremap K 3gk
 " Preserve K's behaviour (open man page of the command the cursor is on).
 nnoremap <Leader>man K
 
+" Toggle enableing and disabling of using folds.
+nnoremap <Leader>fold :set foldenable!<CR>
+
 " Substitue whatever I searched before with what's under my cursor. Don't <CR> it.
 nnoremap <Leader>sub :%s//<c-r><c-a>/gc
 
