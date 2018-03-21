@@ -172,6 +172,9 @@ nnoremap <Leader>sub :%s//<c-r><c-a>/gc
 " Swap the word under cursor with whatever is in the last yanked register.
 nnoremap <Leader>sw diw"0P
 
+" Swap the WORD under cursor with whatever is in the last yanked register.
+nnoremap <Leader>sW diW"0P
+
 " Pipe all the commands (all the lines) in file to bash, to get executed one by one.
 nnoremap <Leader>bsh :%!bash<CR>
 
