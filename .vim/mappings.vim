@@ -186,6 +186,10 @@ nnoremap <Leader>` o```yypO
 
 " Zoom the current split buffer horizantally and vertically as many times as I want.
 nnoremap <Leader>z :resize<CR>:vertical resize<CR>
+
+" Zoom / restore the current split buffer if not zoomemd before (inspired by tmux's zoom).
+nnoremap <Leader>Z :Zoom<CR>
+
 " Set some mappings to quickly turn on or off the auto dictionary completion.
 nnoremap <Leader>dico :set complete+=k <CR>
 nnoremap <Leader>dicc :set complete-=k <CR>
