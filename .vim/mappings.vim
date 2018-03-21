@@ -169,6 +169,9 @@ nnoremap <Leader>fold :set foldenable!<CR>
 " Substitue whatever I searched before with what's under my cursor. Don't <CR> it.
 nnoremap <Leader>sub :%s//<c-r><c-a>/gc
 
+" Swap the word under cursor with whatever is in the last yanked register.
+nnoremap <Leader>sw diw"0P
+
 " Pipe all the commands (all the lines) in file to bash, to get executed one by one.
 nnoremap <Leader>bsh :%!bash<CR>
 
