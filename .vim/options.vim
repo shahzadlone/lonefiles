@@ -104,3 +104,18 @@ set dictionary+=/usr/share/dict/words
 
 " Make dictionary auto complete off by default (can turn on and off using my mappings).
 set complete-=k
+
+" Turn folding on {}.
+set foldmarker={,}
+
+" Sets the fold method to {{{ }}} markers.
+set foldmethod=marker
+
+" Show closable(-) and openable(+) folds in the left column.
+set foldcolumn=2
+
+" Set foldlevel to 1 to see headings of the folds.
+set foldlevel=1
+
+" Set folding off by default, can enable using my mapping (<Leader>fold).
+set nofoldenable
