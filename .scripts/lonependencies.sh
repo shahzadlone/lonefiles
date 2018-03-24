@@ -59,6 +59,7 @@ PrintCurrentPackages() {
     printf "Packages:\n\n"
 
     for package in "${!HashMapOfPackages[@]}"; do
+
         local PACKAGE_THERE=$(Exists "${HashMapOfPackages[${package}]}";);
 
         if [ "${PACKAGE_THERE}" -eq 0 ]; then
@@ -179,8 +180,10 @@ InstallKcov() {
 InstallAll() {
     # Make sure the user is root
     if [ $(whoami) != "root" ]; then
+
         echo "ERROR: not root! (run the install script again using sudo)" >&2;
         exit -1;
+
     fi
 
     # Show what packages we have before the installation began.
@@ -189,15 +192,19 @@ InstallAll() {
 
     # Install all the packages.
     for package in "${!HashMapOfPackages[@]}"; do
+
         local PACKAGE_ALREADY_EXISTS=$(Exists "${HashMapOfPackages[${package}]}";);
 
         if [ "${PACKAGE_ALREADY_EXISTS}" -eq 0 ]; then
+
             printf "${CYAN_COLOR}";
             printf "==================================================================\n";
             printf "************[ NOTE: ${package} is already installed! ]************\n";
             printf "==================================================================\n";
             printf "${NO_COLOR}";
+
         else
+
             printf "${YELLOW_COLOR}";
             printf "==================================================================\n";
             printf "*********************[ Installing ${package} ]********************\n";
@@ -205,10 +212,12 @@ InstallAll() {
             printf "${BLUE_COLOR}";
             Install"${package}";
             printf "${NO_COLOR}";
+
         fi
 
         # To space out nicely.
         printf "\n";
+
     done
 
     # Show what packages we now have, to check if all packages got installed properly.
@@ -225,9 +234,12 @@ InstallExtra() {
     SilentDownload "texlive-full";
     SilentDownload "myspell-en-gb";
     SilentDownload "python3-pip";
+    SilentDownload "python-dev";
+    SilentDownload "python3-dev";
     SilentDownload "mono-devel";
     SilentDownload "vim-gnome";
     SilentDownload "dconf-cli";
+    SilentDownload "build-essential";
 
     printf " DONE!! =)\n"
     printf "${NO_COLOR}";
