@@ -30,3 +30,7 @@ rm -rf ~/temp_terminal_theme;
 
 # Source the .bashrc so everything takes effect.
 source ~/.bashrc
+
+# ====================[ Configure system ]====================
+# Map the capslock to the control key.
+
