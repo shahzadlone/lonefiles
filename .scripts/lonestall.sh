@@ -41,3 +41,6 @@ else
     fi
 
 fi
+
+# Set to only track the files that I have checked in the repository and ignore others.
+lit config status.showUntrackedFiles no
