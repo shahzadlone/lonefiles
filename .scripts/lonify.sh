@@ -9,3 +9,6 @@
 
 # Address to where my script files in raw format are stored online.
 SCRIPTS_DIR='https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/';
+
+# 1) Run the basic apt get dependencies builder script.
+curl -skL "${SCRIPTS_DIR}lonependencies.sh" | sudo bash
