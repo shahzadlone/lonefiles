@@ -42,4 +42,14 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
                         \ echo \"$(BINAME)[ ${?} ]\"
                         \")<CR><CR>
 
+    " Run the make command in the other tmux pane, and then run the executable without any
+    "  arguments (but don't hit the final enter, so we can provide arguments if needed). 
+    "  Also show output of the return code. Look at ~/.bash/bash_functions for what
+    "  my BINAME function does (just looks in Makefile for the executable name).
+    nnoremap <Leader>RR :wa<CR>:VimuxPromptCommand("
+                         \make; echo \"make[ ${?} ]\";
+                         \ ./$(BINAME);
+                         \ echo \"$(BINAME)[ ${?} ]\"
+                         \")<CR>
+
 endif " End of the Tmux check mappings (Refer to mappings.vim for default mappings).
