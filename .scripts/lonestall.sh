@@ -28,4 +28,16 @@ else
     echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
     lone checkout 2>&1 | egrep "\s+\." | awk {'print ${1}'} | xargs -I{} mv {} .lonefiles_backup/{};
 
+    echo "Trying to install lonefiles after the backup...";
+    lit checkout
+
+    if [ {$}? -eq 0 ]; then
+        echo "The lonefiles were successfully cloned after the backup! =)";
+
+    else
+        echo "Still unsuccessfull in cloning the lonefiles properly. =(";
+        exit 123;
+
+    fi
+
 fi
