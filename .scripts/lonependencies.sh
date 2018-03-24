@@ -29,6 +29,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["Okular"]="okular"
                                ["ImageViewer"]="feh"
                                ["Python3"]="python3"
+                               ["VirtualBox"]="virtualbox"
                                ["EncFs"]="gnome-encfs-manager"
                                ["Pinta"]="pinta"
                                ["Git"]="git"
@@ -96,6 +97,8 @@ InstallOkular() { Download "${HashMapOfPackages[Okular]}"; }
 InstallImageViewer() { Download "${HashMapOfPackages[ImageViewer]}"; }
 
 InstallPython3() { Download "${HashMapOfPackages[Python3]}"; }
+
+InstallVirtualBox() { Download "${HashMapOfPackages[VirtualBox]}"; }
 
 InstallEncFs() {
     # Add the PPA for Encfs.
@@ -236,6 +239,7 @@ InstallExtra() {
     SilentDownload "python3-pip";
     SilentDownload "python-dev";
     SilentDownload "python3-dev";
+    SilentDownload "virtualbox-ext-pack";
     SilentDownload "mono-devel";
     SilentDownload "vim-gnome";
     SilentDownload "dconf-cli";
