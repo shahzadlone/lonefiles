@@ -27,6 +27,25 @@ endfunction
 
 "======================================[Start]===========================================
 "----------------------------------------------------------------------------------------
+" Function to help zoom and restore (toggle) a split like tmux. (see mappings.vim).
+"----------------------------------------------------------------------------------------
+function! s:ZoomAnySplit() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:reset_window
+        let t:zoomed = 0
+    else
+        let t:reset_window = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! Zoom call s:ZoomAnySplit()
+"=======================================[End]============================================
+
+
+"======================================[Start]===========================================
+"----------------------------------------------------------------------------------------
 " Function helps watch your buffers if the opened file is modified externally.
 "----------------------------------------------------------------------------------------
 function! WatchForChanges(bufname, ...)
