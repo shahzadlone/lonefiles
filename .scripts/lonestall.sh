@@ -13,3 +13,19 @@ function lit {
     \git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}" ${@};
 }
 
+# Make a backup directory to store the dotfiles that have the same names / exist before.
+mkdir -p .lonefiles_backup
+
+# Try to see if the repository just works (has no conflicts).
+lit checkout
+
+if [ {$}? -eq 0 ]; then
+
+    echo "No conflicts with previous files, lonefiles successfully cloned! =)";
+
+else
+
+    echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
+    lone checkout 2>&1 | egrep "\s+\." | awk {'print ${1}'} | xargs -I{} mv {} .lonefiles_backup/{};
+
+fi
