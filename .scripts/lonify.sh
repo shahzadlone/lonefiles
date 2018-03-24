@@ -25,3 +25,6 @@ if ! [ ${?} -eq 0 ]; then
 fi
 
 # At this point if lonestall.sh was successfull we should have the lonefiles locally.
+
+# 3) Run the script that configures everything (vim plugins, terminal stuff, etc.)
+source ~/.scripts/lonefigure.sh;
