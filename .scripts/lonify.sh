@@ -28,3 +28,15 @@ fi
 
 # 3) Run the script that configures everything (vim plugins, terminal stuff, etc.)
 source ~/.scripts/lonefigure.sh;
+
+# Output the results and show if everything was successfull or not.
+if [ {$}? -eq 0 ]; then
+
+    echo "Everything lonified and set according to my preference! =)";
+
+else
+
+    echo "Something went wrong, not everything lonified! =(";
+    exit 111;
+
+fi
