@@ -275,6 +275,7 @@ InstallExtra() {
     SilentDownload "python3-pip";
     SilentDownload "python-dev";
     SilentDownload "python3-dev";
+    SilentDownload "python-minimal";
     SilentDownload "virtualbox-ext-pack";
     SilentDownload "mono-devel";
     SilentDownload "vim-gnome";
