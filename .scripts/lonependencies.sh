@@ -181,16 +181,18 @@ InstallBazel() {
 InstallKcov() {
     local PACKAGE="${HashMapOfPackages[Kcov]}";
 
-    # Create temporary path for kcov installation.
-    local TEMP_KCOV_DIR=$(mktemp -t -d kcov-XXXX --suffix=_install_temp);
-
     # Install all the packages that kcov requires.
-    Download "cmake";
-    Download "libcurl4-openssl-dev";
-    Download "libdw-dev";
-    Download "libiberty-dev";
-    Download "binutils-dev";
-    Download "zlib1g-dev";
+    SilentDownload "pkg-config";
+    SilentDownload "cmake";
+    SilentDownload "python-minimal";
+    SilentDownload "libcurl4-openssl-dev";
+    SilentDownload "libdw-dev";
+    SilentDownload "libiberty-dev";
+    SilentDownload "binutils-dev";
+    SilentDownload "zlib1g-dev";
+
+    # Create temporary path for kcov installation.
+    local TEMP_KCOV_DIR=$(mktemp -t -d kcov-XXXX --suffix=_lonestall_temp);
 
     # Go to that temporary path.
     cd ${TEMP_KCOV_DIR};
