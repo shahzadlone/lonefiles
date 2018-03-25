@@ -21,6 +21,8 @@ YELLOW_COLOR='\033[1;33m';
 NO_COLOR='\033[0m';
 
 declare -A HashMapOfPackages=( ["Curl"]="curl"
+                               ["PackageConfig"]="pkg-config"
+                               ["CMake"]="cmake"
                                ["Gdb"]="gdb"
                                ["Vim"]="vim"
                                ["Tmux"]="tmux"
@@ -81,6 +83,10 @@ PrintCurrentPackages() {
 #========================================================================================
 
 InstallCurl() { Download "${HashMapOfPackages[Curl]}"; }
+
+InstallPackageConfig() { Download "${HashMapOfPackages[PackageConfig]}"; }
+
+InstallCMake() { Download "${HashMapOfPackages[CMake]}"; }
 
 InstallGdb() { Download "${HashMapOfPackages[Gdb]}"; }
 
