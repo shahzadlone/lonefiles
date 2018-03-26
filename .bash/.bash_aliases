@@ -69,6 +69,10 @@ alias litd='lit diff'
 # To quickly show a diff of all the staged/cached files.
 alias litds='lit diff --cached'
 
+
+# To host a server listing files in current directory at port 8080, and detach 
+alias HOST='python -m SimpleHTTPServer 8080 &'
+
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
 # -------------------- }}}
