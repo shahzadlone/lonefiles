@@ -52,4 +52,13 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
                          \ echo \"$(BINAME)[ ${?} ]\"
                          \")<CR>
 
+    " Runs the binary with valgrind without any arguments and shows output of the
+    "  return code. Look at ~/.bash/bash_functions for BINAME function's use.
+    nnoremap <Leader>V :wa<CR>:VimuxPromptCommand("
+                        \make; echo \"make[ ${?} ]\";
+                        \ valgrind
+                        \ --leak-check=full --track-origins=yes --show-leak-kinds=all
+                        \ ./$(BINAME);
+                        \ echo \"$(BINAME)[ ${?} ]\"
+                        \")<CR><CR>
 endif " End of the Tmux check mappings (Refer to mappings.vim for default mappings).
