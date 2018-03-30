@@ -207,6 +207,9 @@ nnoremap <C-w>t :Tabmerge right<CR>
 " Mapping to quickly open the YCM extra global config file.
 nnoremap <Leader>ycm :tabe ~/.vim/extra/YouCompleteMe/.ycm_extra_conf.py<CR>
 
+" Mapping to quickly fix the error using YCM.
+" nnoremap <Leader>fix :YcmCompleter FixIt<CR>
+
 " Mapping to nerd tree.
 nnoremap <Leader>nt :NERDTree<CR>
 
