@@ -72,6 +72,9 @@ alias litds='lit diff --cached'
 # To quickly show the commit log.
 alias litl='lit log'
 
+# To do a reset quickly.
+alias litr='lit reset'
+
 
 # To host a server listing files in current directory at port 8080, and detach 
 alias HOST='python -m SimpleHTTPServer 8080 &'
