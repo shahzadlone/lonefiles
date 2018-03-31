@@ -79,6 +79,9 @@ alias litr='lit reset'
 # To host a server listing files in current directory at port 8080, and detach 
 alias HOST='python -m SimpleHTTPServer 8080 &'
 
+# To open the local hosted server at port 8080, and detach the session.
+alias OPEN='firefox --new-window "http://localhost:8080" &'
+
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
 # -------------------- }}}
