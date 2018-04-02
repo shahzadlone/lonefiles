@@ -115,8 +115,8 @@ nnoremap <Leader>env :tabe ~/.environment_variables<CR>
 vnoremap > >gv
 vnoremap < <gv
 
-" Equal indent entire file and move my current line to the middle of the screen.
-nnoremap <F5> mmgg=G`mzz
+" Indent, retab (tabs to spaces) and trim trailing white space in the entire file.
+nnoremap <silent> <F5> mmgg=G:retab<CR>:Tws<CR>`mzz
 vnoremap <F5> =
 
 " Only open the file under the cursor in a new tab if it exists.
