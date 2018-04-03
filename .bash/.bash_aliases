@@ -75,6 +75,11 @@ alias litl='lit log'
 # To do a reset quickly.
 alias litr='lit reset'
 
+# Quickly check the git status, with a view if unpushed commits.
+alias gits='\git status && \
+            printf "\nYour unpushed commits:\n" && \
+            git log --stat --oneline @{u}...HEAD'
+
 
 # To host a server listing files in current directory at port 8080, and detach 
 alias HOST='python -m SimpleHTTPServer 8080 &'
