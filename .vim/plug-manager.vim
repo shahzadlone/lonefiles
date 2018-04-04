@@ -79,6 +79,9 @@ Plug 'lervag/vimtex'
 " Easily switch between the header and source files.
 Plug 'derekwyatt/vim-fswitch'
 
+" Integrate GDB.
+" Plug 'vim-scripts/Conque-GDB'
+
 " Install the gruvbox theme.
 Plug 'morhetz/gruvbox'
 
