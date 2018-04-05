@@ -94,6 +94,8 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:c_no_curly_error = 1
 
+" GDB plugin configs.
+" let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
 " Source and header files configurations for f-switch.
 au! BufEnter *.cpp,*.cc,*.c let b:fswitchdst = 'h,hpp' | let b:fswitchlocs = './,./**'
 au! BufEnter *.hpp,*.h let b:fswitchdst = 'cpp,cc,c' | let b:fswitchlocs = './,./**'
