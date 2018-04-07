@@ -188,6 +188,13 @@ vnoremap <silent> * :<C-U>let old_reg=getreg('"')
                      \                          '\\_s\\+', 'g')<CR>
                      \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
 
+" Search for selected text, backwards.
+vnoremap <silent> # :<C-U>let old_reg=getreg('"')
+                     \<Bar>let old_regtype=getregtype('"')<CR>
+                     \gvy?<C-R><C-R>=substitute(escape(@", '?\.*$^~['), '\_s\+',
+                     \                          '\\_s\\+', 'g')<CR>
+                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
+
 " When taking notes I write the code related things and keywords in ```. So map it.
 nnoremap <Leader>` o```yypO
 
