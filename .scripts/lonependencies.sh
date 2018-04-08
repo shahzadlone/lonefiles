@@ -32,6 +32,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["ImageViewer"]="feh"
                                ["Python3"]="python3"
                                ["VirtualBox"]="virtualbox"
+                               ["Tree"]="tree"
                                ["EncFs"]="gnome-encfs-manager"
                                ["Pinta"]="pinta"
                                ["Git"]="git"
@@ -105,6 +106,8 @@ InstallImageViewer() { Download "${HashMapOfPackages[ImageViewer]}"; }
 InstallPython3() { Download "${HashMapOfPackages[Python3]}"; }
 
 InstallVirtualBox() { Download "${HashMapOfPackages[VirtualBox]}"; }
+
+InstallTree() { Download "${HashMapOfPackages[Tree]}"; }
 
 InstallEncFs() {
     # Add the PPA for Encfs.
