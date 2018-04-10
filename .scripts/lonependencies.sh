@@ -25,6 +25,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["CMake"]="cmake"
                                ["Gdb"]="gdb"
                                ["Vim"]="vim"
+                               ["Emacs"]="emacs25"
                                ["Tmux"]="tmux"
                                ["Doxygen"]="doxygen"
                                ["Valgrind"]="valgrind"
@@ -92,6 +93,8 @@ InstallCMake() { Download "${HashMapOfPackages[CMake]}"; }
 InstallGdb() { Download "${HashMapOfPackages[Gdb]}"; }
 
 InstallVim() { Download "${HashMapOfPackages[Vim]}"; }
+
+InstallEmacs() { Download "${HashMapOfPackages[Emacs]}"; }
 
 InstallTmux() { Download "${HashMapOfPackages[Tmux]}"; }
 
