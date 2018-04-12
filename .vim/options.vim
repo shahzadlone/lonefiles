@@ -44,6 +44,9 @@ set noshowmatch
 " Make incrementing 007 result into 008 rather than 010.
 set nrformats-=octal
 
+" Allow incrementing and decrementing of alphabets.
+set nrformats+=alpha
+
 " Turn on my searching preference.
 set hlsearch  " Highlight search.
 set ic        " Ignore case.
