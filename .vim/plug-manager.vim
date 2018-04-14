@@ -79,6 +79,9 @@ Plug 'lervag/vimtex'
 " Easily switch between the header and source files.
 Plug 'derekwyatt/vim-fswitch'
 
+" Org mode for vim.
+Plug 'jceb/vim-orgmode'
+
 " Integrate GDB.
 " Plug 'vim-scripts/Conque-GDB'
 
