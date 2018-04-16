@@ -30,5 +30,8 @@ autocmd BufWinEnter,BufRead,BufNewFile *.json setfiletype javascript
 autocmd BufWinEnter,BufRead,BufNewFile *.ejs,*.hbs setfiletype html
 autocmd BufWinEnter,BufRead,BufNewFile *.go setfiletype go
 
+" Automatically update the working directory to the current file's path.
+autocmd BufEnter * silent! cd %:p:h
+
 " Open new buffers/files in a new tab (stops piling or opening things on top of one pane).
 " autocmd BufAdd,BufNewFile * nested tab sball
