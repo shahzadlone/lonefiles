@@ -53,7 +53,9 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
 
 Download() { sudo apt-get install -y --show-progress --verbose-versions "${1}"; }
 
-SilentDownload() { sudo apt-get install -y "${1}" 2>&1 > /dev/null; }
+SilentDownload() { sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                   -o Dpkg::Options::="--force-confdef" \
+                   -o Dpkg::Options::="--force-confnew" "${1}" 2>&1 > /dev/null; }
 
 AddRep() { sudo add-apt-repository -y "${1}"; }
 
