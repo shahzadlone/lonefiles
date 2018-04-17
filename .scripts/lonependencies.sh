@@ -339,3 +339,54 @@ InstallExtra ;
 #========================================================================================
 
 printf "\n${BLUE_COLOR}Finished building all dependencies.${NO_COLOR}\n\n";
+
+
+#========================================================================================
+# Rough stuff that I should figure out what to do with.
+#========================================================================================
+
+# Incase we ever want to install the latest bazel release from source.
+# InstallBazelFromScratch() {
+#     local PACKAGE="${HashMapOfPackages[Bazel]}";
+# 
+#     # Install bazel's dependencies to build from source (might have them before).
+#     SilentDownload "g++";
+#     SilentDownload "zlib1g-dev";
+#     SilentDownload "pkg-config";
+#     SilentDownload "build-essential";
+#     SilentDownload "openjdk-8-jdk";
+#     SilentDownload "python";
+#     SilentDownload "zip";
+#     SilentDownload "unzip";
+#     SilentDownload "jq";
+# 
+#     # Address to the latest release of bazel on github's api (api.github.com).
+#     local BAZEL_RELEASE_URL='bazelbuild/bazel/releases/latest';
+# 
+#     # Use JSON processor (jq) and gitapi to build the download url to the latest release.
+#     local BAZEL_DOWNLOAD_URL=$( \
+#         curl -s "https://api.github.com/repos/${BAZEL_RELEASE_URL}" \
+#              | jq -r ".assets[] | select(.name | test(\"-dist.zip\")) | .browser_download_url" \
+#              | head -1);
+# 
+#     # Create temporary path for bazel installation.
+#     local TEMP_BAZEL_DIR=$(mktemp -t -d bazel-XXXX --suffix=_lonestall_temp);
+# 
+#     # Go to that temporary path.
+#     cd ${TEMP_BAZEL_DIR};
+# 
+#     # Download the latest bazel release right here (from the download url we built).
+#     wget "${BAZEL_DOWNLOAD_URL}";
+# 
+#     # Unzip the downloded bazel release 
+#     unzip *;
+# 
+#     # Run the compiling script that builds bazel from scratch.
+#     ./compile.sh;
+# 
+#     # Remove the temporary path we made for bazel installation.
+#     cd ${THIS_SCRIPT_DIR};
+#     rm -rf ${TEMP_BAZEL_DIR};
+# 
+#     echo -e "[ BAZEL INSTALLATION DONE ]\n";
+# }
