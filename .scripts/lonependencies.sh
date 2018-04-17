@@ -63,6 +63,11 @@ Upgrade() { sudo apt-get upgrade -y "${1}"; }
 
 Update() { sudo apt-get update -y; }
 
+Clean() { printf "\n${BLUE_COLOR}Performing Cleanup...${NO_COLOR}\n\n";
+          sudo apt-get autoclean;
+          sudo apt-get autoremove;
+}
+
 Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
 
 # Show what packages from the hash map do we have installed on our system currently.
@@ -330,11 +335,14 @@ InstallExtra() {
 # Script Execution.
 #========================================================================================
 
-# Run the function that will install all the main hashmap packages.
+# Install all the main hashmap packages.
 InstallAll;
 
-# Run the function that will install the extra, additional packages.
-InstallExtra ;
+# Install the extra, additional packages.
+InstallExtra;
+
+# Cleanup by removing extra .deb files and packages that aren't needed anymore.
+Clean;
 
 #========================================================================================
 # End.
