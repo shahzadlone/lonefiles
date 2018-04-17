@@ -10,8 +10,8 @@
 # Address to where my script files in raw format are stored online.
 SCRIPTS_DIR='https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/';
 
-# 1) Run the basic apt get dependencies builder script.
-curl -skL "${SCRIPTS_DIR}lonependencies.sh" | sudo bash
+# 1) Run the basic dependencies builder script (using wget, because might not have curl).
+wget -O - "${SCRIPTS_DIR}lonependencies.sh" | sudo bash
 
 # 2) Run the script that installs the dotfiles as a bare git repository in my home.
 curl -skL "${SCRIPTS_DIR}lonestall.sh" | sudo bash
