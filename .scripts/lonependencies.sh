@@ -279,15 +279,45 @@ InstallExtra() {
     printf "Now installing some extra goodies to extend onto our normal packages..."
 
     SilentDownload "texlive-full";
+
+    printf "Installed 1..."
+
     SilentDownload "myspell-en-gb";
+
+    printf "Installed 2..."
+
     SilentDownload "python3-pip";
+
+    printf "Installed 3..."
+
     SilentDownload "python-dev";
+
+    printf "Installed 4..."
+
     SilentDownload "python3-dev";
+
+    printf "Installed 5..."
+
     SilentDownload "python-minimal";
+
+    printf "Installed 6..."
+
     SilentDownload "virtualbox-ext-pack";
+
+    printf "Installed 7..."
+
     SilentDownload "mono-devel";
+
+    printf "Installed 8..."
+
     SilentDownload "vim-gnome";
+
+    printf "Installed 9..."
+
     SilentDownload "dconf-cli";
+
+    printf "Installed 10..."
+
     SilentDownload "build-essential";
 
     printf " DONE!! =)\n"
