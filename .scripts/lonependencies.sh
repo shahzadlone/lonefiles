@@ -30,6 +30,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["Doxygen"]="doxygen"
                                ["Valgrind"]="valgrind"
                                ["G++"]="g++"
+                               ["JsonProcessor"]="jq"
                                ["Zip"]="zip"
                                ["UnZip"]="unzip"
                                ["Okular"]="okular"
@@ -107,6 +108,8 @@ InstallDoxygen() { Download "${HashMapOfPackages[Doxygen]}"; }
 InstallValgrind() { Download "${HashMapOfPackages[Valgrind]}"; }
 
 InstallG++() { Download "${HashMapOfPackages[G++]}"; }
+
+InstallJsonProcessor() { Download "${HashMapOfPackages[JsonProcessor]}"; }
 
 InstallZip() { Download "${HashMapOfPackages[Zip]}"; }
 
