@@ -284,7 +284,7 @@ InstallExtra() {
 
     printf "Installed 1..."
 
-    SilentDownload "myspell-en-gb";
+    SilentDownload "hunspell-en-ca";
 
     printf "Installed 2..."
 
