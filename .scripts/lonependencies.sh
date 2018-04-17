@@ -29,6 +29,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["Tmux"]="tmux"
                                ["Doxygen"]="doxygen"
                                ["Valgrind"]="valgrind"
+                               ["G++"]="g++"
                                ["Okular"]="okular"
                                ["ImageViewer"]="feh"
                                ["Python3"]="python3"
@@ -102,6 +103,8 @@ InstallTmux() { Download "${HashMapOfPackages[Tmux]}"; }
 InstallDoxygen() { Download "${HashMapOfPackages[Doxygen]}"; }
 
 InstallValgrind() { Download "${HashMapOfPackages[Valgrind]}"; }
+
+InstallG++() { Download "${HashMapOfPackages[G++]}"; }
 
 InstallOkular() { Download "${HashMapOfPackages[Okular]}"; }
 
