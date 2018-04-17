@@ -35,10 +35,10 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["VirtualBox"]="virtualbox"
                                ["Tree"]="tree"
                                ["CTags"]="ctags"
-                               ["EncFs"]="gnome-encfs-manager"
-                               ["Pinta"]="pinta"
                                ["Git"]="git"
                                ["GitLargeFileStorage"]="git-lfs"
+                               ["EncFs"]="gnome-encfs-manager"
+                               ["Pinta"]="pinta"
                                ["Bazel"]="bazel"
                                ["Kcov"]="kcov" );
 
@@ -115,11 +115,26 @@ InstallTree() { Download "${HashMapOfPackages[Tree]}"; }
 
 InstallCTags() { Download "${HashMapOfPackages[CTags]}"; }
 
+InstallCScope() { Download "${HashMapOfPackages[CScope]}"; }
+
+InstallGit() { Download "${HashMapOfPackages[Git]}"; }
+
+InstallGitLargeFileStorage() {
+    Download "software-properties-common";
+
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh \
+         | sudo bash;
+
+    Download "${HashMapOfPackages[GitLargeFileStorage]}";
+}
+
 InstallEncFs() {
     # Add the PPA for Encfs.
     AddRep "ppa:gencfsm";
-    # Update.
+
+    # Update (don't need to do this in Ubuntu 18.04).
     Update;
+
     # Install EncFs.
     Download "${HashMapOfPackages[EncFs]}";
 }
@@ -127,19 +142,12 @@ InstallEncFs() {
 InstallPinta() {
     # Add the PPA for pinta.
     AddRep "ppa:pinta-maintainers/pinta-stable";
-    # Update.
+
+    # Update (don't need to do this in Ubuntu 18.04).
     Update;
+
     # Install pinta.
     Download "${HashMapOfPackages[Pinta]}";
-}
-
-InstallGit() { Download "${HashMapOfPackages[Git]}"; }
-
-InstallGitLargeFileStorage() {
-    Download "software-properties-common";
-    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh \
-         | sudo bash;
-    Download "${HashMapOfPackages[GitLargeFileStorage]}";
 }
 
 InstallBazel() {
@@ -229,7 +237,7 @@ InstallAll() {
     # Make sure the user is root
     if [ $(whoami) != "root" ]; then
 
-        echo "ERROR: not root! (run the install script again using sudo)" >&2;
+        echo "ERROR: not root! (try lonestalling the script using sudo)." >&2;
         exit -1;
 
     fi
