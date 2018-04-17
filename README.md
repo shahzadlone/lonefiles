@@ -8,6 +8,11 @@ This repository is to be used as a bare git repo, I will have a bunch of install
  to my preference (caps-lock to control when held and escape if tapped).
 
 
+## Curless and Gitless Installation:
+
+```wget -O - "https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/lonify.sh" | sudo bash```
+
+
 ## Credits
 
   - People I have stolen stuff from online or learnt from in person. Their sources only there if available:
