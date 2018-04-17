@@ -30,6 +30,8 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["Doxygen"]="doxygen"
                                ["Valgrind"]="valgrind"
                                ["G++"]="g++"
+                               ["Zip"]="zip"
+                               ["UnZip"]="unzip"
                                ["Okular"]="okular"
                                ["ImageViewer"]="feh"
                                ["Python3"]="python3"
@@ -105,6 +107,10 @@ InstallDoxygen() { Download "${HashMapOfPackages[Doxygen]}"; }
 InstallValgrind() { Download "${HashMapOfPackages[Valgrind]}"; }
 
 InstallG++() { Download "${HashMapOfPackages[G++]}"; }
+
+InstallZip() { Download "${HashMapOfPackages[Zip]}"; }
+
+InstallUnZip() { Download "${HashMapOfPackages[UnZip]}"; }
 
 InstallOkular() { Download "${HashMapOfPackages[Okular]}"; }
 
