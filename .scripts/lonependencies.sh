@@ -57,12 +57,12 @@ AddRep() { sudo add-apt-repository -y "${1}"; }
 
 Apt() { sudo DEBIAN_FRONTEND=noninteractive apt-get ${1} -y \
         -o Dpkg::Options::="--force-confdef" \
-        -o Dpkg::Options::="--force-confnew" "${2}";
+        -o Dpkg::Options::="--force-confnew" ${2};
 }
 
 Download() { Apt 'install --show-progress --verbose-versions' "${1}"; }
 
-SilentDownload() {  Apt 'install' "${1}" 2>&1 > /dev/null; }
+SilentDownload() { Apt 'install' "${1}" 2>&1 > /dev/null; }
 
 Upgrade() { Apt 'upgrade' "${1}"; }
 
