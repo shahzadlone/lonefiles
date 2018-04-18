@@ -339,6 +339,9 @@ InstallExtra() {
 # Script Execution.
 #========================================================================================
 
+# Before installing just configure dpkg (in most cases you don't have to).
+sudo dpkg --configure -a
+
 # Install all the main hashmap packages.
 InstallAll;
 
