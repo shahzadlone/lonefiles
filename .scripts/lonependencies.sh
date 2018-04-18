@@ -53,22 +53,22 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
 
 AddRep() { sudo add-apt-repository -y "${1}"; }
 
-Apt() { sudo DEBIAN_FRONTEND=noninteractive apt-get "${1}" -y \
+Apt() { sudo DEBIAN_FRONTEND=noninteractive apt-get ${1} -y \
         -o Dpkg::Options::="--force-confdef" \
         -o Dpkg::Options::="--force-confnew" "${2}";
 }
 
-Download() { Apt "install --show-progress --verbose-versions" "${1}"; }
+Download() { Apt 'install --show-progress --verbose-versions' "${1}"; }
 
-SilentDownload() {  Apt "install" "${1}" 2>&1 > /dev/null; }
+SilentDownload() {  Apt 'install' "${1}" 2>&1 > /dev/null; }
 
-Upgrade() { Apt "upgrade" "${1}"; }
+Upgrade() { Apt 'upgrade' "${1}"; }
 
-Update() { Apt "update" ""; }
+Update() { Apt 'update' ""; }
 
 Clean() { printf "\n${BLUE_COLOR}Performing Cleanup...${NO_COLOR}\n\n";
-          Apt "autoclean" "";
-          Apt "autoremove" "";
+          Apt 'autoclean' "";
+          Apt 'autoremove' "";
 }
 
 Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
