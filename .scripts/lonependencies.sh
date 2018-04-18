@@ -98,6 +98,17 @@ PrintCurrentPackages() {
     printf "\n"
 }
 
+ProgressBar() {
+    local PROGRESS=$(((${1} * 100 / ${2} * 100) / 100));
+    local DONE=$(((${PROGRESS} * 4) / 10));
+    local LEFT=$((40 - ${DONE}));
+
+    DONE=$(printf "%${DONE}s");
+    LEFT=$(printf "%${LEFT}s");
+
+    printf "\rProgress : [${DONE// /\*}${LEFT// /-}] ${PROGRESS}%%";
+}
+
 #========================================================================================
 # Installing Functions.
 #========================================================================================
@@ -260,7 +271,7 @@ InstallAll() {
             printf "==================================================================\n";
             printf "************[ NOTE: ${package} is already installed! ]************\n";
             printf "==================================================================\n";
-            printf "${NO_COLOR}";
+            printf "${NO_COLOR}\n";
 
         else
 
@@ -270,12 +281,9 @@ InstallAll() {
             printf "==================================================================\n";
             printf "${BLUE_COLOR}";
             Install"${package}";
-            printf "${NO_COLOR}";
+            printf "${NO_COLOR}\n";
 
         fi
-
-        # To space out nicely.
-        printf "\n";
 
     done
 
@@ -288,49 +296,40 @@ InstallAll() {
 #  are not checkable by the ``which`` and ``command -v`` to see if they exist or not.
 InstallExtra() {
     printf "${YELLOW_COLOR}";
-    printf "Now installing some extra goodies to extend onto our normal packages..."
+    printf "Now installing some extra goodies to extend onto our normal packages...\n"
 
     # SilentDownload "texlive-full";
-
-    printf "Installed 1..."
+    ProgressBar 1 11;
 
     SilentDownload "hunspell-en-ca";
-
-    printf "Installed 2..."
+    ProgressBar 2 11;
 
     SilentDownload "python3-pip";
-
-    printf "Installed 3..."
+    ProgressBar 3 11;
 
     SilentDownload "python-dev";
-
-    printf "Installed 4..."
+    ProgressBar 4 11;
 
     SilentDownload "python3-dev";
-
-    printf "Installed 5..."
+    ProgressBar 5 11;
 
     SilentDownload "python-minimal";
-
-    printf "Installed 6..."
+    ProgressBar 6 11;
 
     SilentDownload "virtualbox-ext-pack";
-
-    printf "Installed 7..."
+    ProgressBar 7 11;
 
     SilentDownload "mono-devel";
-
-    printf "Installed 8..."
+    ProgressBar 8 11;
 
     SilentDownload "vim-gnome";
-
-    printf "Installed 9..."
+    ProgressBar 9 11;
 
     SilentDownload "dconf-cli";
-
-    printf "Installed 10..."
+    ProgressBar 10 11;
 
     SilentDownload "build-essential";
+    ProgressBar 11 11;
 
     printf " DONE!! =)\n"
     printf "${NO_COLOR}";
@@ -354,7 +353,6 @@ Clean;
 #========================================================================================
 
 printf "\n${BLUE_COLOR}Finished building all dependencies.${NO_COLOR}\n\n";
-
 
 #========================================================================================
 # Rough stuff that I should figure out what to do with.
