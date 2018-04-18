@@ -10,7 +10,7 @@ This repository is to be used as a bare git repo, I will have a bunch of install
 
 ## Curless and Gitless Installation:
 
-```wget -O - "https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/lonify.sh" | sudo bash```
+```sudo wget -O - "https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/lonify.sh" | bash```
 
 
 ## Credits
