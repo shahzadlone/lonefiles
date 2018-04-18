@@ -19,7 +19,7 @@ sudo mkdir -p .lonefiles_backup;
 # Try to see if the repository just works (has no conflicts).
 lit checkout;
 
-if [ {$}? -eq 0 ]; then
+if [ ${?} -eq 0 ]; then
 
     echo "No conflicts with previous files, lonefiles successfully cloned! =)";
 
@@ -32,7 +32,7 @@ else
     echo "Trying to install lonefiles after the backup...";
     lit checkout;
 
-    if [ {$}? -eq 0 ]; then
+    if [ ${?} -eq 0 ]; then
         echo "The lonefiles were successfully cloned after the backup! =)";
 
     else
