@@ -51,21 +51,24 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
 # Helper Functions.
 #========================================================================================
 
-Download() { sudo apt-get install -y --show-progress --verbose-versions "${1}"; }
-
-SilentDownload() { sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-                   -o Dpkg::Options::="--force-confdef" \
-                   -o Dpkg::Options::="--force-confnew" "${1}" 2>&1 > /dev/null; }
-
 AddRep() { sudo add-apt-repository -y "${1}"; }
 
-Upgrade() { sudo apt-get upgrade -y "${1}"; }
+Apt() { sudo DEBIAN_FRONTEND=noninteractive apt-get "${1}" -y \
+        -o Dpkg::Options::="--force-confdef" \
+        -o Dpkg::Options::="--force-confnew" "${2}";
+}
 
-Update() { sudo apt-get update -y; }
+Download() { Apt "install --show-progress --verbose-versions" "${1}"; }
+
+SilentDownload() {  Apt "install" "${1}" 2>&1 > /dev/null; }
+
+Upgrade() { Apt "upgrade" "${1}"; }
+
+Update() { Apt "update" ""; }
 
 Clean() { printf "\n${BLUE_COLOR}Performing Cleanup...${NO_COLOR}\n\n";
-          sudo apt-get autoclean;
-          sudo apt-get autoremove;
+          Apt "autoclean" "";
+          Apt "autoremove" "";
 }
 
 Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
