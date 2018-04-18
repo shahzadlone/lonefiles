@@ -12,7 +12,7 @@
 
 " Makes sure the plug.vim file is in the autoload folder, if not then goes and gets it.
 if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    silent !sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
@@ -98,7 +98,8 @@ let g:cpp_class_decl_highlight = 1
 let g:c_no_curly_error = 1
 
 " GDB plugin configs.
-" let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
+" let g:ConqueTerm_Color = 2    " 1: strip color after 200 lines, 2: always with color
+
 " Source and header files configurations for f-switch.
 au! BufEnter *.cpp,*.cc,*.c let b:fswitchdst = 'h,hpp' | let b:fswitchlocs = './,./**'
 au! BufEnter *.hpp,*.h let b:fswitchdst = 'cpp,cc,c' | let b:fswitchlocs = './,./**'
