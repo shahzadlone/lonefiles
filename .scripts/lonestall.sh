@@ -6,53 +6,52 @@
 #  the lonefiles, then backs them up in a hidden directory called ".lonefiles_backup".
 #========================================================================================
 
-# Clone the lonefiles as a bare git repository only if they are not there before.
-if [ ! -d ${HOME}/.lonefiles ]; then
-
-    git clone --bare https://github.com/shahzadlone/lonefiles ${HOME}/.lonefiles;
-
-else
-
-    echo "~/.lonefiles Already exists, so no need to install again.";
-    return 0;
-
-fi
-
 lit() {
-    sudo -e \git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}" ${@};
+    sudo \git --git-dir="${HOME}/.lonefiles" --work-tree="${HOME}" ${@};
 }
 
-# Make a backup directory to store the dotfiles that have the same names / exist before.
-sudo mkdir -p "${HOME}"/.lonefiles_backup/;
+# Clone the lonefiles as a bare git repository only if they are not there before.
+if [ ! -d "${HOME}/.lonefiles" ]; then
 
-# Try to see if the repository just works (has no conflicts).
-lit checkout;
+    git clone --bare https://github.com/shahzadlone/lonefiles "${HOME}/.lonefiles";
 
-if [ ${?} -eq 0 ]; then
+    # Make a backup directory to store the dotfiles that have the same names / exist before.
+    sudo mkdir -p "${HOME}/.lonefiles_backup";
 
-    echo "No conflicts with previous files, lonefiles successfully cloned! =)";
-
-else
-
-    echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
-    lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} \
-        | xargs -I{} mv {} .lonefiles_backup/{};
-
-    echo "Trying to install lonefiles after the backup...";
+    # Try to see if the repository just works (has no conflicts).
     lit checkout;
 
     if [ ${?} -eq 0 ]; then
 
-        echo "The lonefiles were successfully cloned after the backup! =)";
+        echo "No conflicts with previous files, lonefiles successfully cloned! =)";
 
     else
 
-        echo "Still unsuccessfull in cloning the lonefiles properly. =(";
-        exit 123;
+        echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
+        lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} \
+            | xargs -I{} mv {} .lonefiles_backup/{};
+
+        echo "Trying to install lonefiles after the backup...";
+        lit checkout;
+
+        if [ ${?} -eq 0 ]; then
+
+            echo "The lonefiles were successfully cloned after the backup! =)";
+
+        else
+
+            echo "Still unsuccessfull in cloning the lonefiles properly. =(";
+            exit 123;
+
+        fi
 
     fi
 
-fi
+    # Only track the files that I have in the bare repository and ignore others.
+    lit config status.showUntrackedFiles no
 
-# Only track the files that I have in the bare repository and ignore others.
-lit config status.showUntrackedFiles no
+else
+
+    echo "~/.lonefiles Already exists, so no need to install again.";
+
+fi
