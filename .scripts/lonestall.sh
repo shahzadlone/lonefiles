@@ -7,17 +7,17 @@
 #========================================================================================
 
 # Clone the lonefiles as a bare git repository.
-git clone --bare https://github.com/shahzadlone/lonefiles ${HOME}/.lonefiles
+sudo git clone --bare https://github.com/shahzadlone/lonefiles ${HOME}/.lonefiles
 
-function lit {
-    \git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}" ${@};
+lit() {
+    sudo \git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}" ${@};
 }
 
 # Make a backup directory to store the dotfiles that have the same names / exist before.
-mkdir -p .lonefiles_backup
+sudo mkdir -p .lonefiles_backup;
 
 # Try to see if the repository just works (has no conflicts).
-lit checkout
+lit checkout;
 
 if [ {$}? -eq 0 ]; then
 
@@ -26,10 +26,11 @@ if [ {$}? -eq 0 ]; then
 else
 
     echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
-    lone checkout 2>&1 | egrep "\s+\." | awk {'print ${1}'} | xargs -I{} mv {} .lonefiles_backup/{};
+    lit checkout 2>&1 | egrep "\s+\." | awk {'print ${1}'} \
+        | xargs -I{} mv {} .lonefiles_backup/{};
 
     echo "Trying to install lonefiles after the backup...";
-    lit checkout
+    lit checkout;
 
     if [ {$}? -eq 0 ]; then
         echo "The lonefiles were successfully cloned after the backup! =)";
@@ -42,5 +43,5 @@ else
 
 fi
 
-# Set to only track the files that I have checked in the repository and ignore others.
+# Only track the files that I have in the bare repository and ignore others.
 lit config status.showUntrackedFiles no
