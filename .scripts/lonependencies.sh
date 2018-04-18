@@ -288,7 +288,7 @@ InstallExtra() {
     printf "${YELLOW_COLOR}";
     printf "Now installing some extra goodies to extend onto our normal packages..."
 
-    SilentDownload "texlive-full";
+    # SilentDownload "texlive-full";
 
     printf "Installed 1..."
 
