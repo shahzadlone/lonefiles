@@ -20,7 +20,7 @@ sudo vim +PlugUpdate +qall
 # ====================[ Configure terminal ]====================
 
 # Install the gruv-box dark terminal theme from Mayccoll/Gogh.
-sudo wget -O - "https://git.io/v7eBS" | bash
+sudo wget -O - "https://git.io/v7eBS" | sudo bash
 
 # Source the .bashrc so everything takes effect.
 source ~/.bashrc

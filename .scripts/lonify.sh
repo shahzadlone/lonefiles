@@ -11,10 +11,10 @@
 SCRIPTS_DIR='https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/';
 
 # 1) Run the basic dependencies builder script (using wget, because might not have curl).
-sudo wget -O - "${SCRIPTS_DIR}lonependencies.sh" | bash
+sudo wget -O - "${SCRIPTS_DIR}lonependencies.sh" | sudo bash
 
 # 2) Run the script that installs the dotfiles as a bare git repository in my home.
-sudo curl -skL "${SCRIPTS_DIR}lonestall.sh" | bash
+sudo curl -skL "${SCRIPTS_DIR}lonestall.sh" | sudo bash
 
 # Exit if cloning (lonestall.sh) was not successfull.
 if ! [ ${?} -eq 0 ]; then
