@@ -9,18 +9,18 @@
 # ====================[ Configure vim ]====================
 
 # Install the plugins and quit all vim buffers that opened (can also do +qa).
-sudo vim +PlugInstall +qall
+sudo -e vim +PlugInstall +qall
 
 # Install/compile/configure the additional stuff for some plugins that require it.
-sudo ~/.vim/plug/YouCompleteMe/install.py --clang-completer
+~/.vim/plug/YouCompleteMe/install.py --clang-completer
 
 # Just update the plugins and quit all vim buffers (probably don't need this step).
-sudo vim +PlugUpdate +qall
+sudo -e vim +PlugUpdate +qall
 
 # ====================[ Configure terminal ]====================
 
 # Install the gruv-box dark terminal theme from Mayccoll/Gogh.
-sudo wget -O - "https://git.io/v7eBS" | sudo bash
+sudo wget -O - "https://git.io/v7eBS" | sudo bash; clear;
 
 # Source the .bashrc so everything takes effect.
 source ~/.bashrc

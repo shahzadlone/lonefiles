@@ -6,15 +6,17 @@
 #  the lonefiles, then backs them up in a hidden directory called ".lonefiles_backup".
 #========================================================================================
 
-# Clone the lonefiles as a bare git repository.
-sudo git clone --bare https://github.com/shahzadlone/lonefiles ${HOME}/.lonefiles
+# Clone the lonefiles as a bare git repository only if they are not there before.
+if [ ! -d ${HOME}/.lonefiles ]; then
+    sudo git clone --bare https://github.com/shahzadlone/lonefiles ${HOME}/.lonefiles;
+fi
 
 lit() {
     sudo \git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}" ${@};
 }
 
 # Make a backup directory to store the dotfiles that have the same names / exist before.
-sudo mkdir -p .lonefiles_backup;
+sudo mkdir -p "${HOME}"/.lonefiles_backup/;
 
 # Try to see if the repository just works (has no conflicts).
 lit checkout;
