@@ -9,7 +9,7 @@
 # Clone the lonefiles as a bare git repository only if they are not there before.
 if [ ! -d ${HOME}/.lonefiles ]; then
 
-    sudo git clone --bare https://github.com/shahzadlone/lonefiles ${HOME}/.lonefiles;
+    git clone --bare https://github.com/shahzadlone/lonefiles ${HOME}/.lonefiles;
 
 else
 
@@ -19,7 +19,7 @@ else
 fi
 
 lit() {
-    sudo \git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}" ${@};
+    sudo -e \git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}" ${@};
 }
 
 # Make a backup directory to store the dotfiles that have the same names / exist before.
