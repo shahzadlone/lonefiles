@@ -8,7 +8,14 @@
 
 # Clone the lonefiles as a bare git repository only if they are not there before.
 if [ ! -d ${HOME}/.lonefiles ]; then
+
     sudo git clone --bare https://github.com/shahzadlone/lonefiles ${HOME}/.lonefiles;
+
+else
+
+    echo "~/.lonefiles Already exists, so no need to install again.";
+    return 0;
+
 fi
 
 lit() {
@@ -35,9 +42,11 @@ else
     lit checkout;
 
     if [ ${?} -eq 0 ]; then
+
         echo "The lonefiles were successfully cloned after the backup! =)";
 
     else
+
         echo "Still unsuccessfull in cloning the lonefiles properly. =(";
         exit 123;
 
