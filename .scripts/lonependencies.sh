@@ -11,6 +11,9 @@
 #========================================================================================
 
 THIS_SCRIPT_DIR=$(dirname ${0});
+THIS_SCRIPT_DIR=${THIS_SCRIPT_DIR:pwd};
+
+echo "dir=$THIS_SCRIPT_DIR";
 
 # Some variables for color printing.
 RED_COLOR='\033[1;31m';
