@@ -10,8 +10,7 @@
 # Helper Variables
 #========================================================================================
 
-THIS_SCRIPT_DIR=$(dirname ${0});
-THIS_SCRIPT_DIR=${THIS_SCRIPT_DIR:pwd};
+THIS_SCRIPT_DIR=${PWD};
 
 echo "dir=$THIS_SCRIPT_DIR";
 
