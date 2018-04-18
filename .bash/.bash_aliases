@@ -1,6 +1,9 @@
 # Shahzad's Bash Aliases (Note: #!/bin/bash is not needed because not a script!)
 
 # -----[ Overwrite default programs/commands usage. ]----- {{{
+# Make sudo work with aliases!
+alias sudo='sudo '
+
 # For saftly show a prompt to double check before overwriting by the copying command.
 alias cp='cp -i'
 
