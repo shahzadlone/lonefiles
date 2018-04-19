@@ -29,7 +29,7 @@ if [ ! -d "${HOME}/.lonefiles" ]; then
 
         echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
         lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} \
-            | xargs -I{} mv {} .lonefiles_backup/{};
+            | xargs -I{} mv -r {} .lonefiles_backup/{};
 
         echo "Trying to install lonefiles after the backup...";
         lit checkout;
