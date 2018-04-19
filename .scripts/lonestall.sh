@@ -6,8 +6,12 @@
 #  the lonefiles, then backs them up in a hidden directory called ".lonefiles_backup".
 #========================================================================================
 
-lit() {
+Lit() {
     sudo \git --git-dir="${HOME}/.lonefiles" --work-tree="${HOME}" ${@};
+}
+
+Move() {
+    mkdir -p ${2} && mv ${1} ${2};
 }
 
 # Clone the lonefiles as a bare git repository only if they are not there before.
@@ -19,7 +23,7 @@ if [ ! -d "${HOME}/.lonefiles" ]; then
     sudo mkdir -p "${HOME}/.lonefiles_backup";
 
     # Try to see if the repository just works (has no conflicts).
-    lit checkout;
+    Lit checkout;
 
     if [ ${?} -eq 0 ]; then
 
@@ -28,11 +32,11 @@ if [ ! -d "${HOME}/.lonefiles" ]; then
     else
 
         echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
-        lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} \
-            | xargs -I{} mv -r {} .lonefiles_backup/{};
+        Lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} \
+            | xargs -I{} Move {} ".lonefiles_backup/"{};
 
         echo "Trying to install lonefiles after the backup...";
-        lit checkout;
+        Lit checkout;
 
         if [ ${?} -eq 0 ]; then
 
@@ -48,7 +52,7 @@ if [ ! -d "${HOME}/.lonefiles" ]; then
     fi
 
     # Only track the files that I have in the bare repository and ignore others.
-    lit config status.showUntrackedFiles no
+    Lit config status.showUntrackedFiles no
 
 else
 
