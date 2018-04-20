@@ -7,7 +7,7 @@
 #     3) Configure / compile / install all the cloned lonefiles/dotfiles, "lonefigure.sh".
 #========================================================================================
 
-# Address to where my script files in raw format are stored online.
+# Address to where my script files in raw format are stored online (dotfiles repo).
 SCRIPTS_DIR='https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/';
 
 # 1) Run the basic dependencies builder script (using wget, because might not have curl).
