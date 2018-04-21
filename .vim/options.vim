@@ -122,3 +122,6 @@ set foldlevel=1
 
 " Set folding off by default, can enable using my mapping (<Leader>fold).
 set nofoldenable
+
+" Do vertical diffing by default.
+set diffopt+=vertical
