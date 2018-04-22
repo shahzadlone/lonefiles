@@ -60,6 +60,8 @@ This repository is to be used as a bare git repo, I will have a bunch of install
     * [Brad Lushman](https://cs.uwaterloo.ca/~bmlushma):<br/>
         My lecturer/professor at University of Waterloo.
 
+    * [Dr Graham D. Shaw](microhowto.info/authors/gdshaw.html):<br/>
+        [MicroHowTo - Perform an unattended installation of a Debian package](microhowto.info/howto/perform_an_unattended_installation_of_a_debian_package.html)<br/>
 
 ## License
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
