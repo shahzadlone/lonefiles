@@ -82,6 +82,9 @@ Plug 'derekwyatt/vim-fswitch'
 " Org mode for vim.
 Plug 'jceb/vim-orgmode'
 
+" Easy motion.
+Plug 'easymotion/vim-easymotion'
+
 " Integrate GDB.
 " Plug 'vim-scripts/Conque-GDB'
 
