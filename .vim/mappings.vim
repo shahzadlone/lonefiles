@@ -251,6 +251,9 @@ vmap <Leader><BS> <Leader>c<Space>gv
 " Quickly surround this WORD in a string using the surround plugin.
 nmap <Leader>str ysiW"
 
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
 " Default mappings, for when Tmux is not open.
 if !exists('${TMUX}') 
 
