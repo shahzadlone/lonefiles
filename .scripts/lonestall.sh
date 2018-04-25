@@ -6,21 +6,21 @@
 #  the lonefiles, then backs them up in a hidden directory called ".lonefiles_backup".
 #========================================================================================
 
-Lit() {
-    sudo \git --git-dir="${HOME}/.lonefiles" --work-tree="${HOME}" ${@};
-}
+LONEFILES_DIR=$(printf "${HOME}/.lonefiles");
 
-Move() {
-    mkdir -p ${2} && mv ${1} ${2};
+Lit() {
+    sudo \git --git-dir="${LONEFILES_DIR}" --work-tree="${HOME}" ${@};
 }
 
 # Clone the lonefiles as a bare git repository only if they are not there before.
-if [ ! -d "${HOME}/.lonefiles" ]; then
+if [ ! -d "${LONEFILES_DIR}" ]; then
 
-    git clone --bare https://github.com/shahzadlone/lonefiles "${HOME}/.lonefiles";
+    git clone --bare https://github.com/shahzadlone/lonefiles "${LONEFILES_DIR}";
 
-    # Make a backup directory to store the dotfiles that have the same names / exist before.
-    sudo mkdir -p "${HOME}/.lonefiles_backup";
+    LONE_BACKUP_DIR=$(printf "${LONEFILES_DIR}_backup/");
+
+    # Make a backup directory to store the dotfiles that have the same names (exist before).
+    sudo mkdir -p "${LONE_BACKUP_DIR}";
 
     # Try to see if the repository just works (has no conflicts).
     Lit checkout;
@@ -32,8 +32,16 @@ if [ ! -d "${HOME}/.lonefiles" ]; then
     else
 
         echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
-        Lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} \
-            | xargs -I{} Move {} ".lonefiles_backup/"{};
+
+        BACKUP_FILES=$(Lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'});
+
+        printf "These are the files we need to back up:\n{$BACKUP_FILES}";
+
+        # Make all required paths, for backing up.
+        ${BACKUP_FILES} | xargs -n 1 -I{} mkdir -p $(dirname "${LONE_BACKUP_DIR}{}");
+
+        # Move all the files that need to be backed up.
+        ${BACKUP_FILES} | xargs -n 1 -I{} mv {} "${LONE_BACKUP_DIR}{}";
 
         echo "Trying to install lonefiles after the backup...";
         Lit checkout;
@@ -56,6 +64,6 @@ if [ ! -d "${HOME}/.lonefiles" ]; then
 
 else
 
-    echo "~/.lonefiles Already exists, so no need to install again.";
+    echo "[${LONEFILES_DIR}] Already exists, so no need to install again.";
 
 fi
