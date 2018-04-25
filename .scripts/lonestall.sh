@@ -12,6 +12,10 @@ Lit() {
     sudo \git --git-dir="${LONEFILES_DIR}" --work-tree="${HOME}" ${@};
 }
 
+Move() {
+    sudo mkdir -p $(dirname "${1}") && sudo mv "${1}" "${2}${1}";
+}
+
 # Clone the lonefiles as a bare git repository only if they are not there before.
 if [ ! -d "${LONEFILES_DIR}" ]; then
 
@@ -37,16 +41,8 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
 
         printf "These are the files we need to back up:\n${BACKUP_FILES}\n";
 
-        # Make all required paths, for backing up.
-        # echo ${BACKUP_FILES} | xargs -n 1 -I{} mkdir -p $(dirname "${LONE_BACKUP_DIR}{}");
-
-        # Move all the files that need to be backed up.
-        # echo ${BACKUP_FILES} | xargs -n 1 -I{} mv {} "${LONE_BACKUP_DIR}{}";
-
         # Make all required paths and move all the files that need to be backed up.
-        for file in "${BACKUP_FILES}"; do
-            mkdir -p $(dirname "${file}") && mv "${file}" "${LONE_BACKUP_DIR}${file}";
-        done
+        for file in ${BACKUP_FILES}; do Move "${file}" "${LONE_BACKUP_DIR}"; done
 
         echo "Trying to install lonefiles after the backup...";
         Lit checkout;
