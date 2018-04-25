@@ -68,3 +68,7 @@ else
     echo "[${LONEFILES_DIR}] Already exists, so no need to install again.";
 
 fi
+
+# Fix file permisions of all the tracked lonefiles (pushed in the repository).
+while read file do sudo chmod -R 777 ${file};
+done < <(Lit ls-tree --name-only HEAD "${HOME}");
