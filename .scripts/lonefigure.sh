@@ -9,13 +9,13 @@
 # ====================[ Configure vim ]====================
 
 # Install the plugins and quit all vim buffers that opened (can also do +qa).
-sudo vim +PlugInstall +qall
+vim +PlugInstall +qall
 
 # Install/compile/configure the additional stuff for some plugins that require it.
 ~/.vim/plug/YouCompleteMe/install.py --clang-completer
 
 # Just update the plugins and quit all vim buffers (probably don't need this step).
-sudo vim +PlugUpdate +qall
+vim +PlugUpdate +qall
 
 # ====================[ Configure terminal ]====================
 
