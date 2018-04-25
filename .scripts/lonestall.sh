@@ -6,7 +6,17 @@
 #  the lonefiles, then backs them up in a hidden directory called ".lonefiles_backup".
 #========================================================================================
 
+#========================================================================================
+# Helper Variables
+#========================================================================================
+
 LONEFILES_DIR=$(printf "${HOME}/.lonefiles");
+
+LONE_BACKUP_DIR=$(printf "${LONEFILES_DIR}_backup/");
+
+#========================================================================================
+# Helper Functions.
+#========================================================================================
 
 Lit() {
     sudo \git --git-dir="${LONEFILES_DIR}" --work-tree="${HOME}" ${@};
@@ -16,12 +26,14 @@ Move() {
     sudo mkdir -p "${2}"$(dirname "${1}") && sudo mv "${1}" "${2}${1}";
 }
 
+#========================================================================================
+# Script Execution.
+#========================================================================================
+
 # Clone the lonefiles as a bare git repository only if they are not there before.
 if [ ! -d "${LONEFILES_DIR}" ]; then
 
     git clone --bare https://github.com/shahzadlone/lonefiles "${LONEFILES_DIR}";
-
-    LONE_BACKUP_DIR=$(printf "${LONEFILES_DIR}_backup/");
 
     # Make a backup directory to store the dotfiles that have the same names (exist before).
     sudo mkdir -p "${LONE_BACKUP_DIR}";
@@ -69,7 +81,18 @@ else
 
 fi
 
+#========================================================================================
+# Post Installation - Fix File Permissions.
+#========================================================================================
+
 # Fix file permisions of all the tracked lonefiles (pushed in the repository).
 while read file; do
     sudo chmod -R 777 "${file}";
 done < <(Lit ls-tree --name-only HEAD "${HOME}");
+
+# Fix file permisions of the bare repo file (~/.lonefiles), and the backup directory.
+sudo chmod -R 777 "${LONEFILES_DIR}" "${LONE_BACKUP_DIR}";
+
+#========================================================================================
+# End.
+#========================================================================================
