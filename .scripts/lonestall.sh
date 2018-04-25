@@ -35,13 +35,18 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
 
         BACKUP_FILES=$(Lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'});
 
-        printf "These are the files we need to back up:\n{$BACKUP_FILES}";
+        printf "These are the files we need to back up:\n${BACKUP_FILES}";
 
         # Make all required paths, for backing up.
-        ${BACKUP_FILES} | xargs -n 1 -I{} mkdir -p $(dirname "${LONE_BACKUP_DIR}{}");
+        # echo ${BACKUP_FILES} | xargs -n 1 -I{} mkdir -p $(dirname "${LONE_BACKUP_DIR}{}");
 
         # Move all the files that need to be backed up.
-        ${BACKUP_FILES} | xargs -n 1 -I{} mv {} "${LONE_BACKUP_DIR}{}";
+        # echo ${BACKUP_FILES} | xargs -n 1 -I{} mv {} "${LONE_BACKUP_DIR}{}";
+
+        # Make all required paths and move all the files that need to be backed up.
+        for file in "${BACKUP_FILES}"; do
+            mkdir -p $(dirname "${file}") && mv "${file}" "${LONE_BACKUP_DIR}${file}";
+        done
 
         echo "Trying to install lonefiles after the backup...";
         Lit checkout;
