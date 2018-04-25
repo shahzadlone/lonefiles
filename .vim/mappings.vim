@@ -102,6 +102,12 @@ nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
 " Close all bash config files that are open in tabs, if possible (nothing is unsaved).
 nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
 
+" Open my lonify scripts.
+nnoremap <Leader>scri :tabe ~/.scripts/lonefigure.sh<CR>
+                      \:tabe ~/.scripts/lonependencies.sh<CR>
+                      \:tabe ~/.scripts/lonestall.sh<CR>
+                      \:tabe ~/.scripts/lonify.sh<CR>
+
 " Open my profile configuration file.
 nnoremap <Leader>pro :tabe ~/.profile<CR>
 
