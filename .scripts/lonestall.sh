@@ -33,9 +33,9 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
 
         echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
 
-        BACKUP_FILES=$(Lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'});
+        BACKUP_FILES=$(Lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs echo);
 
-        printf "These are the files we need to back up:\n${BACKUP_FILES}";
+        printf "These are the files we need to back up:\n${BACKUP_FILES}\n";
 
         # Make all required paths, for backing up.
         # echo ${BACKUP_FILES} | xargs -n 1 -I{} mkdir -p $(dirname "${LONE_BACKUP_DIR}{}");
