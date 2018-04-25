@@ -70,5 +70,6 @@ else
 fi
 
 # Fix file permisions of all the tracked lonefiles (pushed in the repository).
-while read file do sudo chmod -R 777 ${file};
+while read file; do
+    sudo chmod -R 777 "${file}";
 done < <(Lit ls-tree --name-only HEAD "${HOME}");
