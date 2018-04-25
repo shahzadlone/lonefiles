@@ -13,7 +13,7 @@ Lit() {
 }
 
 Move() {
-    sudo mkdir -p $(dirname "${1}") && sudo mv "${1}" "${2}${1}";
+    sudo mkdir -p "${2}"$(dirname "${1}") && sudo mv "${1}" "${2}${1}";
 }
 
 # Clone the lonefiles as a bare git repository only if they are not there before.
@@ -35,9 +35,9 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
 
     else
 
-        echo "Backing up pre-existing dotfiles that have same names as lonefiles.";
+        echo "Backing up pre-existing files that have same names as lonefiles.";
 
-        BACKUP_FILES=$(Lit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs echo);
+        BACKUP_FILES=$(Lit checkout 2>&1 | egrep "^\s" | awk {'print $1'} | xargs echo);
 
         printf "These are the files we need to back up:\n${BACKUP_FILES}\n";
 
