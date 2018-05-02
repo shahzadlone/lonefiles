@@ -298,38 +298,41 @@ InstallExtra() {
     printf "${YELLOW_COLOR}";
     printf "Now installing some extra goodies to extend onto our normal packages...\n"
 
+    HOW_MANY_EXTRA=12;
+
     # SilentDownload "texlive-full";
-    ProgressBar 1 11;
+    ProgressBar 1 HOW_MANY_EXTRA;
 
     SilentDownload "hunspell-en-ca";
-    ProgressBar 2 11;
+    ProgressBar 2 HOW_MANY_EXTRA;
 
     SilentDownload "python3-pip";
-    ProgressBar 3 11;
+    ProgressBar 3 HOW_MANY_EXTRA;
 
     SilentDownload "python-dev";
-    ProgressBar 4 11;
+    ProgressBar 4 HOW_MANY_EXTRA;
 
     SilentDownload "python3-dev";
-    ProgressBar 5 11;
+    ProgressBar 5 HOW_MANY_EXTRA;
 
     SilentDownload "python-minimal";
-    ProgressBar 6 11;
+    ProgressBar 6 HOW_MANY_EXTRA;
 
     SilentDownload "virtualbox-ext-pack";
-    ProgressBar 7 11;
+    ProgressBar 7 HOW_MANY_EXTRA;
 
     SilentDownload "mono-devel";
-    ProgressBar 8 11;
+    ProgressBar 8 HOW_MANY_EXTRA;
 
     SilentDownload "vim-gnome";
-    ProgressBar 9 11;
+    ProgressBar 9 HOW_MANY_EXTRA;
 
     SilentDownload "dconf-cli";
-    ProgressBar 10 11;
+    ProgressBar 10 HOW_MANY_EXTRA;
 
     SilentDownload "build-essential";
-    ProgressBar 11 11;
+    ProgressBar 11 HOW_MANY_EXTRA;
+
 
     printf " DONE!! =)\n"
     printf "${NO_COLOR}";
