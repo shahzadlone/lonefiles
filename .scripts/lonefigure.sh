@@ -23,7 +23,8 @@ vim +PlugUpdate +qall
 source <(wget -O - "https://git.io/v7eBS");
 
 # Source the .bashrc so everything takes effect.
-source ~/.bashrc
+source ~/.bashrc;
+
 
 # ====================[ Configure system ]====================
 # Map the capslock to the control key.
