@@ -333,6 +333,8 @@ InstallExtra() {
     SilentDownload "build-essential";
     ProgressBar 11 HOW_MANY_EXTRA;
 
+    SilentDownload "neovim";
+    ProgressBar 12 HOW_MANY_EXTRA;
 
     printf " DONE!! =)\n"
     printf "${NO_COLOR}";
