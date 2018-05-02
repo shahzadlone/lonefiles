@@ -63,7 +63,7 @@ alias litc='lit commit -v'
 # Short alias to quickly push my dotfiles (bare git repository).
 alias litp='lit push'
 
-# To quickly start staging modified dotfiles files, with the patch option (in hunks) 
+# To quickly start staging modified dotfiles files, with the patch option (in hunks)
 alias lita='lit add -p'
 
 # To quickly show a diff of all the modified files.
