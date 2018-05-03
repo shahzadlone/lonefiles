@@ -84,7 +84,7 @@ alias gits='\git status && \
             git log --stat --oneline @{u}...HEAD'
 
 
-# To host a server listing files in current directory at port 8080, and detach 
+# To host a server listing files in current directory at port 8080, and detach
 alias HOST='python -m SimpleHTTPServer 8080 &'
 
 # To open the local hosted server at port 8080, and detach the session.
