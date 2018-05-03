@@ -334,6 +334,7 @@ InstallExtra() {
     ProgressBar 11 HOW_MANY_EXTRA;
 
     SilentDownload "neovim";
+    SilentDownload "neovim-qt";
     ProgressBar 12 HOW_MANY_EXTRA;
 
     printf " DONE!! =)\n"
