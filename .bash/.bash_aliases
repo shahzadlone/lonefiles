@@ -1,5 +1,8 @@
 # Shahzad's Bash Aliases (Note: #!/bin/bash is not needed because not a script!)
 
+# Helper function to find if a package / program exists or not.
+Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
+
 # -----[ Overwrite default programs/commands usage. ]----- {{{
 # Make sudo work with aliases!
 alias sudo='sudo '
@@ -16,7 +19,17 @@ alias rm='rm -i'
 # If no opening-file options(-p -o -O) given to vim with multiple files, then open
 #  all the files in seperate tabs by default.
 #  Note: If an option is specified then that option is given precedence.
-alias vim='vim -p'
+if [ $(Exists "nvim") -eq 0 ]; then
+
+    # Start using neovim, if there.
+    alias vim='nvim -p';
+    alias vimdiff='nvim -d';
+
+else
+
+    alias vim='vim -p';
+
+fi
 
 # By default enable colors if possible for ls, dir, vdir, grep, fgrep, egrep commands.
 if [ -x /usr/bin/dircolors ]; then
