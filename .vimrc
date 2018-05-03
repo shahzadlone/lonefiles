@@ -7,3 +7,4 @@ source ~/.vim/mappings.vim
 source ~/.vim/tmux.vim
 source ~/.vim/theme.vim
 source ~/.vim/auto-commands.vim
+source ~/.vim/neovim.vim
