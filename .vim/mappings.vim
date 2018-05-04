@@ -72,7 +72,7 @@ nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>:nohls<CR>`mzz
 
 " Open my vim config files that I modify the most in a new tab.
 nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<CR>
-                     \:tabe ~/.vim/plug-manager.vim<CR>
+                     \:tabe ~/.vim/plug-manager/manager.vim<CR>
                      \:tabe ~/.vim/options.vim<CR>
                      \:tabe ~/.vim/theme.vim<CR>
                      \:tabe ~/.vim/tmux.vim<CR>
