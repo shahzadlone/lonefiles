@@ -1,4 +1,4 @@
-" Shahzad's Vim's Tmux Configurations.
+" Shahzad's Vim's Tmux Configurations and Mappings.
 
 if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
 
