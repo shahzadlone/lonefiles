@@ -2,13 +2,26 @@
 
 "======================================[Start]===========================================
 "----------------------------------------------------------------------------------------
+" Function to help open a pdf file that has same non-extention name as the current file.
+"----------------------------------------------------------------------------------------
+"function! OpenFilesPdf()
+"    silent !clear
+"    let l:pdfFileName = expand("%:r") . ".pdf"
+"    silent execute "!xpdf " . l:pdfFileName
+"endfunction
+"" So easier to open my current files corresponding pdf file.
+"command! OpenPdf call OpenFilesPdf()
+"=======================================[End]============================================
+
+"======================================[Start]===========================================
+"----------------------------------------------------------------------------------------
 " Function to help trim trailing whitespaces, which we can call by :Tws.
 "----------------------------------------------------------------------------------------
-fun! TrimTrailingWhitespace()
+function! TrimTrailingWhitespace()
     let l:save = winsaveview()
     %s/\s\+$//e
     call winrestview(l:save)
-endfun
+endfunction
 " So easier to call the trimming of white space function.
 command! Tws call TrimTrailingWhitespace()
 "=======================================[End]============================================
