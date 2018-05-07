@@ -188,14 +188,14 @@ nnoremap <Leader>bsh :%!bash<CR>
 " Delete all recovery files(swaps', undos', and backups'), and come out of the shell.
 nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 
-" Search for selected text, forwards.
+" Search for visually selected text, forwards.
 vnoremap <silent> * :<C-U>let old_reg=getreg('"')
                      \<Bar>let old_regtype=getregtype('"')<CR>
                      \gvy/<C-R><C-R>=substitute(escape(@", '/\.*$^~['), '\_s\+',
                      \                          '\\_s\\+', 'g')<CR>
                      \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
 
-" Search for selected text, backwards.
+" Search for visually selected text, backwards.
 vnoremap <silent> # :<C-U>let old_reg=getreg('"')
                      \<Bar>let old_regtype=getregtype('"')<CR>
                      \gvy?<C-R><C-R>=substitute(escape(@", '?\.*$^~['), '\_s\+',
