@@ -33,6 +33,9 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
     " Run the make command in the other tmux pane (hit the final enter).
     nnoremap <Leader>M :wa<CR>:VimuxPromptCommand("make; echo ${?}")<CR><CR>
 
+    " Send an Interrupt Signal (Ctrl-c) to the terminal (other tmux pane).
+    nnoremap <Leader>C :w<CR>:VimuxInterruptRunner<CR>
+
     " Run the make command in the other tmux pane, and then run the executable without
     "  any arguments. Also show output of the return code. Look at ~/.bash/bash_functions
     "  for what my BINAME function does (just looks in Makefile for the executable name).
