@@ -3,16 +3,22 @@
     name = Shahzad Lone
 
 [core]
-    editor = nvim
+    editor = nvr --remote-wait-silent
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitignore
 
 [diff]
-    tool = vimdiff
+    tool = nvr
 
 [difftool]
     prompt = false
 
+[difftool "nvr"]
+    cmd = nvr -s -d ${LOCAL} ${REMOTE}
+
 [merge]
-    tool = vimdiff
+    tool = nvr
     conflictstyle = diff3
+
+[mergetool "nvr"]
+    cmd = nvr -s -d ${LOCAL} ${BASE} ${REMOTE} ${MERGED} -c 'wincmd J | wincmd ='
