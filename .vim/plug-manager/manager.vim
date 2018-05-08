@@ -26,17 +26,11 @@ call plug#begin('~/.vim/plug-manager/plug') " =========[ Start Loading Plugins ]
 " Load common plugins, that will always get loaded.
 source ~/.vim/plug-manager/common/plugs.vim
 
-if has('nvim')
+" Load neovim specific plugins only.
+source ~/.vim/plug-manager/neo/plugs.vim
 
-    " Load neovim specific plugins only.
-    source ~/.vim/plug-manager/neo/plugs.vim
-
-else
-
-    " Load vim specific plugins only (example: ones we don't want to run with neomake).
-    source ~/.vim/plug-manager/normal/plugs.vim
-
-endif
+" Load vim specific plugins only (example: ones we don't want to run with neomake).
+source ~/.vim/plug-manager/normal/plugs.vim
 
 call plug#end() " =======================[ End Loading Plugins ]=========================
 
@@ -48,18 +42,12 @@ source ~/.vim/plug-manager/common/configs.vim
 " Map all the common plugin specific key bindings according to my preference.
 source ~/.vim/plug-manager/common/mappings.vim
 
-if has('nvim')
+" Configure neovim specific (only) plugins, according to my preference.
+source ~/.vim/plug-manager/neo/configs.vim
+" Bind only neovim plugins specific key bindings, according to my preference.
+source ~/.vim/plug-manager/neo/mappings.vim
 
-    " Configure neovim specific (only) plugins, according to my preference.
-    source ~/.vim/plug-manager/neo/configs.vim
-    " Bind only neovim plugins specific key bindings, according to my preference.
-    source ~/.vim/plug-manager/neo/mappings.vim
-
-else
-
-    " Configure normal vim specific (only) plugins according to my preference.
-    source ~/.vim/plug-manager/normal/configs.vim
-    " Bind only normal vim plugins specific key bindings, according to my preference.
-    source ~/.vim/plug-manager/normal/mappings.vim
-
-endif
+" Configure normal vim specific (only) plugins according to my preference.
+source ~/.vim/plug-manager/normal/configs.vim
+" Bind only normal vim plugins specific key bindings, according to my preference.
+source ~/.vim/plug-manager/normal/mappings.vim
