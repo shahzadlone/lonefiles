@@ -46,8 +46,8 @@ Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe'
 
 " To get quick snippets.
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips', { 'for': ['c', 'cpp'] }
+Plug 'honza/vim-snippets', { 'for': ['c', 'cpp'] }
 
 " Quick latex completion.
 Plug 'brennier/quicktex'
