@@ -44,6 +44,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["CScope"]="cscope"
                                ["Git"]="git"
                                ["GitLargeFileStorage"]="git-lfs"
+                               ["NeoVim"]="nvim"
                                ["EncFs"]="gnome-encfs-manager"
                                ["Pinta"]="pinta"
                                ["Bazel"]="bazel"
@@ -162,6 +163,15 @@ InstallGitLargeFileStorage() {
          | sudo bash;
 
     Download "${HashMapOfPackages[GitLargeFileStorage]}";
+}
+
+InstallNeoVim() {
+
+    Download "neovim";
+    Download "neovim-qt";
+
+    pip3 install --user --upgrade pip;
+    pip3 install --user neovim-remote;
 }
 
 InstallEncFs() {
@@ -298,7 +308,7 @@ InstallExtra() {
     printf "${YELLOW_COLOR}";
     printf "Now installing some extra goodies to extend onto our normal packages...\n"
 
-    HOW_MANY_EXTRA=12;
+    HOW_MANY_EXTRA=11;
 
     # SilentDownload "texlive-full";
     ProgressBar 1 HOW_MANY_EXTRA;
@@ -332,10 +342,6 @@ InstallExtra() {
 
     SilentDownload "build-essential";
     ProgressBar 11 HOW_MANY_EXTRA;
-
-    SilentDownload "neovim";
-    SilentDownload "neovim-qt";
-    ProgressBar 12 HOW_MANY_EXTRA;
 
     printf " DONE!! =)\n"
     printf "${NO_COLOR}";
