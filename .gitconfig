@@ -4,3 +4,15 @@
 
 [core]
     editor = nvim
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.gitignore
+
+[diff]
+    tool = vimdiff
+
+[difftool]
+    prompt = false
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
