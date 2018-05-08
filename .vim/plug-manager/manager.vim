@@ -35,19 +35,15 @@ source ~/.vim/plug-manager/normal/plugs.vim
 call plug#end() " =======================[ End Loading Plugins ]=========================
 
 
-" ==============[ Configure Plugins (Select Options and Map Key Bindings) ]==============
+" =====================[ Configure Plugins (Select Plug-In Options) ]====================
 
 " Configure all the common plugins according to my preference.
 source ~/.vim/plug-manager/common/configs.vim
-" Map all the common plugin specific key bindings according to my preference.
-source ~/.vim/plug-manager/common/mappings.vim
 
 " Configure neovim specific (only) plugins, according to my preference.
 source ~/.vim/plug-manager/neo/configs.vim
-" Bind only neovim plugins specific key bindings, according to my preference.
-source ~/.vim/plug-manager/neo/mappings.vim
 
 " Configure normal vim specific (only) plugins according to my preference.
 source ~/.vim/plug-manager/normal/configs.vim
-" Bind only normal vim plugins specific key bindings, according to my preference.
-source ~/.vim/plug-manager/normal/mappings.vim
+
+" All my plugin specific mappings are sourced at the end of the ~/.vim/mappings.vim file.

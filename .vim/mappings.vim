@@ -236,3 +236,14 @@ if !exists('${TMUX}')
     nnoremap M :make<CR>
 
 endif " End of the tmux check mappings (to default things, if not inside in tmux).
+
+" ====================[ In The End Map My Plug-In Specific Mappings ]====================
+
+" Map all the common plugin specific key bindings according to my preference.
+source ~/.vim/plug-manager/common/mappings.vim
+
+" Bind only neovim plugins specific key bindings, according to my preference.
+source ~/.vim/plug-manager/neo/mappings.vim
+
+" Bind only normal vim plugins specific key bindings, according to my preference.
+source ~/.vim/plug-manager/normal/mappings.vim
