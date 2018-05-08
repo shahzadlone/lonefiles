@@ -78,7 +78,7 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
     " Open the coressponding PDF file using another terminal (Handy for LaTex files).
     autocmd FileType tex nnoremap <buffer> <Leader>O :wa<CR>:NeoTex<CR>:NeoTexOn<CR>
                                                      \:call VimuxRunCommand(
-                                                     \ "xpdf " . expand("%:r") . ".pdf"
+                                                     \ "zathura " . expand("%:r") . ".pdf"
                                                      \)<CR>
 
 endif " End of the Tmux check mappings (Refer to mappings.vim for default mappings).
