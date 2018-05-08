@@ -173,8 +173,13 @@ InstallNeoVim() {
     Download "neovim";
     Download "neovim-qt";
 
+    # Install nvr (Remote NeoVim)
     pip3 install --user --upgrade pip;
     pip3 install --user neovim-remote;
+
+    # Install nyaovim (NeoVim FrontEnd with Web Features).
+    SilentDownload "npm";
+    sudo npm install -g nyaovim
 }
 
 InstallEncFs() {
