@@ -35,6 +35,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["JsonProcessor"]="jq"
                                ["Zip"]="zip"
                                ["UnZip"]="unzip"
+                               ["Npm"]="npm"
                                ["Okular"]="okular"
                                ["ImageViewer"]="feh"
                                ["Python3"]="python3"
@@ -139,6 +140,8 @@ InstallJsonProcessor() { Download "${HashMapOfPackages[JsonProcessor]}"; }
 InstallZip() { Download "${HashMapOfPackages[Zip]}"; }
 
 InstallUnZip() { Download "${HashMapOfPackages[UnZip]}"; }
+
+InstallNpm() { Download "${HashMapOfPackages[Npm]}"; }
 
 InstallOkular() { Download "${HashMapOfPackages[Okular]}"; }
 
