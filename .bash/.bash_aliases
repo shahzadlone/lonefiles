@@ -21,25 +21,30 @@ alias rm='rm -i'
 #  Note: If an option is specified then that option is given precedence.
 if [ $(Exists "nvim") -eq 0 ]; then
 
-    # Start using neovim, if there.
+    # Start using neovim, if it's there.
     alias vim='nvim -p';
-    alias vimdiff='nvim -d';
+    alias vdiff='nvim -d';
 
-else
+
+else # If neovim isn't there just use normal vim.
 
     alias vim='vim -p';
+    alias vdiff='vim -d';
 
 fi
 
 # By default enable colors if possible for ls, dir, vdir, grep, fgrep, egrep commands.
 if [ -x /usr/bin/dircolors ]; then
+
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+
 fi
 # ------------------------- }}}
 
