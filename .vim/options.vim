@@ -20,13 +20,13 @@ set autowrite
 " Auto read from files to check if external changes made, before executing a command.
 set autoread
 
-" Number of spaces a tab has to 4
+" Match indent of previous line on a new line.
 set tabstop=4
 
-" When indenting with '>', use 4 spaces width
+" When indenting with '>', use 4 spaces width.
 set shiftwidth=4
 
-" Number of spaces in tab when editing
+" Number of spaces in tab when editing.
 set softtabstop=4
 
 " On pressing tab, insert 4 spaces (turn tabs into spaces).

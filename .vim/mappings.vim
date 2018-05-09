@@ -179,7 +179,7 @@ nnoremap <Leader>man K
 nnoremap <Leader>fold :set foldenable!<CR>
 
 " Substitue whatever I searched before with what's under my cursor. Don't <CR> it.
-nnoremap <Leader>sub :%s//<c-r><c-a>/gc
+nnoremap <Leader>sub :%s//<C-r><C-a>/gc
 
 " Swap the word under cursor with whatever is in the last yanked register.
 nnoremap <Leader>sw diw"0P
@@ -196,14 +196,14 @@ nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 " Search for visually selected text, forwards.
 vnoremap <silent> * :<C-U>let old_reg=getreg('"')
                      \<Bar>let old_regtype=getregtype('"')<CR>
-                     \gvy/<C-R><C-R>=substitute(escape(@", '/\.*$^~['), '\_s\+',
+                     \gvy/<C-r><C-r>=substitute(escape(@", '/\.*$^~['), '\_s\+',
                      \                          '\\_s\\+', 'g')<CR>
                      \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " Search for visually selected text, backwards.
 vnoremap <silent> # :<C-U>let old_reg=getreg('"')
                      \<Bar>let old_regtype=getregtype('"')<CR>
-                     \gvy?<C-R><C-R>=substitute(escape(@", '?\.*$^~['), '\_s\+',
+                     \gvy?<C-r><C-r>=substitute(escape(@", '?\.*$^~['), '\_s\+',
                      \                          '\\_s\\+', 'g')<CR>
                      \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
 
