@@ -57,9 +57,11 @@ nnoremap G Gzz
 " Make Y yank till end of the line (so behaves kind of like C and D).
 nnoremap Y y$
 
-" Insert the contents of the clipboard.
+" Insert the contents of the clipboard, in normal mode.
 nnoremap <Localleader>P :set paste<CR>"+P:set nopaste<CR>
 nnoremap <Localleader>p :set paste<CR>"+p:set nopaste<CR>
+
+" Insert the contents of the clipboard, on top of the visually selected text.
 vnoremap <Localleader>p "+p
 vnoremap <Localleader>P "+P
 
