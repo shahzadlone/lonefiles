@@ -45,6 +45,9 @@ Plug 'ervandew/supertab'
 " Auto completing suggestions.
 Plug 'Valloric/YouCompleteMe'
 
+" Auto matching html tags.
+Plug 'Valloric/MatchTagAlways', { 'for': [ 'html', 'xhtml', 'xml', 'jinja' ] }
+
 " To get quick snippets.
 Plug 'SirVer/ultisnips', { 'for': ['c', 'cpp'] }
 Plug 'honza/vim-snippets', { 'for': ['c', 'cpp'] }
