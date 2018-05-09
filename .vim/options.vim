@@ -24,6 +24,12 @@ set autowrite
 set autoread
 
 " Match indent of previous line on a new line.
+set autoindent
+
+" Copy previous indentation while autoindenting.
+set copyindent
+
+" Number of spaces a tab has to 4.
 set tabstop=4
 
 " When indenting with '>', use 4 spaces width.
