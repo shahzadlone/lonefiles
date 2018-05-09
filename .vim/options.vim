@@ -14,6 +14,9 @@ set number relativenumber
 "  my auto command fix should resolve that.
 set formatoptions-=cro
 
+" Do vertical diffing by default.
+set diffopt+=vertical
+
 " Auto save before executing a command.
 set autowrite
 
@@ -122,6 +125,3 @@ set foldlevel=1
 
 " Set folding off by default, can enable using my mapping (<Leader>fold).
 set nofoldenable
-
-" Do vertical diffing by default.
-set diffopt+=vertical
