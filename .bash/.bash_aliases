@@ -16,6 +16,9 @@ alias mv='mv -i'
 # For saftly show a prompt to double check before deleting anything(unless -f is used).
 alias rm='rm -i'
 
+# Never use vi, like ever!
+alias vi='vim -p';
+
 # If no opening-file options(-p -o -O) given to vim with multiple files, then open
 #  all the files in seperate tabs by default.
 #  Note: If an option is specified then that option is given precedence.
@@ -25,6 +28,13 @@ if [ $(Exists "nvim") -eq 0 ]; then
     alias vim='nvim -p';
     alias vdiff='nvim -d';
 
+    if [ $(Exists "nyaovim") -eq 0 ]; then
+
+        # Additional aliases to start nyaovim, if neovim and nyaovim are there.
+        alias nvim='nyaovim -p';
+        alias nvdiff='nyaovim -d';
+
+    fi
 
 else # If neovim isn't there just use normal vim.
 
