@@ -6,4 +6,17 @@ if has('nvim')
     " Plugin that makes working with LaTeX simple.
     Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
+    " If we are using the NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
+    if exists('g:nyaovim_version')
+
+        Plug 'rhysd/nyaovim-popup-tooltip'
+
+        Plug 'rhysd/nyaovim-mini-browser'
+
+        Plug 'rhysd/nyaovim-markdown-preview'
+
+        Plug 'rhysd/nyaovim-tree-view'
+
+    endif
+
 endif

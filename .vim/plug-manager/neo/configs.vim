@@ -8,4 +8,9 @@ if has('nvim')
     " This is a common plugin but this option is for neovim specifically.
     let g:vimtex_compiler_progname = 'nvr'
 
+    " If we are using the NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
+    if exists('g:nyaovim_version')
+
+    endif
+
 endif
