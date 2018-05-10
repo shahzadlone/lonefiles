@@ -1,8 +1,33 @@
 # Shahzad's Bash Exports.
 
-# -----[ Color ]----- {{{
+# Helper function to find if a package / program exists or not.
+Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
+
+# -----[ Common ]----- {{{
 # Set 256 terminal colors
-export TERM=xterm-256color
+export TERM=xterm-256color;
+
+# If I have neovim on my system, then $VISUAL and $EDITOR get overwritten to 'nvim -p'.
+export NORMAL_VIM="vim -p";
+export VISUAL="vim -p";
+export EDITOR="vim -p";
+
+# To help us not recursively open another nvim process inside neovim's :terminal, we
+#  overwrite $VISUAL, $EDITOR and $NORMAL_VIM to now open the buffer in a new tab of the
+#  parent neovim that is already opened. $NORMAL_VIM is a way for me to use normal vim
+#  if I am not inside NeoVim (quite rare).
+if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
+
+    export VISUAL="nvr -cc tabe --remote-wait"
+    export EDITOR="nvr -cc tabe --remote-wait"
+    export NORMAL_VIM="nvr -cc tabe --remote-wait"
+
+elif [ $(Exists "nvim") -eq 0 ]; then
+
+    export VISUAL="nvim -p";
+    export EDITOR="nvim -p";
+
+fi
 # ------------------------------ }}}
 
 # -----[ BASH_IT ]----- {{{
