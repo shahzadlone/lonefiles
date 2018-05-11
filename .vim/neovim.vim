@@ -1,22 +1,20 @@
 " Shahzad's NeoVim Specific Configurations (Guards for if nvim or vim).
 
-" Configurations that are only applied when using neovim.
-if has('nvim')
+if has('nvim') " =======[ Configurations that are only applied when using neovim. ]======
 
-    " Begin nvim configurations.
+    " In terminal mode (terminal buffer), make escape put me in normal mode.
+    tnoremap <Esc> <C-\><C-n>
 
     " To avoid neovim nesting and starting a new nvim process if used inside :terminal.
     let $VISUAL = 'nvr -cc split --remote-wait'
 
-    " If we are using the NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
+    " If we are using NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
     if exists('g:nyaovim_version')
 
     endif
 
-" Configurations that are only applied when using vim.
-elseif !has('nvim')
+elseif !has('nvim') " Configurations that are only applied when not using neovim (nvim).
 
-    " Begin non-nvim configurations.
     colorscheme evening
 
 endif
