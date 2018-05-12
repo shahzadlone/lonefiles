@@ -18,9 +18,9 @@ export EDITOR="vim -p";
 #  if I am not inside NeoVim (quite rare).
 if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
 
-    export VISUAL="nvr -cc tabe --remote-wait"
-    export EDITOR="nvr -cc tabe --remote-wait"
-    export NORMAL_VIM="nvr -cc tabe --remote-wait"
+    export VISUAL="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
+    export EDITOR="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
+    export NORMAL_VIM="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
 
 elif [ $(Exists "nvim") -eq 0 ]; then
 

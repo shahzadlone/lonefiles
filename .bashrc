@@ -21,9 +21,9 @@ if [ -f ~/.bash/.bash_settings ]; then
     . ~/.bash/.bash_settings;
 fi
 
-# Source the file containing alias definitions, if it exists.
-if [ -f ~/.bash/.bash_aliases ]; then
-    . ~/.bash/.bash_aliases;
+# Source the file containing all the functions, if there.
+if [ -f ~/.bash/.bash_functions ]; then
+    . ~/.bash/.bash_functions;
 fi
 
 # Source the file containing all the exports, if there.
@@ -31,7 +31,7 @@ if [ -f ~/.bash/.bash_exports ]; then
     . ~/.bash/.bash_exports;
 fi
 
-# Source the file containing all the functions, if there.
-if [ -f ~/.bash/.bash_functions ]; then
-    . ~/.bash/.bash_functions;
+# Source the file containing alias definitions, if it exists.
+if [ -f ~/.bash/.bash_aliases ]; then
+    . ~/.bash/.bash_aliases;
 fi
