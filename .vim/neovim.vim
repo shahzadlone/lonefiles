@@ -8,6 +8,12 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
     " In terminal mode (terminal buffer), enter the actual escape (have to be in insert).
     tnoremap <C-Esc> <Esc>
 
+    " Make moving out of the terminal buffer similar to my tmux and buffer movement keys.
+    tnoremap <C-h> <C-\><C-n><C-w>h
+    tnoremap <C-j> <C-\><C-n><C-w>j
+    tnoremap <C-k> <C-\><C-n><C-w>k
+    tnoremap <C-l> <C-\><C-n><C-w>l
+
     " To avoid neovim nesting and starting a new nvim process if used inside :terminal.
     let $VISUAL = 'nvr -cc split --remote-wait'
 
