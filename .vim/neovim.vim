@@ -14,6 +14,10 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
     tnoremap <C-k> <C-\><C-n><C-w>k
     tnoremap <C-l> <C-\><C-n><C-w>l
 
+    " Terminal configurations.
+    highlight! link TermCursor Cursor
+    highlight! TermCursorNC guibg=blue guifg=white ctermbg=1 ctermfg=15
+
     " To avoid neovim nesting and starting a new nvim process if used inside :terminal.
     " let $VISUAL = 'nvr -cc split --remote-wait'
 
