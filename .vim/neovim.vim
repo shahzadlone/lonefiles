@@ -17,6 +17,9 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
     " Open the terminal in a horizontal spilt (below), just like my tmux key bindings.
     nnoremap <Leader>- :split \| :terminal<CR>
 
+    " Open the terminal in a vertical spilt (right), just like my tmux key bindings.
+    nnoremap <Leader>\| :vsplit \| :terminal<CR>
+
     " Terminal configurations.
     highlight! link TermCursor Cursor
     highlight! TermCursorNC guibg=blue guifg=white ctermbg=1 ctermfg=15
