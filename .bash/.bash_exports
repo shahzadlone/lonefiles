@@ -18,9 +18,12 @@ export EDITOR="vim -p";
 #  if I am not inside NeoVim (quite rare).
 if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
 
-    export VISUAL="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
-    export EDITOR="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
-    export NORMAL_VIM="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
+    # export VISUAL="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
+    # export EDITOR="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
+    # export NORMAL_VIM="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
+    export VISUAL="nvr --remote-tab-wait" 
+    export EDITOR="nvr --remote-tab-wait"
+    export NORMAL_VIM="nvr --remote-tab-wait"
 
 elif [ $(Exists "nvim") -eq 0 ]; then
 

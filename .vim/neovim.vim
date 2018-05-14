@@ -15,7 +15,11 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
     tnoremap <C-l> <C-\><C-n><C-w>l
 
     " To avoid neovim nesting and starting a new nvim process if used inside :terminal.
-    let $VISUAL = 'nvr -cc split --remote-wait'
+    " let $VISUAL = 'nvr -cc split --remote-wait'
+
+    " Need this auto command to make git in seperate buffers work properly, because
+     " the nvr commands using +'set buffhidden=delete' isn't working (commit and add).
+    autocmd FileType gitcommit,diff set bufhidden=delete
 
     " If we are using NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
     if exists('g:nyaovim_version')
