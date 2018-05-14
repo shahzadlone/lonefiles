@@ -61,6 +61,11 @@ nnoremap Y y$
 nnoremap <Localleader>P :set paste<CR>"+P:set nopaste<CR>
 nnoremap <Localleader>p :set paste<CR>"+p:set nopaste<CR>
 
+" Insert the contents of the clipboard, in operator pending mode (one normal command).
+" onoremap <Localleader>P :set paste<CR><C-o>"+P<C-o>:set nopaste<CR>
+" onoremap <Localleader>p :set paste<CR><C-o>"+p<C-o>:set nopaste<CR>
+" onoremap <Localleader>p <ESC>:set paste"+p:set nopdaste<CR>
+
 " Insert the contents of the clipboard, on top of the visually selected text.
 vnoremap <Localleader>p "+p
 vnoremap <Localleader>P "+P
