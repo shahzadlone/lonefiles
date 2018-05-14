@@ -6,6 +6,10 @@ if has('nvim')
     " Plugin that makes working with LaTeX simple.
     Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
+    " Fuzzy finding files and all (also installs fzf).
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+
     " If we are using the NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
     if exists('g:nyaovim_version')
 

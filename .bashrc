@@ -35,3 +35,8 @@ fi
 if [ -f ~/.bash/.bash_aliases ]; then
     . ~/.bash/.bash_aliases;
 fi
+
+# Source the fzf's bash configurations.
+if [ -f ~/.fzf.bash ]; then
+    . ~/.fzf.bash
+fi
