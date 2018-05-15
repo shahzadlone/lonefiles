@@ -15,7 +15,7 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
     tnoremap <C-l> <C-\><C-n><C-w>l
 
     " Open the terminal in a new tab (hopefully in the tab to the right).
-    nnoremap <Leader>tt :tab new \| :terminal<CR>
+    nnoremap <Leader>ter :tab new \| :terminal<CR>
 
     " Open the terminal in a horizontal spilt (below), just like my tmux key bindings.
     nnoremap <Leader>- :split \| :terminal<CR>
