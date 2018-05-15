@@ -9,6 +9,9 @@ Plug 'vim-scripts/Tabmerge'
 " Adds the vim surrounding feature, to surround things using s.
 Plug 'tpope/vim-surround'
 
+" Seemless git interaction inside vim.
+" Plug 'tpope/vim-fugitive'
+
 " Enables repeating the surround command with the dot(.).
 Plug 'tpope/vim-repeat'
 
