@@ -102,7 +102,6 @@ alias gits='\git status && \
             printf "\nYour unpushed commits:\n" && \
             git log --stat --oneline @{u}...HEAD'
 
-
 # To host a server listing files in current directory at port 8080, and detach
 alias HOST='python -m SimpleHTTPServer 8080 &'
 
@@ -111,8 +110,15 @@ alias OPEN='firefox --new-window "http://localhost:8080" &'
 
 # Quickly HOST and OPEN that hosted server.
 alias OPENHOST='HOST OPEN'
+# -------------------- }}}
+
+# -----[ Rough, needs some work. ]----- {{{
+# To quickly execute the last command with all it's arguments.
+# alias LAST='!:0-*'
+
+# Quickly start my instagram script!
+alias instagram='~/Desktop/instagram/oldBot/loneple.py'
 
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
 # -------------------- }}}
-
