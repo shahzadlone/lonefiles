@@ -25,6 +25,9 @@ source <(wget -O - "https://git.io/v7eBS");
 # Source the .bashrc so everything takes effect.
 source ~/.bashrc;
 
+# Rough used for debugging, figure out what to do with this.
+TERMINAL_NAME=$(ps -p $PPID | awk '{print substr($4,1,length-25)}' | tail -n 1);
+printf "\nTerminalName=$TERMINAL_NAME\n";
 
 # ====================[ Configure system ]====================
 # Map the capslock to the control key.
