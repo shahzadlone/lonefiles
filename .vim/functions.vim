@@ -2,6 +2,38 @@
 
 "======================================[Start]===========================================
 "----------------------------------------------------------------------------------------
+" Functions to make reverse latex search to pdf possible.
+"----------------------------------------------------------------------------------------
+"Load PDF to the page containing label
+function! LoadEvinceByLabel(l)
+  for f in split(glob("*.aux"))
+    let label = system('grep "^.newlabel{' . a:l . '" ' . f)
+    let page = matchstr(label, '.\{}{\zs.*\ze}}')
+    if ! empty(page)
+      call OpenPDF(substitute(f, "aux$", "pdf", ""), page)
+      return
+    endif
+  endfor
+endfunction
+
+"Load PDF to the page containing the nearest previous label to the cursor
+function! EvinceNearestLabel()
+  let line = search("\\label{", "bnW")
+  if line > 0
+    let m = matchstr(getline(line), '\\label{\zs[^}]*\ze}')
+    if empty(m)
+      echomsg "No label between here and start of file"
+    else
+      call LoadEvinceByLabel(m)
+    endif
+  endif
+endfunction
+" nnoremap <buffer> <LocalLeader>Spdf :call EvinceNearestLabel()<CR>
+command! SPDF call EvinceNearestLabel()
+"=======================================[End]============================================
+
+"======================================[Start]===========================================
+"----------------------------------------------------------------------------------------
 " Function to help open a pdf file that has same non-extention name as the current file.
 "----------------------------------------------------------------------------------------
 "function! OpenFilesPdf()
