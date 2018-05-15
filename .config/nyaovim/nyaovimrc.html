@@ -1,16 +1,21 @@
 <dom-module id="nyaovim-app">
+
     <template>
-        <style>
-<!-- /* CSS configurations here */ -->
-<title>nyaovimrc</title>
+        <style> <!-- CSS configurations here -->
+
+            <title>nyaovimrc</title>
+
         </style>
-        <!-- Component tags here -->
+
         <neovim-editor id="nyaovim-editor"
                        argv="[[argv]]"
-                       font="monospace"
-                       font-size="14"
+                       font="Monaco,Ricty,monospace"
+                       font-size="15"
                        disable-meta-key>
-
         </neovim-editor>
+
+        <mini-browser editor="[[editor]]"></mini-browser>
+
     </template>
+
 </dom-module>
