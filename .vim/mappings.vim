@@ -133,6 +133,9 @@ nnoremap <Leader>git :tabe ~/.gitconfig<CR>
 vnoremap > >gv
 vnoremap < <gv
 
+" Opens the url in the browser of my choice.
+nnoremap <Leader>url :OpenUrl<CR>
+
 " Indent, retab (tabs to spaces) and trim trailing white space in the entire file.
 nnoremap <silent> <F5> mmgg=G:retab<CR>:Tws<CR>`mzz
 vnoremap <F5> =

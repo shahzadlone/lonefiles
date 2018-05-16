@@ -61,6 +61,29 @@ command! Tws call TrimTrailingWhitespace()
 
 "======================================[Start]===========================================
 "----------------------------------------------------------------------------------------
+" Open the url under the cursor in firefox.
+"----------------------------------------------------------------------------------------
+function! OpenUrlInBrowser()
+  let line0 = getline (".")
+  let line = matchstr (line0, "http[^ ]*")
+  :if line==""
+  let line = matchstr (line0, "ftp[^ ]*")
+  :endif
+  :if line==""
+  let line = matchstr (line0, "file[^ ]*")
+  :endif
+  let line = escape (line, "#?&;|%")
+  :if line==""
+  let line = matchstr (line0, "www.[^ ]*")
+  :endif
+  exec ':silent !firefox ' . "\"" . line . "\""
+endfunction
+command! OpenUrl call OpenUrlInBrowser()
+"=======================================[End]============================================
+
+
+"======================================[Start]===========================================
+"----------------------------------------------------------------------------------------
 " Function to help repeat a macro over all visually selected lines (see mappings.vim).
 "----------------------------------------------------------------------------------------
 function! VisualizeMacro()
