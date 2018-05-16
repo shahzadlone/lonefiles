@@ -30,6 +30,9 @@ autocmd BufWinEnter,BufRead,BufNewFile *.json setfiletype javascript
 autocmd BufWinEnter,BufRead,BufNewFile *.ejs,*.hbs setfiletype html
 autocmd BufWinEnter,BufRead,BufNewFile *.go setfiletype go
 
+" Indent my json file according to my preference.
+autocmd FileType json nnoremap <buffer> <F5> :%!python -m json.tool<CR>
+
 " Automatically update the working directory to the current file's path.
 autocmd BufEnter * silent! cd %:p:h
 
