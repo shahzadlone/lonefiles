@@ -37,6 +37,9 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
     " If we are using NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
     if exists('g:nyaovim_version')
 
+        " NyaoVim's Mini browser mapping.
+        nnoremap <Leader>U :<C-u>MiniBrowser <C-r><C-p><CR>
+
         " Calls the javascript function that enables to toggle fullscreen on and off.
         nnoremap <F11> :call nyaovim#call_javascript_function('toggleFullScreen', [])<CR>
 
