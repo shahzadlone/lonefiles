@@ -23,6 +23,9 @@ if has('nvim')
     "   j: GdbFrameDown
     let g:neobugger_leader = ' '
 
+    " This is an option for a common pluggin but it needs this option if using in neovim.
+    let g:vimtex_compiler_progname = 'nvr'
+
     " If we are using the NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
     if exists('g:nyaovim_version')
 
