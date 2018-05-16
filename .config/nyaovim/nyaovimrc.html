@@ -1,20 +1,38 @@
 <dom-module id="nyaovim-app">
 
     <template>
-        <style> <!-- CSS configurations here -->
+        <style> <!-- CSS configurations. -->
 
-            <title>nyaovimrc</title>
+        neovim-editor {
+            width: 100%;
+            height: 100%;
+        }
 
         </style>
+
+        <script> <!-- Java script helpers. -->
+
+            <!-- Helps maximize (fullscreen) and minimize nyaovim window. -->
+            window.toggleFullScreen = function() {
+                const win = require('electron').remote.getCurrentWindow();
+                win.setFullScreen(!win.isFullScreen());
+            };
+
+        </script>
 
         <neovim-editor id="nyaovim-editor"
                        argv="[[argv]]"
                        font="Monaco,Ricty,monospace"
                        font-size="15"
                        disable-meta-key>
+
         </neovim-editor>
 
         <mini-browser editor="[[editor]]"></mini-browser>
+
+        <markdown-preview editor="[[editor]]" expand-width="400"></markdown-preview>
+
+        <popup-tooltip editor="[[editor]]"></popup-tooltip>
 
     </template>
 
