@@ -1,0 +1,16 @@
+{
+    // To remember window state for next time, stores info in "window-state.json".
+    "remember_window_state": true,
+    "show_menubar": false,
+    "single_instance": true,
+    "window_options": {
+        "alwaysOnTop": true,
+        "fullscreen": false,
+        "height": 960,
+        "webPreferences": {
+            "plugins": true,
+            "webgl": false
+        },
+        "width": 1200
+    }
+}
