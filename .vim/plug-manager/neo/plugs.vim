@@ -10,6 +10,9 @@ if has('nvim')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
+    " Integrate GDB into neovim.
+    Plug 'huawenyu/neogdb.vim'
+
     " If we are using the NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
     if exists('g:nyaovim_version')
 
