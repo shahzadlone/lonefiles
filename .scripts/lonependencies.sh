@@ -174,6 +174,7 @@ InstallNeoVim() {
     Download "neovim-qt";
 
     # Install nvr (Remote NeoVim)
+    SilentDownload "python3-pip";
     pip3 install --user --upgrade pip;
     pip3 install --user neovim-remote;
 
@@ -324,32 +325,29 @@ InstallExtra() {
     SilentDownload "hunspell-en-ca";
     ProgressBar 2 HOW_MANY_EXTRA;
 
-    SilentDownload "python3-pip";
+    SilentDownload "python-dev";
     ProgressBar 3 HOW_MANY_EXTRA;
 
-    SilentDownload "python-dev";
+    SilentDownload "python3-dev";
     ProgressBar 4 HOW_MANY_EXTRA;
 
-    SilentDownload "python3-dev";
+    SilentDownload "python-minimal";
     ProgressBar 5 HOW_MANY_EXTRA;
 
-    SilentDownload "python-minimal";
+    SilentDownload "virtualbox-ext-pack";
     ProgressBar 6 HOW_MANY_EXTRA;
 
-    SilentDownload "virtualbox-ext-pack";
+    SilentDownload "mono-devel";
     ProgressBar 7 HOW_MANY_EXTRA;
 
-    SilentDownload "mono-devel";
+    SilentDownload "vim-gnome";
     ProgressBar 8 HOW_MANY_EXTRA;
 
-    SilentDownload "vim-gnome";
+    SilentDownload "dconf-cli";
     ProgressBar 9 HOW_MANY_EXTRA;
 
-    SilentDownload "dconf-cli";
-    ProgressBar 10 HOW_MANY_EXTRA;
-
     SilentDownload "build-essential";
-    ProgressBar 11 HOW_MANY_EXTRA;
+    ProgressBar 10 HOW_MANY_EXTRA;
 
     printf " DONE!! =)\n"
     printf "${NO_COLOR}";
