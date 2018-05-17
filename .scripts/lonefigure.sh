@@ -6,6 +6,9 @@
 #  for example if I want to remap any keys, or use my own defined keyboard shortcuts.
 #========================================================================================
 
+THEME_DIR=$(printf "${HOME}/.themes");
+DISTRO=$(lsb_release -d | awk -F"\t" '{print $2}' | cut -c -6)
+
 # ====================[ Configure vim ]====================
 
 # Install the plugins and quit all vim buffers that opened (can also do +qa).
