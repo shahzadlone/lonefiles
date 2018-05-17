@@ -28,10 +28,30 @@ source <(wget -O - "https://git.io/v7eBS");
 # Source the .bashrc so everything takes effect.
 source ~/.bashrc;
 
+# ====================[ Configure system ]====================
+
+# Change the system's theme if using Ubuntu.
+if [ ${DISTRO} == "Ubuntu" ]; then
+
+    echo "Ubuntu detected, so installing the theme!";
+
+    # Delete the already existing theme folder.
+    sudo rm -rf "${THEME_DIR}";
+
+    # Clone the theme into the .themes folder.
+    git clone https://github.com/EliverLara/Ant.git "${THEME_DIR}";
+
+    # Remove the .git folder from the theme folder.
+    sudo rm -rf "${THEME_DIR}/.git";
+
+    # Enable the theme.
+    gsettings set org.gnome.desktop.interface gtk-theme "Ant"
+    gsettings set org.gnome.desktop.wm.preferences theme "Ant"
+
+fi
+
+# Map the capslock to the control key.
+
 # Rough used for debugging, figure out what to do with this.
 TERMINAL_NAME=$(ps -p $PPID | awk '{print substr($4,1,length-25)}' | tail -n 1);
 printf "\nTerminalName=$TERMINAL_NAME\n";
-
-# ====================[ Configure system ]====================
-# Map the capslock to the control key.
-
