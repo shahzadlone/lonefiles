@@ -12,8 +12,6 @@
 
 THIS_SCRIPT_DIR=${PWD};
 
-echo "dir=$THIS_SCRIPT_DIR";
-
 # Some variables for color printing.
 RED_COLOR='\033[1;31m';
 GREEN_COLOR='\033[1;32m';
@@ -41,6 +39,7 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
                                ["Python3"]="python3"
                                ["VirtualBox"]="virtualbox"
                                ["Tree"]="tree"
+                               ["TweakTool"]="gnome-tweak-tool"
                                ["CTags"]="ctags"
                                ["CScope"]="cscope"
                                ["Git"]="git"
@@ -152,6 +151,8 @@ InstallPython3() { Download "${HashMapOfPackages[Python3]}"; }
 InstallVirtualBox() { Download "${HashMapOfPackages[VirtualBox]}"; }
 
 InstallTree() { Download "${HashMapOfPackages[Tree]}"; }
+
+InstallTweakTool() { Download "${HashMapOfPackages[TweakTool]}"; }
 
 InstallCTags() { Download "${HashMapOfPackages[CTags]}"; }
 
