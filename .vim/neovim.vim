@@ -47,6 +47,6 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
 
 elseif !has('nvim') " Configurations that are only applied when not using neovim (nvim).
 
-    colorscheme evening
+    " colorscheme evening
 
 endif
