@@ -181,6 +181,7 @@ InstallNeoVim() {
 
     # Install nyaovim (NeoVim FrontEnd with Web Features).
     SilentDownload "npm";
+    sudo npm install -g electron
     sudo npm install -g nyaovim
 }
 
