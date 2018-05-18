@@ -35,9 +35,6 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
 
     git clone --bare https://github.com/shahzadlone/lonefiles "${LONEFILES_DIR}";
 
-    # Make a backup directory to store the dotfiles that have the same names (exist before).
-    sudo mkdir -p "${LONE_BACKUP_DIR}";
-
     # Try to see if the repository just works (has no conflicts).
     Lit checkout;
 
@@ -52,6 +49,9 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
         BACKUP_FILES=$(Lit checkout 2>&1 | egrep "^\s" | awk {'print $1'} | xargs echo);
 
         printf "These are the files we need to back up:\n${BACKUP_FILES}\n";
+
+        # Make a backup directory to store the dotfiles that exist before.
+        sudo mkdir -p "${LONE_BACKUP_DIR}";
 
         # Make all required paths and move all the files that need to be backed up.
         for file in ${BACKUP_FILES}; do Move "${file}" "${LONE_BACKUP_DIR}"; done
