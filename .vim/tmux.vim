@@ -81,4 +81,10 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
                                                      \ "zathura " . expand("%:r") . ".pdf"
                                                      \)<CR>
 
+    " Open the coressponding PDF file for org files.
+    autocmd FileType org nnoremap <buffer> <Leader>O :wa<CR>:OrgExportToPDF<CR>
+                                                     \:call VimuxRunCommand(
+                                                     \ "okular " . expand("%:r") . ".pdf"
+                                                     \)<CR>
+
 endif " End of the Tmux check mappings (Refer to mappings.vim for default mappings).
