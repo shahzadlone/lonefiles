@@ -30,7 +30,7 @@ fi
 source ~/.scripts/lonefigure.sh;
 
 # Output the results and show if everything was successfull or not.
-if [ {$}? -eq 0 ]; then
+if [ ${?} -eq 0 ]; then
 
     echo "Everything lonified and set according to my preference! =)";
 
