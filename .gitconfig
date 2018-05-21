@@ -25,3 +25,5 @@
     frag = magenta bold
     old = red bold
     new = green bold
+    whitespace = magenta reverse ul
+
