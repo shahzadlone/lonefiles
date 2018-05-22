@@ -27,3 +27,5 @@
     new = green bold
     whitespace = magenta reverse ul
 
+[color "branch"]
+    current = yellow bold
