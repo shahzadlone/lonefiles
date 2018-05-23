@@ -60,6 +60,9 @@ alias lh='ls -Ap1 | egrep "^\..*$"'
 
 # To easily source bashrc.
 alias sobash='source ~/.bashrc'
+
+# To easily untar a tarball.
+alias untar='tar -xvzf'
 # ----------------------------- }}}
 
 # -----[ Extras. ]----- {{{
