@@ -30,3 +30,4 @@
 [color "branch"]
     current = yellow bold
     local = green bold
+    remote = cyan bold
