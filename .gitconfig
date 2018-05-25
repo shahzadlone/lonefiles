@@ -31,3 +31,6 @@
     current = yellow bold
     local = green bold
     remote = cyan bold
+
+[color "status"]
+    added = green bold
