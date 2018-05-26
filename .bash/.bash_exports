@@ -37,7 +37,7 @@ fi
 
 # -----[ Go ]----- {{{
 # Add the workspace's bin subdirectory.
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$(go env GOPATH)/bin;
 
 # Set GOPATH to the default "${HOME}/go"
 export GOPATH=$(go env GOPATH);
