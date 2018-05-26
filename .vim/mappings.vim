@@ -231,8 +231,9 @@ nnoremap <Leader>dicc :set complete-=k <CR>
 
 " Quick pluggin managing mappings (not using my sov command to avoid using nmap).
 nnoremap <Leader>plugi mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugInstall<CR>
-nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugUpdate<CR>
 nnoremap <Leader>plugc mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugClean<CR>
+nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugUpdate<CR>
+nnoremap <Leader>plugfu mm:w<CR>:source $MYVIMRC<CR>`mzz:ForcePlugUpdate<CR>
 
 " Default mappings, for when Tmux is not open.
 if !exists('${TMUX}') 
