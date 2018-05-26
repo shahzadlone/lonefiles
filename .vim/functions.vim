@@ -95,6 +95,26 @@ endfunction
 
 "======================================[Start]===========================================
 "----------------------------------------------------------------------------------------
+" Force update the vim plugs even if there are some local git changes.
+"----------------------------------------------------------------------------------------
+function! DiscardChangesPlugUpdate()
+    let dirties = filter(copy(g:plugs),
+                \ {_, v -> len(system(printf("cd %s && git diff --no-ext-diff --name-only", shellescape(v.dir))))})
+    if len(dirties)
+        call map(values(dirties),
+                    \ {_, v -> system(printf("cd %s && git checkout -f", shellescape(v.dir)))})
+        PlugUpdate --sync
+        execute 'PlugInstall!' join(keys(dirties))
+    else
+        PlugUpdate
+    endif
+endfunction
+command! ForcePlugUpdate call DiscardChangesPlugUpdate()
+"=======================================[End]============================================
+
+
+"======================================[Start]===========================================
+"----------------------------------------------------------------------------------------
 " Function to help zoom and restore (toggle) a split like tmux. (see mappings.vim).
 "----------------------------------------------------------------------------------------
 function! s:ZoomAnySplit() abort
