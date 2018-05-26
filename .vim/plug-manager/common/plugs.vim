@@ -30,6 +30,9 @@ Plug 'benmills/vimux'
 " To get the Table Mode.
 Plug 'dhruvasagar/vim-table-mode'
 
+" Go support.
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Advance C++ syntax and type highlighting.
 Plug 'octol/vim-cpp-enhanced-highlight'
 
