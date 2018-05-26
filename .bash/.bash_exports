@@ -3,10 +3,12 @@
 # Helper function to find if a package / program exists or not.
 Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
 
-# -----[ Common ]----- {{{
+# -----[ Terminal ]----- {{{
 # Set 256 terminal colors
 export TERM=xterm-256color;
+# ------------------------------ }}}
 
+# -----[ EDITOR/VISUAL (Vim) ]----- {{{
 # If I have neovim on my system, then $VISUAL and $EDITOR get overwritten to 'nvim -p'.
 export NORMAL_VIM="vim -p";
 export VISUAL="vim -p";
@@ -31,6 +33,14 @@ elif [ $(Exists "nvim") -eq 0 ]; then
     export EDITOR="nvim -p";
 
 fi
+# ------------------------------ }}}
+
+# -----[ Go ]----- {{{
+# Add the workspace's bin subdirectory.
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# Set GOPATH to the default "${HOME}/go"
+export GOPATH=$(go env GOPATH);
 # ------------------------------ }}}
 
 # -----[ BASH_IT ]----- {{{
