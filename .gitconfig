@@ -37,3 +37,6 @@
     changed = yellow bold
     untracked = red bold
 
+
+[url "https://github.com/"]
+    insteadOf = "gh:"
