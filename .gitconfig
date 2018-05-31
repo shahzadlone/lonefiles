@@ -43,3 +43,6 @@
 
 [url "git@bitbucket.org:"]
     insteadOf = "bb:"
+
+[url "https://github.com/shahzadlone/"]
+    insteadOf = "sl:"
