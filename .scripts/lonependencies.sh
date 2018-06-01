@@ -54,8 +54,6 @@ declare -A HashMapOfPackages=( ["Curl"]="curl"
 # Helper Functions.
 #========================================================================================
 
-AddRep() { sudo add-apt-repository -y "${1}"; }
-
 Apt() { sudo DEBIAN_FRONTEND=noninteractive apt-get ${1} -y \
         -o Dpkg::Options::="--force-confdef" \
         -o Dpkg::Options::="--force-confnew" ${2};
@@ -68,6 +66,8 @@ SilentDownload() { Apt 'install' "${1}" 2>&1 > /dev/null; }
 Upgrade() { Apt 'upgrade' "${1}"; }
 
 Update() { Apt 'update' ""; }
+
+AddRep() { sudo add-apt-repository -y "${1}"; Update;}
 
 Clean() { printf "\n${BLUE_COLOR}Performing Cleanup...${NO_COLOR}\n\n";
           Apt 'autoclean' "";
