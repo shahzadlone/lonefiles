@@ -189,9 +189,6 @@ InstallEncFs() {
     # Add the PPA for Encfs.
     AddRep "ppa:gencfsm";
 
-    # Update (don't need to do this in Ubuntu 18.04).
-    Update;
-
     # Install EncFs.
     Download "${HashMapOfPackages[EncFs]}";
 }
@@ -199,9 +196,6 @@ InstallEncFs() {
 InstallPinta() {
     # Add the PPA for pinta.
     AddRep "ppa:pinta-maintainers/pinta-stable";
-
-    # Update (don't need to do this in Ubuntu 18.04).
-    Update;
 
     # Install pinta.
     Download "${HashMapOfPackages[Pinta]}";
