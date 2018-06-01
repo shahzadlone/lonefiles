@@ -171,6 +171,10 @@ InstallGitLargeFileStorage() {
 
 InstallNeoVim() {
 
+    SilentDownload "software-properties-common";
+
+    AddRep "ppa:neovim-ppa/stable";
+
     Download "neovim";
     Download "neovim-qt";
 
