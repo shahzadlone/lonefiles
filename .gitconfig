@@ -46,3 +46,6 @@
 
 [url "https://github.com/shahzadlone/"]
     insteadOf = "sl:"
+
+[alias]
+    a = add -p
