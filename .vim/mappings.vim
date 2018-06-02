@@ -217,7 +217,7 @@ vnoremap <silent> # :<C-U>let old_reg=getreg('"')
                      \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " When taking notes I write the code related things and keywords in ```. So map it.
-nnoremap <Leader>` o```yypO
+nnoremap <Localleader>o o```yypO
 
 " Zoom the current split buffer horizantally and vertically as many times as I want.
 nnoremap <Leader>z :resize<CR>:vertical resize<CR>
