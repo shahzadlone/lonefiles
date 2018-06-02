@@ -219,6 +219,9 @@ vnoremap <silent> # :<C-U>let old_reg=getreg('"')
 " When taking notes I write the code related things and keywords in ```. So map it.
 nnoremap <Localleader>o o```yypO
 
+" Make a math mode line for latex for inside lst-listing.
+nnoremap <Localleader>ml o`$ $'F cl
+
 " Zoom the current split buffer horizantally and vertically as many times as I want.
 nnoremap <Leader>z :resize<CR>:vertical resize<CR>
 
