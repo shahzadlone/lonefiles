@@ -222,6 +222,9 @@ nnoremap <Localleader>o o```yypO
 " Make a math mode line for latex for inside lst-listing.
 nnoremap <Localleader>ml o`$ $'F cl
 
+" Make a C++ lst-listing begin and end and put me in insert in the middle.
+nnoremap <Localleader>c 0o\begin{lstlisting}[language=C++]\end{lstlisting}<k<jj<k<jjO
+
 " Zoom the current split buffer horizantally and vertically as many times as I want.
 nnoremap <Leader>z :resize<CR>:vertical resize<CR>
 
