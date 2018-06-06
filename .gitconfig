@@ -52,3 +52,4 @@
     addup = "!addup() { git remote add upstream \"${1}\" && git fetch upstream; }; addup"
     b = branch
     bl = blame
+    c = commit -v
