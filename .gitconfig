@@ -53,3 +53,4 @@
     b = branch
     bl = blame
     c = commit -v
+    ca = commit --amend
