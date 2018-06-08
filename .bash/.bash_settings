@@ -20,7 +20,10 @@ shopt -s globstar
 # Don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
-# Set history length and file-size.
-HISTSIZE=3000
-HISTFILESIZE=6000
+# Other new shells get history from previous shells.
+PROMPT_COMMAND='history -a'
+
+# Set max history length and file-size.
+HISTSIZE=3000000
+HISTFILESIZE=6000000
 # ------------------------------ }}}
