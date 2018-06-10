@@ -55,3 +55,4 @@
     c = commit -v
     ca = commit --amend
     co = commit --date=\"1 day ago\" -v
+    ch = checkout
