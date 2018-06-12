@@ -57,3 +57,4 @@
     co = commit --date=\"1 day ago\" -v
     ch = checkout
     chb = checkout -b
+    cl = clone
