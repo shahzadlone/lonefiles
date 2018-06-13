@@ -58,3 +58,4 @@
     ch = checkout
     chb = checkout -b
     cl = clone
+    clb = clone --bare
