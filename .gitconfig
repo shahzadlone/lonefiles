@@ -60,3 +60,4 @@
     cl = clone
     clb = clone --bare
     cl1 = clone --depth 1
+    cp = cherry-pick
