@@ -62,3 +62,4 @@
     cl1 = clone --depth 1
     cp = cherry-pick
     d = diff --color
+    ds = diff --color --cached
