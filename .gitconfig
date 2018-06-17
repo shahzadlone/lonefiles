@@ -63,3 +63,4 @@
     cp = cherry-pick
     d = diff --color
     ds = diff --color --cached
+    l = log
