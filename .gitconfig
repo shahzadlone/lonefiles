@@ -65,3 +65,4 @@
     ds = diff --color --cached
     l = log
     lp = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lf = log --first-parent
