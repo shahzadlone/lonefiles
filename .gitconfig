@@ -67,3 +67,4 @@
     lp = log --graph --decorate --pretty=oneline --abbrev-commit --all
     lf = log --first-parent
     ls = ls-files
+    lsf = !git ls-files | egrep -i
