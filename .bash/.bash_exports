@@ -34,25 +34,3 @@ elif [ $(Exists "nvim") -eq 0 ]; then
 
 fi
 # ------------------------------ }}}
-
-# -----[ Go ]----- {{{
-# Add the workspace's bin subdirectory.
-export PATH=$PATH:$(go env GOPATH)/bin;
-
-# Set GOPATH to the default "${HOME}/go"
-export GOPATH=$(go env GOPATH);
-# ------------------------------ }}}
-
-# -----[ BASH_IT ]----- {{{
-# Path to .bash_it
-#export BASH_IT="/home/shahzad/.bash/.bash_it"
-
-# Bash theme to use.
-#export BASH_IT_THEME="zork"
-# ------------------------------ }}}
-
-# -----[ Extras ]----- {{{
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/shahzad/.sdkman"
-[[ -s "/home/shahzad/.sdkman/bin/sdkman-init.sh" ]] && source "/home/shahzad/.sdkman/bin/sdkman-init.sh"
-# -------------------- }}}
