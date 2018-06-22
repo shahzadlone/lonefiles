@@ -1,6 +1,15 @@
 # Shahzad's Environment Variables, this file may be sourced by .profile if we want
-#  to include these environment variables no matter what shell we are using  or by
-#  .bash_profile, if we are specifically using bash's profile while using the bash shell.
+#  to include these environment variables no matter what shell we are using or by
+#  .bash_profile, if we are specifically using bash's profile while using the bash shell,
+#  mostly put my paths in here.
 
 # Add to the front of the PATH variable (whatever I add is given a higher precedence).
-PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
+PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}";
+
+# ------------[ Go ]------------ {{{
+# Set GOPATH to the default "${HOME}/go"
+export GOPATH=$(go env GOPATH);
+
+# Add the go workspace's bin subdirectory to PATH.
+export PATH="${PATH}:${GOPATH}/bin";
+# ------------------------------ }}}
