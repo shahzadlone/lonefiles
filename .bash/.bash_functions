@@ -15,3 +15,17 @@ BINAME() {
 cdm() {
     mkdir -p -- "${1}" && cd -P -- "${1}"
 }
+
+CloneAll() {
+    # Make the url of the input github organizations repository (200) page.
+    ORG_URL="https://api.github.com/orgs/${1}/repos?per_page=200";
+
+    # List of all repositories of that organization (seperated by newline-eol).
+    ALL_REPOS=$(curl -s ${ORG_URL} | grep html_url | awk 'NR%2 == 0' \
+                | cut -d ':' -f 2-3 | tr -d '",');
+
+    # Clone all the repositories.
+    for ORG_REPO in ${ALL_REPOS}; do
+        git clone ${ORG_REPO}.git;
+    done
+}
