@@ -68,3 +68,4 @@
     lf = log --first-parent
     ls = ls-files
     lsf = !git ls-files | egrep -i
+    lsr = remote -v
