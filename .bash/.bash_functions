@@ -11,3 +11,7 @@ Mark() {
 BINAME() {
     cat Makefile | \grep 'EXEC = ' | tr -s ' ' | cut -d' ' -f3;
 }
+
+cdm() {
+    mkdir -p -- "${1}" && cd -P -- "${1}"
+}
