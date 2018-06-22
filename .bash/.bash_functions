@@ -17,7 +17,7 @@ cdm() {
 }
 
 CloneAll() {
-    # Make the url of the input github organizations repository (200) page.
+    # Make the url of the input github organization's repository page (200 max).
     ORG_URL="https://api.github.com/orgs/${1}/repos?per_page=200";
 
     # List of all repositories of that organization (seperated by newline-eol).
