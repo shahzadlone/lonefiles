@@ -14,6 +14,7 @@ export GOPATH=$(go env GOPATH);
 export PATH="${PATH}:${GOPATH}/bin";
 # ------------------------------ }}}
 
+# -----------[ Cosa ]----------- {{{
 # Set the cosa path to where it is installed for wio.
 export COSA_PATH="/usr/local/lib/node_modules/wio/bin/toolchain/cosa";
 
