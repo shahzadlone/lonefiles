@@ -14,6 +14,16 @@ export GOPATH=$(go env GOPATH);
 export PATH="${PATH}:${GOPATH}/bin";
 # ------------------------------ }}}
 
+# Set the cosa path to where it is installed for wio.
+export COSA_PATH="/usr/local/lib/node_modules/wio/bin/toolchain/cosa";
+
+# Set the cosa include path to where the source is located at.
+export COSA_INCLUDE="${COSA_PATH}/cores/cosa";
+
+# Add the cosa include path to PATH.
+export PATH="${PATH}:${COSA_INCLUDE}";
+# ------------------------------ }}}
+
 # -----[ Extras ]----- {{{
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/shahzad/.sdkman"
