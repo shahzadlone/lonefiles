@@ -193,6 +193,9 @@ nnoremap <Leader>tag :!ctags -R .<CR>
 " Mapping to quickly take me to the next tag (using ctags).
 nnoremap <Leader>tn :tnext<CR>
 
+" Mapping to quickly take me to the next tag (using ctags).
+nnoremap <Leader>tp :tnext<CR>
+
 " Substitue whatever I searched before with what's under my cursor. Don't <CR> it.
 nnoremap <Leader>sub :%s//<C-r><C-a>/gc
 
