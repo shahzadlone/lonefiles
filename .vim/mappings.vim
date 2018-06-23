@@ -187,6 +187,9 @@ nnoremap <Leader>man K
 " Toggle enableing and disabling of using folds.
 nnoremap <Leader>fold :set foldenable!<CR>
 
+" Generate ctags.
+nnoremap <Leader>tag :!ctags -R .<CR>
+
 " Substitue whatever I searched before with what's under my cursor. Don't <CR> it.
 nnoremap <Leader>sub :%s//<C-r><C-a>/gc
 
