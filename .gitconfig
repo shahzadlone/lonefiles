@@ -51,6 +51,7 @@
     a = add -p
     addup = "!addup() { git remote add upstream \"${1}\" && git fetch upstream; }; addup"
     b = branch
+    ba = branch --all
     bl = blame
     c = commit -v
     ca = commit --amend
