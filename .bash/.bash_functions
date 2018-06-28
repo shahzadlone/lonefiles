@@ -12,10 +12,6 @@ BINAME() {
     cat Makefile | \grep 'EXEC = ' | tr -s ' ' | cut -d' ' -f3;
 }
 
-cdm() {
-    mkdir -p -- "${1}" && cd -P -- "${1}"
-}
-
 CloneAll() {
     # Make the url of the input github organization's repository page (200 max).
     ORG_URL="https://api.github.com/orgs/${1}/repos?per_page=200";
@@ -29,3 +25,8 @@ CloneAll() {
         git clone ${ORG_REPO}.git;
     done
 }
+
+cdm() {
+    mkdir -p -- "${1}" && cd -P -- "${1}"
+}
+
