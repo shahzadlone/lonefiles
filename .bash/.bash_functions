@@ -30,3 +30,12 @@ cdm() {
     mkdir -p -- "${1}" && cd -P -- "${1}"
 }
 
+# Open graphically the selected directory or location.
+o() {
+    if [ ${#} -eq 0 ]; then
+        xdg-open .;
+    else
+        xdg-open "${@}";
+    fi
+}
+
