@@ -66,6 +66,7 @@
     ds = diff --color --cached
     drb = push -d origin 
     f = fetch
+    fp = fetch --all --prune
     l = log
     lp = log --graph --decorate --pretty=oneline --abbrev-commit --all
     lf = log --first-parent
