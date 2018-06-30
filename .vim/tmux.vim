@@ -75,6 +75,11 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
                          \ echo \"$(BINAME)[ ${?} ]\"
                          \")<CR>
 
+    " Upload to the arduino chip using wio run (github.com/wio/wio for more).
+    nnoremap <Leader>W :wa<CR>:VimuxPromptCommand("
+                        \wio run --clean --upload --port /dev/ttyUSB0 --target <T>
+                        \")<CR>
+
     " Open the coressponding PDF file using another terminal (Handy for LaTex files).
     autocmd FileType tex nnoremap <buffer> <Leader>O :wa<CR>:NeoTex<CR>:NeoTexOn<CR>
                                                      \:call VimuxRunCommand(
