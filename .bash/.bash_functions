@@ -39,3 +39,16 @@ o() {
     fi
 }
 
+# Determine size of a file or total size of a directory.
+fs() {
+    if du -b /dev/null > /dev/null 2>&1; then
+        local ARGUMENT=-sbh;
+    else
+        local ARGUMENT=-sh;
+    fi
+    if [[ -n "${@}" ]]; then
+        du ${ARGUMENT} -- "${@}";
+    else
+        du ${ARGUMENT} .[^.]* ./*;
+    fi
+}
