@@ -73,3 +73,4 @@
     ls = ls-files
     lsf = !git ls-files | egrep -i
     lsr = remote -v
+    m = merge
