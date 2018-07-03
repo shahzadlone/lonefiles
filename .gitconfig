@@ -75,3 +75,4 @@
     lsr = remote -v
     m = merge
     p = push
+    po = push origin
