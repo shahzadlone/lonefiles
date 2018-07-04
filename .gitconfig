@@ -76,3 +76,4 @@
     m = merge
     p = push
     po = push origin
+    pl = pull
