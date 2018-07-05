@@ -77,3 +77,4 @@
     p = push
     po = push origin
     pl = pull
+    plo = pull origin
