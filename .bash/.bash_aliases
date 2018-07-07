@@ -7,6 +7,9 @@ Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
 # Make sudo work with aliases!
 alias sudo='sudo '
 
+# Have a shortcut for sudo!
+alias s='sudo '
+
 # For saftly show a prompt to double check before overwriting by the copying command.
 alias cp='cp -i'
 
