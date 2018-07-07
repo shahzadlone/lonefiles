@@ -68,10 +68,6 @@ alias sobash='source ~/.bashrc'
 alias untar='tar -xvzf'
 # ----------------------------- }}}
 
-# -----[ Extras. ]----- {{{
-# Add an "alert" alias for long running commands. So can be notified after they finish.
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)"\
-             "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # To make working with the bare git repository easier (contains my dotfiles).
 # Note: I call my dotfiles, lonefiles. Don't ask why I thought it was a good idea! :-)
@@ -107,6 +103,11 @@ alias litr='lit reset'
 alias gits='\git status && \
             printf "\nYour unpushed commits:\n" && \
             git log --stat --oneline @{u}...HEAD'
+
+# -----[ Extras. ]----- {{{
+# Add an "alert" alias for long running commands. So can be notified after they finish.
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)"\
+             "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # To host a server listing files in current directory at port 8080, and detach
 alias HOST='python -m SimpleHTTPServer 8080 &'
