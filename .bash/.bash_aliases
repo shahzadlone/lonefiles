@@ -66,6 +66,9 @@ alias sobash='source ~/.bashrc'
 
 # To easily untar(unzip) a tarball.
 alias untar='tar -xvzf'
+
+# A short cut to reset/clear my terminal screen (similar to clear command).
+alias r='reset'
 # ----------------------------- }}}
 
 
