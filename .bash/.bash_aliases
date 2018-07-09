@@ -71,6 +71,9 @@ alias untar='tar -xvzf'
 alias r='reset'
 # ----------------------------- }}}
 
+# -----[ Git. ]----- {{{
+# A short cut to use git.
+alias g='git'
 
 # To make working with the bare git repository easier (contains my dotfiles).
 # Note: I call my dotfiles, lonefiles. Don't ask why I thought it was a good idea! :-)
@@ -106,6 +109,8 @@ alias litr='lit reset'
 alias gits='\git status && \
             printf "\nYour unpushed commits:\n" && \
             git log --stat --oneline @{u}...HEAD'
+
+# ----------------------------- }}}
 
 # -----[ Extras. ]----- {{{
 # Add an "alert" alias for long running commands. So can be notified after they finish.
