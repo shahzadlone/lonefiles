@@ -75,6 +75,10 @@ alias r='reset'
 # A short cut to use git.
 alias g='git'
 
+# Needed to turn autocompletion on with g as git's alias.
+complete -o bashdefault -o default -o nospace -F _git g 2> /dev/null \
+ || complete -o default -o nospace -F _git g
+
 # To make working with the bare git repository easier (contains my dotfiles).
 # Note: I call my dotfiles, lonefiles. Don't ask why I thought it was a good idea! :-)
 alias lit='\git --git-dir="${HOME}"/.lonefiles/ --work-tree="${HOME}"'
