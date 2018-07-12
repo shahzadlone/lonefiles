@@ -79,3 +79,4 @@
     pl = pull
     plo = pull origin
     r = reset
+    rmup = remote rm upstream
