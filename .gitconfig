@@ -80,3 +80,4 @@
     plo = pull origin
     r = reset
     rmup = remote rm upstream
+    rhar = reset --hard
