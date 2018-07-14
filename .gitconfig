@@ -81,3 +81,4 @@
     r = reset
     rmup = remote rm upstream
     rhar = reset --hard
+    rmix = reset --mixed
