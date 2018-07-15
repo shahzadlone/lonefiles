@@ -73,6 +73,10 @@ Plug 'jceb/vim-orgmode'
 " Easy motion.
 Plug 'easymotion/vim-easymotion'
 
+" Hacker typer mode for vim.
+" Plug 'mjbrownie/hackertyper.vim'
+" Plug 'gu-fan/autotype.vim'
+
 " Integrate GDB.
 " Plug 'vim-scripts/Conque-GDB'
 
