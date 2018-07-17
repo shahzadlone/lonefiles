@@ -83,3 +83,4 @@
     rhar = reset --hard
     rmix = reset --mixed
     rsof = reset --soft
+    rm = rm -r
