@@ -85,3 +85,4 @@
     rsof = reset --soft
     rm = rm -r
     rmc = rm -r --cached
+    rmf = rm -r -f
