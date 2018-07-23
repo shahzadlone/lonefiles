@@ -80,6 +80,7 @@
     pl = pull
     plo = pull origin
     r = reset
+    ra = remote add
     rmup = remote rm upstream
     rhar = reset --hard
     rmix = reset --mixed
