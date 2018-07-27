@@ -25,6 +25,10 @@
 ## auto-commands.vim </summary> <p>
 This file contains my vim autocommands according to my preference. Here is what they do:
 
+ 1) I have an autocommand that makes vim NOT automatiically comment a new opened line if
+ there is a commented line before that line. This is achieved by removing `c`, `r` and `o`
+ options from the formatoptions by `formatoptions-=cro`.
+---
 </p> </details>
 
 ---
