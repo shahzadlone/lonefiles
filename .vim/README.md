@@ -18,3 +18,13 @@
 | [options.vim]       |                                |
 | [theme.vim]         |                                |
 | [tmux.vim]          |                                |
+
+# In Depth File Documentation
+
+<details> <summary> 
+## auto-commands.vim </summary> <p>
+This file contains my vim autocommands according to my preference. Here is what they do:
+
+</p> </details>
+
+---
