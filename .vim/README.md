@@ -28,6 +28,12 @@ This file contains my vim autocommands according to my preference. Here is what 
  1) I have an autocommand that makes vim NOT automatiically comment a new opened line if
  there is a commented line before that line. This is achieved by removing `c`, `r` and `o`
  options from the formatoptions by `formatoptions-=cro`.
+ More over:
+    ```
+    r : Automatically insert the comment symbol after hitting <Enter> in Insert mode.
+    c : Auto-wrap comments using textwidth, inserting the comment symbol automatically.
+    o : Automatically insert the comment symbol after hitting 'o' or 'O' in Normal mode.
+    ```
 ---
 </p> </details>
 
