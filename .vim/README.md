@@ -21,8 +21,9 @@
 
 # In Depth File Documentation
 
-<details> <summary> 
-## auto-commands.vim </summary> <p>
+<details> <summary> <b> <font size="+4"> auto-commands.vim </font> </b>
+                    <i> [Click to Expand] </i> 
+          </summary> <p>
 This file contains my vim autocommands according to my preference. Here is what they do:
 
  1) I have an autocommand that makes vim NOT automatiically comment a new opened line if
