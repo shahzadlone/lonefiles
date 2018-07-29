@@ -36,6 +36,10 @@ This file contains my vim autocommands according to my preference. Here is what 
     o : Automatically insert the comment symbol after hitting 'o' or 'O' in Normal mode.
     ```
 ---
+
+ 2) Automatically resize windows (to equal sizes) when the terminal size is changed. This
+ is done by doing `<C-w>=` everytime vim is resized.
+
 </p> </details>
 
 ---
