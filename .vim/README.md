@@ -40,6 +40,18 @@ This file contains my vim autocommands according to my preference. Here is what 
  2) Automatically resize windows (to equal sizes) when the terminal size is changed. This
  is done by doing `<C-w>=` everytime vim is resized.
 
+---
+
+ 3) Always jump to the last known cursor position, if a valid position is known. Don't
+ do it, if inside a commit message or an event handler. This is done by doing a normal mode
+ command that basically goes to the last saved position which is stored as a mark. The
+ mark register in which the last cursor position is stored in is `"`. We know that to go
+ to a marked register in vim we have to press `` ` `` and then enter the marked register
+ we want to go to. So our final command we have becomes `` g`\" ``.
+
+ * Note: We have to escape `"` and before doing the command we need to also check if we
+ are inside a commit message or an event handler.Now even if we close the file and open
+ it again, vim will jump to the last position we were at before we close the file `:)`.
 </p> </details>
 
 ---
