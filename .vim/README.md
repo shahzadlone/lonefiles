@@ -52,6 +52,13 @@ This file contains my vim autocommands according to my preference. Here is what 
  * Note: We have to escape `"` and before doing the command we need to also check if we
  are inside a commit message or an event handler.Now even if we close the file and open
  it again, vim will jump to the last position we were at before we close the file `:)`.
+
+---
+
+ 4) Use hybrid line numbers when I am in normal mode and absolute line numbers when I am in
+ insert mode. This is done by having an autocommand that `set relativenumber` when I am in
+ normal mode and when I enter insert mode `set norelativenumber`.
+
 </p> </details>
 
 ---
