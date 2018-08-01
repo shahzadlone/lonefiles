@@ -59,6 +59,11 @@ This file contains my vim autocommands according to my preference. Here is what 
  insert mode. This is done by having an autocommand that `set relativenumber` when I am in
  normal mode and when I enter insert mode `set norelativenumber`.
 
+---
+
+ 5) An auto command to detect any file that starts with `.bash_` or `.bash-` as a bash
+ file, which are also hidden files.
+
 </p> </details>
 
 ---
