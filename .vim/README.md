@@ -64,6 +64,15 @@ This file contains my vim autocommands according to my preference. Here is what 
  5) An auto command to detect any file that starts with `.bash_` or `.bash-` as a bash
  file, which are also hidden files.
 
+---
+
+ 6) Additional autocommands to help vim detect a filetype according to my preference, ONLY
+ if vim fails to detect it.
+
+ * Note: There is a difference between: set `filetype=sh` and `setfiletype sh`. The first
+ one tells vim to set the filetype. The second tells vim to ONLY set the filetype, if no
+ filetype was was previously detected or set.
+
 </p> </details>
 
 ---
