@@ -73,6 +73,12 @@ This file contains my vim autocommands according to my preference. Here is what 
  one tells vim to set the filetype. The second tells vim to ONLY set the filetype, if no
  filetype was was previously detected or set.
 
+---
+
+ 7) An autocommand to override my actual formatting mapping that indents the entire file,
+ if the file is a JSON file. This new mapping uses a nice JSON file indenting tool to make
+ the entire file pretty and formatted the way I like my JSON files to be formatted.
+
 </p> </details>
 
 ---
