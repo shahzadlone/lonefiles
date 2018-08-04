@@ -79,6 +79,15 @@ This file contains my vim autocommands according to my preference. Here is what 
  if the file is a JSON file. This new mapping uses a nice JSON file indenting tool to make
  the entire file pretty and formatted the way I like my JSON files to be formatted.
 
+---
+
+ 8) An autocommand that changes my current directory, if I enter a file in another
+ directory. The directory is changes to the new file's directory.
+
+ * Tip: This works quite magically with TMUX, as you can open a tmux pane that is already
+ in the path of the file you are working on (this helps when working with multiple files 
+ in multiple directories).
+
 </p> </details>
 
 ---
