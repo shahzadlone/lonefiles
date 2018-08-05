@@ -88,6 +88,12 @@ This file contains my vim autocommands according to my preference. Here is what 
  in the path of the file you are working on (this helps when working with multiple files 
  in multiple directories).
 
+---
+
+ 9) Open new buffers/files in a new tab (stops piling or opening things on top of one pane).
+
+</p> </details>
+
 </p> </details>
 
 ---
