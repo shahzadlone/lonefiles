@@ -94,6 +94,15 @@ This file contains my vim autocommands according to my preference. Here is what 
 
 </p> </details>
 
+---
+
+<details> <summary> 
+## functions.vim </summary> <p>
+
+| Vim File Name       | Info / Documentation / Purpose |
+| :-----------------: | :----------------------------: |
+|                     |  |
+</p> </details>
 </p> </details>
 
 ---
