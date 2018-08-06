@@ -103,6 +103,19 @@ This file contains my vim autocommands according to my preference. Here is what 
 | Vim File Name       | Info / Documentation / Purpose |
 | :-----------------: | :----------------------------: |
 |                     |  |
+
+</p> </details>
+
+---
+
+<details> <summary> <b> <font size="+4"> mappings.vim </font> </b>
+                    <i> [Click to Expand] </i> 
+          </summary> <p>
+
+| Vim File Name       | Info / Documentation / Purpose |
+| :-----------------: | :----------------------------: |
+|                     |  |
+
 </p> </details>
 </p> </details>
 
