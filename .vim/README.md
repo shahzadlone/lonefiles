@@ -96,8 +96,9 @@ This file contains my vim autocommands according to my preference. Here is what 
 
 ---
 
-<details> <summary> 
-## functions.vim </summary> <p>
+<details> <summary> <b> <font size="+4"> functions.vim </font> </b>
+                    <i> [Click to Expand] </i> 
+          </summary> <p>
 
 | Vim File Name       | Info / Documentation / Purpose |
 | :-----------------: | :----------------------------: |
