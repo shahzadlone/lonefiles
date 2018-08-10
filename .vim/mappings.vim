@@ -163,21 +163,14 @@ nnoremap <Leader>mid M
 " Map J to go down with x3 times the speed, on normal lines in normal mode.
 nnoremap J 3j
 
-" Map J to go down with x3 times the speed on wrapped lines in visual mode.
-vnoremap J 3gj
-
 " Join lines using leader, with only one space (preserve J's behaviour).
 nnoremap <Leader>j J
-vnoremap <Leader>j J
 
 " Join lines without any spaces(only works in normal mode).
 nnoremap <Leader>J Jx
 
 " Map K to go up with x3 times the speed, on normal lines in normal mode.
 nnoremap K 3k
-
-" Map K to go up with x3 times the speed on wrapped lines in visual mode.
-vnoremap K 3gk
 
 " Preserve K's behaviour (open man page of the command the cursor is on).
 nnoremap <Leader>man K
@@ -209,20 +202,6 @@ nnoremap <Leader>bsh :%!bash<CR>
 " Delete all recovery files(swaps', undos', and backups'), and come out of the shell.
 nnoremap <silent> <Leader>delrec :!rm ~/.vim/.recover/*/{.*,*}{.sw?,~}<CR><CR>
 
-" Search for visually selected text, forwards.
-vnoremap <silent> * :<C-U>let old_reg=getreg('"')
-                     \<Bar>let old_regtype=getregtype('"')<CR>
-                     \gvy/<C-r><C-r>=substitute(escape(@", '/\.*$^~['), '\_s\+',
-                     \                          '\\_s\\+', 'g')<CR>
-                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
-
-" Search for visually selected text, backwards.
-vnoremap <silent> # :<C-U>let old_reg=getreg('"')
-                     \<Bar>let old_regtype=getregtype('"')<CR>
-                     \gvy?<C-r><C-r>=substitute(escape(@", '?\.*$^~['), '\_s\+',
-                     \                          '\\_s\\+', 'g')<CR>
-                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
-
 " When taking notes I write the code related things and keywords in ```. So map it.
 nnoremap <Localleader>o o```yypO
 
@@ -245,13 +224,66 @@ nnoremap <Leader>Z :Zoom<CR>
 nnoremap <Leader>dico :set complete+=k <CR>
 nnoremap <Leader>dicc :set complete-=k <CR>
 
+" Open my vim config files that I modify the most in a new tab.
+nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<CR>
+                     \:tabe ~/.vim/plug-manager/manager.vim<CR>
+                     \:tabe ~/.vim/options.vim<CR>
+                     \:tabe ~/.vim/theme.vim<CR>
+                     \:tabe ~/.vim/tmux.vim<CR>
+                     \:tabe ~/.vim/functions.vim<CR>
+                     \:tabe ~/.vim/auto-commands.vim<CR>
+                     \:tabe ~/.vim/neovim.vim<CR>
+                     \:tabe ~/.config/nyaovim/nyaovimrc.html<CR>
+
+" Close all vim config files that are open in tabs, if possible (everything is saved).
+nnoremap <Leader>cvim :bd *.vim<C-a><CR>
+
+" Open my tmux configuration file.
+nnoremap <Leader>tmux :tabe ~/.tmux/settings.tmux<CR>
+                      \:tabe ~/.tmux/bindings.tmux<CR>
+                      \:tabe ~/.tmux/theme.tmux<CR>
+                      \:tabe ~/.tmux/plugins.tmux<CR>
+
+" Close all tmux config files that are open in tabs, only if everything is saved.
+nnoremap <Leader>ctmux :bd *.tmux<C-a><CR>
+
+" Open my bash config files that I modify the most in a new tab.
+nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
+                      \:tabe ~/.bash/.bash_settings<CR>
+                      \:tabe ~/.bash/.bash_exports<CR>
+                      \:tabe ~/.bash/.bash_functions<CR>
+                      \:tabe ~/.bash/.bash_prompt<CR>
+                      \:tabe ~/.bash/.bash_system_default<CR>
+
+" Close all bash config files that are open in tabs, if possible (nothing is unsaved).
+nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
+
+" Open my lonify scripts.
+nnoremap <Leader>scri :tabe ~/.scripts/lonefigure.sh<CR>
+                      \:tabe ~/.scripts/lonependencies.sh<CR>
+                      \:tabe ~/.scripts/lonestall.sh<CR>
+                      \:tabe ~/.scripts/lonify.sh<CR>
+
+" Open my profile configuration file.
+nnoremap <Leader>pro :tabe ~/.profile<CR>
+
+" Open my input configuration file.
+nnoremap <Leader>inp :tabe ~/.inputrc<CR>
+
+" Open my configuration file that contains my environment variables.
+nnoremap <Leader>env :tabe ~/.environment_variables<CR>
+
+" Open my git configuration file.
+nnoremap <Leader>git :tabe ~/.gitconfig<CR>
+
 " Quick pluggin managing mappings (not using my sov command to avoid using nmap).
 nnoremap <Leader>plugi mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugInstall<CR>
 nnoremap <Leader>plugc mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugClean<CR>
 nnoremap <Leader>plugu mm:w<CR>:source $MYVIMRC<CR>`mzz:PlugUpdate<CR>
 nnoremap <Leader>plugfu mm:w<CR>:source $MYVIMRC<CR>`mzz:ForcePlugUpdate<CR>
+" ---------------------------------------------------------------------------------------
 
-" Default mappings, for when Tmux is not open.
+" ====================[ Default mappings, for when Tmux is not open ]====================
 if !exists('${TMUX}') 
 
     " Map normal vim pane movements 
@@ -264,6 +296,7 @@ if !exists('${TMUX}')
     nnoremap M :make<CR>
 
 endif " End of the tmux check mappings (to default things, if not inside in tmux).
+" ---------------------------------------------------------------------------------------
 
 " ====================[ In The End Map My Plug-In Specific Mappings ]====================
 
@@ -275,3 +308,4 @@ source ~/.vim/plug-manager/neo/mappings.vim
 
 " Bind only normal vim plugins specific key bindings, according to my preference.
 source ~/.vim/plug-manager/normal/mappings.vim
+" ---------------------------------------------------------------------------------------
