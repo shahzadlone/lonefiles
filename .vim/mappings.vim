@@ -1,50 +1,118 @@
 " Shahzad's Vim Mappings
 
-" Leader Key Mapping.
+" ================================[ Leader Key Mapping ]=================================
 let mapleader = ","
+" ---------------------------------------------------------------------------------------
 
-" Local Leader Key Mapping.
+" ===============================[ Local Leader Key Mapping ]============================
 let maplocalleader = "\\"
+" ---------------------------------------------------------------------------------------
+
+" =============================[ CNORE ABBREVIATION Mappings ]===========================
 
 " Open help in a vertical window instead of a horizontal window.
 cnoreabbrev help vert help
 
 " Open a file in read-only mode, in a vertical spilt.
 cnoreabbrev vview vert sview
+" ---------------------------------------------------------------------------------------
 
-" To quickly jump to normal mode from insert mode.
-inoremap jj <Esc>
-
-" Make enter save the current file/buffer, turn highlight off and center the current line.
-nnoremap <silent> <Enter> :w<CR>:nohls<CR>zz
+" =================================[ NOREMAP mappings ]=================================
 
 " Disable Arrow keys for normal, visual(and select), and operator pending modes.
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
+" ---------------------------------------------------------------------------------------
+
+" =================================[ INOREMAP mappings ]=================================
+
+" To quickly jump to normal mode from insert mode.
+inoremap jj <Esc>
 
 " Disable Arrow keys for insert mode.
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+" ---------------------------------------------------------------------------------------
 
-" Map Pasting only yanked
-nnoremap <Leader>p "0p
-nnoremap <Leader>P "0P
-vnoremap <Leader>p "0p
-vnoremap <Leader>P "0P
-
-" Move vertically by visual line (makes easy to work on wrapped lines).
-nnoremap j gj
-nnoremap k gk
+" =================================[ XNOREMAP mappings ]=================================
 
 " Enable the . command (repeating) on all the visually selected lines.
 xnoremap . :normal .<CR>
 
 " Enable repeating macros on all the visually selected lines.
 xnoremap @ :<C-u>call VisualizeMacro()<CR>
+" ---------------------------------------------------------------------------------------
+
+" =================================[ ONOREMAP mappings ]=================================
+
+" Insert the contents of the clipboard, in operator pending mode (one normal command).
+" onoremap <Localleader>P :set paste<CR><C-o>"+P<C-o>:set nopaste<CR>
+" onoremap <Localleader>p :set paste<CR><C-o>"+p<C-o>:set nopaste<CR>
+" onoremap <Localleader>p <ESC>:set paste"+p:set nopdaste<CR>
+" ---------------------------------------------------------------------------------------
+
+" =================================[ VNOREMAP mappings ]=================================
+
+" Map Pasting only yanked
+vnoremap <Leader>p "0p
+vnoremap <Leader>P "0P
+
+" Insert the contents of the clipboard, on top of the visually selected text.
+vnoremap <Localleader>p "+p
+vnoremap <Localleader>P "+P
+
+" Copy to the clipboaod.
+vnoremap <Leader>y "+y
+
+" Stay in visual mode when indenting.
+vnoremap > >gv
+vnoremap < <gv
+
+vnoremap <F5> =
+
+" Only open the visually selected file in a new tab if it exists.
+vnoremap gf <C-w>gf
+
+" Map J to go down with x3 times the speed on wrapped lines in visual mode.
+vnoremap J 3gj
+
+" Join lines using leader, with only one space (preserve J's behaviour).
+vnoremap <Leader>j J
+
+" Map K to go up with x3 times the speed on wrapped lines in visual mode.
+vnoremap K 3gk
+
+" Search for visually selected text, forwards.
+vnoremap <silent> * :<C-U>let old_reg=getreg('"')
+                     \<Bar>let old_regtype=getregtype('"')<CR>
+                     \gvy/<C-r><C-r>=substitute(escape(@", '/\.*$^~['), '\_s\+',
+                     \                          '\\_s\\+', 'g')<CR>
+                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
+
+" Search for visually selected text, backwards.
+vnoremap <silent> # :<C-U>let old_reg=getreg('"')
+                     \<Bar>let old_regtype=getregtype('"')<CR>
+                     \gvy?<C-r><C-r>=substitute(escape(@", '?\.*$^~['), '\_s\+',
+                     \                          '\\_s\\+', 'g')<CR>
+                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
+" ---------------------------------------------------------------------------------------
+
+" =================================[ NNOREMAP mappings ]=================================
+
+" Make enter save the current file/buffer, turn highlight off and center the current line.
+nnoremap <silent> <Enter> :w<CR>:nohls<CR>zz
+
+" Map Pasting only yanked
+nnoremap <Leader>p "0p
+nnoremap <Leader>P "0P
+
+" Move vertically by visual line (makes easy to work on wrapped lines).
+nnoremap j gj
+nnoremap k gk
 
 " Fix searching next and previous to center the screen, after taking me there.
 nnoremap n nzz
@@ -61,90 +129,20 @@ nnoremap Y y$
 nnoremap <Localleader>P :set paste<CR>"+P:set nopaste<CR>
 nnoremap <Localleader>p :set paste<CR>"+p:set nopaste<CR>
 
-" Insert the contents of the clipboard, in operator pending mode (one normal command).
-" onoremap <Localleader>P :set paste<CR><C-o>"+P<C-o>:set nopaste<CR>
-" onoremap <Localleader>p :set paste<CR><C-o>"+p<C-o>:set nopaste<CR>
-" onoremap <Localleader>p <ESC>:set paste"+p:set nopdaste<CR>
-
-" Insert the contents of the clipboard, on top of the visually selected text.
-vnoremap <Localleader>p "+p
-vnoremap <Localleader>P "+P
-
 " Copy to the clipboaod.
 nnoremap <Leader>y "+y
-vnoremap <Leader>y "+y
 
 " Source ~/.vimrc file.
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>:nohls<CR>`mzz
-
-" Open my vim config files that I modify the most in a new tab.
-nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<CR>
-                     \:tabe ~/.vim/plug-manager/manager.vim<CR>
-                     \:tabe ~/.vim/options.vim<CR>
-                     \:tabe ~/.vim/theme.vim<CR>
-                     \:tabe ~/.vim/tmux.vim<CR>
-                     \:tabe ~/.vim/functions.vim<CR>
-                     \:tabe ~/.vim/auto-commands.vim<CR>
-                     \:tabe ~/.vim/neovim.vim<CR>
-                     \:tabe ~/.config/nyaovim/nyaovimrc.html<CR>
-
-" Close all vim config files that are open in tabs, if possible (everything is saved).
-nnoremap <Leader>cvim :bd *.vim<C-a><CR>
-
-" Open my tmux configuration file.
-nnoremap <Leader>tmux :tabe ~/.tmux/settings.tmux<CR>
-                      \:tabe ~/.tmux/bindings.tmux<CR>
-                      \:tabe ~/.tmux/theme.tmux<CR>
-                      \:tabe ~/.tmux/plugins.tmux<CR>
-
-" Close all tmux config files that are open in tabs, only if everything is saved.
-nnoremap <Leader>ctmux :bd *.tmux<C-a><CR>
-
-" Open my bash config files that I modify the most in a new tab.
-nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
-                      \:tabe ~/.bash/.bash_settings<CR>
-                      \:tabe ~/.bash/.bash_exports<CR>
-                      \:tabe ~/.bash/.bash_functions<CR>
-                      \:tabe ~/.bash/.bash_prompt<CR>
-                      \:tabe ~/.bash/.bash_system_default<CR>
-
-" Close all bash config files that are open in tabs, if possible (nothing is unsaved).
-nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
-
-" Open my lonify scripts.
-nnoremap <Leader>scri :tabe ~/.scripts/lonefigure.sh<CR>
-                      \:tabe ~/.scripts/lonependencies.sh<CR>
-                      \:tabe ~/.scripts/lonestall.sh<CR>
-                      \:tabe ~/.scripts/lonify.sh<CR>
-
-" Open my profile configuration file.
-nnoremap <Leader>pro :tabe ~/.profile<CR>
-
-" Open my input configuration file.
-nnoremap <Leader>inp :tabe ~/.inputrc<CR>
-
-" Open my configuration file that contains my environment variables.
-nnoremap <Leader>env :tabe ~/.environment_variables<CR>
-
-" Open my git configuration file.
-nnoremap <Leader>git :tabe ~/.gitconfig<CR>
-
-" Stay in visual mode when indenting.
-vnoremap > >gv
-vnoremap < <gv
 
 " Opens the url in the browser of my choice.
 nnoremap <Leader>url :OpenUrl<CR>
 
 " Indent, retab (tabs to spaces) and trim trailing white space in the entire file.
 nnoremap <silent> <F5> mmgg=G:retab<CR>:Tws<CR>`mzz
-vnoremap <F5> =
 
 " Only open the file under the cursor in a new tab if it exists.
 nnoremap gf <C-w>gf
-
-" Only open the visually selected file in a new tab if it exists.
-vnoremap gf <C-w>gf
 
 " Open file under cursor in a new tab, if it doesn't exist then make a new buffer of it.
 nnoremap <Leader>gf :tabe <cfile><CR>
