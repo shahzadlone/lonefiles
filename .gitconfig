@@ -89,3 +89,4 @@
     rmc = rm -r --cached
     rmf = rm -r -f
     s = status
+    st = stash
