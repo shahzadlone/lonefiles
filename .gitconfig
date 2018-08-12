@@ -90,3 +90,4 @@
     rmf = rm -r -f
     s = status
     st = stash
+    stl = stash list
