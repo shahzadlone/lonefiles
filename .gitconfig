@@ -91,3 +91,4 @@
     s = status
     st = stash
     stl = stash list
+    sh = show
