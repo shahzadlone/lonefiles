@@ -92,3 +92,4 @@
     st = stash
     stl = stash list
     sh = show
+    wt = worktree
