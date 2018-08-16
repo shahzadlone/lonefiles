@@ -100,7 +100,7 @@ This file contains my vim autocommands according to my preference. Here is what 
                     <i> [Click to Expand] </i> 
           </summary> <p>
 
-| Vim File Name       | Info / Documentation / Purpose |
+| Function                   | Info / Documentation / Purpose |
 | :-----------------: | :----------------------------: |
 |                     |  |
 
