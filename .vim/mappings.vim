@@ -7,7 +7,7 @@ let mapleader = ","
 " ===============================[ Local Leader Key Mapping ]============================
 let maplocalleader = "\\"
 " ---------------------------------------------------------------------------------------
-
+0
 " =============================[ CNORE ABBREVIATION Mappings ]===========================
 
 " Open help in a vertical window instead of a horizontal window.
