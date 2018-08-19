@@ -22,7 +22,7 @@
 # In Depth File Documentation
 
 <details> <summary> <b> <font size="+4"> auto-commands.vim </font> </b>
-                    <i> [Click to Expand] </i> 
+                    <i> [Click to Expand] </i>
           </summary> <p>
 This file contains my vim autocommands according to my preference. Here is what they do:
 
@@ -85,7 +85,7 @@ This file contains my vim autocommands according to my preference. Here is what 
  directory. The directory is changes to the new file's directory.
 
  * Tip: This works quite magically with TMUX, as you can open a tmux pane that is already
- in the path of the file you are working on (this helps when working with multiple files 
+ in the path of the file you are working on (this helps when working with multiple files
  in multiple directories).
 
 ---
@@ -97,7 +97,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 ---
 
 <details> <summary> <b> <font size="+4"> functions.vim </font> </b>
-                    <i> [Click to Expand] </i> 
+                    <i> [Click to Expand] </i>
           </summary> <p>
 
 | Function | Info / Documentation / Purpose |
@@ -109,7 +109,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 ---
 
 <details> <summary> <b> <font size="+4"> mappings.vim </font> </b>
-                    <i> [Click to Expand] </i> 
+                    <i> [Click to Expand] </i>
           </summary> <p>
 
 | Mapping | Info / Documentation / Purpose |
@@ -121,7 +121,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 ---
 
 <details> <summary> <b> <font size="+4"> neovim.vim </font> </b>
-                    <i> [Click to Expand] </i> 
+                    <i> [Click to Expand] </i>
           </summary> <p>
 
 | Vim File Name       | Info / Documentation / Purpose |
@@ -133,19 +133,19 @@ This file contains my vim autocommands according to my preference. Here is what 
 ---
 
 <details> <summary> <b> <font size="+4"> options.vim </font> </b>
-                    <i> [Click to Expand] </i> 
+                    <i> [Click to Expand] </i>
           </summary> <p>
 
-| Vim File Name       | Info / Documentation / Purpose |
-| :-----------------: | :----------------------------: |
-|                     |  |
+|              Option Set              |          Info / Documentation / Purpose         |
+| :----------------------------------: | :---------------------------------------------: |
+| `autoindent`                         | Turns vim's Auto Indentation on.                |
 
 </p> </details>
 
 ---
 
 <details> <summary> <b> <font size="+4"> theme.vim </font> </b>
-                    <i> [Click to Expand] </i> 
+                    <i> [Click to Expand] </i>
           </summary> <p>
 
 | Vim File Name       | Info / Documentation / Purpose |
@@ -157,7 +157,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 ---
 
 <details> <summary> <b> <font size="+4"> tmux.vim </font> </b>
-                    <i> [Click to Expand] </i> 
+                    <i> [Click to Expand] </i>
           </summary> <p>
 
 | Vim File Name       | Info / Documentation / Purpose |
