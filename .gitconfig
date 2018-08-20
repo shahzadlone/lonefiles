@@ -38,6 +38,9 @@
     untracked = red bold
 
 
+[url "https://gitlab.com/"]
+    insteadOf = "gl:"
+
 [url "https://github.com/"]
     insteadOf = "gh:"
 
