@@ -92,6 +92,7 @@
     rmc = rm -r --cached
     rmf = rm -r -f
     s = status
+    sm = submodule
     st = stash
     stl = stash list
     sh = show
