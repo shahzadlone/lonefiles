@@ -139,7 +139,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 |              Option Set              |          Info / Documentation / Purpose         |
 | :----------------------------------: | :---------------------------------------------: |
 | `autoindent`                         | Turns vim's Auto Indentation on.                |
-| `colorcolumn=90`                     | Set a vertical line at 90-th char in line.      |
+| `autoread`                           |                                                 |
 
 </p> </details>
 
