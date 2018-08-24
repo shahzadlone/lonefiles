@@ -140,6 +140,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 | :----------------------------------: | :---------------------------------------------: |
 | `autoindent`                         | Turns vim's Auto Indentation on.                |
 | `autoread`                           |                                                 |
+| `autowrite`                          |                                                 |
 
 </p> </details>
 
