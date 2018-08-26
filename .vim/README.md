@@ -142,6 +142,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 | `autoread`                           |                                                 |
 | `autowrite`                          |                                                 |
 | `backup`                             |                                                 |
+| `backupdir=~/.vim/.recover/backup//` |                                                 |
 
 </p> </details>
 
