@@ -143,6 +143,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 | `autowrite`                          |                                                 |
 | `backup`                             |                                                 |
 | `backupdir=~/.vim/.recover/backup//` |                                                 |
+| `cmdheight=2`                        |                                                 |
 
 </p> </details>
 
