@@ -145,6 +145,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 | `backupdir=~/.vim/.recover/backup//` |                                                 |
 | `cmdheight=2`                        |                                                 |
 | `colorcolumn=90`                     |                                                 |
+| `complete-=k`                        |                                                 |
 
 </p> </details>
 
