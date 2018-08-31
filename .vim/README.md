@@ -147,6 +147,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 | `colorcolumn=90`                     |                                                 |
 | `complete-=k`                        |                                                 |
 | `copyindent`                         |                                                 |
+| `cursorline`                         |                                                 |
 
 </p> </details>
 
