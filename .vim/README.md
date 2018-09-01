@@ -148,6 +148,7 @@ This file contains my vim autocommands according to my preference. Here is what 
 | `complete-=k`                        |                                                 |
 | `copyindent`                         |                                                 |
 | `cursorline`                         |                                                 |
+| `dictionary+=/usr/share/dict/words`  |                                                 |
 
 </p> </details>
 
