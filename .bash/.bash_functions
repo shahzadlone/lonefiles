@@ -1,31 +1,5 @@
 # Shahzad's Bash Functions.
 
-# I can now do `Mark IWASTHERE` and just `cd ${IWASTHERE}` to go to that marked dir.
-Mark() {
-    export ${1}=`pwd`;
-}
-
-# If the directory has a Makefile with `EXEC = bin`, this function returns bin. Helpful
-#  when in my vim's vimux mapping I just want to run "make && ./`BINAME`" to quickly 
-#  make the binary using the makefile and then run the created executable(bin).
-BINAME() {
-    cat Makefile | \grep 'EXEC = ' | tr -s ' ' | cut -d' ' -f3;
-}
-
-CloneAll() {
-    # Make the url of the input github organization's repository page (200 max).
-    ORG_URL="https://api.github.com/orgs/${1}/repos?per_page=200";
-
-    # List of all repositories of that organization (seperated by newline-eol).
-    ALL_REPOS=$(curl -s ${ORG_URL} | grep html_url | awk 'NR%2 == 0' \
-                | cut -d ':' -f 2-3 | tr -d '",');
-
-    # Clone all the repositories.
-    for ORG_REPO in ${ALL_REPOS}; do
-        git clone ${ORG_REPO}.git;
-    done
-}
-
 cdm() {
     mkdir -p -- "${1}" && cd -P -- "${1}"
 }
@@ -52,3 +26,127 @@ fs() {
         du ${ARGUMENT} .[^.]* ./*;
     fi
 }
+
+# I can now do `Mark IWASTHERE` and just `cd ${IWASTHERE}` to go to that marked dir.
+Mark() {
+    export ${1}=`pwd`;
+}
+
+# If the directory has a Makefile with `EXEC = bin`, this function returns bin. Helpful
+#  when in my vim's vimux mapping I just want to run "make && ./`BINAME`" to quickly
+#  make the binary using the makefile and then run the created executable(bin).
+BINAME() {
+    cat Makefile | \grep 'EXEC = ' | tr -s ' ' | cut -d' ' -f3;
+}
+
+CloneAll() {
+    # Make the url of the input github organization's repository page (200 max).
+    ORG_URL="https://api.github.com/orgs/${1}/repos?per_page=200";
+
+    # List of all repositories of that organization (seperated by newline-eol).
+    ALL_REPOS=$(curl -s ${ORG_URL} | grep html_url | awk 'NR%2 == 0' \
+        | cut -d ':' -f 2-3 | tr -d '",');
+
+    # Clone all the repositories.
+    for ORG_REPO in ${ALL_REPOS}; do
+        git clone ${ORG_REPO}.git;
+    done
+}
+
+Download() {
+    wget -nc -k -np --random-wait -r -p -E -e robots=off -U mozilla ${1};
+}
+
+DownloadAll() {
+    wget -nc -k --random-wait -r -p -E -e robots=off -U mozilla ${1};
+}
+
+DownloadSecure() {
+    wget --user ${1} --password ${2} -nc -k -np --random-wait -r -p -E -e robots=off -U mozilla ${3};
+}
+
+DownloadAllSecure() {
+    wget --user ${1} --password ${2} -nc -k --random-wait -r -p -E -e robots=off -U mozilla ${3};
+}
+
+DownloadYT() {
+    youtube-dl --playlist-start 1 ${1};
+}
+
+DownloadYTMp3() {
+    youtube-dl --extract-audio --audio-format mp3 --playlist-start 1 ${1};
+}
+
+YoutubeUpdate() {
+    sudo apt autoremove youtube-dl;
+    sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/bin/youtube-dl;
+    sudo chmod a+rx /usr/bin/youtube-dl;
+    youtube-dl --version;
+}
+
+BazelUpdate() {
+    sudo apt-get install --only-upgrade bazel;
+}
+
+WioUpdate() {
+    # Uninstall wio globally.
+    sudo npm uninstall wio -g;
+
+    # Install wio globally.
+    sudo npm install wio --unsafe-perm -g;
+}
+
+TrimFrom() {
+    ffmpeg -i "${1}" -ss "${2}" -c copy "trimmed_${1}";
+}
+
+TrimTo() {
+    ffmpeg -i "${1}" -to "${2}" -c copy "trimmed_${1}";
+}
+
+TrimFromTo() {
+    ffmpeg -i "${1}" -ss "${2}" -to "${3}" -c copy "trimmed_${1}";
+}
+
+GitPullAllBranches() {
+    REMOTES="$@";
+
+    if [ -z "$REMOTES" ]; then
+        REMOTES=$(git remote);
+    fi
+
+    REMOTES=$(echo "${REMOTES}" | xargs -n1 echo);
+    CLB=$(git rev-parse --abbrev-ref HEAD);
+
+    echo "${REMOTES}" | while read REMOTE; do
+
+    git remote update ${REMOTE};
+    git remote show ${REMOTE} -n | awk '/merges with remote/{print $5" "$1}' | \
+
+        while read RB LB; do
+
+            ARB="refs/remotes/${REMOTE}/${RB}";
+            ALB="refs/heads/${LB}";
+            NBEHIND=$(( $(git rev-list --count ${ALB}..${ARB} 2>/dev/null) +0));
+            NAHEAD=$(( $(git rev-list --count ${ARB}..${ALB} 2>/dev/null) +0));
+
+            if [ "${NBEHIND}" -gt 0 ]; then
+
+                if [ "${NAHEAD}" -gt 0 ]; then
+
+                    echo " branch ${LB} is ${NBEHIND} commit(s) behind and ${NAHEAD} commit(s) ahead of ${REMOTE}/${RB}. could not be fast-forwarded";
+                elif [ "${LB}" = "$CLB" ]; then
+                    echo " branch ${LB} was ${NBEHIND} commit(s) behind of ${REMOTE}/${RB}. fast-forward merge";
+                    git merge -q ${ARB};
+                else
+                    echo " branch ${LB} was ${NBEHIND} commit(s) behind of ${REMOTE}/${RB}. resetting local branch to remote";
+                    git branch -f ${LB} -t ${ARB} >/dev/null;
+                fi
+            fi
+
+        done
+    done
+
+}
+
+
