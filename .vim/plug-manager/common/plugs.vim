@@ -54,6 +54,9 @@ Plug 'Valloric/YouCompleteMe'
 " Auto matching html tags.
 Plug 'Valloric/MatchTagAlways', { 'for': [ 'html', 'xhtml', 'xml', 'jinja' ] }
 
+" Better colour higlighting for Vue.js syntax.
+Plug 'posva/vim-vue'
+
 " To get quick snippets.
 Plug 'SirVer/ultisnips', { 'for': ['c', 'cpp'] }
 Plug 'honza/vim-snippets', { 'for': ['c', 'cpp'] }
