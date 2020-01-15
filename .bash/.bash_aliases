@@ -139,8 +139,8 @@ alias OPENHOST='HOST OPEN'
 # alias LAST='!:0-*'
 
 # Quickly start my instagram script!
-alias instagram='~/Desktop/instagram/oldBot/loneple.py'
-alias utagram='~/Desktop/instagram/unfollowsync/follow-sync -wait 61'
+alias instagram='python3 ~/Desktop/projects/instagram/oldBot/loneple.py'
+alias utagram='~/Desktop/projects/instagram/unfollowsync/unfollowsync -wait 97'
 
 # Works like an alias for opening pdfs, uses okular and disconnects from terminal.
 #pdf() { "okular "${1}" 2> /dev/null &"; }
