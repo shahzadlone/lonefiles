@@ -16,7 +16,7 @@ export PATH="${PATH}:${GOPATH}/bin";
 
 # -----------[ Cosa ]----------- {{{
 # Set the cosa path to where it is installed for wio.
-export COSA_PATH="/usr/local/lib/node_modules/wio/bin/toolchain/cosa";
+export COSA_PATH='/usr/local/lib/node_modules/wio/bin/toolchain/cosa';
 
 # Set the cosa include path to where the source is located at.
 export COSA_INCLUDE="${COSA_PATH}/cores/cosa";
@@ -24,6 +24,24 @@ export COSA_INCLUDE="${COSA_PATH}/cores/cosa";
 # Add the cosa include path to PATH.
 export PATH="${PATH}:${COSA_INCLUDE}";
 # ------------------------------ }}}
+
+# -----------------[ Waterloop / Wio ]----------------- {{{
+# Set WLOOP to where my waterloop git directory is located at.
+export WLOOP="${HOME}/Desktop/projects/Waterloop/git";
+
+# Set WIO to where my wio git directory is located at.
+export WIO="${HOME}/Desktop/projects/Waterloop/wio/git";
+# ----------------------------------------------------- }}}
+
+# -----------------[ ShipAtoB ]----------------- {{{
+# Set ATOB to where my ShipAtoB git directory is located at.
+export ATOB="${HOME}/Desktop/projects/shipatob/git";
+# ----------------------------------------------------- }}}
+
+# -----------------[ Planty ]----------------- {{{
+# Set PLANT to where my Planty git directory is located at.
+export TRUM="${HOME}/Desktop/projects/Tantrum/";
+# ----------------------------------------------------- }}}
 
 # -----[ Extras ]----- {{{
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
