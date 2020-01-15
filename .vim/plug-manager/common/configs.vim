@@ -35,6 +35,13 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \}
 
+
+" Configuration Options for the vim-vue plugin.
+" Everytime a vue file is opened start syntax higlighting.
+autocmd FileType vue syntax sync fromstart
+" Disable checking for pre-processors.
+let g:vue_disable_pre_processors=1
+
 " Better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
