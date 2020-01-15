@@ -47,12 +47,28 @@
 [url "git@bitbucket.org:"]
     insteadOf = "bb:"
 
+[url "https://gitlab.com/shahzadlone/"]
+    insteadOf = "gls:"
+
 [url "https://github.com/shahzadlone/"]
-    insteadOf = "sl:"
+    insteadOf = "ghs:"
+
+[url "https://bitbucket.com/shahzadlone/"]
+    insteadOf = "bbs:"
+
+[pretty]
+    custom = "%C(bold yellow)%h%C(bold magenta)%d %C(bold white)%ar %C(bold cyan)%s %C(bold blue)(%an)"
+    #                         │                 │                │                │                └─ author name
+    #                         │                 │                │                └─ message
+    #                         │                 │                └─ date (relative)
+    #                         │                 └─ decorations (branch, heads or tags)
+    #                         └─ hash (abbreviated)
 
 [alias]
-    a = add -p
-    addup = "!addup() { git remote add upstream \"${1}\" && git fetch upstream; }; addup"
+    a = add
+    aa = add -A
+    ac  = !git add -A && git commit -v
+    ap = add -p
     b = branch
     ba = branch --all
     bl = blame
