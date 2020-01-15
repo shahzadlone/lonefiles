@@ -235,6 +235,8 @@ nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<CR>
                      \:tabe ~/.vim/neovim.vim<CR>
                      \:tabe ~/.config/nyaovim/nyaovimrc.html<CR>
 
+nnoremap <Leader>todo :tabe ~/Desktop/Shahzad/Todo/TODO<CR>
+
 " Close all vim config files that are open in tabs, if possible (everything is saved).
 nnoremap <Leader>cvim :bd *.vim<C-a><CR>
 
