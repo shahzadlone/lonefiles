@@ -149,6 +149,49 @@ This file contains my vim autocommands according to my preference. Here is what 
 | `copyindent`                         |                                                 |
 | `cursorline`                         |                                                 |
 | `dictionary+=/usr/share/dict/words`  |                                                 |
+| `diffopt+=vertical`                  |                                                 |
+| `directory=~/.vim/.recover/swap//`   |                                                 |
+| `eol:☆`                              |                                                 |
+| `expandtab`                          |                                                 |
+| `extends:»`                          |                                                 |
+| `foldcolumn=2`                       |                                                 |
+| `foldlevel=1`                        |                                                 |
+| `foldmarker={,}`                     |                                                 |
+| `foldmethod=marker`                  |                                                 |
+| `formatoptions-=cro`                 |                                                 |
+| `hlsearch`                           |                                                 |
+| `ic`                                 |                                                 |
+| `incsearch`                          |                                                 |
+| `is`                                 |                                                 |
+| `lazyredraw`                         |                                                 |
+| `list`                               |                                                 |
+| `listchars=tab:┃━`                   |                                                 |
+| `nbsp:¬`                             |                                                 |
+| `nofoldenable`                       |                                                 |
+| `nojoinspaces`                       |                                                 |
+| `noshowmatch`                        |                                                 |
+| `nrformats+=alpha`                   |                                                 |
+| `nrformats-=octal`                   |                                                 |
+| `number relativenumber`              |                                                 |
+| `path=.,,**`                         |                                                 |
+| `precedes:«`                         |                                                 |
+| `ruler`                              |                                                 |
+| `shiftwidth=4`                       |                                                 |
+| `shortmess+=raIoOtT`                 |                                                 |
+| `showcmd`                            |                                                 |
+| `showmatch`                          |                                                 |
+| `showmode`                           |                                                 |
+| `softtabstop=4`                      |                                                 |
+| `splitbelow`                         |                                                 |
+| `splitright`                         |                                                 |
+| `tabpagemax=500`                     |                                                 |
+| `tabstop=4`                          |                                                 |
+| `timeout timeoutlen=5000`            |                                                 |
+| `timeout ttimeoutlen=99`             |                                                 |
+| `trail:·`                            |                                                 |
+| `undodir=~/.vim/.recover/undo//`     |                                                 |
+| `wildmenu`                           |                                                 |
+| `writebackup`                        |                                                 |
 
 </p> </details>
 
