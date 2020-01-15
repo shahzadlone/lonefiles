@@ -114,6 +114,9 @@ alias gits='\git status && \
             printf "\nYour unpushed commits:\n" && \
             git log --stat --oneline @{u}...HEAD'
 
+# Pull all remote git branches for this repository.
+alias gitpla='GitPullAllBranches'
+
 # ----------------------------- }}}
 
 # -----[ Extras. ]----- {{{
