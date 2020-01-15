@@ -28,9 +28,9 @@
     whitespace = magenta reverse ul
 
 [color "branch"]
-    current = yellow bold
-    local = green bold
-    remote = cyan bold
+    current = green bold
+    local = cyan bold
+    remote = yellow bold
 
 [color "status"]
     added = green bold
