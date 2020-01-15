@@ -101,17 +101,42 @@
     pl = pull
     plo = pull origin
     r = reset
+    re = rebase
     ra = remote add
-    rmup = remote rm upstream
+    rem = remote
     rhar = reset --hard
-    rmix = reset --mixed
-    rsof = reset --soft
+    rl = reflog
     rm = rm -r
     rmc = rm -r --cached
     rmf = rm -r -f
+    rmix = reset --mixed
+    rmup = remote remove upstream
+    rr = remote remove
+    rsof = reset --soft
     s = status
     sm = submodule
     st = stash
     stl = stash list
     sh = show
     wt = worktree
+
+    # Slightly advance git aliases.
+
+    # Commit as if ${1} days ago.
+    cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"
+
+    # Add a remote and fetch it.
+    addr = "!addremote() { git remote add \"${1}\" \"${2}\" && git fetch \"${1}\"; }; addremote"
+
+    # Add an upstream remote and fetch upstream.
+    addup = "!addup() { git remote add upstream \"${1}\" && git fetch upstream; }; addup"
+
+    # Diff with the commit that was back ${1} commit(s).
+    db = "!diffback() { git diff --color HEAD~\"${1}\"; }; diffback"
+
+    # Show me back that many commit. NOTE: back 1 commit is the latest commit (HEAD~0).
+    shb = "!showback() { git show --pretty HEAD~\"${1}\"; }; showback"
+
+    # Reverts to one commit ahead of the specified commit, keeping all the previous
+    #  history upto HEAD. Basically, commits one on top of the previous history.
+    revhis =  "!keep_history() { git revert --no-commit \"${1}\"..HEAD; }; keep_history"
