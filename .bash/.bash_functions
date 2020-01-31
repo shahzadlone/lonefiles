@@ -96,6 +96,9 @@ WioUpdate() {
     sudo npm install wio --unsafe-perm -g;
 }
 
+AddAptKey() {
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "${1}"
+}
 TrimFrom() {
     ffmpeg -i "${1}" -ss "${2}" -c copy "trimmed_${1}";
 }
