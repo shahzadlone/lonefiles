@@ -99,6 +99,11 @@ WioUpdate() {
 AddAptKey() {
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "${1}"
 }
+
+Stream() {
+    wget "${1}" -O- | tee myfav.mp4 | mpv --force-seekable=yes -;
+}
+
 TrimFrom() {
     ffmpeg -i "${1}" -ss "${2}" -c copy "trimmed_${1}";
 }
