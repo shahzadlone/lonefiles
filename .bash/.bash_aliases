@@ -69,6 +69,9 @@ alias untar='tar -xvzf'
 
 # A short cut to reset/clear my terminal screen (similar to clear command).
 alias r='reset'
+
+# Short cut for docker.
+alias d='sudo docker'
 # ----------------------------- }}}
 
 # -----[ Git. ]----- {{{
