@@ -112,6 +112,12 @@ alias litl='lit log'
 # To do a reset quickly.
 alias litr='lit reset'
 
+# Switch remote to ssh protocol.
+alias litssh='lit remote set-url origin git@github.com:shahzadlone/lonefiles.git'
+
+# Switch remote to http protocol.
+alias lithttp='lit remote set-url origin https://github.com/shahzadlone/lonefiles.git'
+
 # Quickly check the git status, with a view if unpushed commits.
 alias gits='\git status && \
             printf "\nYour unpushed commits:\n" && \
