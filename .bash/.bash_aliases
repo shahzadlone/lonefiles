@@ -29,7 +29,7 @@ alias vim="\${VISUAL}";
 alias vdiff="\${VISUAL} -d";
 
 # If we have nyaovim on the system, then make these aliases for it.
-if [ $(Exists "nyaovim") -eq 0 ]; then
+if [ $(Exists "nyaovim" | tail -n1) -eq 0 ]; then
 
     # Additional aliases to start nyaovim, if neovim and nyaovim are there.
     alias nvim='\nyaovim -p';
