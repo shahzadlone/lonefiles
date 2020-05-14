@@ -97,7 +97,15 @@ WioUpdate() {
 }
 
 AddAptKey() {
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "${1}"
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "${1}";
+}
+
+wmClass() {
+    xprop WM_CLASS;
+}
+
+procInfo() {
+    ps aux | grep $(xprop | awk -F'='  '/PID/ {print $2}');
 }
 
 Stream() {
