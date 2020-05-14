@@ -1,7 +1,7 @@
 # Shahzad's Bash Aliases (Note: #!/bin/bash is not needed because not a script!)
 
 # Helper function to find if a package / program exists or not.
-Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
+Exists() { which "${1}" &> /dev/null; echo ${?}; }
 
 # -----[ Overwrite default programs/commands usage. ]----- {{{
 # Make sudo work with aliases!
@@ -29,7 +29,7 @@ alias vim="\${VISUAL}";
 alias vdiff="\${VISUAL} -d";
 
 # If we have nyaovim on the system, then make these aliases for it.
-if [ $(Exists "nyaovim" | tail -n1) -eq 0 ]; then
+if [ $(Exists "nyaovim") -eq 0 ]; then
 
     # Additional aliases to start nyaovim, if neovim and nyaovim are there.
     alias nvim='\nyaovim -p';
