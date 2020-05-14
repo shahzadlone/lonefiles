@@ -40,3 +40,7 @@ fi
 if [ -f ~/.fzf.bash ]; then
     . ~/.fzf.bash
 fi
+
+# [[ $- != *i* ]] && neofetch
+# [[ -z "${TMUX}" ]] && neofetch --kitty --source ~/Desktop/shahzad.jpg
+neofetch
