@@ -61,9 +61,6 @@ alias l='ls -CF'
 # List all hidden files only, that aren't .. or . on seperate lines (append / to dirs).
 alias lh='ls -Ap1 | egrep "^\..*$"'
 
-# To easily source bashrc.
-alias sobash='source ~/.bashrc'
-
 # To easily untar(unzip) a tarball.
 alias untar='tar -xvzf'
 
