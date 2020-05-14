@@ -124,6 +124,25 @@ TrimFromTo() {
     ffmpeg -i "${1}" -ss "${2}" -to "${3}" -c copy "trimmed_${1}";
 }
 
+# Source these files if they exist .bash_profile, .profile, .bashrc, tmux.conf.
+sob() {
+    if [ -f ~/.bash_profile ]; then
+        source ~/.bash_profile > /dev/null;
+    fi
+
+    if [ -f ~/.profile ]; then
+        source ~/.profile > /dev/null;
+    fi
+
+    if [ -f ~/.bashrc ]; then
+        source ~/.bashrc;
+    fi
+
+    if [ -f ~/.tmux.conf ]; then
+        tmux source-file ~/.tmux.conf;
+    fi
+}
+
 GitPullAllBranches() {
     REMOTES="$@";
 
