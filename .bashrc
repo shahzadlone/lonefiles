@@ -2,9 +2,18 @@
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
+# Helper function to find if a package / program exists or not.
+Exists() { which "${1}" &> /dev/null; echo ${?}; }
+
+# Helper function to find if we are in tmux process or not.
+procParent() {
+    basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat \
+                  | cut -d \  -f 4) | tail -1 | sed 's/^.* //');
+} 
+
 # Start with Tmux by default. If not running interactively, do not do anything.
 [[ $- != *i* ]] && return
-[[ -z "${TMUX}" ]] && exec tmux
+[[ -z "${TMUX}" ]] && [[ $(Exists "tmux") -eq 0 ]] && exec tmux
 
 # Source the file that contains my system's default settings (if it exists).
 if [ -f ~/.bash/.bash_system_default ]; then
@@ -38,9 +47,11 @@ fi
 
 # Source the fzf's bash configurations.
 if [ -f ~/.fzf.bash ]; then
-    . ~/.fzf.bash
+    . ~/.fzf.bash;
 fi
 
-# [[ $- != *i* ]] && neofetch
-# [[ -z "${TMUX}" ]] && neofetch --kitty --source ~/Desktop/shahzad.jpg
-neofetch
+if [ $(procParent) == "kitty" ] && [ -n "$TMUX" ]; then
+    neofetch --kitty --source ~/Desktop/shahzad.jpg;
+else
+    neofetch;
+fi

@@ -108,6 +108,12 @@ procInfo() {
     ps aux | grep $(xprop | awk -F'='  '/PID/ {print $2}');
 }
 
+# Helper function to find the name of out process.
+procParent() {
+    basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat \
+                  | cut -d \  -f 4) | tail -1 | sed 's/^.* //');
+} 
+
 Stream() {
     wget "${1}" -O- | tee myfav.mp4 | mpv --force-seekable=yes -;
 }
