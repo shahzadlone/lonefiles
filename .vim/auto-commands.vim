@@ -32,6 +32,8 @@ autocmd BufWinEnter,BufRead,BufNewFile *.go setfiletype go
 
 " Indent my json file according to my preference.
 autocmd FileType json nnoremap <buffer> <F5> :%!python -m json.tool<CR>
+" Fix json comment highlighting..
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Automatically update the working directory to the current file's path.
 autocmd BufEnter * silent! cd %:p:h

@@ -45,6 +45,19 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
 
     endif
 
+    let g:clipboard = {
+                    \   'name': 'xclip',
+                    \   'copy': {
+                    \      '+': 'xclip -selection clipboard',
+                    \      '*': 'xclip -selection clipboard',
+                    \    },
+                    \   'paste': {
+                    \      '+': 'xclip -selection clipboard -o',
+                    \      '*': 'xclip -selection clipboard -o',
+                    \   },
+                    \   'cache_enabled': 1,
+                    \ }
+
 elseif !has('nvim') " Configurations that are only applied when not using neovim (nvim).
 
     " colorscheme evening

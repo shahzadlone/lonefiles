@@ -77,7 +77,7 @@ highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 " Show “invisible” characters.
 set list
-set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
+"set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 
 " Highlight current line.
 set cursorline
@@ -131,3 +131,6 @@ set foldlevel=1
 
 " Set folding off by default, can enable using my mapping (<Leader>fold).
 set nofoldenable
+
+" Use the "+ register for clipboard.
+"set clipboard=unnamedplus

@@ -20,6 +20,9 @@ vim +PlugInstall +qall
 # Just update the plugins and quit all vim buffers (probably don't need this step).
 vim +PlugUpdate +qall
 
+# Ensure Coc.nvim extensions are updated if they weren't updated before.
+vim +CocRestart +qall
+
 # ====================[ Configure terminal ]====================
 
 # Install the gruv-box dark terminal theme from Mayccoll/Gogh.

@@ -8,13 +8,20 @@ let mapleader = ","
 let maplocalleader = "\\"
 " ---------------------------------------------------------------------------------------
 0
-" =============================[ CNORE ABBREVIATION Mappings ]===========================
+" =============================[ CNORE Mappings ]===========================
 
 " Open help in a vertical window instead of a horizontal window.
 cnoreabbrev help vert help
 
 " Open a file in read-only mode, in a vertical spilt.
 cnoreabbrev vview vert sview
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cnoremap w!! w !sudo tee > /dev/null %
+
+" Allow saving and exit of files as sudo when I forgot to start vim using sudo.
+cnoremap x!! x !sudo tee > /dev/null %
+
 " ---------------------------------------------------------------------------------------
 
 " =================================[ NOREMAP mappings ]=================================
@@ -134,6 +141,9 @@ nnoremap <Leader>y "+y
 
 " Source ~/.vimrc file.
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>:nohls<CR>`mzz
+
+" Do the sudo action (default: write option, don't do a <CR>).
+nnoremap <Leader>sudo :w !sudo tee %
 
 " Opens the url in the browser of my choice.
 nnoremap <Leader>url :OpenUrl<CR>
@@ -269,6 +279,9 @@ nnoremap <Leader>scri :tabe ~/.scripts/lonefigure.sh<CR>
                       \:tabe ~/.scripts/lonependencies.sh<CR>
                       \:tabe ~/.scripts/lonestall.sh<CR>
                       \:tabe ~/.scripts/lonify.sh<CR>
+
+nnoremap <Leader>sound :tabe /etc/pulse/default.pa<CR>
+                      \:tabe /etc/pulse/daemon.conf<CR>
 
 " Open my profile configuration file.
 nnoremap <Leader>pro :tabe ~/.profile<CR>

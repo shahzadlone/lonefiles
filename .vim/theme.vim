@@ -10,11 +10,16 @@ endif
 
 set background=dark
 
-" Use GruvBox
-let g:gruvbox_italic=1
+" GruvBox theme configurations.
+" Tells GruvBox to show comments in italics (this line should show in italics).
 colorscheme gruvbox
+let g:gruvbox_italic=1
 set t_ZH="\e[3m"
 set t_ZR="\e[23m"
+
+" Gruvbox Airline..
+let g:airline_theme='gruvbox'
+
 
 
 " ============ Settings I needed back in the day when I used Ubuntu 12.04-18.04. ============

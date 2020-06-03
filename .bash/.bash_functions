@@ -112,7 +112,23 @@ procInfo() {
 procParent() {
     basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat \
                   | cut -d \  -f 4) | tail -1 | sed 's/^.* //');
+    
+    # For fish
+    # basename "/"(ps -f -p (cat /proc/(echo %self)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //')
 } 
+
+RestartAudio() {
+    pulseaudio -k;
+    pulseaudio --start;
+}
+
+RecordAudio() {
+    arecord -f cd -d 10 recorded_audio.wav;
+}
+
+RecordAudioOfLength() {
+    arecord -f cd -d "${1}" "recorded_audio_of_length_${1}.wav";
+}
 
 Stream() {
     wget "${1}" -O- | tee myfav.mp4 | mpv --force-seekable=yes -;

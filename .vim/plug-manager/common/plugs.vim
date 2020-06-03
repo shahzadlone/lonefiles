@@ -9,9 +9,6 @@ Plug 'vim-scripts/Tabmerge'
 " Adds the vim surrounding feature, to surround things using s.
 Plug 'tpope/vim-surround'
 
-" Seemless git interaction inside vim.
-" Plug 'tpope/vim-fugitive'
-
 " Enables repeating the surround command with the dot(.).
 Plug 'tpope/vim-repeat'
 
@@ -30,12 +27,6 @@ Plug 'benmills/vimux'
 " To get the Table Mode.
 Plug 'dhruvasagar/vim-table-mode'
 
-" Go support.
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" Advance C++ syntax and type highlighting.
-Plug 'octol/vim-cpp-enhanced-highlight'
-
 " Git gutter to show modified lines in file.
 Plug 'airblade/vim-gitgutter'
 
@@ -47,9 +38,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Super tab to make compatible YCM and UltiSnip with tab.
 Plug 'ervandew/supertab'
-
-" Auto completing suggestions.
-" Plug 'Valloric/YouCompleteMe'
 
 " Auto matching html tags.
 Plug 'Valloric/MatchTagAlways', { 'for': [ 'html', 'xhtml', 'xml', 'jinja' ] }
@@ -76,6 +64,21 @@ Plug 'jceb/vim-orgmode'
 " Easy motion.
 Plug 'easymotion/vim-easymotion'
 
+" C/C++/ObjC semantic highlighting using the language server protocol (LSP). 
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+" Conquer of Completion for fast LSP language completion.
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Install the gruvbox theme.
+Plug 'morhetz/gruvbox'
+
+" Advance C++ syntax and type highlighting.
+" Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Seemless git interaction inside vim.
+" Plug 'tpope/vim-fugitive'
+
 " Hacker typer mode for vim.
 " Plug 'mjbrownie/hackertyper.vim'
 " Plug 'gu-fan/autotype.vim'
@@ -83,5 +86,9 @@ Plug 'easymotion/vim-easymotion'
 " Integrate GDB.
 " Plug 'vim-scripts/Conque-GDB'
 
-" Install the gruvbox theme.
-Plug 'morhetz/gruvbox'
+" Auto completing suggestions.
+" Plug 'Valloric/YouCompleteMe'
+
+" Go support.
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+

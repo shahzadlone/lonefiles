@@ -74,7 +74,7 @@ Clean() { printf "\n${BLUE_COLOR}Performing Cleanup...${NO_COLOR}\n\n";
           Apt 'autoremove' "";
 }
 
-Exists() { which "${1}" 2>&1 > /dev/null; echo ${?}; }
+Exists() { which "${1}" &> /dev/null; echo ${?}; }
 
 # Show what packages from the hash map do we have installed on our system currently.
 PrintCurrentPackages() {
