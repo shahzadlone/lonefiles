@@ -23,6 +23,8 @@ vim +PlugUpdate +qall
 # Ensure Coc.nvim extensions are updated if they weren't updated before.
 vim +CocRestart +qall
 
+yay -S neovim-remote
+
 # ====================[ Configure terminal ]====================
 
 # Install the gruv-box dark terminal theme from Mayccoll/Gogh.

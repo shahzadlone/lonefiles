@@ -1,6 +1,6 @@
 " Shahzad's All Common Plugin Configurations.
 
-"=============================================================================== coc.nvim
+"=============================================================================== Coc.nvim
 let g:coc_global_extensions = [
       \'coc-git',
       \'coc-clangd',
@@ -11,19 +11,19 @@ let g:coc_global_extensions = [
       \'coc-json'
       \]
 
-"========================================================================== YouCompleteMe
+"================================================================================ FSwitch
 " Source and header files configurations for f-switch.
 au! BufEnter *.cpp,*.cc,*.c let b:fswitchdst = 'h,hpp' | let b:fswitchlocs = './,./**'
 au! BufEnter *.hpp,*.h let b:fswitchdst = 'cpp,cc,c' | let b:fswitchlocs = './,./**'
 
-"========================================================================== YouCompleteMe
+"============================================================================== GitGutter
 " GitGutter default configurations.
 let g:gitgutter_enabled = 1         " Default 1.
 let g:gitgutter_signs = 1           " Default 1.
 let g:gitgutter_highlight_lines = 0 " Default 0.
 let g:gitgutter_max_signs = 5000    " Default 500.
 
-"========================================================================== YouCompleteMe
+"========================================================================= MatchTagAlways
 " To make MatchTagAlways do the tag matching for these files.
 let g:mta_use_matchparen_group = 1
 let g:mta_filetypes = {
@@ -33,20 +33,20 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \}
 
-"========================================================================== YouCompleteMe
+"================================================================================= VimVue
 " Configuration Options for the vim-vue plugin.
 " Everytime a vue file is opened start syntax higlighting.
 autocmd FileType vue syntax sync fromstart
 " Disable checking for pre-processors.
 let g:vue_disable_pre_processors=1
 
-"========================================================================== YouCompleteMe
+"============================================================================== UltiSnips
 " Better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-"========================================================================== YouCompleteMe
+"========================================================================== NerdCommenter
 " NerdCommenter configurations.
 " Enable trimming of trailing whitespace when uncommenting, for nerdcommenter.
 let g:NERDTrimTrailingWhitespace = 1
@@ -57,7 +57,7 @@ let g:NERDDefaultAlign = 'left'
 " Add spaces after comment delimiters by default.
 let g:NERDSpaceDelims = 1
 
-"========================================================================== YouCompleteMe
+"===================================================================== RainbowParenthesis
 " Rainbow parenthesis configurations.
 " Turn it on by default.
 let g:rainbow_active = 1 " Default 0, enable with :RainbowToggle if not on.

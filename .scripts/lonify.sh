@@ -37,7 +37,7 @@ if [ ${?} -eq 0 ]; then
 else
 
     echo "Something went wrong, not everything lonified! =(";
-    
+
     exit 111;
 
 fi
