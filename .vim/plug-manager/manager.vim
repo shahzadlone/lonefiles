@@ -10,6 +10,7 @@
 "        Also Use 'vim +PlugInstall +qall' to install plugins just from terminal.
 " =======================================================================================
 
+"=================================================================== Initialization Step.
 " Makes sure the plug.vim file is in the autoload folder, if not then goes and gets it.
 if empty(glob('~/.vim/autoload/plug.vim'))
 
@@ -21,7 +22,7 @@ endif
 
 
 " Specify a directory for plugins to get downloaded in.
-call plug#begin('~/.vim/plug-manager/plug') " =========[ Start Loading Plugins ]=========
+call plug#begin('~/.vim/plug-manager/plug') " ==================== Start Loading Plugins.
 
 " Load common plugins, that will always get loaded.
 source ~/.vim/plug-manager/common/plugs.vim
@@ -32,10 +33,17 @@ source ~/.vim/plug-manager/neo/plugs.vim
 " Load vim specific plugins only (example: ones we don't want to run with neomake).
 source ~/.vim/plug-manager/normal/plugs.vim
 
-call plug#end() " =======================[ End Loading Plugins ]=========================
+call plug#end() " =============================================== End of Loading Plugins.
 
 
-" =====================[ Configure Plugins (Select Plug-In Options) ]====================
+"====================================== Automatically Install Missing Plugins on Startup.
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
+
+"============================================= Configure Plugins (Select Plug-In Options)
 
 " Configure all the common plugins according to my preference.
 source ~/.vim/plug-manager/common/configs.vim

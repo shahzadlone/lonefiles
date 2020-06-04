@@ -112,10 +112,10 @@ procInfo() {
 procParent() {
     basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat \
                   | cut -d \  -f 4) | tail -1 | sed 's/^.* //');
-    
+
     # For fish
     # basename "/"(ps -f -p (cat /proc/(echo %self)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //')
-} 
+}
 
 RestartAudio() {
     pulseaudio -k;

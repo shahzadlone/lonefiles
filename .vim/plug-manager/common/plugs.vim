@@ -74,7 +74,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
 
 " Advance C++ syntax and type highlighting.
-" Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight', {'for':['c', 'cpp']}
 
 " Seemless git interaction inside vim.
 " Plug 'tpope/vim-fugitive'

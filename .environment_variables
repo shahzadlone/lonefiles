@@ -47,4 +47,8 @@ export TRUM="${HOME}/Desktop/projects/Tantrum/";
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/shahzad/.sdkman"
 [[ -s "/home/shahzad/.sdkman/bin/sdkman-init.sh" ]] && source "/home/shahzad/.sdkman/bin/sdkman-init.sh"
+
+# Set locale manually.
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 # -------------------- }}}

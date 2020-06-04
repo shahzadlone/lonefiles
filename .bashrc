@@ -13,7 +13,7 @@ procParent() {
 
 # Start with Tmux by default. If not running interactively, do not do anything.
 [[ $- != *i* ]] && return
-[[ -z "${TMUX}" ]] && [[ $(Exists "tmux") -eq 0 ]] && exec tmux
+[[ -z "${TMUX}" ]] && [[ $(Exists "tmux") -eq 0 ]] && exec tmux -u
 
 # Source the file that contains my system's default settings (if it exists).
 if [ -f ~/.bash/.bash_system_default ]; then
@@ -50,8 +50,8 @@ if [ -f ~/.fzf.bash ]; then
     . ~/.fzf.bash;
 fi
 
-if [ $(procParent) == "kitty" ] && [ -n "$TMUX" ]; then
-    neofetch --kitty --source ~/Desktop/shahzad.jpg;
-else
-    neofetch;
-fi
+#if [ $(procParent) == "kitty" ] && [ -n "$TMUX" ]; then
+#    neofetch --kitty --source ~/Desktop/shahzad.jpg;
+#else
+#    neofetch;
+#fi

@@ -8,8 +8,12 @@ let g:coc_global_extensions = [
       \'coc-html',
       \'coc-css',
       \'coc-highlight',
+      \'coc-vimlsp',
       \'coc-json'
       \]
+"======================================================================== LspCxxHighlight
+" vim-lsp-cxx-highlight's support for text properties.
+let g:lsp_cxx_hl_use_text_props = 1
 
 "================================================================================ FSwitch
 " Source and header files configurations for f-switch.

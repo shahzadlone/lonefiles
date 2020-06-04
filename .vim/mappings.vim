@@ -7,7 +7,7 @@ let mapleader = ","
 " ===============================[ Local Leader Key Mapping ]============================
 let maplocalleader = "\\"
 " ---------------------------------------------------------------------------------------
-0
+
 " =============================[ CNORE Mappings ]===========================
 
 " Open help in a vertical window instead of a horizontal window.
@@ -59,7 +59,7 @@ xnoremap @ :<C-u>call VisualizeMacro()<CR>
 " Insert the contents of the clipboard, in operator pending mode (one normal command).
 " onoremap <Localleader>P :set paste<CR><C-o>"+P<C-o>:set nopaste<CR>
 " onoremap <Localleader>p :set paste<CR><C-o>"+p<C-o>:set nopaste<CR>
-" onoremap <Localleader>p <ESC>:set paste"+p:set nopdaste<CR>
+" onoremap <Localleader>p <ESC>:set paste"+p:set nopaste<CR>
 " ---------------------------------------------------------------------------------------
 
 " =================================[ VNOREMAP mappings ]=================================
@@ -141,6 +141,9 @@ nnoremap <Leader>y "+y
 
 " Source ~/.vimrc file.
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>:nohls<CR>`mzz
+
+" Source ~/.vimrc file, update plugins and their extensions.
+nnoremap <Leader>svu :wa<CR>:source $MYVIMRC<CR>:CocRestart<CR>:CocUpdate<CR>:nohls<CR>
 
 " Do the sudo action (default: write option, don't do a <CR>).
 nnoremap <Leader>sudo :w !sudo tee %

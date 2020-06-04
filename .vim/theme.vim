@@ -20,7 +20,8 @@ set t_ZR="\e[23m"
 " Gruvbox Airline..
 let g:airline_theme='gruvbox'
 
-
+" Get Nice GUI Colors in terminal.
+set termguicolors
 
 " ============ Settings I needed back in the day when I used Ubuntu 12.04-18.04. ============
 "" Set vim built in color support for terminal.
