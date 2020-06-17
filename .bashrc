@@ -45,13 +45,18 @@ if [ -f ~/.bash/.bash_aliases ]; then
     . ~/.bash/.bash_aliases;
 fi
 
+# Source the file containing bash completions, if it exists.
+if [ -f ~/.bash/.bash_completions ]; then
+    . ~/.bash/.bash_completions;
+fi
+
 # Source the fzf's bash configurations.
 if [ -f ~/.fzf.bash ]; then
     . ~/.fzf.bash;
 fi
 
-#if [ $(procParent) == "kitty" ] && [ -n "$TMUX" ]; then
-#    neofetch --kitty --source ~/Desktop/shahzad.jpg;
-#else
-#    neofetch;
-#fi
+if [ $(procParent) == "kitty" ] && [ -n "$TMUX" ]; then
+    neofetch --kitty --source ~/Desktop/shahzad.jpg;
+else
+    neofetch;
+fi

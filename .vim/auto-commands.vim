@@ -31,7 +31,7 @@ autocmd BufWinEnter,BufRead,BufNewFile *.ejs,*.hbs setfiletype html
 autocmd BufWinEnter,BufRead,BufNewFile *.go setfiletype go
 
 " Automatically update the working directory to the current file's path.
-autocmd BufEnter * silent! cd %:p:h
+autocmd BufEnter * silent! lcd %:p:h
 
 " Fix json comment highlighting..
 autocmd FileType json syntax match Comment +\/\/.\+$+

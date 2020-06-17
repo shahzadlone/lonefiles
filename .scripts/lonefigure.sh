@@ -25,6 +25,22 @@ vim +CocRestart +qall
 
 yay -S neovim-remote
 
+# install powerline fonts.
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+
+# install fzf
+sudo pacman -S fzf
+
+# Install Tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # ====================[ Configure terminal ]====================
 
 # Install the gruv-box dark terminal theme from Mayccoll/Gogh.

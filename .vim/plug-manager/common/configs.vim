@@ -15,6 +15,10 @@ let g:coc_global_extensions = [
 " vim-lsp-cxx-highlight's support for text properties.
 let g:lsp_cxx_hl_use_text_props = 1
 
+"==================================================================================== Fzf
+" Add namespace for fzf.vim commands.
+let g:fzf_command_prefix = 'Fzf'
+
 "================================================================================ FSwitch
 " Source and header files configurations for f-switch.
 au! BufEnter *.cpp,*.cc,*.c let b:fswitchdst = 'h,hpp' | let b:fswitchlocs = './,./**'
@@ -49,6 +53,20 @@ let g:vue_disable_pre_processors=1
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+"============================================================================ NerdTreeGit
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 "========================================================================== NerdCommenter
 " NerdCommenter configurations.

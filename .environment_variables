@@ -6,6 +6,12 @@
 # Add to the front of the PATH variable (whatever I add is given a higher precedence).
 PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}";
 
+# ------------[ Set Locale Maually ]------------ {{{
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+#---------------- ------------------------------ }}}
+
 # ------------[ Go ]------------ {{{
 # Set GOPATH to the default "${HOME}/go"
 export GOPATH=$(go env GOPATH);
@@ -47,8 +53,4 @@ export TRUM="${HOME}/Desktop/projects/Tantrum/";
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/shahzad/.sdkman"
 [[ -s "/home/shahzad/.sdkman/bin/sdkman-init.sh" ]] && source "/home/shahzad/.sdkman/bin/sdkman-init.sh"
-
-# Set locale manually.
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 # -------------------- }}}

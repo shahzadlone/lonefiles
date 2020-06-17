@@ -33,25 +33,38 @@ vmap <BS> <Leader>cigv
 " Visual mode mapping to toggle all lines the same way the first line is toggled.
 vmap <Leader><BS> <Leader>c<Space>gv
 
+"==================================================================================== Fzf
+" Open files with Fzf.
+nnoremap <silent> <leader>ff :FzfFiles<CR>
+
+" Open files with Fzf in full screen.
+nnoremap <silent> <leader>fF :FzfFiles!<CR>
+
+" Open a list of buffers with Fzf.
+nnoremap <silent> <leader>fb :FzfBuffers<CR>
+
+" Open histroy with Fzf in command mode.
+cnoremap <silent> <C-p> :FzfHistory:<CR>
+
 "=============================================================================== Surround
 " Quickly surround this WORD in a string using the surround plugin.
 nmap <Leader>str ysiW"
 
 "============================================================================= EasyMotion
 " <Leader>f{char} to move to {char}.
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
+map  <Leader>Fc <Plug>(easymotion-bd-f)
+nmap <Leader>Fc <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}.
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <Leader>Fb <Plug>(easymotion-overwin-f2)
 
-" Move to line.
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
+" Find and move to line.
+map <Leader>Fl <Plug>(easymotion-bd-jk)
+nmap <Leader>Fl <Plug>(easymotion-overwin-line)
 
-" Move to word.
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
+" find and move to word.
+map  <Leader>Fw <Plug>(easymotion-bd-w)
+nmap <Leader>Fw <Plug>(easymotion-overwin-w)
 
 "=============================================================================== Coc.nvim
 " Quick open Coc config.

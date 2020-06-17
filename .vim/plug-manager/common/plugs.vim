@@ -12,11 +12,23 @@ Plug 'tpope/vim-surround'
 " Enables repeating the surround command with the dot(.).
 Plug 'tpope/vim-repeat'
 
+" Git interaction inside vim.
+Plug 'tpope/vim-fugitive'
+
+" Enables continuously updated session files containing the current vim state.
+Plug 'tpope/vim-obsession'
+
 " Nerd Tree for easier files, directory navigation.
 Plug 'scrooloose/nerdtree'
 
+" Nerd Tree git support,
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " For easier commenting using <Leader> and 'c' command with combinations.
 Plug 'scrooloose/nerdcommenter'
+
+" For using icons and nerd fonts.
+Plug 'ryanoasis/vim-devicons'
 
 " To get rainbow nested parenthesis.
 Plug 'luochen1990/rainbow'
@@ -61,6 +73,10 @@ Plug 'derekwyatt/vim-fswitch'
 " Org mode for vim.
 Plug 'jceb/vim-orgmode'
 
+" Fuzzy Finder, keep latest binary and the plugin.
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Easy motion.
 Plug 'easymotion/vim-easymotion'
 
@@ -76,9 +92,6 @@ Plug 'morhetz/gruvbox'
 " Advance C++ syntax and type highlighting.
 " Plug 'octol/vim-cpp-enhanced-highlight', {'for':['c', 'cpp']}
 
-" Seemless git interaction inside vim.
-" Plug 'tpope/vim-fugitive'
-
 " Hacker typer mode for vim.
 " Plug 'mjbrownie/hackertyper.vim'
 " Plug 'gu-fan/autotype.vim'
@@ -91,4 +104,7 @@ Plug 'morhetz/gruvbox'
 
 " Go support.
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Install the NeoSolarized theme.
+" Plug 'iCyMind/NeoSolarized'
 

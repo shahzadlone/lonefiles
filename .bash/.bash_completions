@@ -1,0 +1,8 @@
+# Shahzad's .bash_completion file that sources all bash completions I want to turn on.
+
+# This files is called by ~/.bashrc file.
+
+# Source tmux completion file (if it exists).
+if [ -f ~/.bash/completions/tmux.completion.bash ]; then
+    . ~/.bash/completions/tmux.completion.bash;
+fi

@@ -10,6 +10,9 @@ set timeout ttimeoutlen=99
 "  an auto group with auto commands set up to only show absolute numbers in insert mode.
 set number relativenumber
 
+" Set UTF-8 encoding in vim.
+set encoding=UTF-8
+
 " Disable auto insertion of comments. Only works for one(current session),
 "  my auto command fix should resolve that.
 set formatoptions-=cro

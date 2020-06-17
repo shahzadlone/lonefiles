@@ -29,11 +29,16 @@ set -g status-left-length 20
 
 # Window mode
 setw -g window-status-current-style "bold bg=colour238 fg=colour81"
-setw -g window-status-current-format ' #I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F '
 setw -g window-status-style "none bg=colour235 fg=colour138"
-setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
 setw -g window-status-bell-style "bold bg=colour1 fg=colour255"
+#setw -g window-status-current-format ' #I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F '
+#setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
+
+# Show if pane are synchronized in this window?
+setw -g window-status-current-format ' #{?pane_synchronized,#[bg=blue],}#I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F '
+setw -g window-status-format         ' #{?pane_synchronized,#[bg=blue],}#I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
 
 # Messaging
 set -g message-style "bright fg=colour51 bg=black"
 set -g message-command-style "bg=black fg=colour51"
+

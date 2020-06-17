@@ -6,10 +6,6 @@ if has('nvim')
     " Plugin that makes working with LaTeX simple.
     Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
-    " Fuzzy finding files and all (also installs fzf).
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-
     " Integrate GDB into neovim.
     Plug 'huawenyu/neogdb.vim'
 

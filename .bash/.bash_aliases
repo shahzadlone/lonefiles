@@ -67,6 +67,12 @@ alias untar='tar -xvzf'
 # A short cut to reset/clear my terminal screen (similar to clear command).
 alias r='reset'
 
+# A short cut to reset/clear my terminal screen (similar to clear command).
+alias f='fzf'
+
+# A short cut to open files with vim through fzf.
+alias fvim='vim $(fzf --height 40% --reverse)'
+
 # Short cut for docker.
 alias d='sudo docker'
 # ----------------------------- }}}

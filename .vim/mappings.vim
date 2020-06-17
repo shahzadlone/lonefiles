@@ -8,6 +8,17 @@ let mapleader = ","
 let maplocalleader = "\\"
 " ---------------------------------------------------------------------------------------
 
+" =============================[ command Mappings ]===========================
+
+" Fix some of my normal typo's.
+command! Q :q
+command! Qa :qa
+command! W :w
+command! Wa :wa
+command! X :x
+command! Xa :xa
+" ---------------------------------------------------------------------------------------
+
 " =============================[ CNORE Mappings ]===========================
 
 " Open help in a vertical window instead of a horizontal window.
@@ -143,7 +154,7 @@ nnoremap <Leader>y "+y
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>:nohls<CR>`mzz
 
 " Source ~/.vimrc file, update plugins and their extensions.
-nnoremap <Leader>svu :wa<CR>:source $MYVIMRC<CR>:CocRestart<CR>:CocUpdate<CR>:nohls<CR>
+nnoremap <Leader>soe :wa<CR>:source $MYVIMRC<CR>:CocRestart<CR>:CocUpdate<CR>:nohls<CR>
 
 " Do the sudo action (default: write option, don't do a <CR>).
 nnoremap <Leader>sudo :w !sudo tee %

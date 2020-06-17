@@ -117,6 +117,17 @@ procParent() {
     # basename "/"(ps -f -p (cat /proc/(echo %self)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //')
 }
 
+F() {
+    old="${IFS}";
+    IFS=' ';
+    allArgs=$*;
+    IFS="${old}";
+
+    # Selected files and folders
+    selected="$(fzf -m)"
+    echo "${selected}" | xargs ${allArgs};
+}
+
 RestartAudio() {
     pulseaudio -k;
     pulseaudio --start;
