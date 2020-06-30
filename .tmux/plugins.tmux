@@ -9,22 +9,23 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 
 #============================================================================== Resurrect
 set -g @plugin 'tmux-plugins/tmux-resurrect'
-# Restore last saved environment automatically when tmux is started.
-#set -g @continuum-restore 'on'
 
 #============================================================================== Continuum
 set -g @plugin 'tmux-plugins/tmux-continuum'
 # Enable automatic start with systemd.
 set -g @continuum-boot 'on'
 # Restore last saved environment automatically when tmux is started.
-set -g @continuum-restore 'on'
+# set -g @continuum-restore 'on'
 
 #======================================================================== PrefixHighlight
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
-# Add the highlighting of the prefix to the right of the status bar,
-set -g status-right '#{prefix_highlight} | %a %Y-%m-%d %H:%M'
 # Set the colors used for the prefix highlight.
 set -g @prefix_highlight_bg 'blue'
+
+#========================================================================== BatteryStatus
+set -g @plugin 'tmux-plugins/tmux-battery'
+# Add the highlighting of the prefix and the battery info together,
+set -g status-right ' #{battery_status_bg} Battery: #{battery_percentage} #{prefix_highlight} | %a %Y-%m-%d %H:%M'
 
 #=================================================================================== Yank
 set -g @plugin 'tmux-plugins/tmux-yank'
@@ -35,7 +36,13 @@ set -g @yank_selection 'clipboard'
 # Set yank selection of mouse from: 'primary' or 'secondary' or 'clipboard'.
 set -g @yank_selection_mouse 'clipboard'
 
-#==================================================================================== Open
+#================================================================================ CopyCat
+set -g @plugin 'tmux-plugins/tmux-copycat'
+# Remapping meta bindings to ctrl.
+set -g @copycat_hash_search 'C-t'
+set -g @copycat_ip_search 'C-i'
+
+#=================================================================================== Open
 set -g @plugin 'tmux-plugins/tmux-open'
 # set -g @open-S 'https://www.google.com/search?q='
 

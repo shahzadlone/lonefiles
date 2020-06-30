@@ -8,6 +8,9 @@
 # By default start with mouse on.
 set -g mouse on
 
+# Re-number windows automatically when middle ones are closed.
+set-option -g renumber-windows on
+
 # Setting the delay between prefix and command.
 set -sg escape-time 2
 

@@ -7,6 +7,8 @@ let g:coc_global_extensions = [
       \'coc-cmake',
       \'coc-html',
       \'coc-css',
+      \'coc-tsserver',
+      \'coc-cssmodules',
       \'coc-highlight',
       \'coc-vimlsp',
       \'coc-json'

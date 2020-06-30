@@ -31,17 +31,21 @@ unbind '"'
 unbind n
 bind n new-window -c "#{pane_current_path}"
 
-# Start copy mode.
-unbind c
-bind c copy-mode
-unbind '['
-
 # Shift arrow to switch windows
 unbind l
 unbind h
 bind -r h previous-window
 bind -r l next-window
+
+# Start copy mode.
+unbind c
+bind c copy-mode
+unbind '['
+
+# Paste using this binding.
 unbind p
+bind p paste-buffer
+unbind ']'
 
 # Kill pane.
 unbind k

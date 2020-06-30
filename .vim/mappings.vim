@@ -15,7 +15,6 @@ command! Q :q
 command! Qa :qa
 command! W :w
 command! Wa :wa
-command! X :x
 command! Xa :xa
 " ---------------------------------------------------------------------------------------
 
