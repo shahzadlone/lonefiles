@@ -149,6 +149,20 @@ alias OPEN='firefox --new-window "http://localhost:8080" &'
 alias OPENHOST='HOST OPEN'
 # -------------------- }}}
 
+# -----[ Pacman. ]----- {{{
+alias pacman='sudo pacman'
+
+alias P='sudo pacman'
+
+alias Pu='sudo pacman -Syu'
+
+alias Pi='sudo pacman -S'
+
+alias Pcache='du -sh /var/cache/pacman/pkg/'
+
+alias Pclean='sudo pacman -Sc'
+# --------------------- }}}
+
 # -----[ Rough, needs some work. ]----- {{{
 # To quickly execute the last command with all it's arguments.
 # alias LAST='!:0-*'
