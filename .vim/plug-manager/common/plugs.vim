@@ -80,6 +80,10 @@ Plug 'junegunn/fzf.vim'
 " Easy motion.
 Plug 'easymotion/vim-easymotion'
 
+" Bazel build.
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+
 " C/C++/ObjC semantic highlighting using the language server protocol (LSP). 
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
