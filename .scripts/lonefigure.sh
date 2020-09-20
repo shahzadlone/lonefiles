@@ -8,6 +8,8 @@
 
 THEME_DIR=$(printf "${HOME}/.themes");
 DISTRO=$(lsb_release -d | awk -F"\t" '{print $2}' | cut -c -6)
+DISTRO=$(cat /etc/os-release | grep "^NAME" | cut -c 6- | cut -d "\"" -f 2)
+echo ${DISTRO}
 
 # ====================[ Configure vim ]====================
 

@@ -9,6 +9,10 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 
 #============================================================================== Resurrect
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+# For resurrecting vim sessions.
+set -g @resurrect-strategy-vim 'session'
+# For resurrecting neovim sessions.
+set -g @resurrect-strategy-nvim 'session'
 
 #============================================================================== Continuum
 set -g @plugin 'tmux-plugins/tmux-continuum'
