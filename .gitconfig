@@ -122,6 +122,9 @@
 
     # Slightly advance git aliases.
 
+    # Delete remote branch.
+    delbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
+
     # Commit as if ${1} days ago.
     cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"
 
