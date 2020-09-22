@@ -149,14 +149,14 @@ alias OPEN='firefox --new-window "http://localhost:8080" &'
 alias OPENHOST='HOST OPEN'
 # -------------------- }}}
 
-# -----[ Pacman and yay ]----- {{{
+# -----[ Pacman and Yay ]----- {{{
 alias pacman='sudo pacman'
 
 alias P='sudo pacman'
 alias Y='yay'
 
 alias Pi='sudo pacman -S'
-alias Yi='Yay -S'
+alias Yi='yay -S'
 
 alias Pu='sudo pacman -Syu'
 alias Pcache='du -sh /var/cache/pacman/pkg/'
