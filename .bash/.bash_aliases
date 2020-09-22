@@ -149,18 +149,25 @@ alias OPEN='firefox --new-window "http://localhost:8080" &'
 alias OPENHOST='HOST OPEN'
 # -------------------- }}}
 
-# -----[ Pacman. ]----- {{{
+# -----[ Pacman and yay ]----- {{{
 alias pacman='sudo pacman'
 
 alias P='sudo pacman'
-
-alias Pu='sudo pacman -Syu'
+alias Y='yay'
 
 alias Pi='sudo pacman -S'
+alias Yi='Yay -S'
 
+alias Pu='sudo pacman -Syu'
 alias Pcache='du -sh /var/cache/pacman/pkg/'
-
 alias Pclean='sudo pacman -Sc'
+
+# List all packages (pacman and non-AUR).
+alias Plsa='sudo pacman -Qqe'
+# List all pacman ONLY (non-AUR / non-foreign) packages.
+alias Pls='sudo pacman -Qqen'
+# List all non-AUR / non-foreign packages ONLY.
+alias Plsy='sudo pacman -Qqm'
 # --------------------- }}}
 
 # -----[ Rough, needs some work. ]----- {{{
