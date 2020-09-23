@@ -7,10 +7,13 @@ This repository is to be used as a bare git repo, I will have a bunch of install
  plugins, change my default terminal to my theme and then map all my keys according
  to my preference (caps-lock to control when held and escape if tapped).
 
+## Curless and Gitless Bare-Repo Clone of these files in the home directory:
 
-## Curless and Gitless Installation:
+```sudo wget -O - "https://raw.githubusercontent.com/shahzadlone/lonefiles/distro-arch-linux/.scripts/lonestall.sh" | sudo bash```
 
-```sudo wget -O - "https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/lonify.sh" | sudo bash```
+## Curless and Gitless Configuration of the entire system:
+
+```sudo wget -O - "https://raw.githubusercontent.com/shahzadlone/lonefiles/distro-arch-linux/.scripts/lonify.sh" | sudo bash```
 
 
 ## Credits
