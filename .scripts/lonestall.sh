@@ -12,7 +12,7 @@
 
 LONEFILES_DIR=$(printf "${HOME}/.lonefiles");
 
-LONE_BACKUP_DIR=$(printf "${LONEFILES_DIR}_backup/");
+LONE_BACKUP_DIR=$(printf "${LONEFILES_DIR}_backup");
 
 #========================================================================================
 # Helper Functions.
@@ -23,7 +23,7 @@ Lit() {
 }
 
 Move() {
-    sudo mkdir -p "${2}"$(dirname "${1}") && sudo mv "${1}" "${2}${1}";
+    sudo mkdir -p "${2}/"$(dirname "${1}") && sudo mv "${1}" "${2}/${1}";
 }
 
 #========================================================================================
@@ -51,7 +51,7 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
         printf "These are the files we need to back up:\n${BACKUP_FILES}\n";
 
         # Make a backup directory to store the dotfiles that exist before.
-        sudo mkdir -p "${LONE_BACKUP_DIR}";
+        sudo mkdir -p "${LONE_BACKUP_DIR}/";
 
         # Make all required paths and move all the files that need to be backed up.
         for file in ${BACKUP_FILES}; do Move "${HOME}/${file}" "${LONE_BACKUP_DIR}"; done
