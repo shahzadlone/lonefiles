@@ -16,6 +16,10 @@ shopt -s checkwinsize
 shopt -s globstar
 # ------------------------------------ }}}
 
+# -----[ Auto complete for cd ]----- {{{
+complete -d cd
+# ------------------------------------ }}}
+
 # -----[ History settings ]----- {{{
 # Don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
