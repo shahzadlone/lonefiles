@@ -27,6 +27,16 @@ fs() {
     fi
 }
 
+# Copy the contents of the given file to the clipboard (xclip).
+Copy() {
+    xclip -selection clipboard < "${1}";
+}
+
+# Paste the contents of the clipboard (xclip) into a file.
+Paste() {
+    xclip -out -selection clipboard >> "${1}";
+}
+
 # I can now do `Mark IWASTHERE` and just `cd ${IWASTHERE}` to go to that marked dir.
 Mark() {
     export ${1}=`pwd`;
