@@ -54,7 +54,7 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
         sudo mkdir -p "${LONE_BACKUP_DIR}";
 
         # Make all required paths and move all the files that need to be backed up.
-        for file in ${BACKUP_FILES}; do Move "${file}" "${LONE_BACKUP_DIR}"; done
+        for file in ${BACKUP_FILES}; do Move "${HOME}/${file}" "${LONE_BACKUP_DIR}"; done
 
         echo "Trying to install lonefiles after the backup...";
         Lit checkout;
