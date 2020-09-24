@@ -8,21 +8,21 @@
 #========================================================================================
 
 # Address to where my script files in raw format are stored online (dotfiles repo).
-SCRIPTS_DIR='https://raw.githubusercontent.com/shahzadlone/lonefiles/master/.scripts/';
+SCRIPTS_DIR='https://raw.githubusercontent.com/shahzadlone/lonefiles/distro-arch-linux/.scripts';
 
-# 1) Run the basic dependencies builder script (using wget, because might not have curl).
-sudo wget -O - "${SCRIPTS_DIR}lonependencies.sh" | sudo bash
+# 1) Clone the dotfiles as a bare git repository, with minimal dependencies.
+sudo wget -O - "${SCRIPTS_DIR}/lonestall.sh" | sudo bash
 
-# 2) Run the script that installs the dotfiles as a bare git repository in my home.
-sudo curl -skL "${SCRIPTS_DIR}lonestall.sh" | sudo bash
-
-# Exit if cloning (lonestall.sh) was not successfull.
+# Exit if cloning was not successfull (lonestall.sh failed).
 if ! [ ${?} -eq 0 ]; then
 
     echo "lonestall.sh wasn't successfull in cloning the lonefiles, lonify.sh exiting! =(";
     exit 111;
 
 fi
+
+# 2) Detect current distro of linux and install the appropriate dependencies.
+sudo curl -skL "${SCRIPTS_DIR}/lonependencies.sh" | sudo bash
 
 # At this point if lonestall.sh was successfull we should have the lonefiles locally.
 

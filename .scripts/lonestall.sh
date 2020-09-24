@@ -14,6 +14,14 @@ LONEFILES_DIR=$(printf "${HOME}/.lonefiles");
 
 LONE_BACKUP_DIR=$(printf "${LONEFILES_DIR}_backup");
 
+COMMON_DEPS=$(printf "wget git curl grep");
+
+# Variable to help us detect the distro of linux we are on.
+DISTRO=$(cat /etc/os-release | grep "^NAME" | cut -c 6- | cut -d "\"" -f 2);
+if [ "$(uname)" == "Darwin" ]; then
+    DISTRO="Mac";
+fi
+
 #========================================================================================
 # Helper Functions.
 #========================================================================================
@@ -26,9 +34,30 @@ Move() {
     sudo mkdir -p "${2}/"$(dirname "${1}") && sudo mv "${1}" "${2}/${1}";
 }
 
+Apt() { sudo DEBIAN_FRONTEND=noninteractive apt-get ${1} -y \
+        -o Dpkg::Options::="--force-confdef" \
+        -o Dpkg::Options::="--force-confnew" ${2};
+}
+
 #========================================================================================
 # Script Execution.
 #========================================================================================
+
+printf "\n========== Detected Linux Distribution: ${DISTRO} ==========\n";
+
+if [ "${DISTRO}" == "Arch Linux" ] || [ "${DISTRO}" == "Manjaro Linux" ]; then
+    sudo pacman -Sy --needed --noconfirm ${COMMON_DEPS};
+
+elif [ "${DISTRO}" == "Ubuntu" ]; then
+    Apt 'install --show-progress --verbose-versions' "${COMMON_DEPS}";
+
+elif [ "${DISTRO}" == "Mac" ]; then
+    brew install ${COMMON_DEPS};
+
+else
+    printf "\nWARNING: Distribution=${DISTRO} not supported by ${0} yet ...\n";
+    printf "\n... But lets try anyways! ...\n";
+fi
 
 # Clone the lonefiles as a bare git repository only if they are not there before.
 if [ ! -d "${LONEFILES_DIR}" ]; then
@@ -66,7 +95,7 @@ if [ ! -d "${LONEFILES_DIR}" ]; then
         else
 
             echo "Still unsuccessfull in cloning the lonefiles properly. =(";
-            exit 123;
+            exit 22;
 
         fi
 

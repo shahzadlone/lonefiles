@@ -63,6 +63,16 @@ CloneAll() {
     done
 }
 
+# Execute a script by using curl to pass the script's text on to bash.
+BashCurl() {
+    sudo curl -skL "${1}" | sudo bash;
+}
+
+# Execute a script by using wget to pass the script's text on to bash.
+BashWget() {
+    sudo wget -O - "${1}" | sudo bash;
+}
+
 Download() {
     wget -nc -k -np --random-wait -r -p -E -e robots=off -U mozilla ${1};
 }
