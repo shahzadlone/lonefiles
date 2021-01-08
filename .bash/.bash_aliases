@@ -151,23 +151,41 @@ alias OPENHOST='HOST OPEN'
 
 # -----[ Pacman and Yay ]----- {{{
 alias pacman='sudo pacman'
-
 alias P='sudo pacman'
-alias Y='yay'
-
+alias PT='pactree'
 alias Pi='sudo pacman -S'
-alias Yi='yay -S'
-
 alias Pu='sudo pacman -Syu'
-alias Pcache='du -sh /var/cache/pacman/pkg/'
-alias Pclean='sudo pacman -Sc'
+alias Y='yay'
+alias Yi='yay -S'
+alias Yu='yay -Syu'
 
+# Remove a package and its deps that aren't needed by any other installed package.
+alias Pr='sudo pacman -Rs'
+# Remove a package, its deps and all the packages that depend on it.
+alias PR='sudo pacman -Rsc'
+# Remove a package, without removing it's dependent packages. (DANGER: use wisely).
+alias Prd='sudo pacman -Rdd'
+# Show pacman cache.
+alias Pcache='du -sh /var/cache/pacman/pkg/'
+# Clean pacman cache.
+alias Pclean='sudo pacman -Sc'
 # List all packages (pacman and non-AUR).
 alias Plsa='sudo pacman -Qqe'
 # List all pacman ONLY (non-AUR / non-foreign) packages.
 alias Pls='sudo pacman -Qqen'
 # List all non-AUR / non-foreign packages ONLY.
 alias Plsy='sudo pacman -Qqm'
+
+# Don't forget to: ```makepkg -si``` after editing PKGBUILD.
+alias Yget='yay -G'
+# Edit package before building.
+alias Yedit='yay -S --editmenu'
+# Remove a package and its deps that aren't needed by any other installed package.
+alias Yr='yay -Rs'
+# Remove a package, its deps and all the packages that depend on it.
+alias YR='yay -Rsc'
+# Remove a package, without removing it's dependent packages. (DANGER: use wisely).
+alias Yrd='yay -Rdd'
 # --------------------- }}}
 
 # -----[ Rough, needs some work. ]----- {{{
