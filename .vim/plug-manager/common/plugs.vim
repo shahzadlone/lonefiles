@@ -6,6 +6,9 @@ Plug 'vim-scripts/Rename'
 " Helps merge tabs, into splits.
 Plug 'vim-scripts/Tabmerge'
 
+" Universal text linking support.
+Plug 'vim-scripts/utl.vim'
+
 " Adds the vim surrounding feature, to surround things using s.
 Plug 'tpope/vim-surround'
 
@@ -17,6 +20,9 @@ Plug 'tpope/vim-fugitive'
 
 " Enables continuously updated session files containing the current vim state.
 Plug 'tpope/vim-obsession'
+
+" Fast incrementing and decrementing of date and time formats.
+Plug 'tpope/vim-speeddating'
 
 " Nerd Tree for easier files, directory navigation.
 Plug 'scrooloose/nerdtree'
@@ -48,11 +54,30 @@ Plug 'vim-airline/vim-airline'
 " Status bar themes.
 Plug 'vim-airline/vim-airline-themes'
 
+" Calendar support.
+Plug 'mattn/calendar-vim'
+
+" Support for multiple syntax types in one file.
+Plug 'inkarkat/vim-SyntaxRange'
+
+" Emac's narrowing feature.
+Plug 'chrisbra/NrrwRgn'
+
 " Super tab to make compatible YCM and UltiSnip with tab.
 Plug 'ervandew/supertab'
 
+" Easy tag management for Vim (vim-misc is a needed dependency).
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
+
 " Auto matching html tags.
 Plug 'Valloric/MatchTagAlways', { 'for': [ 'html', 'xhtml', 'xml', 'jinja' ] }
+
+" Side panel to show all the tags within scope.
+Plug 'preservim/tagbar'
+
+" TagList for source code browsing.
+Plug 'yegappan/taglist'
 
 " Better colour higlighting for Vue.js syntax.
 Plug 'posva/vim-vue'
@@ -72,6 +97,9 @@ Plug 'derekwyatt/vim-fswitch'
 
 " Org mode for vim.
 Plug 'jceb/vim-orgmode'
+
+" Vimwiki note taking.
+Plug 'vimwiki/vimwiki'
 
 " Fuzzy Finder, keep latest binary and the plugin.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

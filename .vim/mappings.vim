@@ -247,21 +247,36 @@ nnoremap <Leader>Z :Zoom<CR>
 nnoremap <Leader>dico :set complete+=k <CR>
 nnoremap <Leader>dicc :set complete-=k <CR>
 
-" Open my vim config files that I modify the most in a new tab.
-nnoremap <Leader>vim :tabe ~/.vim/mappings.vim<CR>
+" Open my vim config files in opposite order they get sourced, into new tabs.
+nnoremap <Leader>vim :tabe ~/.vim/neovim.vim<CR>
                      \:tabe ~/.vim/plug-manager/manager.vim<CR>
-                     \:tabe ~/.vim/options.vim<CR>
+                     \:tabe ~/.vim/auto-commands.vim<CR>
                      \:tabe ~/.vim/theme.vim<CR>
                      \:tabe ~/.vim/tmux.vim<CR>
+                     \:tabe ~/.vim/mappings.vim<CR>
                      \:tabe ~/.vim/functions.vim<CR>
-                     \:tabe ~/.vim/auto-commands.vim<CR>
-                     \:tabe ~/.vim/neovim.vim<CR>
-                     \:tabe ~/.config/nyaovim/nyaovimrc.html<CR>
+                     \:tabe ~/.vim/options.vim<CR>
 
-nnoremap <Leader>todo :tabe ~/Desktop/Shahzad/Todo/TODO<CR>
+" Open my nyao vim config file.
+nnoremap <Leader>nyvim :tabe ~/.config/nyaovim/nyaovimrc.html<CR>
 
 " Close all vim config files that are open in tabs, if possible (everything is saved).
 nnoremap <Leader>cvim :bd *.vim<C-a><CR>
+
+" Open my vim mappings files (including plugin mappings).
+nnoremap <Leader>vmap :tabe ~/.vim/mappings.vim<CR>
+                      \:tabe ~/.vim/plug-manager/common/mappings.vim<CR>
+                      " \:tabe ~/.vim/plug-manager/neo/mappings.vim<CR>
+                      " \:tabe ~/.vim/plug-manager/normal/mappings.vim<CR>
+
+" Open my common vim plugin files (manager, plugins, configs and mappings).
+nnoremap <Leader>vplug :tabe ~/.vim/plug-manager/manager.vim<CR>
+                      \:tabe ~/.vim/plug-manager/common/plugs.vim<CR>
+                      \:tabe ~/.vim/plug-manager/common/configs.vim<CR>
+                      " \:tabe ~/.vim/plug-manager/common/mappings.vim<CR>
+
+" Open the file I track my TODO's in.
+nnoremap <Leader>todo :tabe ~/Desktop/Shahzad/Todo/TODO<CR>
 
 " Open my tmux configuration file.
 nnoremap <Leader>tmux :tabe ~/.tmux/settings.tmux<CR>

@@ -12,6 +12,10 @@ nnoremap <Leader>nt :NERDTree<CR>
 " Mapping to toggle rainbow parenthesis on or off.
 nnoremap <Leader>rain :RainbowToggle<CR>
 
+"================================================================================= TagBar
+" Toggle the tag bar which contains the tags for this file.
+nmap <F8> :TagbarToggle<CR>
+
 "============================================================================== TableMode
 " Mapping to table mode.
 nnoremap <Leader>tm :TableModeToggle<CR>

@@ -74,10 +74,6 @@ set splitright
 " Open horizontal panes to the bottom(not top).
 set splitbelow
 
-" Set highlight for 90 characters limit.
-set colorcolumn=90
-highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
-
 " Show “invisible” characters.
 set list
 "set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
@@ -137,3 +133,21 @@ set nofoldenable
 
 " Use the "+ register for clipboard.
 "set clipboard=unnamedplus
+
+" Set highlight for 90 characters limit.
+set colorcolumn=90
+highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+
+" If not using neovim then we need these settings.
+if !has('nvim')
+
+    " Don't make compatible with vi settings.
+    set nocompatible
+
+    " Turn file type specific plugin on.
+    filetype plugin on
+
+    " Enable syntax
+    syntax on
+
+endif
