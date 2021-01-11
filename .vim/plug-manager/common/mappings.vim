@@ -37,6 +37,30 @@ vmap <BS> <Leader>cigv
 " Visual mode mapping to toggle all lines the same way the first line is toggled.
 vmap <Leader><BS> <Leader>c<Space>gv
 
+"================================================================================ Tabular
+if exists(":Tabularize")
+    nmap <Leader>a= :Tabularize /=<CR>
+    vmap <Leader>a= :Tabularize /=<CR>
+    nmap <Leader>a: :Tabularize /:\zs<CR>
+    vmap <Leader>a: :Tabularize /:\zs<CR>
+
+    " Function to help keep aligning on the fly.
+    function! s:align()
+        let p = '^\s*|\s.*\s|\s*$'
+        if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+            let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+            let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+            Tabularize/|/l1
+            normal! 0
+            call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+        endif
+    endfunction
+
+    " Use the above function everytime we type Bars/Pipes in insert mode.
+    inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+endif
+
 "==================================================================================== Fzf
 " Open files with Fzf.
 nnoremap <silent> <leader>ff :FzfFiles<CR>

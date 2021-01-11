@@ -66,10 +66,6 @@ Plug 'chrisbra/NrrwRgn'
 " Super tab to make compatible YCM and UltiSnip with tab.
 Plug 'ervandew/supertab'
 
-" Easy tag management for Vim (vim-misc is a needed dependency).
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-easytags'
-
 " Auto matching html tags.
 Plug 'Valloric/MatchTagAlways', { 'for': [ 'html', 'xhtml', 'xml', 'jinja' ] }
 
@@ -98,9 +94,6 @@ Plug 'derekwyatt/vim-fswitch'
 " Org mode for vim.
 Plug 'jceb/vim-orgmode'
 
-" Vimwiki note taking.
-Plug 'vimwiki/vimwiki'
-
 " Fuzzy Finder, keep latest binary and the plugin.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -120,6 +113,19 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Install the gruvbox theme.
 Plug 'morhetz/gruvbox'
+
+" Help align text that matches a pattern.
+Plug 'godlygeek/tabular'
+
+" Syntax highlighting, matching rules and mappings for markdown and extensions.
+Plug 'plasticboy/vim-markdown'
+
+" Vimwiki note taking.
+" Plug 'vimwiki/vimwiki'
+
+" Easy tag management for Vim (vim-misc is a needed dependency).
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
 
 " Advance C++ syntax and type highlighting.
 " Plug 'octol/vim-cpp-enhanced-highlight', {'for':['c', 'cpp']}

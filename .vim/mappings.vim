@@ -85,6 +85,10 @@ vnoremap <Localleader>P "+P
 " Copy to the clipboaod.
 vnoremap <Leader>y "+y
 
+" Avoid pressing shift key to go into cmdline mode (swap ';' and ':' behaviours).
+vnoremap ; :
+vnoremap : ;
+
 " Stay in visual mode when indenting.
 vnoremap > >gv
 vnoremap < <gv
@@ -148,6 +152,10 @@ nnoremap <Localleader>p :set paste<CR>"+p:set nopaste<CR>
 
 " Copy to the clipboaod.
 nnoremap <Leader>y "+y
+
+" Avoid pressing shift key to go into cmdline mode (swap ';' and ':' behaviours).
+nnoremap ; :
+nnoremap : ;
 
 " Source ~/.vimrc file.
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>:nohls<CR>`mzz

@@ -21,6 +21,37 @@ let g:lsp_cxx_hl_use_text_props = 1
 " Add namespace for fzf.vim commands.
 let g:fzf_command_prefix = 'Fzf'
 
+"============================================================================ VimMarkDown
+" Enable markdown folding.
+let g:vim_markdown_folding_disabled = 0
+
+" Enable table of content window to auto-fit (shrink or stay the same).
+let g:vim_markdown_toc_autofit = 1
+
+" Enable LaTex syntax.
+let g:vim_markdown_math = 1
+
+" Enable YAML front matter.
+let g:vim_markdown_frontmatter = 1
+
+" Enable JSON front matter.
+let g:vim_markdown_json_frontmatter = 1
+
+" Enable strikethrough.
+let g:vim_markdown_strikethrough = 1
+
+" Indent by 4 spaces.
+let g:vim_markdown_new_list_item_indent = 4
+
+" Open new files or urls in new tab.
+let g:vim_markdown_edit_url_in = 'tab'
+
+" Disable default key mappings.
+" let g:vim_markdown_no_default_key_mappings = 1
+
+" Fenced code block languages.
+" let g:vim_markdown_fenced_languages = ['csharp=cs']
+
 "================================================================================ FSwitch
 " Source and header files configurations for f-switch.
 au! BufEnter *.cpp,*.cc,*.c let b:fswitchdst = 'h,hpp' | let b:fswitchlocs = './,./**'
