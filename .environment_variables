@@ -20,7 +20,6 @@ export GOPATH=$(go env GOPATH);
 export PATH="${PATH}:${GOPATH}/bin";
 # ------------------------------ }}}
 
-
 # ------------[ Android Studio SDK ]------------ {{{
 export ANDROID_SDK=${HOME}/Android/Sdk/
 # ---------------------------------------------- }}}
