@@ -1,0 +1,9 @@
+displaylink
+evdi-git
+libldac
+
+libappindicator-sharp
+
+skypeforlinux-stable-bin
+zoom
+google-chrome
