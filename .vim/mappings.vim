@@ -316,6 +316,10 @@ nnoremap <Leader>scri :tabe ~/.scripts/lonefigure.sh<CR>
                       \:tabe ~/.scripts/lonestall.sh<CR>
                       \:tabe ~/.scripts/lonify.sh<CR>
 
+" Open my pacman and yay package tracking list.
+nnoremap <Leader>pac :tabe ~/.scripts/packages/pacman.txt<CR>
+                      \:tabe ~/.scripts/packages/yay.txt<CR>
+
 nnoremap <Leader>sound :tabe /etc/pulse/default.pa<CR>
                       \:tabe /etc/pulse/daemon.conf<CR>
 

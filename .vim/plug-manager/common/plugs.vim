@@ -120,6 +120,8 @@ Plug 'godlygeek/tabular'
 " Syntax highlighting, matching rules and mappings for markdown and extensions.
 Plug 'plasticboy/vim-markdown'
 
+Plug 'HerringtonDarkholme/yats.vim'
+
 " Vimwiki note taking.
 " Plug 'vimwiki/vimwiki'
 

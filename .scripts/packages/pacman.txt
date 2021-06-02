@@ -52,3 +52,5 @@ ctags
 
 android-file-transfer
 mplayer
+mysql-workbench
+gnome-keyring

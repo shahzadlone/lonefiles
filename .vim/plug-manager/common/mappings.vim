@@ -6,7 +6,7 @@ nnoremap <C-w>t :Tabmerge right<CR>
 
 "=============================================================================== NerdTree
 " Mapping to nerd tree.
-nnoremap <Leader>nt :NERDTree<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
 
 "===================================================================== RainbowParenthesis
 " Mapping to toggle rainbow parenthesis on or off.
