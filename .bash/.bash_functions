@@ -148,6 +148,10 @@ F() {
     echo "${selected}" | xargs ${allArgs};
 }
 
+fnpm () {
+    npm run $(jq -r '.scripts | keys[]' package.json | fzf --height=10)
+}
+
 RestartAudio() {
     pulseaudio -k;
     pulseaudio --start;

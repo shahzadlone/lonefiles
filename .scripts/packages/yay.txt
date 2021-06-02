@@ -7,3 +7,5 @@ libappindicator-sharp
 skypeforlinux-stable-bin
 zoom
 google-chrome
+slack-desktop
+frostwire
