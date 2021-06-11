@@ -103,6 +103,9 @@ alias litp='lit push'
 # To quickly start staging modified dotfiles files, with the patch option (in hunks)
 alias lita='lit add -p'
 
+# To quickly add all updated / modified dotfiles that are being tracked.
+alias litaa='lit add -u'
+
 # To quickly show a diff of all the modified files.
 alias litd='lit diff'
 

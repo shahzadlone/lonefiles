@@ -97,6 +97,7 @@
     m = merge
     o = origin
     p = push
+    pbo = push branch origin
     po = push origin
     pl = pull
     plo = pull origin
@@ -124,7 +125,7 @@
     # Slightly advance git aliases.
 
     # Delete remote branch.
-    delbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
+    dbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
 
     # Commit as if ${1} days ago.
     cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"
@@ -136,7 +137,10 @@
     addup = "!addup() { git remote add upstream \"${1}\" && git fetch upstream; }; addup"
 
     # Diff with the commit that was back ${1} commit(s).
-    db = "!diffback() { git diff --color HEAD~\"${1}\"; }; diffback"
+    dback = "!diffback() { git diff --color HEAD~\"${1}\"; }; diffback"
+
+    # Push current branch to a newly created upstream branch.
+    pbr = "!pushb() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pushb"
 
     # Show me back that many commit. NOTE: back 1 commit is the latest commit (HEAD~0).
     shb = "!showback() { git show --pretty HEAD~\"${1}\"; }; showback"
