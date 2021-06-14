@@ -1,3 +1,5 @@
+google-cloud-sdk
+
 displaylink
 evdi-git
 libldac

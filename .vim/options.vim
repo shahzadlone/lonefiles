@@ -1,5 +1,11 @@
 " Shahzad's Vim Set Options
 
+" So that TextEdit doesn't fail.
+set hidden
+
+" Turn on mouse selection, clicking and scrolling.
+set mouse=a
+
 " Setting the timeout, for leader keys(operator mode time limit) to 5 seconds.
 set timeout timeoutlen=5000
 
@@ -137,6 +143,9 @@ set nofoldenable
 " Set highlight for 90 characters limit.
 set colorcolumn=90
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+
+" Set an other column on the left for signs (or other information).
+" set signcolumn=yes
 
 " If not using neovim then we need these settings.
 if !has('nvim')

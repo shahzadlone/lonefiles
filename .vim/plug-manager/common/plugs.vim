@@ -75,9 +75,6 @@ Plug 'preservim/tagbar'
 " TagList for source code browsing.
 Plug 'yegappan/taglist'
 
-" Better colour higlighting for Vue.js syntax.
-Plug 'posva/vim-vue'
-
 " To get quick snippets.
 Plug 'SirVer/ultisnips', { 'for': ['c', 'cpp'] }
 Plug 'honza/vim-snippets', { 'for': ['c', 'cpp'] }
@@ -120,7 +117,19 @@ Plug 'godlygeek/tabular'
 " Syntax highlighting, matching rules and mappings for markdown and extensions.
 Plug 'plasticboy/vim-markdown'
 
+" TypeScript syntax higlighting.
 Plug 'HerringtonDarkholme/yats.vim'
+
+" Better colour higlighting for Vue.js syntax.
+Plug 'posva/vim-vue'
+
+" Prettyfy only for selected files (must have yarn installed):
+"Plug 'prettier/vim-prettier', {
+"  \ 'do': 'yarn install',
+"  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+" Better JSON support.
+" Plug 'elzr/vim-json'
 
 " Vimwiki note taking.
 " Plug 'vimwiki/vimwiki'

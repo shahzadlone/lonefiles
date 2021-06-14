@@ -165,6 +165,15 @@ RecordAudioOfLength() {
     arecord -f cd -d "${1}" "recorded_audio_of_length_${1}.wav";
 }
 
+micTest() {
+    arecord -vvv -f dat /dev/null;
+}
+
+gpuTest() {
+    glxgears;
+}
+
+
 Stream() {
     wget "${1}" -O- | tee myfav.mp4 | mpv --force-seekable=yes -;
 }

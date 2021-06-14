@@ -2,17 +2,22 @@
 
 "=============================================================================== Coc.nvim
 let g:coc_global_extensions = [
-      \'coc-git',
       \'coc-clangd',
       \'coc-cmake',
-      \'coc-html',
       \'coc-css',
-      \'coc-tsserver',
       \'coc-cssmodules',
+      \'coc-eslint',
+      \'coc-git',
       \'coc-highlight',
-      \'coc-vimlsp',
-      \'coc-json'
+      \'coc-html',
+      \'coc-json',
+      \'coc-prettier',
+      \'coc-tsserver',
+      \'coc-vimlsp'
       \]
+"=============================================================================== Prettier
+nmap <F1> <Plug>(Prettier)
+
 "======================================================================== LspCxxHighlight
 " vim-lsp-cxx-highlight's support for text properties.
 let g:lsp_cxx_hl_use_text_props = 1
@@ -63,6 +68,13 @@ let g:gitgutter_enabled = 1         " Default 1.
 let g:gitgutter_signs = 1           " Default 1.
 let g:gitgutter_highlight_lines = 0 " Default 0.
 let g:gitgutter_max_signs = 5000    " Default 500.
+
+" Sign styles.
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
 
 "========================================================================= MatchTagAlways
 " To make MatchTagAlways do the tag matching for these files.

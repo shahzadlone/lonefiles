@@ -25,11 +25,14 @@ snap install --devmode --beta anbox
 
 
 =============================================================
+NEOVIM/VIM PROVIDER SUPPORT:
+
 " Add python support to neo-vim: (make sure python2 python3 and their pip's are installed)
 python2 -m pip install --user --upgrade pynvim
 python3 -m pip install --user --upgrade pynvim
 
-
-=============================================================
 " Node.js support,
 sudo npm install -g neovim
+
+" Ruby Gem support support:
+gem install neovim

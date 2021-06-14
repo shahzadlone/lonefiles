@@ -37,7 +37,7 @@ autocmd BufEnter * silent! lcd %:p:h
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Indent my json file according to my preference.
-" autocmd FileType json nnoremap <buffer> <F5> :%!python -m json.tool<CR>
+autocmd FileType json nnoremap <buffer> <F5> :%!python -m json.tool<CR>
 
 " Open new buffers/files in a new tab (stops piling or opening things on top of one pane).
 " autocmd BufAdd,BufNewFile * nested tab sball

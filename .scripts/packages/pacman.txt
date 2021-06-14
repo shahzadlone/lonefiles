@@ -19,6 +19,7 @@ xclip
 docker
 jq
 mysql
+zip
 
 xdg-utils
 pulseaudio-alsa
@@ -29,6 +30,7 @@ bluez-utils
 blueman
 pavucontrol
 kmix
+cheese
 
 mono
 xdotool
@@ -45,10 +47,13 @@ gimp
 discord
 
 go
+ruby
 nodejs
 python2
 python3
 ctags
+clang
+gcc
 
 android-file-transfer
 mplayer
