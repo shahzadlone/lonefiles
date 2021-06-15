@@ -23,12 +23,16 @@ augroup END
 autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
 
 " Set the following filetypes only if the filetype was not detected (not set filetype=x).
-autocmd BufWinEnter,BufRead,BufNewFile *.ru setfiletype ruby
-autocmd BufWinEnter,BufRead,BufNewFile *.css.erb,*.spriter setfiletype css
-autocmd BufWinEnter,BufRead,BufNewFile *.mkd,*.md,*.markdown setfiletype markdown
-autocmd BufWinEnter,BufRead,BufNewFile *.json setfiletype javascript
-autocmd BufWinEnter,BufRead,BufNewFile *.ejs,*.hbs setfiletype html
-autocmd BufWinEnter,BufRead,BufNewFile *.go setfiletype go
+autocmd BufWinEnter,BufRead,BufNewFile *.ru set filetype=ruby
+autocmd BufWinEnter,BufRead,BufNewFile *.css.erb,*.spriter set filetype=css
+autocmd BufWinEnter,BufRead,BufNewFile *.mkd,*.md,*.markdown set filetype=markdown
+autocmd BufWinEnter,BufRead,BufNewFile *.js set filetype=javascript
+autocmd BufWinEnter,BufRead,BufNewFile *.jsx set filetype=javascriptreact
+autocmd BufWinEnter,BufRead,BufNewFile *.ts set filetype=typescript
+autocmd BufWinEnter,BufRead,BufNewFile *.tsx set filetype=typescriptreact
+autocmd BufWinEnter,BufRead,BufNewFile *.ejs,*.hbs set filetype=html
+autocmd BufWinEnter,BufRead,BufNewFile *.go set filetype=go
+autocmd BufWinEnter,BufRead,BufNewFile *.json set filetype=json
 
 " Automatically update the working directory to the current file's path.
 autocmd BufEnter * silent! lcd %:p:h
@@ -36,8 +40,21 @@ autocmd BufEnter * silent! lcd %:p:h
 " Fix json comment highlighting..
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab
+
+" autocmd BufWinEnter,BufRead,BufNewFile prettierrc set filetype=yaml
+
 " Indent my json file according to my preference.
-autocmd FileType json nnoremap <buffer> <F5> :%!python -m json.tool<CR>
+" autocmd FileType json nnoremap <buffer> <F5> :%!python -m json.tool<CR>
+
+"" Indent and fix my files using eslint if they use it.
+"autocmd FileType javascript,typescript,javascriptreact,typescriptreact,json,yaml
+"                    \nnoremap <buffer> <F1> :CocCommand eslint.executeAutofix<CR>
 
 " Open new buffers/files in a new tab (stops piling or opening things on top of one pane).
 " autocmd BufAdd,BufNewFile * nested tab sball

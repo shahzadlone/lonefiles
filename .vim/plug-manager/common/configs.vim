@@ -15,8 +15,13 @@ let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-vimlsp'
       \]
-"=============================================================================== Prettier
-nmap <F1> <Plug>(Prettier)
+
+"============================================================================= IndentLine
+" To set the default plugin colour for indenting off.
+let g:indentLine_setColors = 1
+
+" Show each indent level by a distinct char.
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 "======================================================================== LspCxxHighlight
 " vim-lsp-cxx-highlight's support for text properties.
@@ -131,6 +136,9 @@ let g:rainbow_active = 1 " Default 0, enable with :RainbowToggle if not on.
 
 "=============================================================================== SuperTab
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+"=============================================================================== Prettier
+" nmap <F1> <Plug>(Prettier)
 
 "========================================================================== YouCompleteMe
 "" Make YCM compatible with UltiSnips (using supertab)

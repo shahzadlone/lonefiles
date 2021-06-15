@@ -8,6 +8,7 @@ npm
 yarn
 gdb
 
+ttf-fira-code
 kitty
 vim
 git

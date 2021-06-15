@@ -27,14 +27,17 @@ Plug 'tpope/vim-speeddating'
 " Nerd Tree for easier files, directory navigation.
 Plug 'scrooloose/nerdtree'
 
+" For using icons and nerd fonts.
+Plug 'ryanoasis/vim-devicons'
+
 " Nerd Tree git support,
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " For easier commenting using <Leader> and 'c' command with combinations.
 Plug 'scrooloose/nerdcommenter'
 
-" For using icons and nerd fonts.
-Plug 'ryanoasis/vim-devicons'
+" For nerd tree highlighting (needs devicons).
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " To get rainbow nested parenthesis.
 Plug 'luochen1990/rainbow'
@@ -95,6 +98,9 @@ Plug 'jceb/vim-orgmode'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Distraction free writing mode.
+Plug 'junegunn/goyo.vim'
+
 " Easy motion.
 Plug 'easymotion/vim-easymotion'
 
@@ -123,13 +129,16 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Better colour higlighting for Vue.js syntax.
 Plug 'posva/vim-vue'
 
+" Better JSON support.
+Plug 'elzr/vim-json'
+
+" Display vertical line indentation levels for code.
+Plug 'Yggdroot/indentLine'
+
 " Prettyfy only for selected files (must have yarn installed):
 "Plug 'prettier/vim-prettier', {
 "  \ 'do': 'yarn install',
 "  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-
-" Better JSON support.
-" Plug 'elzr/vim-json'
 
 " Vimwiki note taking.
 " Plug 'vimwiki/vimwiki'

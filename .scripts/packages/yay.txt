@@ -1,4 +1,5 @@
 google-cloud-sdk
+neovide
 
 displaylink
 evdi-git

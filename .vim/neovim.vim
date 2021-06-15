@@ -58,6 +58,8 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
                     \   'cache_enabled': 1,
                     \ }
 
+    set guifont=FiraCode\ NF:h16
+
 elseif !has('nvim') " Configurations that are only applied when not using neovim (nvim).
 
     " colorscheme evening

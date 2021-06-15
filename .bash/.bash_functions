@@ -137,6 +137,19 @@ procParent() {
     # basename "/"(ps -f -p (cat /proc/(echo %self)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //')
 }
 
+findProc() {
+    ps -ef | grep "${1}";
+}
+
+findNodeProc() {
+    #ps -ef | grep node;
+    ps aux | grep node;
+}
+
+findPort() {
+    lsof -i :"${1}";
+}
+
 F() {
     old="${IFS}";
     IFS=' ';

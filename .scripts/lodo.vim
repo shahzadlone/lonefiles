@@ -36,3 +36,7 @@ sudo npm install -g neovim
 
 " Ruby Gem support support:
 gem install neovim
+
+" Start systelctl / daemons
+teamviewer --daemon start
+systemctl enable docker

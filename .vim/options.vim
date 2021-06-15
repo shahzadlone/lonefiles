@@ -82,7 +82,7 @@ set splitbelow
 
 " Show “invisible” characters.
 set list
-"set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
+set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 
 " Highlight current line.
 set cursorline
