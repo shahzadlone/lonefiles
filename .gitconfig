@@ -152,3 +152,8 @@
     # Unadds / Unstages a file or directory.
     unstage =  "!unstage() { git reset HEAD -- \"${1}\"; }; unstage"
     unadd =  "!unadd() { git reset \"${1}\"; }; unadd"
+
+
+# TODO make a command for this:
+# git reset --hard <commit-hash>
+# git push -f origin <branch>
