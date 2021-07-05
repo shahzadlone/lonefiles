@@ -7,15 +7,19 @@
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitignore
 
-[diff]
+[merge]
     tool = vimdiff
+    conflictstyle = diff3
+
+[push]
+    default = current
 
 [difftool]
     prompt = false
 
-[merge]
+[diff]
     tool = vimdiff
-    conflictstyle = diff3
+    wsErrorHighlight = all
 
 [color]
   ui = auto
@@ -25,7 +29,7 @@
     frag = magenta bold
     old = red bold
     new = green bold
-    whitespace = magenta reverse ul
+    whitespace = blue reverse ul
 
 [color "branch"]
     current = green bold
