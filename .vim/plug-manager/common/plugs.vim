@@ -45,6 +45,9 @@ Plug 'luochen1990/rainbow'
 " To help make the interaction with tmux seemless.
 Plug 'benmills/vimux'
 
+" Make vim aware of .tmux.conf syntax highlighting, and add support to jump to man page.
+Plug 'tmux-plugins/vim-tmux'
+
 " To get the Table Mode.
 Plug 'dhruvasagar/vim-table-mode'
 
@@ -130,10 +133,10 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'posva/vim-vue'
 
 " Better JSON support.
-Plug 'elzr/vim-json'
+" Plug 'elzr/vim-json'
 
 " Display vertical line indentation levels for code.
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 
 " Prettyfy only for selected files (must have yarn installed):
 "Plug 'prettier/vim-prettier', {

@@ -186,6 +186,14 @@ gpuTest() {
     glxgears;
 }
 
+fixDockerMountpoint() {
+    sudo mkdir /sys/fs/cgroup/systemd;
+    sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd;
+}
+
+isDockerAbleToRestart() {
+    docker inspect -f "{{.HostConfig.RestartPolicy.Name}}" ${1};
+}
 
 Stream() {
     wget "${1}" -O- | tee myfav.mp4 | mpv --force-seekable=yes -;

@@ -35,6 +35,15 @@ elif [ $(Exists "nvim") -eq 0 ]; then
 fi
 # ------------------------------ }}}
 
+# -----[ FZF ]----- {{{
+# Make fzf use ripgrep by default and also search hidden files, ignoring .git folders.
+export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git"'
+# Use the same default for the ctrl-t command aswell.
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+# Make fzf use fd to search for all folders (hidden and non-hidden).
+export FZF_ALT_C_COMMAND="fd --hidden --type=d ."
+# --------------------------------- }}
+
 # -----[ Node Version Manager ]----- {{{
 export NVM_DIR="${HOME}/.nvm"
 [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm

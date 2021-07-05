@@ -5,19 +5,19 @@ Exists() { which "${1}" &> /dev/null; echo ${?}; }
 
 # -----[ Overwrite default programs/commands usage. ]----- {{{
 # Make sudo work with aliases!
-alias sudo='sudo '
+alias sudo='sudo ';
 
 # Have a shortcut for sudo!
-alias s='sudo '
+alias s='sudo ';
 
 # For saftly show a prompt to double check before overwriting by the copying command.
-alias cp='cp -i'
+alias cp='cp -i';
 
 # For saftly show a prompt to double check before overwriting by the moving command.
-alias mv='mv -i'
+alias mv='mv -i';
 
 # For saftly show a prompt to double check before deleting anything(unless -f is used).
-alias rm='rm -i'
+alias rm='rm -i';
 
 # Never use vi, like ever (see '~/.bash/bash_exports' for how $NORMAL_VIM is exported).
 alias vi="\${NORMAL_VIM}";
@@ -67,7 +67,7 @@ alias untar='tar -xvzf'
 # A short cut to reset/clear my terminal screen (similar to clear command).
 alias r='reset'
 
-# A short cut to reset/clear my terminal screen (similar to clear command).
+# A short cut for fuzzy finder.
 alias f='fzf'
 
 # A short cut to open files with vim through fzf.

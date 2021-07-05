@@ -31,7 +31,7 @@ unbind '"'
 unbind n
 bind n new-window -c "#{pane_current_path}"
 
-# Shift arrow to switch windows
+# Hold prefix and press h and l to navigate tmux windows.
 unbind l
 unbind h
 bind -r h previous-window

@@ -182,6 +182,14 @@ nnoremap <Leader>gf :tabe <cfile><CR>
 nnoremap H gT
 nnoremap L gt
 
+" For re-ordering tabs (movetab one next, one back or the end).
+nnoremap gT :tabm -1<CR>
+nnoremap gt :tabm +1<CR>
+nnoremap ge :tabm<CR>
+
+" For opening all buffers into tabs.
+nnoremap <Leader>ball :tab sball<CR>
+
 " Preserve H (go to the higest visible line on screen).
 nnoremap <Leader>hig H
 
@@ -274,14 +282,14 @@ nnoremap <Leader>cvim :bd *.vim<C-a><CR>
 " Open my vim mappings files (including plugin mappings).
 nnoremap <Leader>vmap :tabe ~/.vim/mappings.vim<CR>
                       \:tabe ~/.vim/plug-manager/common/mappings.vim<CR>
-                      " \:tabe ~/.vim/plug-manager/neo/mappings.vim<CR>
-                      " \:tabe ~/.vim/plug-manager/normal/mappings.vim<CR>
+"                      \:tabe ~/.vim/plug-manager/neo/mappings.vim<CR>
+"                      \:tabe ~/.vim/plug-manager/normal/mappings.vim<CR>
 
 " Open my common vim plugin files (manager, plugins, configs and mappings).
 nnoremap <Leader>vplug :tabe ~/.vim/plug-manager/manager.vim<CR>
-                      \:tabe ~/.vim/plug-manager/common/plugs.vim<CR>
-                      \:tabe ~/.vim/plug-manager/common/configs.vim<CR>
-                      " \:tabe ~/.vim/plug-manager/common/mappings.vim<CR>
+                       \:tabe ~/.vim/plug-manager/common/plugs.vim<CR>
+                       \:tabe ~/.vim/plug-manager/common/configs.vim<CR>
+"                       \:tabe ~/.vim/plug-manager/common/mappings.vim<CR>
 
 " Open the file I track my TODO's in.
 nnoremap <Leader>todo :tabe ~/Desktop/Shahzad/Todo/TODO<CR>
@@ -297,7 +305,7 @@ nnoremap <Leader>ctmux :bd *.tmux<C-a><CR>
 
 " Open my tmux configuration file.
 nnoremap <Leader>kit :tabe ~/.config/kitty/kitty.conf<CR>
-                      \:tabe ~/.config/kitty/theme.conf<CR>
+                     \:tabe ~/.config/kitty/theme.conf<CR>
 
 " Open my bash config files that I modify the most in a new tab.
 nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
@@ -318,10 +326,10 @@ nnoremap <Leader>scri :tabe ~/.scripts/lonefigure.sh<CR>
 
 " Open my pacman and yay package tracking list.
 nnoremap <Leader>pac :tabe ~/.scripts/packages/pacman.txt<CR>
-                      \:tabe ~/.scripts/packages/yay.txt<CR>
+                     \:tabe ~/.scripts/packages/yay.txt<CR>
 
 nnoremap <Leader>sound :tabe /etc/pulse/default.pa<CR>
-                      \:tabe /etc/pulse/daemon.conf<CR>
+                       \:tabe /etc/pulse/daemon.conf<CR>
 
 " Open my profile configuration file.
 nnoremap <Leader>pro :tabe ~/.profile<CR>

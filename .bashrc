@@ -11,18 +11,6 @@ procParent() {
                   | cut -d \  -f 4) | tail -1 | sed 's/^.* //');
 }
 
-# Find the exact distribution(DISTRO) we are on and also rough flavour type (DISTRO_TYPE).
-# Examples:
-# - "Manjaro Linux" == for Manjaro Arch Linux.
-# - "Arch Linux"    == for Vanilla Arch Linux.
-# - "Ubuntu"        == for Ubuntu Linux.
-# - "Darwin"        == for Apple's MacOS.
-DISTRO=$(cat /etc/os-release | grep "^NAME" | cut -c 6- | cut -d "\"" -f 2);
-DISTRO_TYPE=${DISTRO};
-if [ "${DISTRO_TYPE}" == "Arch Linux" ] || [ "${DISTRO_TYPE}" == "Manjaro Linux" ]; then
-    DISTRO_TYPE="Arch";
-fi
-
 # Start with Tmux by default. If not running interactively, do not do anything.
 [[ $- != *i* ]] && return
 [[ -z "${TMUX}" ]] && [[ $(Exists "tmux") -eq 0 ]] && exec tmux -u
@@ -76,17 +64,8 @@ else
     echo "Warning: .bash_completions didn't get sourced in '.bashrc' file.";
 fi
 
-# Source the fzf's bash configurations.
-if [ "${DISTRO}" == "Manjaro Linux" ] && [ -d /usr/share/fzf ]; then
-    . /usr/share/fzf/key-bindings.bash;
-    . /usr/share/fzf/completion.bash;
-elif [ -f ~/.fzf.bash ]; then
-    . ~/.fzf.bash;
-else
-    echo "Warning: .fzf.bash didn't get sourced in '.bashrc' file for '${DISTRO}'.";
-fi
-
-if [ $(procParent) == "kitty" ] && [ -n "$TMUX" ]; then
+# Show neofetch according to the terminal we are in.
+if [ $(procParent) == "kitty" ] && [ -n "${TMUX}" ]; then
     neofetch --kitty --source ~/Desktop/shahzad.jpg;
 else
     neofetch;

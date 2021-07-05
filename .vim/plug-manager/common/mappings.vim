@@ -62,16 +62,56 @@ if exists(":Tabularize")
 endif
 
 "==================================================================================== Fzf
-" Open files with Fzf.
-nnoremap <silent> <leader>ff :FzfFiles<CR>
 
-" Open files with Fzf in full screen.
-nnoremap <silent> <leader>fF :FzfFiles!<CR>
+"command! -bang -nargs=* Frg
+"  \ call fzf#vim#grep(
+"  \   'rg --column --line-number --no-heading --color=always ' 
+"  \  . (len(<q-args>) > 0 ? <q-args> : '""'), 1,
+"  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+"  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+"  \   <bang>0)
+
+" Original Command:
+" command! -bang -nargs=* RRR
+"   \ call fzf#vim#grep(
+"   \   'rg --column --line-number --no-heading --color=always --smart-case -- '
+"   \   .shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+
+" Fzf to be smart enough to start in the root of the project (where .git is located).
+command! Ff execute 'FzfFiles!' FindGitRootDir()
+command! FF execute 'FzfFiles' FindGitRootDir()
+command! Fr execute 'FzfRg!'
+command! FR execute 'FzfRg'
+" TODO, make rip grep search files in root dir too.
+" command! Fr execute 'Frg!' FindGitRootDir()
+" command! FR execute 'Frg' FindGitRootDir()
+
+
+" Open files with Fzf in full screen, and open the selected file in a new tab.
+nnoremap <silent> <leader>ff :tabedit<CR>:Ff<CR>
+
+" Open files with Fzf.
+nnoremap <silent> <leader>fF :FF<CR>
+
+" Do a rip grep search using fzf in full screen, and open the selection in a new tab.
+nnoremap <silent> <leader>fr :tabedit<CR>:Fr<CR>
+
+" Do a rip grep search using fzf.
+nnoremap <silent> <leader>fR :FR<CR>
+
+" Open a list of buffers with Fzf, in full screen, and open the selection in a new tab.
+nnoremap <silent> <leader>fb :tabedit<CR>:FzfBuffers!<CR>
 
 " Open a list of buffers with Fzf.
-nnoremap <silent> <leader>fb :FzfBuffers<CR>
+nnoremap <silent> <leader>fB :FzfBuffers<CR>
 
-" Open histroy with Fzf in command mode.
+" Open history of recent files, in full screen and open the selection in a new tab.
+nnoremap <silent> <leader>fh :tabedit<CR>:FzfHistory!<CR>
+
+" Open history of recent files using Fzf.
+nnoremap <silent> <leader>fH :FzfHistory<CR>
+
+" Open history with Fzf in command mode.
 cnoremap <silent> <C-p> :FzfHistory:<CR>
 
 "=============================================================================== Surround
@@ -136,10 +176,23 @@ nmap <silent> <Space>[ <Plug>(coc-diagnostic-prev)
 nmap <silent> <Space>] <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
+
 nmap <silent> <Space>d <Plug>(coc-definition)
 nmap <silent> <Space>t <Plug>(coc-type-definition)
 nmap <silent> <Space>i <Plug>(coc-implementation)
 nmap <silent> <Space>ref <Plug>(coc-references)
+
+" What I want to accomplish.
+" nmap <silent> <Space>ref :vsplit<CR><Plug>(coc-references)<C-W>T
+" nmap <silent> <Space>d :call CocAction('jumpDefinition', 'tabe')<CR>
+" nmap <silent> <Leader><Space>vd :call CocAction('jumpDefinition', 'vsplit')<CR>
+" nmap <silent> <Leader><Space>d <Plug>(coc-definition)
+
+" What someone else did:
+" nmap <silent> \ge <Plug>(coc-definition)
+" nmap <silent> \gs :sp<CR><Plug>(coc-definition)
+" nmap <silent> \gv :vsp<CR><Plug>(coc-definition)
+" nmap <silent> \gt :vsp<CR><Plug>(coc-definition)<C-W>T
 
 " Symbol renaming.
 nmap <Space>rn <Plug>(coc-rename)

@@ -12,6 +12,9 @@ ttf-fira-code
 kitty
 vim
 git
+bash-completion
+ripgrep
+fd
 fzf
 tmux
 neovim

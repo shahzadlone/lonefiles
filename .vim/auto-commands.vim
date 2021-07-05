@@ -19,6 +19,9 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+" Trigger autoread when changing buffers, while inside vim.
+autocmd FocusGained,BufEnter * :checktime
+
 " Detect/overide any hidden file whose name starts with bash_ or bash- as a bash file.
 autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
 

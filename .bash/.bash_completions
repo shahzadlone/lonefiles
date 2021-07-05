@@ -2,7 +2,43 @@
 
 # This files is called by ~/.bashrc file.
 
+# Find the exact distribution(DISTRO) we are on and also rough flavour type (DISTRO_TYPE).
+# Examples:
+# - "Manjaro Linux" == for Manjaro Arch Linux.
+# - "Arch Linux"    == for Vanilla Arch Linux.
+# - "Ubuntu"        == for Ubuntu Linux.
+# - "Darwin"        == for Apple's MacOS.
+DISTRO=$(cat /etc/os-release | grep "^NAME" | cut -c 6- | cut -d "\"" -f 2);
+DISTRO_TYPE=${DISTRO};
+if [ "${DISTRO_TYPE}" == "Arch Linux" ] || [ "${DISTRO_TYPE}" == "Manjaro Linux" ]; then
+    DISTRO_TYPE="Arch";
+fi
+
 # Source tmux completion file (if it exists).
 if [ -f ~/.bash/completions/tmux.completion.bash ]; then
     . ~/.bash/completions/tmux.completion.bash;
+else
+    echo "Warning: tmux.completion.bash didn't get sourced in '.bash_completions' file.";
+fi
+
+# Source the fzf's bash configurations.
+if [ "${DISTRO}" == "Manjaro Linux" ] && [ -d /usr/share/fzf ]; then
+    . /usr/share/fzf/key-bindings.bash;
+    . /usr/share/fzf/completion.bash;
+elif [ -f ~/.fzf.bash ]; then
+    . ~/.fzf.bash;
+else
+    echo "Warning: .fzf.bash didn't get sourced in '.bash_completions' file for '${DISTRO}'.";
+fi
+
+# Source git's bash completions.
+if [ "${DISTRO_TYPE}" == "Arch" ] && [ -d /usr/share/git/completion ]; then
+    . /usr/share/git/completion/git-completion.bash
+    . /usr/share/git/completion/git-prompt.sh
+elif [ "${DISTRO}" == "Ubuntu" ] && [ -f /etc/profile.d/bash_completion.sh ]; then
+    . /etc/profile.d/bash_completion.sh;
+elif [ -f /usr/share/bash-completion/completions/git ]; then
+    . /usr/share/bash-completion/completions/git;
+else
+    echo "Warning: git-completion.bash didn't get sourced in '.bash_completions' file for '${DISTRO}'.";
 fi

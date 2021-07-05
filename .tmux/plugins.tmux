@@ -13,6 +13,8 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @resurrect-strategy-vim 'session'
 # For resurrecting neovim sessions.
 set -g @resurrect-strategy-nvim 'session'
+# For resurrecting / restoring pane contents.
+set -g @resurrect-capture-pane-contents 'on'
 
 #============================================================================== Continuum
 set -g @plugin 'tmux-plugins/tmux-continuum'

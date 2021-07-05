@@ -11,6 +11,9 @@ set -g mouse on
 # Re-number windows automatically when middle ones are closed.
 set-option -g renumber-windows on
 
+# Enable ability to focus on events.
+set -g focus-events on
+
 # Setting the delay between prefix and command.
 set -sg escape-time 2
 
