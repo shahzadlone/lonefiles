@@ -300,3 +300,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Mapping to quickly fix the error using YCM.
 " nnoremap <Leader>fix :YcmCompleter FixIt<CR>
+
+"=========================================================================== NerdTreeTabs
+" Mapping to nerd tree.
+" nnoremap <Leader>nn <plug>NERDTreeTabsToggle<CR>
+

@@ -109,17 +109,17 @@ vnoremap K 3gk
 
 " Search for visually selected text, forwards.
 vnoremap <silent> * :<C-U>let old_reg=getreg('"')
-                     \<Bar>let old_regtype=getregtype('"')<CR>
-                     \gvy/<C-r><C-r>=substitute(escape(@", '/\.*$^~['), '\_s\+',
-                     \                          '\\_s\\+', 'g')<CR>
-                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
+                    \<Bar>let old_regtype=getregtype('"')<CR>
+                    \gvy/<C-r><C-r>=substitute(escape(@", '/\.*$^~['), '\_s\+',
+                    \                          '\\_s\\+', 'g')<CR>
+                    \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " Search for visually selected text, backwards.
 vnoremap <silent> # :<C-U>let old_reg=getreg('"')
-                     \<Bar>let old_regtype=getregtype('"')<CR>
-                     \gvy?<C-r><C-r>=substitute(escape(@", '?\.*$^~['), '\_s\+',
-                     \                          '\\_s\\+', 'g')<CR>
-                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
+                    \<Bar>let old_regtype=getregtype('"')<CR>
+                    \gvy?<C-r><C-r>=substitute(escape(@", '?\.*$^~['), '\_s\+',
+                    \                          '\\_s\\+', 'g')<CR>
+                    \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
 " ---------------------------------------------------------------------------------------
 
 " =================================[ NNOREMAP mappings ]=================================
@@ -351,9 +351,9 @@ nnoremap <Leader>plugfu mm:w<CR>:source $MYVIMRC<CR>`mzz:ForcePlugUpdate<CR>
 " ---------------------------------------------------------------------------------------
 
 " ====================[ Default mappings, for when Tmux is not open ]====================
-if !exists('${TMUX}') 
+if !exists('${TMUX}')
 
-    " Map normal vim pane movements 
+    " Map normal vim pane movements
     nnoremap <C-h> <C-w>h
     nnoremap <C-j> <C-w>j
     nnoremap <C-k> <C-w>k

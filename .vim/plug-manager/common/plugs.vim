@@ -25,7 +25,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-speeddating'
 
 " Nerd Tree for easier files, directory navigation.
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 
 " For using icons and nerd fonts.
 Plug 'ryanoasis/vim-devicons'
@@ -34,7 +34,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " For easier commenting using <Leader> and 'c' command with combinations.
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 
 " For nerd tree highlighting (needs devicons).
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -168,4 +168,7 @@ Plug 'posva/vim-vue'
 
 " Install the NeoSolarized theme.
 " Plug 'iCyMind/NeoSolarized'
+
+" Nerd Tree syncronized with vim tabs.
+" Plug 'jistr/vim-nerdtree-tabs'
 
