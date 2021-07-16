@@ -161,3 +161,7 @@
 # TODO make a command for this:
 # git reset --hard <commit-hash>
 # git push -f origin <branch>
+
+# To reset to a certain commit branch or tag (discarding all local changes like commits and new files):
+# git reset --hard origin/<branch_name>
+

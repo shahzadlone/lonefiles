@@ -52,6 +52,9 @@ set -g @copycat_ip_search 'C-i'
 set -g @plugin 'tmux-plugins/tmux-open'
 # set -g @open-S 'https://www.google.com/search?q='
 
+#=================================================================================== Nord
+set -g @plugin 'arcticicestudio/nord-tmux'
+
 #==================================================================================== TPM
 set -g @plugin 'tmux-plugins/tpm'
 # Install plugin manger (tpm) if it isn't there.

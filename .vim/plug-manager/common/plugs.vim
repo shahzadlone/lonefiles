@@ -117,9 +117,6 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 " Conquer of Completion for fast LSP language completion.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Install the gruvbox theme.
-Plug 'morhetz/gruvbox'
-
 " Help align text that matches a pattern.
 Plug 'godlygeek/tabular'
 
@@ -131,6 +128,21 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " Better colour higlighting for Vue.js syntax.
 Plug 'posva/vim-vue'
+
+" Better GraphQL highlighting
+Plug 'jparise/vim-graphql'
+
+" Better indentation and syntax for TypeScript.
+Plug 'leafgarland/typescript-vim'
+
+" Install Nord theme.
+Plug 'arcticicestudio/nord-vim'
+
+" Install the gruvbox theme.
+" Plug 'morhetz/gruvbox'
+
+" Install the NeoSolarized theme.
+" Plug 'overcache/NeoSolarized'
 
 " Better JSON support.
 " Plug 'elzr/vim-json'
@@ -165,9 +177,6 @@ Plug 'posva/vim-vue'
 
 " Go support.
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" Install the NeoSolarized theme.
-" Plug 'iCyMind/NeoSolarized'
 
 " Nerd Tree syncronized with vim tabs.
 " Plug 'jistr/vim-nerdtree-tabs'

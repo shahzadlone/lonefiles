@@ -229,6 +229,9 @@ nnoremap <Leader>tp :tnext<CR>
 " Substitue whatever I searched before with what's under my cursor. Don't <CR> it.
 nnoremap <Leader>sub :%s//<C-r><C-a>/gc
 
+" Mapping to quickly change the file-type.
+nnoremap <Leader>file :set filetype=
+
 " Swap the word under cursor with whatever is in the last yanked register.
 nnoremap <Leader>sw diw"0P
 
