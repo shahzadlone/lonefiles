@@ -1,7 +1,18 @@
 # Shahzad's Bash Functions.
 
+# My color helper functions.
+MAGENTA() { echo -e "\e[1;35m${1}\e[0m"; }
+YELLOW() { echo -e "\e[1;33m${1}\e[0m"; }
+GREEN() { echo -e "\e[1;32m${1}\e[0m"; }
+BLACK() { echo -e "\e[1;30m${1}\e[0m"; }
+BLUE() { echo -e "\e[1;34m${1}\e[0m"; }
+CYAN() { echo -e "\e[1;36m${1}\e[0m"; }
+GRAY() { echo -e "\e[1;90m${1}\e[0m"; }
+RED() { echo -e "\e[1;31m${1}\e[0m"; }
+
+# Make a directory and cd into it.
 cdm() {
-    mkdir -p -- "${1}" && cd -P -- "${1}"
+    mkdir -p -- "${1}" && cd -P -- "${1}";
 }
 
 # Open graphically the selected directory or location.
@@ -230,6 +241,67 @@ sob() {
     fi
 }
 
+# Helps delete (or force delete if user consents), the branches which still exist
+#  locally but were merged in the remote repository.
+GitSyncBranches(){
+
+    git fetch --prune;
+
+    if [ ${?} -ne 0 ]; then
+        printf "\nSomething went wrong while doing 'git fetch --prune'\n";
+        return 22;
+    fi
+
+    BRANCHES=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads \
+             | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}');
+
+    if [ -z "${BRANCHES}" ]; then
+        MAGENTA "You are already in sync.";
+        return 0;
+    fi
+
+    MAGENTA "Branches that are out of sync (will be deleted):";
+    for branch in ${BRANCHES}; do
+        RED "  - ${branch}";
+    done
+
+    MAGENTA "\nBy the way, you are currently on this branch:";
+    GREEN "  * $(git branch --show-current)\n";
+    read -p "Are you sure you want to delete all these branches? [y/n]: " DELETE_BRANCHES;
+
+    if [ "${DELETE_BRANCHES}" != "${DELETE_BRANCHES#[Yy]}" ]; then
+        for branch in ${BRANCHES}; do
+            git branch -d ${branch};
+
+            if [ ${?} -ne 0 ]; then
+
+                RED " Couldn't delete this branch: ${branch}\n";
+                read -p "Would you like to try force delete(-D)? [y/n]: " DELETE_A_BRANCH;
+
+                if [ "${DELETE_A_BRANCH}" != "${DELETE_A_BRANCH#[Yy]}" ]; then
+                    git branch -D ${branch};
+
+                    if [ ${?} -ne 0 ]; then
+                        YELLOW "  Couldn't even force delete this branch: ${branch}\n";
+                    else
+                        BLUE "  Successfully force deleted(-D): ${branch}\n"
+                    fi
+
+                else
+                    BLUE "Ok, we will skip this branch.\n"
+                fi
+
+            else
+                BLUE "Successfully deleted(-d): ${branch}\n"
+            fi
+
+        done
+
+    else
+        BLUE "Ok, no branches were deleted.\n"
+    fi
+}
+
 GitPullAllBranches() {
     REMOTES="$@";
 
@@ -270,5 +342,3 @@ GitPullAllBranches() {
     done
 
 }
-
-
