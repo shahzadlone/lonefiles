@@ -6,11 +6,15 @@
 if [ -n "${BASH_VERSION}" ]; then
     # Only include my .bashrc if it exists.
     if [ -f "${HOME}/.bashrc" ]; then
-        . "${HOME}/.bashrc"
+        . "${HOME}/.bashrc";
+    else
+        echo "Warning: .bashrc didn't get sourced in '.profile' file.";
     fi
 fi
 
 # Include my environment variables if ~/.environment_variables file exists.
 if [ -f "${HOME}/.environment_variables" ]; then
-    . "${HOME}/.environment_variables"
+    . "${HOME}/.environment_variables";
+else
+    echo "Warning: .environment_variables didn't get sourced in '.profile' file.";
 fi
