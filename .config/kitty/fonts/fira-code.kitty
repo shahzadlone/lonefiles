@@ -1,0 +1,12 @@
+font_family      FiraCode-SemiBold
+bold_font        FiraCode-Bold
+italic_font      FiraCode-Light
+bold_italic_font FiraCode-Regular
+font_features    FiraCode-SemiBold +ss01 +ss02 +ss03 +ss04 +ss05 +ss07 +ss08 +zero +onum
+
+
+#adjust_line_height  0
+#adjust_column_width 0
+#adjust_column_width 120%
+
+font_size 9.0
