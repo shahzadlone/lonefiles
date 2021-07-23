@@ -1,9 +1,10 @@
+# Read: https://git.arul.io/arul/dotfiles/blame/commit/7ef988a3f9c55d5941f9d2bcddad4f4f77a87fb6/kitty/.config/kitty/kitty.conf
+
 font_family      FiraCode-SemiBold
 bold_font        FiraCode-Bold
 italic_font      FiraCode-Light
 bold_italic_font FiraCode-Regular
 font_features    FiraCode-SemiBold +ss01 +ss02 +ss03 +ss04 +ss05 +ss07 +ss08 +zero +onum
-
 
 #adjust_line_height  0
 #adjust_column_width 0
