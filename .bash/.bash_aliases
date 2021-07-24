@@ -53,13 +53,19 @@ fi
 # ------------------------- }}}
 
 # -----[ For convinience. ]----- {{{
+
+# Map ls to lsd if we have lsd installed.
+if [ $(Exists "lsd") -eq 0 ]; then
+    alias ls='lsd'
+fi
+
 # For easier/faster listing to my liking.
 alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias la='ls -AF'
+alias l='ls -F'
 
 # List all hidden files only, that aren't .. or . on seperate lines (append / to dirs).
-alias lh='ls -Ap1 | egrep "^\..*$"'
+alias lh='ls -dF .!(|.)'
 
 # To easily untar(unzip) a tarball.
 alias untar='tar -xvzf'
@@ -71,7 +77,7 @@ alias r='reset'
 alias f='fzf'
 
 # A short cut to open files with vim through fzf.
-alias fvim='vim $(fzf --height 40% --reverse)'
+alias vimm='vim $(fzf --height 40% --reverse)'
 
 # Short cut for docker.
 alias d='sudo docker'

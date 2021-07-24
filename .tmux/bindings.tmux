@@ -69,6 +69,14 @@ bind -r X swap-pane -U
 unbind '}'
 unbind '{'
 
+# Use the semi-colon to issue tmux command (just like vim), swap `:` and `;` bindings.
+unbind \;
+unbind :
+bind \; command-prompt
+bind : last-pane
+
+
+
 # Switching strictly between tmux panes, recursively (without awareness of vim splits).
 unbind Left
 unbind Right
@@ -97,6 +105,15 @@ bind -r C-h resize-pane -L
 bind -r C-j resize-pane -D
 bind -r C-k resize-pane -U
 bind -r C-l resize-pane -R
+
+# Make g into a multi-key binding like: <prefix>g + [t|T].
+unbind g
+# Use <prefix> + gt to swap current window with next window.
+bind -T MultiKeyBinding_g t swap-window -d -t +1
+bind g switch-client -T MultiKeyBinding_g
+# Use <prefix> + gT to swap current window with previous window.
+bind -T MultiKeyBinding_g T swap-window -d -t -1
+bind g switch-client -T MultiKeyBinding_g
 
 # Copy past shortcuts.
 bind-key -T copy-mode-vi 'v' send-keys -X begin-selection

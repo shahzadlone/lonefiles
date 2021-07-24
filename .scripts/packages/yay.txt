@@ -1,5 +1,6 @@
 google-cloud-sdk
 neovide
+nerd-fonts-victor-mono
 
 displaylink
 evdi-git
@@ -12,3 +13,5 @@ zoom
 google-chrome
 slack-desktop
 deluge-gtk
+
+qt5ct-kde

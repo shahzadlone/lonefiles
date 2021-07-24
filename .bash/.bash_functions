@@ -172,7 +172,7 @@ F() {
     echo "${selected}" | xargs ${allArgs};
 }
 
-fnpm () {
+npmm () {
     npm run $(jq -r '.scripts | keys[]' package.json | fzf --height=10)
 }
 
@@ -204,6 +204,10 @@ fixDockerMountpoint() {
 
 isDockerAbleToRestart() {
     docker inspect -f "{{.HostConfig.RestartPolicy.Name}}" ${1};
+}
+
+checkKittyFont() {
+    kitty + list-fonts --psnames | grep "${1}";
 }
 
 Stream() {

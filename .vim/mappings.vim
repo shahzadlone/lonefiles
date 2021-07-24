@@ -307,8 +307,9 @@ nnoremap <Leader>tmux :tabe ~/.tmux/settings.tmux<CR>
 nnoremap <Leader>ctmux :bd *.tmux<C-a><CR>
 
 " Open my tmux configuration file.
-nnoremap <Leader>kit :tabe ~/.config/kitty/kitty.conf<CR>
-                     \:tabe ~/.config/kitty/theme.conf<CR>
+nnoremap <Leader>kit :tabe ~/.config/kitty/theme.kitty<CR>
+                     \:tabe ~/.config/kitty/font.kitty<CR>
+                     \:tabe ~/.config/kitty/kitty.conf<CR>
 
 " Open my bash config files that I modify the most in a new tab.
 nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>

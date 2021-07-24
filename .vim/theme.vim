@@ -2,7 +2,7 @@
 
 
 " Set 256 terminal colors.
- set t_Co=256
+set t_Co=256
 
 " Disable 'Background Color Erase'.
 if &term =~ '256color'
@@ -12,9 +12,15 @@ elseif (&term =~ '^xterm' && &t_Co == 256)
 endif
 
 " Get Nice GUI Colors (vim's built-in color support for terminal).
-if has('nvim') || has('termguicolors')
-  set termguicolors
+if has('nvim') && has('termguicolors')
+    set notermguicolors
+" For normal vim set t_8f and t_8b.
+elseif !has('nvim') && has('termguicolors')
+    set t_8f=[38;2;%lu;%lu;%lum
+    set t_8b=[48;2;%lu;%lu;%lum
+    set notermguicolors
 endif
+
 
 " Type of Background.
 set background=dark
@@ -41,8 +47,5 @@ colorscheme nord
 "=================================================================== Other Tweaks Needed.
 set t_ZH="\e[3m"
 set t_ZR="\e[23m"
-
-" set t_8f=[38;2;%lu;%lu;%lum
-" set t_8b=[48;2;%lu;%lu;%lum
 
 " Some good themes: cobalt, monokai-soda, monokai, lyla, neuromancer, solarized.

@@ -27,6 +27,9 @@ Plug 'tpope/vim-speeddating'
 " Nerd Tree for easier files, directory navigation.
 Plug 'preservim/nerdtree'
 
+" Provide a start screen.
+Plug 'mhinz/vim-startify'
+
 " For using icons and nerd fonts.
 Plug 'ryanoasis/vim-devicons'
 
@@ -129,8 +132,11 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Better colour higlighting for Vue.js syntax.
 Plug 'posva/vim-vue'
 
-" Better GraphQL highlighting
+" Better GraphQL highlighting (supports only prisma 1, so only use for GraphQL).
 Plug 'jparise/vim-graphql'
+
+" Prisma 2 file detection and syntax higlighting.
+Plug 'pantharshit00/vim-prisma'
 
 " Better indentation and syntax for TypeScript.
 Plug 'leafgarland/typescript-vim'

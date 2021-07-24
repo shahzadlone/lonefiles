@@ -10,10 +10,12 @@ gdb
 
 ttf-fira-code
 kitty
+alacritty
 vim
 git
 bash-completion
 ripgrep
+lsd
 fd
 fzf
 tmux
@@ -63,3 +65,7 @@ android-file-transfer
 mplayer
 mysql-workbench
 gnome-keyring
+
+kvantum-qt5
+breeze-gtk
+xorg-setxkbmap

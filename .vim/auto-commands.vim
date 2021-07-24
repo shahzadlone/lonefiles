@@ -33,7 +33,7 @@ autocmd BufWinEnter,BufRead,BufNewFile *.tsx set filetype=typescriptreact
 autocmd BufWinEnter,BufRead,BufNewFile *.ejs,*.hbs set filetype=html
 autocmd BufWinEnter,BufRead,BufNewFile *.go set filetype=go
 autocmd BufWinEnter,BufRead,BufNewFile *.json set filetype=json
-autocmd BufWinEnter,BufRead,BufNewFile *.prisma setfiletype graphql
+" autocmd BufWinEnter,BufRead,BufNewFile *.prisma setfiletype graphql
 
 " Automatically update the working directory to the current file's path.
 autocmd BufEnter * silent! lcd %:p:h
