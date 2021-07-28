@@ -210,6 +210,38 @@ checkKittyFont() {
     kitty + list-fonts --psnames | grep "${1}";
 }
 
+sqlDump() {
+    read -p "Database Username: " DB_USERNAME;
+    DB_USERNAME=${DB_USERNAME:-root};
+    read -p "Database Password: " DB_PASSWORD;
+    DB_PASSWORD=${DB_PASSWORD:-root};
+    read -p "Database Port: " DB_PORT;
+    DB_PORT=${DB_PORT:-8889};
+    # DB_PORT=${DB_PORT:-3306};
+    read -p "Dump Filename: " DUMP_FILE;
+    DUMP_FILE="${DUMP_FILE:-mysqldump_file}.sql";
+
+    GREEN "\nRunning mysqldump...\n";
+
+    # See if the command will be successfull.
+    mysqldump "-P${DB_PORT}" "-u${DB_USERNAME}" "-p${DB_PASSWORD}" \
+        --protocol=TCP --all-databases;
+
+    if [ ${?} -ne 0 ]; then
+        RED "\nCouldn't do a mysqldump with following information:";
+        YELLOW "  Username: ${DB_USERNAME}";
+        YELLOW "  Password: ${DB_PASSWORD}";
+        YELLOW "  Port: ${DB_PORT}\n";
+        return 123;
+
+    else
+        # Actually dump it.
+        mysqldump "-P${DB_PORT}" "-u${DB_USERNAME}" "-p${DB_PASSWORD}" \
+            --protocol=TCP --all-databases > "${DUMP_FILE}";
+        BLUE "\nSuccessfully dumped to ${DUMP_FILE}\n";
+    fi
+}
+
 Stream() {
     wget "${1}" -O- | tee myfav.mp4 | mpv --force-seekable=yes -;
 }
@@ -253,7 +285,7 @@ GitSyncBranches(){
 
     if [ ${?} -ne 0 ]; then
         printf "\nSomething went wrong while doing 'git fetch --prune'\n";
-        return 22;
+        return 123;
     fi
 
     BRANCHES=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads \
