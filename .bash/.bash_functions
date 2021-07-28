@@ -219,13 +219,13 @@ sqlDump() {
     DB_PORT=${DB_PORT:-8889};
     # DB_PORT=${DB_PORT:-3306};
     read -p "Dump Filename: " DUMP_FILE;
-    DUMP_FILE="${DUMP_FILE:-mysqldump_file}.sql";
+    DUMP_FILE="${DUMP_FILE:-mysqldump_file}_$(date '+%d-%m-%Y_%H-%M-%S').sql";
 
     GREEN "\nRunning mysqldump...\n";
 
     # See if the command will be successfull.
     mysqldump "-P${DB_PORT}" "-u${DB_USERNAME}" "-p${DB_PASSWORD}" \
-        --protocol=TCP --all-databases;
+        --protocol=TCP --single-transaction --quick --lock-tables=false --all-databases;
 
     if [ ${?} -ne 0 ]; then
         RED "\nCouldn't do a mysqldump with following information:";
@@ -237,7 +237,8 @@ sqlDump() {
     else
         # Actually dump it.
         mysqldump "-P${DB_PORT}" "-u${DB_USERNAME}" "-p${DB_PASSWORD}" \
-            --protocol=TCP --all-databases > "${DUMP_FILE}";
+            --protocol=TCP --single-transaction --quick --lock-tables=false \
+            --all-databases > "${DUMP_FILE}";
         BLUE "\nSuccessfully dumped to ${DUMP_FILE}\n";
     fi
 }
