@@ -13,6 +13,7 @@ let g:coc_global_extensions = [
       \'coc-json',
       \'coc-prettier',
       \'coc-tsserver',
+      \'coc-sql',
       \'coc-prisma',
       \'coc-vimlsp'
       \]
@@ -131,10 +132,17 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
 
 "===================================================================== RainbowParenthesis
-" Rainbow parenthesis configurations.
-" Turn it on by default.
-let g:rainbow_active = 1 " Default 0, enable with :RainbowToggle if not on.
+let g:rainbow#max_level = 11
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
 
+" Activation based on file type.
+augroup rainbow_parenthsis
+    autocmd!
+    autocmd FileType * RainbowParentheses
+augroup END
+
+" List of colors that you do not want. ANSI code or #RRGGBB
+" let g:rainbow#blacklist = [233, 234]
 "=============================================================================== SuperTab
 let g:SuperTabDefaultCompletionType = '<C-n>'
 

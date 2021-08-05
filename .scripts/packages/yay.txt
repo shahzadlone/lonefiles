@@ -12,6 +12,8 @@ skypeforlinux-stable-bin
 zoom
 google-chrome
 slack-desktop
+postman-agent
 deluge-gtk
 
 qt5ct-kde
+

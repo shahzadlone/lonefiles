@@ -213,11 +213,14 @@ checkKittyFont() {
 sqlDump() {
     read -p "Database Username: " DB_USERNAME;
     DB_USERNAME=${DB_USERNAME:-root};
+
     read -p "Database Password: " DB_PASSWORD;
     DB_PASSWORD=${DB_PASSWORD:-root};
+
     read -p "Database Port: " DB_PORT;
     DB_PORT=${DB_PORT:-8889};
     # DB_PORT=${DB_PORT:-3306};
+
     read -p "Dump Filename: " DUMP_FILE;
     DUMP_FILE="${DUMP_FILE:-mysqldump_file}_$(date '+%d-%m-%Y_%H-%M-%S').sql";
 
@@ -240,6 +243,34 @@ sqlDump() {
             --protocol=TCP --single-transaction --quick --lock-tables=false \
             --all-databases > "${DUMP_FILE}";
         BLUE "\nSuccessfully dumped to ${DUMP_FILE}\n";
+    fi
+}
+
+sqlRestore() {
+    read -p "Database Username: " DB_USERNAME;
+    DB_USERNAME=${DB_USERNAME:-root};
+
+    read -p "Database Password: " DB_PASSWORD;
+    DB_PASSWORD=${DB_PASSWORD:-root};
+
+    read -p "Database Port: " DB_PORT;
+    DB_PORT=${DB_PORT:-8889};
+    # DB_PORT=${DB_PORT:-3306};
+
+    GREEN "\nRestoring database(s) from: [${1}]...\n";
+
+    mysql "-P${DB_PORT}" "-u${DB_USERNAME}" "-p${DB_PASSWORD}" --protocol=TCP < "${1}";
+
+    if [ ${?} -ne 0 ]; then
+        RED "\nCouldn't restore from the dump (see above). Given:";
+        YELLOW "  Dump File: ${1}";
+        YELLOW "  Username: ${DB_USERNAME}";
+        YELLOW "  Password: ${DB_PASSWORD}";
+        YELLOW "  Port: ${DB_PORT}\n";
+        return 123;
+
+    else
+        BLUE "Successfully restored the database.\n";
     fi
 }
 
@@ -312,14 +343,14 @@ GitSyncBranches(){
 
             if [ ${?} -ne 0 ]; then
 
-                RED " Couldn't delete this branch: ${branch}\n";
+                RED "  Couldn't delete this branch: ${branch}\n";
                 read -p "Would you like to try force delete(-D)? [y/n]: " DELETE_A_BRANCH;
 
                 if [ "${DELETE_A_BRANCH}" != "${DELETE_A_BRANCH#[Yy]}" ]; then
                     git branch -D ${branch};
 
                     if [ ${?} -ne 0 ]; then
-                        YELLOW "  Couldn't even force delete this branch: ${branch}\n";
+                        RED "  Couldn't even force delete this branch: ${branch}\n";
                     else
                         BLUE "  Successfully force deleted(-D): ${branch}\n"
                     fi

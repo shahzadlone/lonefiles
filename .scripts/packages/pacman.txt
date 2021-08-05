@@ -66,6 +66,12 @@ mplayer
 mysql-workbench
 gnome-keyring
 
-kvantum-qt5
 breeze-gtk
 xorg-setxkbmap
+
+
+
+
+
+
+// kvantum-qt5

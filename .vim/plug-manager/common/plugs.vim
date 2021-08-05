@@ -42,9 +42,6 @@ Plug 'preservim/nerdcommenter'
 " For nerd tree highlighting (needs devicons).
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" To get rainbow nested parenthesis.
-Plug 'luochen1990/rainbow'
-
 " To help make the interaction with tmux seemless.
 Plug 'benmills/vimux'
 
@@ -99,6 +96,9 @@ Plug 'derekwyatt/vim-fswitch'
 
 " Org mode for vim.
 Plug 'jceb/vim-orgmode'
+
+" To get rainbow nested parenthesis.
+Plug 'junegunn/rainbow_parentheses.vim'
 
 " Fuzzy Finder, keep latest binary and the plugin.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
