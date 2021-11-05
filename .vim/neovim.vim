@@ -27,6 +27,9 @@ if has('nvim') " =======[ Configurations that are only applied when using neovim
     highlight! link TermCursor Cursor
     highlight! TermCursorNC guibg=blue guifg=white ctermbg=1 ctermfg=15
 
+    " Disable syntax highlighting of errors, within a json file.
+    let g:vim_json_warnings = 0
+
     " To avoid neovim nesting and starting a new nvim process if used inside :terminal.
     " let $VISUAL = 'nvr -cc split --remote-wait'
 

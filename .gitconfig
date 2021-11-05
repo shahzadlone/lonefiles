@@ -125,12 +125,17 @@
     st = stash
     stl = stash list
     sh = show
+    u =  reset --hard "@{u}"
+    up  = !git reset --hard "@{u}" && git pull
     wt = worktree
 
     # Slightly advance git aliases.
 
     # Delete remote branch.
     dbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
+
+    # Checkout a file(s) from another branch.
+    chf = "!chfile() { git fetch && git checkout \"${1}\" -- \"${2}\"; }; chfile"
 
     # Commit as if ${1} days ago.
     cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"

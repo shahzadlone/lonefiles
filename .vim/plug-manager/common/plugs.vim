@@ -118,13 +118,17 @@ Plug 'bazelbuild/vim-bazel'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 " Conquer of Completion for fast LSP language completion.
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 
 " Help align text that matches a pattern.
 Plug 'godlygeek/tabular'
 
 " Syntax highlighting, matching rules and mappings for markdown and extensions.
 Plug 'plasticboy/vim-markdown'
+
+" Markdown preview.
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " TypeScript syntax higlighting.
 Plug 'HerringtonDarkholme/yats.vim'

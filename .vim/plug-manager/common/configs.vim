@@ -2,6 +2,7 @@
 
 "=============================================================================== Coc.nvim
 let g:coc_global_extensions = [
+      \'coc-actions',
       \'coc-clangd',
       \'coc-cmake',
       \'coc-css',
@@ -11,12 +12,19 @@ let g:coc_global_extensions = [
       \'coc-highlight',
       \'coc-html',
       \'coc-json',
+      \'coc-pairs',
       \'coc-prettier',
-      \'coc-tsserver',
-      \'coc-sql',
       \'coc-prisma',
+      \'coc-snippets',
+      \'coc-sql',
+      \'coc-tsserver',
       \'coc-vimlsp'
       \]
+"---------------------------------------- coc-pairs
+autocmd FileType cpp let b:coc_pairs_disabled = ['<']
+autocmd FileType tex let b:coc_pairs = [["$", "$"]]
+
+"========================================================================================
 
 "============================================================================= IndentLine
 " To set the default plugin colour for indenting off.

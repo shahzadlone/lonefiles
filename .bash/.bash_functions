@@ -173,7 +173,40 @@ F() {
 }
 
 npmm () {
-    npm run $(jq -r '.scripts | keys[]' package.json | fzf --height=10)
+    npm run $(jq -r '.scripts | keys[]' package.json | fzf --height=10);
+}
+
+gch () {
+    git branch | fzf | xargs git checkout;
+}
+
+# dbproxy () {
+#     # local ENVIRONMENTS=("staging" "production")
+#     # local FZF_STRING=$(join_by "\n" "${ENVIRONMENTS[@]}")
+#     local FZF_STRING="staging\nproduction";
+#     local SELECTED_ENV=$(echo ${FZF_STRING} | fzf) 
+#     if [ "$SELECTED_ENV" = "staging" ]
+#     then
+#         echo "> Running staging proxy"
+#         ~/cloud_sql_proxy -instances=caribou-staging-303716:us-east1:caribou-staging=tcp:3306
+#     elif [ "$SELECTED_ENV" = "production" ]
+#     then
+#         echo "> Running prod proxy"
+#         ~/cloud_sql_proxy -instances=caribou-production:us-east1:caribou-production=tcp:3306
+#     else
+#         echo "> unrecognized env selected"
+#         return 123
+#     fi
+# }
+
+fixCaribouDocker () {
+    sudo docker rm caribou-db;
+    fixDockerMountpoint;
+    docker run -p 8889:3306 --name caribou-db -e MYSQL_ROOT_PASSWORD=root -d mysql:8.0;
+}
+
+dbprisma () {
+    DATABASE_URL=mysql://root:<ROOT_PASSWORD>@localhost:3306/caribou npx prisma migrate deploy
 }
 
 RestartAudio() {

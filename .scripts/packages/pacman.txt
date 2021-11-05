@@ -26,6 +26,7 @@ docker
 jq
 mysql
 zip
+simple-scan
 
 xdg-utils
 pulseaudio-alsa

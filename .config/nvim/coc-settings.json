@@ -1,74 +1,60 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
-
-    "coc.preferences.timeout": 300,
-
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnType": false,
     "coc.preferences.willSaveHandlerTimeout": 1000,
-    "eslint.autoFixOnSave": false,
-    "eslint.format.enable": true,
-    "eslint.packageManager": "yarn",
-    "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+
     "snippets.ultisnips.enable": true,
     "snippets.ultisnips.usePythonx": false,
     "snippets.extends": {
         "javascriptreact": ["javascript"],
         "typescript": [ "javascript" ]
     },
-    "typescript.format.semicolons": "insert",
+
+
+    "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`", "\""],
+    "pairs.enableBackspace": true,
+
+    "clangd.enabled": true,
+    "clangd.semanticHighlighting": true,
+    "clangd.checkUpdates": true,
+    "clangd.disableCompletion": false,
+    "clangd.disableDiagnostics": false,
+    "clangd.arguments": [],
+    //"clangd.path": "clangd",
+
+
+    "eslint.autoFixOnSave": false,
+    "eslint.quiet": false,
+    "eslint.format.enable": true,
+    "eslint.packageManager": "yarn",
+    "eslint.probe": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "html",
+      "vue",
+      "markdown"
+    ],
+
+
+    "tsserver.enable": true,
+    "tsserver.formatOnType": false,
+    "tsserver.enableJavascript": true,
+    //"tsserver.watchOptions": undefined,
+
+
+    "typescript.updateImportsOnFileMove.enable": false,
+    "typescript.implementationsCodeLens.enable": false,
+    "typescript.referencesCodeLens.enable": false,
     "typescript.autoClosingTags": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
     "typescript.preferences.useAliasesForRenames": false,
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.format.semicolons": "insert"
 
-    // "coc.preferences.formatOnSaveFiletypes": [
-        // "c",
-        // "go",
-        // "python",
-        // "markdown",
-        // "javascript",
-        // "typescript",
-        // "json",
-        // "jsonc"
-    // ],
-    // "codeLens.enable": true,
-    // "coc.source.around.firstMatch": false,
-    // "coc.source.file.ignoreHidden": false,
-    // "clangd.arguments": [
-        // "--query-driver=/usr/bin/clang++",
-        // "--background-index"
-    // ],
-    // "diagnostic.format": "%message [%source]",
-    // "diagnostic.virtualText": true,
-    // "diagnostic.checkCurrentLine": true,
-    // "diagnostic.separateRelatedInformationAsDiagnostics": true,
-    // "git.addGBlameToVirtualText": true,
-    // "git.semanticCommit.scope": false,
-    // "go.goplsOptions": {
-        // "experimentalPostfixCompletions": true,
-        // "semanticTokens": true,
-        // "linksInHover": false,
-        // "usePlaceholders": true,
-        // "staticcheck": true
-    // },
-    // "list.normalMappings": {
-        // "<C-c>": "do:exit"
-    // },
-    // "list.insertMappings": {
-        // "<C-c>": "do:exit"
-    // },
-    // "markdownlint.config": {
-        // "default": true,
-        // "line-length": false
-    // },
-    // "python.formatting.provider": "black",
-    // "python.formatting.blackdHTTPHeaders": {
-        // "X-Fast-Or-Safe": "fast"
-    // },
-    // "python.linting.enabled": false,
-    // "python.analysis.diagnosticMode": "workspace",
-    // "python.linting.pylintEnabled": true,
-    // "signature.target": "echo",
-    // "suggest.timeout": 5000,
-    // "suggest.defaultSortMethod": "none",
+
+
+
 }

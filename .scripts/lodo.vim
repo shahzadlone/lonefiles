@@ -63,3 +63,49 @@ usermodmap=$HOME/.Xmodmap
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
+
+" Mount my internal shared hard drive permanently:
+" https://archived.forum.manjaro.org/t/wiki-howto-permanent-mount-for-partition/26187
+
+" NOTE (lsblk -f):
+"    `$ lsblk -f`
+"    NAME        FSTYPE   FSVER LABEL   UUID              FSAVAIL FSUSE% MOUNTPOINTS
+"    ....        ......   ..... .....   ....
+"    ....        ......   ..... .....   ....
+"    ....        ......   ..... .....   ....
+"    sda
+"    ├─sda1
+"    └─sda2      ntfs           Shared  026E402F6E401E33  1.4T     21%  /run/media/bluesushi/Shared
+
+" As `user` did this:
+>>    sudo mkdir /media
+>>    sudo chown ${USER} /media
+>>    mkdir /media/Shared
+
+" Then did this and got the following first error:
+" >>    $ sudo mount /dev/sda2 /media/Shared/
+" Mount is denied because the NTFS volume is already exclusively opened.
+" The volume may be already mounted, or another software may use it which
+" could be identified for example by the help of the 'fuser' command.
+
+" Then to resolve it I tried to unmount and re-try like this:
+" >>    $ sudo umount /dev/sda2
+" >>    $ sudo mount /dev/sda2 /media/Shared/
+
+" But now got another error that said that disk isn't clean:
+" The disk contains an unclean file system (0, 0).
+" Metadata kept in Windows cache, refused to mount.
+" Falling back to read-only mount because the NTFS partition is in an unsafe state. Please resume and shutdown Windows fully (no hibernation
+
+" Fix, So the solution I found was to do these steps:
+"  1) unmount.
+"  2) do an ntfs fix of the disk.
+"  3) then mount to the created media point we created.
+" So, these commands worked:
+>>    sudo umount /dev/sda2
+>>    sudo ntfsfix /dev/sda2
+>>    sudo mount /dev/sda2 /media/Shared/
+
+" We still need to add the entry to `/etc/fstab` to make it permanent.
+>>    su -
+>>    echo "UUID=$(lsblk -no UUID /dev/sda2) /media/Shared $(lsblk -no FSTYPE /dev/sda2) defaults,noatime 0 2" >> /etc/fstab
