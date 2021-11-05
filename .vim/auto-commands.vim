@@ -26,12 +26,16 @@ autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
 autocmd BufWinEnter,BufRead,BufNewFile *.ru set filetype=ruby
 autocmd BufWinEnter,BufRead,BufNewFile *.css.erb,*.spriter set filetype=css
 autocmd BufWinEnter,BufRead,BufNewFile *.mkd,*.md,*.markdown set filetype=markdown
+autocmd BufWinEnter,BufRead,BufNewFile *.go set filetype=go
+autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal list
+" autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal listchars=tab:\ \ ┊,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
+" autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal listchars=tab:\ \ ⋗,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
+autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal listchars=tab:\ \ ⋮,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 autocmd BufWinEnter,BufRead,BufNewFile *.js set filetype=javascript
 autocmd BufWinEnter,BufRead,BufNewFile *.jsx set filetype=javascriptreact
 autocmd BufWinEnter,BufRead,BufNewFile *.ts set filetype=typescript
 autocmd BufWinEnter,BufRead,BufNewFile *.tsx set filetype=typescriptreact
 autocmd BufWinEnter,BufRead,BufNewFile *.ejs,*.hbs set filetype=html
-autocmd BufWinEnter,BufRead,BufNewFile *.go set filetype=go
 autocmd BufWinEnter,BufRead,BufNewFile *.json set filetype=json
 " autocmd BufWinEnter,BufRead,BufNewFile *.prisma setfiletype graphql
 
@@ -47,6 +51,9 @@ autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType go setlocal ts=4 sts=4 sw=4
+autocmd FileType gomod setlocal ts=4 sts=4 sw=4
+
 
 " Trigger `autoread` when changing buffers or if cursor was not moved. This is to
 "  reload a changed buffer automatically, to avoid locking us from writing to the file.

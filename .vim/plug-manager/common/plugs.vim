@@ -145,6 +145,9 @@ Plug 'pantharshit00/vim-prisma'
 " Better indentation and syntax for TypeScript.
 Plug 'leafgarland/typescript-vim'
 
+" For Go support. 
+Plug 'fatih/vim-go'
+
 " Install Nord theme.
 Plug 'arcticicestudio/nord-vim'
 
