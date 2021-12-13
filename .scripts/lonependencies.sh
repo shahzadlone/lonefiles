@@ -381,6 +381,9 @@ printf "\n${BLUE_COLOR}Finished building all dependencies.${NO_COLOR}\n\n";
 # Rough stuff that I should figure out what to do with.
 #========================================================================================
 
+## Install git-delta on Ubuntu:
+# https://github.com/dandavison/delta
+
 # Incase we ever want to install the latest bazel release from source.
 # InstallBazelFromScratch() {
 #     local PACKAGE="${HashMapOfPackages[Bazel]}";

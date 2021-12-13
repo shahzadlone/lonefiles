@@ -1,0 +1,4 @@
+#!/bin/sh
+# Do this to get the values for xrandr: `cvt 5120 1440 239.76`
+# xrandr --newmode "5120x1440_239.76"  2882.00  5120 5600 6176 7232  1440 1443 1453 1663 -hsync +vsync
+# xrandr --addmode DisplayPort-0 5120x1440_239.76

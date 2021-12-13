@@ -1,11 +1,8 @@
+# Shahzad's Git Configurations.
+
 [user]
     email = shahzadlone@gmail.com
     name = Shahzad Lone
-
-[core]
-    editor = $VISUAL
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.gitignore
 
 [merge]
     tool = vimdiff
@@ -41,7 +38,6 @@
     changed = yellow bold
     untracked = red bold
 
-
 [url "https://gitlab.com/"]
     insteadOf = "gl:"
 
@@ -68,6 +64,27 @@
     #                         │                 └─ decorations (branch, heads or tags)
     #                         └─ hash (abbreviated)
 
+[core]
+    editor = $VISUAL
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.gitignore
+    filemode = true
+    # ==========[ Use delta as my pager, other delta configurations below. ]==========
+    pager = delta
+
+# Include delta configuration file that has the features I want to use.
+[include]
+    path = ~/.delta.gitconfig
+
+[delta]
+    features = lone-config lone-theme
+    # side-by-side = true
+
+[interactive]
+    diffFilter = delta --color-only --features='lone-config lone-theme'
+
+
+# ==========[ My Git Aliases that I have found handy time to time. ]==========
 [alias]
     a = add
     aa = add -A
@@ -129,7 +146,7 @@
     up  = !git reset --hard "@{u}" && git pull
     wt = worktree
 
-    # Slightly advance git aliases.
+    # ==========[ Slightly advance git aliases. ]==========
 
     # Delete remote branch.
     dbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
@@ -163,7 +180,7 @@
     unstage =  "!unstage() { git reset HEAD -- \"${1}\"; }; unstage"
     unadd =  "!unadd() { git reset \"${1}\"; }; unadd"
 
-    ; rmlc =  "!keephistory() { git reset --soft HEAD~1; }; keephistory"
+    # rmlc =  "!keephistory() { git reset --soft HEAD~1; }; keephistory"
 
 
 # TODO make a command for this:

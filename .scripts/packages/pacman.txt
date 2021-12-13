@@ -13,6 +13,7 @@ kitty
 alacritty
 vim
 git
+git-delta
 bash-completion
 ripgrep
 lsd
