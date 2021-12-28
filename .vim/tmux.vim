@@ -24,7 +24,7 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
     nnoremap <silent> <C-l> :call <SID>TmuxOrSplitSwitch('l', 'R')<CR>
 
     " -----[ Vimex specific mappings. ]-----
-    " Run the last command executed by VimuxRunCommand
+    " Run the last command executed by VimuxRunCommand.
     nnoremap M :w<CR>:VimuxRunLastCommand<CR>
 
     " Prompt for a command to run in the other tmux pane.
@@ -91,5 +91,9 @@ if exists('${TMUX}') " Mappings to only work if we are inside/using Tmux.
                                                      \:call VimuxRunCommand(
                                                      \ "okular " . expand("%:r") . ".pdf"
                                                      \)<CR>
+
+    " TODO:"
+    " Send a Control-C (interrupt) and then run the last command executed by VimuxRunCommand.
+    " nnoremap <Leader><C-m> :w<CR>:VimuxSendKeys(C-c)<CR>:VimuxRunLastCommand<CR>
 
 endif " End of the Tmux check mappings (Refer to mappings.vim for default mappings).
