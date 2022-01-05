@@ -1,3 +1,6 @@
+echo "hello from bash"
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # Shahzad's .bash_profile that sources my bash shell configurations and adds
 #  my environment variables.
 # Note: Because this file exists, then ~/.profile file won't be read.

@@ -1,0 +1,25 @@
+xcode-select --install
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null
+
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/shahzad/.zprofile
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+
+arch -x86_64 brew install --cash kitty
+// OR
+brew install --cask kitty
+
+
+brew install git neovim tmux curl npm yarn wget grep
+// OR 
+arch -x86_64 brew install git neovim tmux curl npm yarn wget grep
+
+
+sudo wget -O - "https://raw.githubusercontent.com/shahzadlone/lonefiles/distro-arch-linux/.scripts/lonestall.sh" | sudo bash
+
+// Copy backafter the backed up Users folder inside the .lonefiles_backup folder or edit the lonestall.sh to do this after cloning : ``` cp -R .config/ Users/$(whoami)/ ```
