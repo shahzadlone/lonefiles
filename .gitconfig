@@ -109,9 +109,10 @@
     fp = fetch --all --prune
     l = log --pretty=custom
     lf = log --first-parent
-    lg   = log --graph --pretty=custom  
+    lg   = log --graph --decorate --pretty=custom --abbrev-commit
     ln = log
-    lo = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lo = log --graph --decorate --pretty=oneline --abbrev-commit
+    loa = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     lsf = !git ls-files | egrep -i
     lsr = remote -v
@@ -125,6 +126,10 @@
     r = remote
     ra = remote add
     reb = rebase
+    reba = rebase --abort
+    rebc = rebase --continue
+    rebe = rebase --edit-todo
+    rebi = rebase -i
     res = reset
     rhar = reset --hard
     rl = reflog
@@ -148,47 +153,51 @@
 
     # ==========[ Slightly advance git aliases. ]==========
 
-    # Delete remote branch.
-    dbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
-
-    # Checkout a file(s) from another branch.
-    chf = "!chfile() { git fetch && git checkout \"${1}\" -- \"${2}\"; }; chfile"
-
-    # Commit as if ${1} days ago.
-    cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"
-
     # Add a remote and fetch it.
     addr = "!addremote() { git remote add \"${1}\" \"${2}\" && git fetch \"${1}\"; }; addremote"
 
     # Add an upstream remote and fetch upstream.
     addup = "!addup() { git remote add upstream \"${1}\" && git fetch upstream; }; addup"
 
+    # Find the base o
+    base = "!getbase() { git merge-base \"${1}\" $(git branch --show-current); }; getbase"
+
+    # Checkout a file(s) from another branch.
+    # Example: `git chf develop query.go collection.go` will reset both the files to their state in develop.
+    chf = "!chfile() { git fetch && git checkout \"${1}\" -- \"${@:2}\"; }; chfile"
+
+    # Checksout (resets) the staged or non-staged file(s) to HEAD's state.
+    # Example: `git clear query.go collection.go`
+    clear =  "!clear() { git checkout HEAD -- \"${@:1}\"; }; clear"
+
+    # Commit as if ${1} days ago.
+    cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"
+
     # Diff with the commit that was back ${1} commit(s).
     dback = "!diffback() { git diff --color HEAD~\"${1}\"; }; diffback"
 
+    # Delete remote branch.
+    dbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
+
     # Push current branch to a newly created upstream branch.
     pbr = "!pushb() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pushb"
-
-    # Show me back that many commit. NOTE: back 1 commit is the latest commit (HEAD~0).
-    shb = "!showback() { git show --pretty HEAD~\"${1}\"; }; showback"
 
     # Reverts to one commit ahead of the specified commit, keeping all the previous
     #  history upto HEAD. Basically, commits one on top of the previous history.
     revhis =  "!keephistory() { git revert --no-commit \"${1}\"..HEAD; }; keephistory"
 
+    # Show me back that many commit. NOTE: back 1 commit is the latest commit (HEAD~0).
+    shb = "!showback() { git show --pretty HEAD~\"${1}\"; }; showback"
+
+    # Squash commits uptill (non-inclusive) the given commit hash into one commit.
+    squash = "!squash() { git rebase -i \"${1}\"; }; squash"
+
+    # Squash last x# of commits into one commit.
+    squish = "!squish() { git rebase -i HEAD~\"${1}\"; }; squish"
+
+    # Reset commits that were ontop / different than the given target (commit / branch).
+    uncommit =  "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
+
     # Unadds / Unstages a file or directory.
-    unstage =  "!unstage() { git reset HEAD -- \"${1}\"; }; unstage"
-    unadd =  "!unadd() { git reset \"${1}\"; }; unadd"
-
-    # rmlc =  "!keephistory() { git reset --soft HEAD~1; }; keephistory"
-
-
-# TODO make a command for this:
-# git reset --hard <commit-hash>
-# git push -f origin <branch>
-
-# To reset to a certain commit branch or tag (discarding all local changes like commits and new files):
-# git reset --hard origin/<branch_name>
-
-# Remove last commit.
-# rmlc = reset --hard HEAD~1
+    unadd =  "!unadd() { git reset \"${@:1}\"; }; unadd"
+    unstage =  "!unstage() { git reset HEAD -- \"${@:1}\"; }; unstage"
