@@ -31,6 +31,10 @@ NEOVIM/VIM PROVIDER SUPPORT:
 python2 -m pip install --user --upgrade pynvim
 python3 -m pip install --user --upgrade pynvim
 
+" sometime later had to do this:
+pip install --user neovim 
+pip3 install neovim
+
 " Node.js support,
 sudo npm install -g neovim
 

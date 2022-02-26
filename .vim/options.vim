@@ -140,8 +140,8 @@ set nofoldenable
 " Use the "+ register for clipboard.
 "set clipboard=unnamedplus
 
-" Set highlight for 90 characters limit.
-set colorcolumn=90
+" Set highlight for line length limit.
+set colorcolumn=100
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 " Set an other column on the left for signs (or other information).
