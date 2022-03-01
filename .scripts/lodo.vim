@@ -1,7 +1,7 @@
 =============================================================
 Pacman and yay (AUR) packages...
 
-PACKAGE_DIR=$(printf "${HOME}/.script/packages");
+PACKAGE_DIR=$(printf "${HOME}/.scripts/packages");
 PACMAN=$(printf "${PACKAGE_DIR}/pacman.txt");
 AUR=$(printf "${PACKAGE_DIR}/yay.txt");
 
