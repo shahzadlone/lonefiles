@@ -82,7 +82,7 @@ vnoremap <Leader>P "0P
 vnoremap <Localleader>p "+p
 vnoremap <Localleader>P "+P
 
-" Copy to the clipboaod.
+" Copy to the clipboard.
 vnoremap <Leader>y "+y
 
 " Avoid pressing shift key to go into cmdline mode (swap ';' and ':' behaviours).

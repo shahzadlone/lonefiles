@@ -38,22 +38,42 @@
     changed = yellow bold
     untracked = red bold
 
+# HTTPS URL Shortcuts.
 [url "https://gitlab.com/"]
-    insteadOf = "gl:"
+    insteadOf = "h:gl:"
 
 [url "https://github.com/"]
+    insteadOf = "h:gh:"
+
+[url "https://bitbucket.org/"]
+    insteadOf = "h:bb:"
+
+[url "https://gitlab.com/shahzadlone/"]
+    insteadOf = "h:gls:"
+
+[url "https://github.com/shahzadlone/"]
+    insteadOf = "h:ghs:"
+
+[url "https://bitbucket.com/shahzadlone/"]
+    insteadOf = "h:bbs:"
+
+# SSH URL Shortcuts.
+[url "git@gitlab.com:"]
+    insteadOf = "gl:"
+
+[url "git@github.com:"]
     insteadOf = "gh:"
 
 [url "git@bitbucket.org:"]
     insteadOf = "bb:"
 
-[url "https://gitlab.com/shahzadlone/"]
+[url "git@gitlab.com:shahzadlone/"]
     insteadOf = "gls:"
 
-[url "https://github.com/shahzadlone/"]
+[url "git@github.com:shahzadlone/"]
     insteadOf = "ghs:"
 
-[url "https://bitbucket.com/shahzadlone/"]
+[url "git@bitbucket.com:shahzadlone/"]
     insteadOf = "bbs:"
 
 [pretty]
