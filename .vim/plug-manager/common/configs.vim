@@ -13,7 +13,6 @@ let g:coc_global_extensions = [
       \'coc-highlight',
       \'coc-html',
       \'coc-json',
-      \'coc-pairs',
       \'coc-prettier',
       \'coc-prisma',
       \'coc-snippets',
@@ -22,8 +21,9 @@ let g:coc_global_extensions = [
       \'coc-vimlsp'
       \]
 "---------------------------------------- coc-pairs
-autocmd FileType cpp let b:coc_pairs_disabled = ['<']
-autocmd FileType tex let b:coc_pairs = [["$", "$"]]
+      " \'coc-pairs',
+" autocmd FileType cpp let b:coc_pairs_disabled = ['<']
+" autocmd FileType tex let b:coc_pairs = [["$", "$"]]
 
 "________________________________________________________________________________________
 
@@ -55,6 +55,10 @@ let g:go_mod_fmt_autosave = 0
 "==================================================================================== Fzf
 " Add namespace for fzf.vim commands.
 let g:fzf_command_prefix = 'Fzf'
+
+"===================================================================== VimMarkDownPreview
+" Set markdown preview server (to handle wsl case).
+" let g:mkdp_browser = 'edge'
 
 "============================================================================ VimMarkDown
 " Enable markdown folding.

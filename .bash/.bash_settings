@@ -14,6 +14,9 @@ shopt -s checkwinsize
 
 # Use "**" to match all files and zero or more directories and subdirectories.
 shopt -s globstar
+
+# Use "*" to match hidden (dotfiles) as well.
+shopt -u dotglob
 # ------------------------------------ }}}
 
 # -----[ Auto complete for cd ]----- {{{

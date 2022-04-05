@@ -8,6 +8,23 @@ AUR=$(printf "${PACKAGE_DIR}/yay.txt");
 sudo pacman -S --noconfirm - < "${PACMAN}"
 yay -S --no-confirm - < "${YAY}"
 
+=============================================================
+
+ACCTUALLY IGNORE THIS BLOCK UNTIL FIGURE OUT WSL2 actually needs this or not.
+// Add the wsl utilities repository to pacman config file.
+// Follow here: https://wslutiliti.es/wslu/install.html
+
+wget https://pkg.wslutiliti.es/public.key
+pacman-key --add public.key
+pacman-key --lsign-key A2861ABFD897DD37
+
+// Add to `/etc/pacman.conf` file the following:
+[wslutilities]
+Server = https://pkg.wslutiliti.es/arch/
+
+// Then do this:
+pacman -Sy && pacman -S wslu
+
 
 =============================================================
 Install Grub Theme:
@@ -25,7 +42,26 @@ snap install --devmode --beta anbox
 
 
 =============================================================
-NEOVIM/VIM PROVIDER SUPPORT:
+# NEOVIM/VIM PROVIDER SUPPORT:
+
+Please be aware of python pip issues.
+If you use sudo to install packages using pip you may get issues later on when installing packages using pacman.
+The issue is pacman keeps track of installed files and if a conflict is detected you will get an error using pacman.
+Manjaro installs a file ~/etc/pip.conf which instructs pip to install into the users local bin folder ~/.local/bin but this configuration does not work well with python virtual environments.
+Which can be changed to false in case of problems using virtual environments - in case of virtual environments - activate the virtual environment and use standard pip install package
+The default pip.conf file content, `cat /etc/pip.conf`:
+```
+[global]
+user = true
+```
+
+### Install Python2 Pip
+sudo apt-get install python-pip
+sudo pacman -S python2-pip # Deprecated
+
+### Install Python3 Pip
+sudo apt-get install python3-pip
+sudo pacman -S python-pip
 
 " Add python support to neo-vim: (make sure python2 python3 and their pip's are installed)
 python2 -m pip install --user --upgrade pynvim

@@ -1,13 +1,10 @@
 base-devel
 binutils
-
 yay
-python2-pip
 python-pip
 npm
 yarn
 gdb
-
 ttf-fira-code
 kitty
 alacritty

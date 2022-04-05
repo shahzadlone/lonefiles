@@ -112,6 +112,7 @@
     a = add
     aa = add -A
     ac  = !git add -A && git commit -v
+    auc  = !git add -u && git commit -v
     ap = add -p
     b = branch
     ba = branch --all

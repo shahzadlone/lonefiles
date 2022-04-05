@@ -28,8 +28,9 @@ autocmd BufWinEnter,BufRead,BufNewFile *.css.erb,*.spriter set filetype=css
 autocmd BufWinEnter,BufRead,BufNewFile *.mkd,*.md,*.markdown set filetype=markdown
 autocmd BufWinEnter,BufRead,BufNewFile *.go set filetype=go
 autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal list
-" autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal listchars=tab:\ \ ┊,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 " autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal listchars=tab:\ \ ⋗,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
+" autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal listchars=tab:\ \ ┊,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
+" autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal listchars=tab:\ \ ¦,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 autocmd BufWinEnter,BufRead,BufNewFile *.go,go.mod setlocal listchars=tab:\ \ ⋮,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 autocmd BufWinEnter,BufRead,BufNewFile *.js set filetype=javascript
 autocmd BufWinEnter,BufRead,BufNewFile *.jsx set filetype=javascriptreact
