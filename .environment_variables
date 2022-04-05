@@ -24,6 +24,11 @@ export GOPATH=$(go env GOPATH);
 export PATH="${PATH}:${GOPATH}/bin";
 # ------------------------------ }}}
 
+# ------------[ Set RipGrep config file path ]------------ {{{
+export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
+#--------------------------------------------------------- }}}
+
+
 # ------------[ Android Studio SDK ]------------ {{{
 export ANDROID_SDK=${HOME}/Android/Sdk/
 # ---------------------------------------------- }}}
