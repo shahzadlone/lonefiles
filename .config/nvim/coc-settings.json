@@ -5,22 +5,21 @@
 
 
     "snippets.ultisnips.enable": true,
-    "snippets.ultisnips.usePythonx": false,
     "snippets.extends": {
         "javascriptreact": ["javascript"],
         "typescript": [ "javascript" ]
     },
 
 
-    "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`", "\""],
-    "pairs.enableBackspace": true,
+    //"pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`", "\""],
+    //"pairs.enableBackspace": true,
 
     "clangd.enabled": true,
-    "clangd.semanticHighlighting": true,
     "clangd.checkUpdates": true,
     "clangd.disableCompletion": false,
     "clangd.disableDiagnostics": false,
     "clangd.arguments": [],
+    //"clangd.semanticHighlighting": true,
     //"clangd.path": "clangd",
 
 
