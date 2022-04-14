@@ -159,6 +159,9 @@ alias OPEN='firefox --new-window "http://localhost:8080" &'
 
 # Quickly HOST and OPEN that hosted server.
 alias OPENHOST='HOST OPEN'
+
+# List installed fonts.
+alias Fonts='fc-list'
 # -------------------- }}}
 
 # -----[ Pacman and Yay ]----- {{{
