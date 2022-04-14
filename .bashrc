@@ -22,6 +22,15 @@ else
     echo "Warning: .bash_system_default didn't get sourced in '.bashrc' file.";
 fi
 
+# Source WSL configurations if inside WSL and our .bash_wsl file exists.
+if [[ $(grep "WSL" /proc/version) ]] && [ -f ~/.bash/.bash_wsl ]; then
+    . ~/.bash/.bash_wsl;
+elif [[ $(grep "WSL" /proc/version) ]] && [ ! -f ~/.bash/.bash_wsl ]; then
+    echo "Warning: .bash_wsl didn't get sourced in '.bashrc' file, while in WSL.";
+## else
+##     echo "We are not inside WSL, so don't source the wsl configs.";
+fi
+
 # Source the file that contains my terminal prompt configurations.
 if [ -f ~/.bash/.bash_prompt ]; then
     . ~/.bash/.bash_prompt;

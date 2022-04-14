@@ -1,0 +1,27 @@
+# Shahzad's WSL Specifc Configurations (only sourced if under WSL).
+
+############################################################################################ EXPORTS
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=0
+
+########################################################################################## VARIABLES
+
+########################################################################################## FUNCTIONS
+# Copy config files sitting in my WSL to their Windows location (for native window configs).
+SyncWSLConfigs() {
+    # Alacritty config file is sitting at `~/.config/alacritty/alacritty.yml` on WSL.
+    # We want to copy to `/mnt/c/Users/shahzad/AppData/Roaming/alacritty/alacritty.yml` on Windows.
+    # Using cmd.exe we get   : `C:\Users\shahzad\AppData\Roaming'\r'`
+    # tr converts it to      : `C:\Users\shahzad\AppData\Roaming`
+    # 1st sed converts it to : `C:/Users/shahzad/AppData/Roaming`
+    # 2nd sed converts it to : `Users/shahzad/AppData/Roaming`
+    APPDATA_PARTIAL=$(cmd.exe /c echo %APPDATA% | tr -d '\r' | sed -r 's/[\\]+/\//g'  | sed 's/^[^\/]*\///g');
+    # APPDATA_FULL has mount point info : `/mnt/c/Users/shahzad/AppData/Roaming`
+    APPDATA_FULL=$(printf "/mnt/c/${APPDATA_PARTIAL}");
+
+    ALACRITTY_WINDOWS_CONFIG=$(printf "${APPDATA_FULL}/alacritty/");
+    ALACRITTY_WSL_CONFIG=$(printf "${HOME}/.config/alacritty/alacritty.yml");
+    echo -e "\nCopying [From WSL] = ${ALACRITTY_WSL_CONFIG}"
+    echo -e "To [Windows]    = ${ALACRITTY_WINDOWS_CONFIG}\n"
+    mkdir -p "${ALACRITTY_WINDOWS_CONFIG}" && cp -i "${ALACRITTY_WSL_CONFIG}" "${ALACRITTY_WINDOWS_CONFIG}";
+}

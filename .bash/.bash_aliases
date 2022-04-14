@@ -81,6 +81,9 @@ alias vimm='vim $(fzf --height 40% --reverse)'
 
 # Short cut for docker.
 alias d='sudo docker'
+
+# Help me see whitespaces. Example: `bash --help | whitespace`
+alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'"
 # ----------------------------- }}}
 
 # -----[ Git. ]----- {{{

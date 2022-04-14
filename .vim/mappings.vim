@@ -317,6 +317,7 @@ nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
                       \:tabe ~/.bash/.bash_exports<CR>
                       \:tabe ~/.bash/.bash_functions<CR>
                       \:tabe ~/.bash/.bash_prompt<CR>
+                      \:tabe ~/.bash/.bash_wsl<CR>
                       \:tabe ~/.bash/.bash_system_default<CR>
 
 " Close all bash config files that are open in tabs, if possible (nothing is unsaved).
