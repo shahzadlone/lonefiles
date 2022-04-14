@@ -2,7 +2,6 @@
 # This is a shorthand to override some of the options to be backwards compatible
 # with `ls`. It affects the "color"->"when", "sorting"->"dir-grouping", "date"
 # and "icons"->"when" options.
-
 # Possible values: false, true
 classic: false
 
@@ -13,7 +12,6 @@ classic: false
 blocks:
   - permission
   - user
-
   - group
   - size
   - date
@@ -34,10 +32,8 @@ color:
   # The file path if absolute
   theme: default
 
-
 # == Date ==
 # This specifies the date format for the date column. The freeform format
-
 # accepts an strftime like string.
 # When "classic" is set, this is set to "date".
 # Possible values: date, relative, '+<date_format>'
@@ -45,7 +41,6 @@ color:
 date: date
 
 # == Dereference ==
-
 # Whether to dereference symbolic links.
 # Possible values: false, true
 dereference: false
@@ -54,7 +49,6 @@ dereference: false
 # What items to display. Do not specify this for the default behavior.
 # Possible values: all, almost-all, directory-only
 # display: all
-
 
 # == Icons ==
 icons:
@@ -66,7 +60,6 @@ icons:
   # Possible values: fancy, unicode
   theme: fancy
   # Separator between icon and the name
-
   # Default to 1 space
   separator: " "
 
@@ -76,7 +69,6 @@ icons:
 #   - .git
 
 # == Indicators ==
-
 # Whether to add indicator characters to certain listed files.
 # Possible values: false, true
 indicators: false
@@ -101,11 +93,6 @@ recursion:
 # Possible values: default, short, bytes
 size: default
 
-# == Permission ==
-# Specify the format of the permission column
-# Possible value: rwx, octal
-permission: rwx
-
 # == Sorting ==
 sorting:
   # Specify what to sort by.
@@ -129,12 +116,6 @@ no-symlink: false
 # Possible values: false, true
 total-size: false
 
-# == Hyperlink ==
-# Whether to display the total size of directories.
-
-# Possible values: always, auto, never
-hyperlink: never
-
 # == Symlink arrow ==
 # Specifies how the symlink arrow display, chars in both ascii and utf8
-symlink-arrow: ⇒>
+symlink-arrow: ⇒

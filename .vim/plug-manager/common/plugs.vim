@@ -148,13 +148,19 @@ Plug 'leafgarland/typescript-vim'
 " For Go support. 
 Plug 'fatih/vim-go'
 
-" Install Nord theme.
+" Nord theme.
 Plug 'arcticicestudio/nord-vim'
 
-" Install the gruvbox theme.
+" OneNord theme.
+" Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
+
+" OneDark theme.
+" Plug 'navarasu/onedark.nvim'
+
+" Gruvbox theme.
 " Plug 'morhetz/gruvbox'
 
-" Install the NeoSolarized theme.
+" NeoSolarized theme.
 " Plug 'overcache/NeoSolarized'
 
 " Better JSON support.

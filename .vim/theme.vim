@@ -21,7 +21,6 @@ elseif !has('nvim') && has('termguicolors')
     set notermguicolors
 endif
 
-
 " Type of Background.
 set background=dark
 
@@ -31,6 +30,21 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 "============================================================= Theme Nord configurations.
 colorscheme nord
+
+"========================================================== Theme OneNord configurations.
+" colorscheme onenord
+
+"========================================================== Theme OneDark configurations.
+"colorscheme onedark
+"let g:onedark_config = {
+"  \ 'style': 'deep',
+"  \ 'toggle_style_key': '<leader>ts',
+"  \ 'ending_tildes': v:true,
+"  \ 'diagnostics': {
+"    \ 'darker': v:false,
+"    \ 'background': v:false,
+"  \ },
+"\ }
 
 "========================================================== Theme GruvBox configurations.
 " colorscheme gruvbox
@@ -47,5 +61,3 @@ colorscheme nord
 "=================================================================== Other Tweaks Needed.
 set t_ZH="\e[3m"
 set t_ZR="\e[23m"
-
-" Some good themes: cobalt, monokai-soda, monokai, lyla, neuromancer, solarized.
