@@ -25,6 +25,7 @@ jq
 mysql
 zip
 simple-scan
+htop
 
 xdg-utils
 pulseaudio-alsa

@@ -24,6 +24,7 @@ alias vi="\${NORMAL_VIM}";
 
 # see '~/.bash/bash_exports' for how $VISUAL is exported (could be: vim, nvim, nvr).
 alias vim="\${VISUAL}";
+alias v="\${VISUAL}";
 
 # see '~/.bash/bash_exports'. Also this helps shorten the vimdiff command.
 alias vdiff="\${VISUAL} -d";
