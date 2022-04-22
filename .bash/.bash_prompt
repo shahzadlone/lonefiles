@@ -18,9 +18,18 @@
 #       fi
 #    \` \[\e[01;34m\] $ \[\e[00m\]"
 
+#success_indicator() {
+#    if [ ${?} = 0 ]; then
+#        echo -e '\[\e[01;33m\]\xE2\x98\xBA';
+#    else
+#        echo -e '\[\e[01;31m\]\xE2\x98\xB9';
+#    fi
+#}
+
 git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ {\ \1\ }/'
 }
+
 
 PS1="\n\[\e[01;32m\]\u@\h \[\e[01;34m\]\w \`
        if [ \${?} = 0 ]; then

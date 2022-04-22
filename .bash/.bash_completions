@@ -42,3 +42,6 @@ elif [ -f /usr/share/bash-completion/completions/git ]; then
 else
     echo "Warning: git-completion.bash didn't get sourced in '.bash_completions' file for '${DISTRO}'.";
 fi
+
+# Makefile completion to also show targets that have a `:` within.
+complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+[\\:]*[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sort | uniq | sed 's/[^a-zA-Z0-9_.-]*$//' | sed 's/[\]//g' | fzf\`" make
