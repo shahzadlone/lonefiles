@@ -53,9 +53,6 @@ set expandtab
 " Insert just one space joining lines with J.
 set nojoinspaces
 
-" Show (partial) command in the status line.
-set showcmd
-
 " Don't show matching brackets when typing them.
 set noshowmatch
 
@@ -90,21 +87,11 @@ set cursorline
 " To show charcter(row) in line.
 set ruler
 
-" Show the editing mode on the last line.
-set showmode
-
 " Highlight matching [{()}], to the best of vim's ability (not perfect).
 set showmatch
 
 " Redraw only when we need to.
 set lazyredraw
-
-" Set CMD Mode options.
-set shortmess+=raIoOtT
-set cmdheight=2
-
-" Visual autocomplete for command menu.
-set wildmenu
 
 " Tell vim where to put backup, undo and swapfiles.
 set writebackup
@@ -136,6 +123,24 @@ set foldlevel=1
 
 " Set folding off by default, can enable using my mapping (<Leader>fold).
 set nofoldenable
+
+" Visual autocomplete for command menu.
+set wildmenu
+
+" Set CMD Mode options.
+set shortmess+=raIoOtT
+set cmdheight=2
+
+" Show (partial) command in the status line.
+set showcmd
+
+" Add full path to the status line.
+set statusline+=%F
+
+" -----------------------------------------------------------------[Overwritten Elsewhere]
+" Show the editing mode on the last line. (Turned off in themes.vim for airline).
+set showmode
+" ----------------------------------------------------------------------------------------
 
 " Use the "+ register for clipboard.
 "set clipboard=unnamedplus

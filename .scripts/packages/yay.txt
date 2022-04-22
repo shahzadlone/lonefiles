@@ -1,7 +1,6 @@
 google-cloud-sdk
 neovide
-nerd-fonts-victor-mono
-nerd-fonts-complete
+powerline-fonts-git
 
 displaylink
 evdi-git

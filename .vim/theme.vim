@@ -25,8 +25,19 @@ endif
 set background=dark
 
 "================================================================ Airline Configurations.
-let g:airline_powerline_fonts = 1
+" Make sure to have powerline fonts installed for this option to work.
+" let g:airline_powerline_fonts = 1
+
+" Hybrid tab names. Set to 'default' to show only file name (no path info) in the tabs.
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" This makes airline show full path to file (without this only shows file name in statusline).
+let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+
+" Turn mode showing off to avoid showing double `INSERT` status when using Airline.
+" Comment this if not using airline or powerline or some statusline.
+set noshowmode
+
 
 "============================================================= Theme Nord configurations.
 colorscheme nord

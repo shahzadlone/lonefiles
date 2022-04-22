@@ -319,6 +319,8 @@ nnoremap <Leader>bash :tabe ~/.bash/.bash_aliases<CR>
                       \:tabe ~/.bash/.bash_prompt<CR>
                       \:tabe ~/.bash/.bash_wsl<CR>
                       \:tabe ~/.bash/.bash_system_default<CR>
+                      \:tabe ~/.bash/.bash_completions<CR>
+                      \:tabe ~/.bashrc<CR>
 
 " Close all bash config files that are open in tabs, if possible (nothing is unsaved).
 nnoremap <Leader>cbash :bd *bash_*<C-a><CR>
@@ -328,6 +330,7 @@ nnoremap <Leader>scri :tabe ~/.scripts/lonefigure.sh<CR>
                       \:tabe ~/.scripts/lonependencies.sh<CR>
                       \:tabe ~/.scripts/lonestall.sh<CR>
                       \:tabe ~/.scripts/lonify.sh<CR>
+                      \:tabe ~/.scripts/lodo.vim<CR>
 
 " Open my pacman and yay package tracking list.
 nnoremap <Leader>pac :tabe ~/.scripts/packages/pacman.txt<CR>
