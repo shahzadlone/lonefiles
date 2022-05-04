@@ -75,8 +75,6 @@ unbind :
 bind \; command-prompt
 bind : last-pane
 
-
-
 # Switching strictly between tmux panes, recursively (without awareness of vim splits).
 unbind Left
 unbind Right

@@ -84,6 +84,9 @@ set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 " Highlight current line.
 set cursorline
 
+" Highlight the current column.
+set cursorcolumn
+
 " To show charcter(row) in line.
 set ruler
 

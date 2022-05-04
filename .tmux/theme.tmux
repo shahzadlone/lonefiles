@@ -42,3 +42,39 @@
 # set -g message-style "bright fg=colour51 bg=black"
 # set -g message-command-style "bg=black fg=colour51"
 
+
+
+################################################################ NORD CUSTOM  #################################################################
+# FROM:
+#  -  https://github.com/casonadams/nord.vim
+#  -  https://unix.stackexchange.com/questions/494237/tmux-is-it-possible-to-dim-the-inactive-window-and-on-the-same-time-have-transp
+###############################################################################################################################################
+#set -g status-style fg=white,bg=brightblack
+#setw -g clock-mode-colour cyan
+#
+#set -g mode-style bg=brightcyan,fg=black
+#set -g message-style bg=brightblack,fg=cyan
+#set -g message-command-style bg=brightblack,fg=cyan
+#
+#set -g status-left '#{?pane_synchronized, ¤ ,}#{?window_zoomed_flag, ↕ ,}[#S-#{window_active_clients}]'
+#set -g status-right '#H'
+#
+#path="#(if [[ $HOME == #{pane_current_path} ]]; then echo \"~\" ; else echo #{b:pane_current_path}; fi)"
+#
+#set -g pane-border-style fg=brightblack,bg=black
+#set -g pane-active-border-style fg=blue,bg=black
+#set-window-option -g window-active-style bg=terminal
+#set-window-option -g window-style bg=black
+#
+#set-window-option -g window-status-style bg=default,fg=default
+#set-window-option -g window-status-current-style bg=default,fg=cyan
+#set-window-option -g window-status-activity-style bg=default,fg=yellow
+#set-window-option -g window-status-separator ""
+#set-window-option -g window-status-current-format " $path "
+#set-window-option -g window-status-format " $path "
+###############################################################################################################################################
+
+# Set active and inactive window styles (to Dim inactive panes).
+set -g window-style "bg=black fg=default"
+set -g window-active-style "bg=terminal fg=default"
+
