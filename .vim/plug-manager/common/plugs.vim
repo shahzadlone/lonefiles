@@ -177,6 +177,9 @@ Plug 'arcticicestudio/nord-vim'
 " Vimwiki note taking.
 " Plug 'vimwiki/vimwiki'
 
+" Fade / Dim vim windows.
+" Plug 'TaDaa/vimade'
+
 " Easy tag management for Vim (vim-misc is a needed dependency).
 " Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-easytags'

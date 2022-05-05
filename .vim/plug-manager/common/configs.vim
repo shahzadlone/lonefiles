@@ -2,25 +2,25 @@
 
 "=============================================================================== Coc.nvim
 let g:coc_global_extensions = [
-      \'coc-actions',
-      \'coc-clangd',
-      \'coc-cmake',
-      \'coc-css',
-      \'coc-cssmodules',
-      \'coc-eslint',
-      \'coc-git',
-      \'coc-go',
-      \'coc-highlight',
-      \'coc-html',
-      \'coc-json',
-      \'coc-prettier',
-      \'coc-prisma',
-      \'coc-snippets',
-      \'coc-sql',
-      \'coc-tsserver',
-      \'coc-lua',
-      \'coc-vimlsp'
-      \]
+    \'coc-actions',
+    \'coc-clangd',
+    \'coc-cmake',
+    \'coc-css',
+    \'coc-cssmodules',
+    \'coc-eslint',
+    \'coc-git',
+    \'coc-go',
+    \'coc-highlight',
+    \'coc-html',
+    \'coc-json',
+    \'coc-prettier',
+    \'coc-prisma',
+    \'coc-snippets',
+    \'coc-sql',
+    \'coc-tsserver',
+    \'coc-lua',
+    \'coc-vimlsp'
+\]
 "---------------------------------------- coc-pairs
       " \'coc-pairs',
 " autocmd FileType cpp let b:coc_pairs_disabled = ['<']
@@ -171,11 +171,50 @@ augroup END
 
 " List of colors that you do not want. ANSI code or #RRGGBB
 " let g:rainbow#blacklist = [233, 234]
+
 "=============================================================================== SuperTab
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 "=============================================================================== Prettier
 " nmap <F1> <Plug>(Prettier)
+
+"================================================================================= Vimade
+"let g:vimade = {
+"    \ 'normalid': '',
+"    \ 'normalncid': '',
+"    \ 'basefg': '',
+"    \ 'basebg': '',
+"    \ 'fadelevel': 0.4,
+"    \ 'colbufsize': 15,
+"    \ 'rowbufsize': 15,
+"    \ 'checkinterval': 100,
+"    \ 'usecursorhold': 0,
+"    \ 'detecttermcolors': 0,
+"    \ 'enablescroll': 1,
+"    \ 'signsid': 13100,
+"    \ 'signsretentionperiod': 4000,
+"    \ 'fademinimap': 1,
+"    \ 'fadepriority': 10,
+"    \ 'groupdiff': 1,
+"    \ 'groupscrollbind': 0,
+"    \ 'enablefocusfading': 0,
+"    \ 'enablebasegroups': 1,
+"    \ 'enabletreesitter' : 0,
+"    \ 'basegroups': [
+"        \'Folded',
+"        \'Search',
+"        \'SignColumn',
+"        \'LineNr',
+"        \'CursorLine',
+"        \'CursorLineNr',
+"        \'DiffAdd',
+"        \'DiffChange',
+"        \'DiffDelete',
+"        \'DiffText',
+"        \'FoldColumn',
+"        \'Whitespace'
+"    \]
+"\}
 
 "========================================================================== YouCompleteMe
 "" Make YCM compatible with UltiSnips (using supertab)
