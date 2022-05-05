@@ -146,7 +146,7 @@ Plug 'pantharshit00/vim-prisma'
 Plug 'leafgarland/typescript-vim'
 
 " For Go support. 
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Nord theme.
 Plug 'arcticicestudio/nord-vim'
@@ -196,9 +196,6 @@ Plug 'arcticicestudio/nord-vim'
 
 " Auto completing suggestions.
 " Plug 'Valloric/YouCompleteMe'
-
-" Go support.
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Nerd Tree syncronized with vim tabs.
 " Plug 'jistr/vim-nerdtree-tabs'
