@@ -44,11 +44,11 @@
 
 
 
-################################################################ NORD CUSTOM  #################################################################
+################################################################ NORD CUSTOM  #########################################
 # FROM:
 #  -  https://github.com/casonadams/nord.vim
 #  -  https://unix.stackexchange.com/questions/494237/tmux-is-it-possible-to-dim-the-inactive-window-and-on-the-same-time-have-transp
-###############################################################################################################################################
+#######################################################################################################################
 #set -g status-style fg=white,bg=brightblack
 #setw -g clock-mode-colour cyan
 #
@@ -72,9 +72,12 @@
 #set-window-option -g window-status-separator ""
 #set-window-option -g window-status-current-format " $path "
 #set-window-option -g window-status-format " $path "
-###############################################################################################################################################
+#######################################################################################################################
 
 # Set active and inactive window styles (to Dim inactive panes).
 set -g window-style "bg=black fg=default"
 set -g window-active-style "bg=terminal fg=default"
+
+# Set active and inactive window styles (to Dim inactive panes).
+set -g pane-border-lines "double"
 

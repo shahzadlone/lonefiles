@@ -1,5 +1,14 @@
 " Shahzad's Vim Set Options
 
+" Set highlight for line length limit.
+set colorcolumn=120
+
+" Highlight current line.
+set cursorline
+
+" Highlight the current column.
+set cursorcolumn
+
 " So that TextEdit doesn't fail.
 set hidden
 
@@ -81,12 +90,6 @@ set splitbelow
 set list
 set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 
-" Highlight current line.
-set cursorline
-
-" Highlight the current column.
-set cursorcolumn
-
 " To show charcter(row) in line.
 set ruler
 
@@ -147,10 +150,6 @@ set showmode
 
 " Use the "+ register for clipboard.
 "set clipboard=unnamedplus
-
-" Set highlight for line length limit.
-set colorcolumn=120
-highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 " Set an other column on the left for signs (or other information).
 " set signcolumn=yes

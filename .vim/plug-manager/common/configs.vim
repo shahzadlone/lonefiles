@@ -18,6 +18,7 @@ let g:coc_global_extensions = [
       \'coc-snippets',
       \'coc-sql',
       \'coc-tsserver',
+      \'coc-lua',
       \'coc-vimlsp'
       \]
 "---------------------------------------- coc-pairs

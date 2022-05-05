@@ -1,5 +1,6 @@
 " Shahzad's Vim Theme Configurations.
 
+"================================================================================================ Before Setting Theme.
 
 " Set 256 terminal colors.
 set t_Co=256
@@ -24,7 +25,37 @@ endif
 " Type of Background.
 set background=dark
 
-"================================================================ Airline Configurations.
+"======================================================================================== Setting Theme / Colorscheme.
+"------------------------------------------------------------- Theme Nord configurations.
+colorscheme nord
+
+"---------------------------------------------------------- Theme OneNord configurations.
+" colorscheme onenord
+
+"---------------------------------------------------------- Theme OneDark configurations.
+"colorscheme onedark
+"let g:onedark_config = {
+"  \ 'style': 'deep',
+"  \ 'toggle_style_key': '<leader>ts',
+"  \ 'ending_tildes': v:true,
+"  \ 'diagnostics': {
+"    \ 'darker': v:false,
+"    \ 'background': v:false,
+"  \ },
+"\ }
+
+"---------------------------------------------------------- Theme GruvBox configurations.
+" colorscheme gruvbox
+
+" Tells GruvBox to show comments in italics (this line should show in italics).
+" let g:gruvbox_itolic=1
+
+" Gruvbox Airline.
+" let g:airline_theme='gruvbox'
+
+"================================================================================================ After Setting Theme.
+
+"---------------------------------------------------------------- Airline Configurations.
 " Make sure to have powerline fonts installed for this option to work.
 " let g:airline_powerline_fonts = 1
 
@@ -38,37 +69,10 @@ let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#par
 " Comment this if not using airline or powerline or some statusline.
 set noshowmode
 
+"------------------------------------------------------------------ Other Configurations.
+" Set the color of the column for line character limit indication.
+" note: this should come after the `colorscheme` has been set (to overide it's changes).
+highlight ColorColumn ctermbg=blue guibg=blue
 
-"============================================================= Theme Nord configurations.
-colorscheme nord
-
-"========================================================== Theme OneNord configurations.
-" colorscheme onenord
-
-"========================================================== Theme OneDark configurations.
-"colorscheme onedark
-"let g:onedark_config = {
-"  \ 'style': 'deep',
-"  \ 'toggle_style_key': '<leader>ts',
-"  \ 'ending_tildes': v:true,
-"  \ 'diagnostics': {
-"    \ 'darker': v:false,
-"    \ 'background': v:false,
-"  \ },
-"\ }
-
-"========================================================== Theme GruvBox configurations.
-" colorscheme gruvbox
-
-" Tells GruvBox to show comments in italics (this line should show in italics).
-" let g:gruvbox_itolic=1
-
-" Gruvbox Airline.
-" let g:airline_theme='gruvbox'
-
-"======================================================== Theme Solarized configurations.
-
-
-"=================================================================== Other Tweaks Needed.
 set t_ZH="\e[3m"
 set t_ZR="\e[23m"
