@@ -79,6 +79,10 @@
 [url "git@bitbucket.com:shahzadlone/"]
     insteadOf = "bbs:"
 
+# Use SSH instead of https for github.
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
 [pretty]
     custom = "%C(bold yellow)%h%C(bold magenta)%d %C(bold white)%ar %C(bold cyan)%s %C(bold blue)(%an)"
     #                         │                 │                │                │                └─ author name
@@ -223,6 +227,9 @@
 
     # Reset commits that were ontop / different than the given target (commit / branch).
     uncommit =  "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
+
+    # Reset commits and remove from the staging area, as it were before adding files.
+    unindex =  "!unindex() { git reset --mixed \"${1}\"; }; unindex"
 
     # Unadds / Unstages a file or directory.
     unadd =  "!unadd() { git reset \"${@:1}\"; }; unadd"
