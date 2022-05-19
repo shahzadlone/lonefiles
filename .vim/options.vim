@@ -71,11 +71,10 @@ set nrformats-=octal
 " Allow incrementing and decrementing of alphabets.
 set nrformats+=alpha
 
-" Turn on my searching preference.
-set hlsearch  " Highlight search.
-set ic        " Ignore case.
-set is
-set incsearch " Search as characters are entered.
+" Set my default searching preference.
+set hlsearch   " Highlight my search.
+set ignorecase " Start with insensitive case search.
+set incsearch  " Search as characters are entered.
 
 " Set max allowed tabs to be opened.
 set tabpagemax=500

@@ -53,6 +53,7 @@ autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType go setlocal ts=4 sts=4 sw=4
+autocmd FileType graphql setlocal ts=4 sts=4 sw=4
 autocmd FileType gomod setlocal ts=4 sts=4 sw=4
 
 

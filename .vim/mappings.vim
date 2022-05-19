@@ -93,7 +93,11 @@ vnoremap : ;
 vnoremap > >gv
 vnoremap < <gv
 
+" Apply the built in formating / indenting command.
 vnoremap <F5> =
+
+" Toggle case sensitivity of the search.
+nnoremap <F9> :set ignorecase! ignorecase?<CR>
 
 " Only open the visually selected file in a new tab if it exists.
 vnoremap gf <C-w>gf

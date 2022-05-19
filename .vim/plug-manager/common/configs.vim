@@ -1,39 +1,56 @@
 " Shahzad's All Common Plugin Configurations.
 
+
 "=============================================================================== Coc.nvim
 let g:coc_global_extensions = [
-    \'coc-actions',
-    \'coc-clangd',
-    \'coc-cmake',
-    \'coc-css',
-    \'coc-cssmodules',
-    \'coc-eslint',
-    \'coc-git',
-    \'coc-go',
-    \'coc-highlight',
-    \'coc-html',
-    \'coc-json',
-    \'coc-prettier',
-    \'coc-prisma',
-    \'coc-snippets',
-    \'coc-sql',
-    \'coc-tsserver',
-    \'coc-lua',
-    \'coc-vimlsp'
-\]
+    \ 'coc-actions',
+    \ 'coc-clangd',
+    \ 'coc-cmake',
+    \ 'coc-css',
+    \ 'coc-cssmodules',
+    \ 'coc-eslint',
+    \ 'coc-git',
+    \ 'coc-go',
+    \ 'coc-graphql',
+    \ 'coc-highlight',
+    \ 'coc-html',
+    \ 'coc-json',
+    \ 'coc-lua',
+    \ 'coc-prettier',
+    \ 'coc-prisma',
+    \ 'coc-snippets',
+    \ 'coc-sql',
+    \ 'coc-tsserver',
+    \ 'coc-vimlsp',
+    \ 'coc-yaml'
+    \]
+
 "---------------------------------------- coc-pairs
-      " \'coc-pairs',
+" \'coc-pairs',
 " autocmd FileType cpp let b:coc_pairs_disabled = ['<']
 " autocmd FileType tex let b:coc_pairs = [["$", "$"]]
 
 "________________________________________________________________________________________
 
-"============================================================================= IndentLine
-" To set the default plugin colour for indenting off.
-let g:indentLine_setColors = 1
+"========================================================================== VimPrintDebug
+nnoremap <Leader>lf :call print_debug#print_debug()<cr>
+"
+let g:print_debug_default = '"+=+= {} +=+="'
+let g:print_debug_templates = {
+    \ 'go':         'fmt.Printf("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}\n")',
+    \ 'python':     'print(f"+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}")',
+    \ 'javascript': 'console.log(`+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}`);',
+    \ 'c':          'printf("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}\n");',
+    \}
 
-" Show each indent level by a distinct char.
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+"============================================================================= VimPrinter
+let g:vim_printer_print_below_keybinding = '<Leader>ll'
+let g:vim_printer_print_above_keybinding = '<Leader>lL'
+
+let g:vim_printer_items = {
+    \ 'go'         : 'fmt.Println("{$}      : ", {$})',
+    \ 'javascript' : 'console.log("{$}      : ", {$})',
+    \}
 
 "======================================================================== LspCxxHighlight
 " vim-lsp-cxx-highlight's support for text properties.
@@ -54,12 +71,22 @@ let g:go_echo_command_info = 0
 let g:go_mod_fmt_autosave = 0
 
 "==================================================================================== Fzf
+" note: The Mappings are defined in `~/.im/plug-manager/common/mappings.vim`
+
 " Add namespace for fzf.vim commands.
 let g:fzf_command_prefix = 'Fzf'
 
-"===================================================================== VimMarkDownPreview
-" Set markdown preview server (to handle wsl case).
-" let g:mkdp_browser = 'edge'
+"=============================================================================== Prettier
+" note: The Mappings are defined in `~/v.im/plug-manager/common/mappings.vim`
+
+" Disable auto formatting of files that have "@format" or "@prettier" tag.
+let g:prettier#autoformat = 0
+
+" Don't allow formatting for files without "@format" or "@prettier" tag.
+let g:prettier#autoformat_require_pragma = 1
+
+" Don't enable auto formatting even if a config file is found.
+let g:prettier#autoformat_config_present = 0
 
 "============================================================================ VimMarkDown
 " Enable markdown folding.
@@ -146,7 +173,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
-    \ }
+    \}
 
 "========================================================================== NerdCommenter
 " NerdCommenter configurations.
@@ -175,8 +202,26 @@ augroup END
 "=============================================================================== SuperTab
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-"=============================================================================== Prettier
-" nmap <F1> <Plug>(Prettier)
+" ========[ Configure Verbose Plugins (plugins with long configuration formats) ]========
+" Configure all the common plugins according to my preference.
+source ~/.vim/plug-manager/common/configs-verbose.vim
+
+
+"========================================================================================
+" Below are commented out old or other configs I might turn back on in future.
+"========================================================================================
+
+
+"===================================================================== VimMarkDownPreview
+" Set markdown preview server (to handle wsl case).
+" let g:mkdp_browser = 'edge'
+
+"============================================================================= IndentLine
+"" To set the default plugin colour for indenting off.
+"let g:indentLine_setColors = 1
+"
+"" Show each indent level by a distinct char.
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 "================================================================================= Vimade
 "let g:vimade = {
@@ -234,6 +279,3 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " GDB plugin configs.
 " let g:ConqueTerm_Color = 2    " 1: strip color after 200 lines, 2: always with color
 
-" ========[ Configure Verbose Plugins (plugins with long configuration formats) ]========
-" Configure all the common plugins according to my preference.
-source ~/.vim/plug-manager/common/configs-verbose.vim

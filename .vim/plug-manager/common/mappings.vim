@@ -39,10 +39,17 @@ vmap <Leader><BS> <Leader>c<Space>gv
 
 "================================================================================ Tabular
 if exists(":Tabularize")
-    nmap <Leader>a= :Tabularize /=<CR>
-    vmap <Leader>a= :Tabularize /=<CR>
-    nmap <Leader>a: :Tabularize /:\zs<CR>
-    vmap <Leader>a: :Tabularize /:\zs<CR>
+    " Align the lines with respect to the equal sign.
+    nnoremap <Leader>= :Tabularize /=<CR>
+    vnoremap <Leader>= :Tabularize /=<CR>
+    nnoremap <Leader>== :Tabularize /=\zs<CR>
+    vnoremap <Leader>== :Tabularize /=\zs<CR>
+
+    " Align the lines with respect to the colon.
+    nnoremap <Leader>: :Tabularize /:<CR>
+    vnoremap <Leader>: :Tabularize /:<CR>
+    nnoremap <Leader>:: :Tabularize /:\zs<CR>
+    vnoremap <Leader>:: :Tabularize /:\zs<CR>
 
     " Function to help keep aligning on the fly.
     function! s:align()
@@ -62,6 +69,7 @@ if exists(":Tabularize")
 endif
 
 "==================================================================================== Fzf
+" note: The config options are defined in `~/.vim/plug-manager/common/configs.vim`
 
 "command! -bang -nargs=* Frg
 "  \ call fzf#vim#grep(
@@ -115,16 +123,47 @@ nnoremap <silent> <leader>fH :FzfHistory<CR>
 cnoremap <silent> <C-p> :FzfHistory:<CR>
 
 "=============================================================================== Surround
-" Quickly surround this WORD in a string using the surround plugin.
-nmap <Leader>str ysiW"
+" Quickly surround this WORD in string using the surround plugin.
+nmap <Leader>ss ysiW"
+
+" Quickly surround this WORD in quotes using the surround plugin.
+nmap <Leader>sq ysiW'
+
+" Quickly surround this WORD in ticks using the surround plugin.
+nmap <Leader>st ysiW`
+
+" Quickly surround this WORD in curly braces using the surround plugin.
+nmap <Leader>s{ ysiW{
+nmap <Leader>s} ysiW}
+
+" Quickly surround this WORD in square brackets using the surround plugin.
+nmap <Leader>s[ ysiW[
+nmap <Leader>s] ysiW]
+
+" Quickly surround this WORD in parentheses using the surround plugin.
+nmap <Leader>s( ysiW(
+nmap <Leader>s) ysiW)
+
+" Quickly surround this WORD in angle brackets or the chevrons using the surround plugin.
+nmap <Leader>s> ysiW>
+
+" Quickly surround this WORD in a tag using the surround plugin.
+nmap <Leader>s< ysiW<
+
+"=============================================================================== Prettier
+" note: The config options are defined in `~/.vim/plug-manager/common/configs.vim`
+
+" USe <F6> to format using prettier if the file type supports it.
+nmap <F6> <Plug>(PrettierAsync)
+vnoremap <F6> :PrettierAsync<CR>
 
 "============================================================================= EasyMotion
 " <Leader>f{char} to move to {char}.
-map  <Leader>Fc <Plug>(easymotion-bd-f)
-nmap <Leader>Fc <Plug>(easymotion-overwin-f)
+map  <Leader>F1 <Plug>(easymotion-bd-f)
+nmap <Leader>F1 <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}.
-nmap <Leader>Fb <Plug>(easymotion-overwin-f2)
+nmap <Leader>F2 <Plug>(easymotion-overwin-f2)
 
 " Find and move to line.
 map <Leader>Fl <Plug>(easymotion-bd-jk)
