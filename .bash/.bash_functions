@@ -184,7 +184,7 @@ gch () {
 #     # local ENVIRONMENTS=("staging" "production")
 #     # local FZF_STRING=$(join_by "\n" "${ENVIRONMENTS[@]}")
 #     local FZF_STRING="staging\nproduction";
-#     local SELECTED_ENV=$(echo ${FZF_STRING} | fzf) 
+#     local SELECTED_ENV=$(echo ${FZF_STRING} | fzf)
 #     if [ "$SELECTED_ENV" = "staging" ]
 #     then
 #         echo "> Running staging proxy"

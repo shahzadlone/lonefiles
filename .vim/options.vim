@@ -85,9 +85,20 @@ set splitright
 " Open horizontal panes to the bottom(not top).
 set splitbelow
 
-" Show “invisible” characters.
+" Soft wrap on the edge of the window (the default wrap).
+set wrap
+
+" When wrapping make sure to not break in the middle of a word.
+set linebreak
+
+" Preserver indentation on line breaks (from wrapping).
+set breakindent
+
+" Show the line break due to wrapping with this symbol.
+set showbreak=↳
+
+" Enable list for later setting listchars in `auto-commands.vim`.
 set list
-set listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
 
 " To show charcter(row) in line.
 set ruler

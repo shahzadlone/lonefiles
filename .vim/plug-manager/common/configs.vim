@@ -33,9 +33,9 @@ let g:coc_global_extensions = [
 "________________________________________________________________________________________
 
 "========================================================================== VimPrintDebug
-nnoremap <Leader>lf :call print_debug#print_debug()<cr>
+nnoremap <Leader>lff :call print_debug#print_debug()<CR>
 "
-let g:print_debug_default = '"+=+= {} +=+="'
+let g:print_debug_default = '"+=+=+=+=+=+= {} +=+=+=+=+=+="'
 let g:print_debug_templates = {
     \ 'go':         'fmt.Printf("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}\n")',
     \ 'python':     'print(f"+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}")',
