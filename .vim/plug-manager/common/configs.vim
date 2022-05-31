@@ -32,24 +32,22 @@ let g:coc_global_extensions = [
 
 "________________________________________________________________________________________
 
+"============================================================================= VimPrinter
+let g:vim_printer_print_below_keybinding = '<Leader>ll'
+let g:vim_printer_print_above_keybinding = '<Leader>lL'
+let g:vim_printer_items = {
+    \ 'go'         : 'fmt.Println("{$}      : ", {$})',
+    \ 'javascript' : 'console.log("{$}      : ", {$})',
+    \}
+
 "========================================================================== VimPrintDebug
-nnoremap <Leader>lff :call print_debug#print_debug()<CR>
-"
+" note: The Mappings are defined in `~/.vim/plug-manager/common/mappings.vim`
 let g:print_debug_default = '"+=+=+=+=+=+= {} +=+=+=+=+=+="'
 let g:print_debug_templates = {
     \ 'go':         'fmt.Printf("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}\n")',
     \ 'python':     'print(f"+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}")',
     \ 'javascript': 'console.log(`+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}`);',
     \ 'c':          'printf("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}\n");',
-    \}
-
-"============================================================================= VimPrinter
-let g:vim_printer_print_below_keybinding = '<Leader>ll'
-let g:vim_printer_print_above_keybinding = '<Leader>lL'
-
-let g:vim_printer_items = {
-    \ 'go'         : 'fmt.Println("{$}      : ", {$})',
-    \ 'javascript' : 'console.log("{$}      : ", {$})',
     \}
 
 "======================================================================== LspCxxHighlight
@@ -71,13 +69,13 @@ let g:go_echo_command_info = 0
 let g:go_mod_fmt_autosave = 0
 
 "==================================================================================== Fzf
-" note: The Mappings are defined in `~/.im/plug-manager/common/mappings.vim`
+" note: The Mappings are defined in `~/.vim/plug-manager/common/mappings.vim`
 
 " Add namespace for fzf.vim commands.
 let g:fzf_command_prefix = 'Fzf'
 
 "=============================================================================== Prettier
-" note: The Mappings are defined in `~/v.im/plug-manager/common/mappings.vim`
+" note: The Mappings are defined in `~/.vim/plug-manager/common/mappings.vim`
 
 " Disable auto formatting of files that have "@format" or "@prettier" tag.
 let g:prettier#autoformat = 0
