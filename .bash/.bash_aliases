@@ -58,6 +58,11 @@ fi
 
 # -----[ For convinience. ]----- {{{
 
+# Map thefuck's fuck command to fix.
+if [ "$(Exists 'thefuck')" -eq 0 ]; then
+    eval "$(thefuck --alias fix)";
+fi
+
 # Map stat to tokei if it's installed.
 if [ "$(Exists 'tokei')" -eq 0 ]; then
     alias stat='tokei';

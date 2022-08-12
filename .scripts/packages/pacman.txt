@@ -37,6 +37,7 @@ most
 less
 simple-scan
 htop
+thefuck
 
 xdg-utils
 pulseaudio-alsa
