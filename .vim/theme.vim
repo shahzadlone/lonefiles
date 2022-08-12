@@ -74,5 +74,10 @@ set noshowmode
 " note: this should come after the `colorscheme` has been set (to overide it's changes).
 highlight ColorColumn ctermbg=blue guibg=blue
 
+" To be used with Coc.
+"highlight CocSearch ctermfg=12 guifg=#18A3FF
+"highlight CocMenuSel ctermbg=109 guibg=#13354A
+
+
 set t_ZH="\e[3m"
 set t_ZR="\e[23m"

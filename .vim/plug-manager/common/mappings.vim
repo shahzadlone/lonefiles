@@ -185,34 +185,20 @@ call MapCommand('Cc', 'CocConfig')
 " Use C to open coc config.
 call MapCommand('Cu', 'CocUpdate')
 
-" Call eslint to fix all linting errors by using F1.
-nnoremap <buffer> <F1> :CocCommand eslint.executeAutofix<CR>
-
-" Use <C-n> to trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <C-n>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
-                             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Pop-up navigation configs, defaults since: https://github.com/neoclide/coc.nvim/pull/3862
+inoremap <silent><expr> <down> coc#pum#visible() ? coc#pum#next(0) : "\<down>"
+inoremap <silent><expr> <up> coc#pum#visible() ? coc#pum#prev(0) : "\<up>"
+inoremap <silent><expr> <PageDown> coc#pum#visible() ? coc#pum#scroll(1) : "\<PageDown>"
+inoremap <silent><expr> <PageUp> coc#pum#visible() ? coc#pum#scroll(0) : "\<PageUp>"
+inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<C-e>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-y> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
+inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
+inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <C-space> coc#refresh()
-else
-  inoremap <silent><expr> <C-@> coc#refresh()
-endif
+inoremap <silent><expr> <C-space> coc#refresh()
 
 " Use `<Space>[` and `<Space>g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -225,6 +211,9 @@ nmap <silent> <Space>d <Plug>(coc-definition)
 nmap <silent> <Space>t <Plug>(coc-type-definition)
 nmap <silent> <Space>i <Plug>(coc-implementation)
 nmap <silent> <Space>ref <Plug>(coc-references)
+
+" Call eslint to fix all linting errors by using F1.
+nnoremap <buffer> <F1> :CocCommand eslint.executeAutofix<CR>
 
 " What I want to accomplish.
 " nmap <silent> <Space>ref :vsplit<CR><Plug>(coc-references)<C-W>T

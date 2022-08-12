@@ -1,56 +1,78 @@
 {
-    "coc.preferences.extensionUpdateCheck": "daily",
-    "coc.preferences.formatOnType": false,
-    "coc.preferences.willSaveHandlerTimeout": 1000,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.willSaveHandlerTimeout": 1000,
 
+  "snippets.ultisnips.enable": true,
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"],
+  },
 
-    "snippets.ultisnips.enable": true,
-    "snippets.extends": {
-        "javascriptreact": ["javascript"],
-        "typescript": [ "javascript" ]
+  //"pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`", "\""],
+  //"pairs.enableBackspace": true,
+
+  "clangd.enabled": true,
+  "clangd.checkUpdates": true,
+  "clangd.disableCompletion": false,
+  "clangd.disableDiagnostics": false,
+  "clangd.arguments": [],
+  //"clangd.semanticHighlighting": true,
+  //"clangd.path": "clangd",
+
+  "eslint.autoFixOnSave": false,
+  "eslint.quiet": false,
+  "eslint.format.enable": true,
+  "eslint.packageManager": "yarn",
+  "eslint.probe": [
+    "html",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "typescript",
+    "typescriptreact",
+    "vue",
+  ],
+
+  "tsserver.enable": true,
+  "tsserver.formatOnType": false,
+  "tsserver.enableJavascript": true,
+  //"tsserver.watchOptions": undefined,
+
+  "typescript.updateImportsOnFileMove.enable": false,
+  "typescript.implementationsCodeLens.enable": false,
+  "typescript.referencesCodeLens.enable": false,
+  "typescript.autoClosingTags": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.format.semicolons": "insert",
+
+  // diagnostic-languageserver
+  "diagnostic-languageserver": {
+    "filetypes": {
+      // "vim": "vint",
+      // "email": "languagetool",
+      // "markdown": [ "write-good", "markdownlint" ],
+      // "elixir": ["mix_credo", "mix_credo_compile"],
+      // "eelixir": ["mix_credo", "mix_credo_compile"],
+      // "php": ["phpstan", "psalm"],
+      // "yaml": [ "yamllint" ],
+      // "cmake": [ "cmake-lint", "cmakelint" ],
+      // "systemd": "systemd-analyze",
+      "sh": "shellcheck",
     },
 
-
-    //"pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`", "\""],
-    //"pairs.enableBackspace": true,
-
-    "clangd.enabled": true,
-    "clangd.checkUpdates": true,
-    "clangd.disableCompletion": false,
-    "clangd.disableDiagnostics": false,
-    "clangd.arguments": [],
-    //"clangd.semanticHighlighting": true,
-    //"clangd.path": "clangd",
-
-
-    "eslint.autoFixOnSave": false,
-    "eslint.quiet": false,
-    "eslint.format.enable": true,
-    "eslint.packageManager": "yarn",
-    "eslint.probe": [
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "html",
-      "vue",
-      "markdown"
-    ],
-
-
-    "tsserver.enable": true,
-    "tsserver.formatOnType": false,
-    "tsserver.enableJavascript": true,
-    //"tsserver.watchOptions": undefined,
-
-
-    "typescript.updateImportsOnFileMove.enable": false,
-    "typescript.implementationsCodeLens.enable": false,
-    "typescript.referencesCodeLens.enable": false,
-    "typescript.autoClosingTags": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-    "typescript.preferences.useAliasesForRenames": false,
-    "typescript.preferences.quoteStyle": "single",
-    "typescript.format.semicolons": "insert"
+    "formatFiletypes": {
+      //"dart": "dartfmt",
+      //"elixir": "mix_format",
+      //"eelixir": "mix_format",
+      //"python": ["black", "isort"],
+      //"lua": "lua-format",
+      //"blade": "blade-formatter",
+      //"cmake": "cmake-format",
+      "sh": "shfmt",
+    },
+  },
 
 }

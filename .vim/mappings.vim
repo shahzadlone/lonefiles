@@ -231,7 +231,7 @@ nnoremap <Leader>tn :tnext<CR>
 nnoremap <Leader>tp :tnext<CR>
 
 " Substitue whatever I searched before with what's under my cursor. Don't <CR> it.
-nnoremap <Leader>sub :%s//<C-r><C-a>/gc
+nnoremap <Leader>sub :%s//<C-r><C-a>/gcI
 
 " Mapping to quickly change the file-type.
 nnoremap <Leader>file :set filetype=

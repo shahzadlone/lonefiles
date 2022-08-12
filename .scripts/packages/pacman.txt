@@ -1,10 +1,13 @@
 base-devel
+hyperfine
+btop
 binutils
 yay
 python-pip
 npm
 yarn
 gdb
+strace
 ttf-fira-code
 kitty
 alacritty
@@ -14,8 +17,13 @@ git-delta
 bash-completion
 ripgrep
 lsd
+sd
 fd
 fzf
+bat
+zoxide
+grex
+tokei
 tmux
 neovim
 neofetch
@@ -24,6 +32,9 @@ docker
 jq
 mysql
 zip
+shellcheck
+most
+less
 simple-scan
 htop
 

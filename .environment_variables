@@ -3,9 +3,13 @@
 #  .bash_profile, if we are specifically using bash's profile while using the bash shell,
 #  mostly put my paths in here.
 
-# Add to the front of the PATH variable (whatever I add is given a higher precedence).
-# NOTE: `~/.local/bin` is given higher precedence than  `~/bin`
-PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}";
+# Make local path ~/.local, whose `bin` folder will be added to PATH.
+LOCAL_PATH="${HOME}/.local";
+LOCAL_BIN="${LOCAL_PATH}/bin";
+
+# Add to the local path to the front of the PATH variable (contents here are given priority).
+# NOTE: `~/.local/bin` is given higher precedence than `~/bin`
+PATH="${HOME}/bin:${LOCAL_BIN}:${PATH}";
 
 # ------------[ Set QT environment variable manually, needed for Dolphin ]------------ {{{
 export QT_QPA_PLATFORMTHEME="qt5ct"
@@ -18,11 +22,22 @@ export LANGUAGE=en_US.UTF-8
 #----------------------------------------------- }}}
 
 # ------------[ Go ]------------ {{{
-# Set GOPATH to the default "${HOME}/go"
-export GOPATH=$(go env GOPATH);
+# Steps I do to install go locally:
+# - sudo tar -C ~/.local/bin/ -xvzf go1.18.5.linux-amd64.tar.gz
+# - then if is a `go` folder then: `mv go go1.18.5` and set the following.
 
-# Add the go workspace's bin subdirectory to PATH.
-export PATH="${PATH}:${GOPATH}/bin";
+# Set the path to the go folder which has the binary we want to run when we
+#  call the `go` program.
+export GOROOT="${LOCAL_BIN}/go1.18.5"
+
+# Set GOPATH to the "~/go"
+export GOPATH="${HOME}/go"
+
+# Set GOBIN to "~/go/bin"
+export GOBIN="${GOPATH}/bin"
+
+# Add the go's bin and the custom GOROOT's bin directories to PATH .
+export PATH="${GOBIN}:${GOROOT}/bin:${PATH}";
 # ------------------------------ }}}
 
 # ------------[ Set RipGrep config file path ]------------ {{{

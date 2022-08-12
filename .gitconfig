@@ -116,23 +116,24 @@
     a = add
     aa = add -A
     ac  = !git add -A && git commit -v
-    auc  = !git add -u && git commit -v
     ap = add -p
+    au  = add -u
+    auc  = !git add -u && git commit -v
     b = branch
     ba = branch --all
     bl = blame
     c = commit -v
     ca = commit --amend
-    co = commit --date=\"1 day ago\" -v
     ch = checkout
     chb = checkout -b
     cl = clone
-    clb = clone --bare
     cl1 = clone --depth 1
+    clb = clone --bare
+    co = commit --date=\"1 day ago\" -v
     cp = cherry-pick
     d = diff --color
-    ds = diff --color --cached
     drb = push -d origin 
+    ds = diff --color --cached
     f = fetch
     fp = fetch --all --prune
     l = log --pretty=custom
@@ -148,11 +149,11 @@
     o = origin
     p = push
     pbo = push branch origin
-    po = push origin
     pl = pull
     plm = pull --no-rebase
     plo = pull origin
     plr = pull --rebase
+    po = push origin
     r = remote
     ra = remote add
     reb = rebase
@@ -173,10 +174,10 @@
     rsof = reset --soft
     rurl = remote set-url
     s = status
+    sh = show
     sm = submodule
     st = stash
     stl = stash list
-    sh = show
     u =  reset --hard "@{u}"
     up  = !git reset --hard "@{u}" && git pull
     wt = worktree

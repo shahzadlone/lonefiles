@@ -46,7 +46,9 @@
     hunk-header-decoration-style = blue box
     hunk-header-file-style = 10 bold
     hunk-header-line-number-style = bold "#03a4ff"
-    hunk-header-style = file line-number syntax
+    hunk-header-style = file line-number
+    # The following crashed by `lita` command.
+    # hunk-header-style = file line-number syntax
 
     line-numbers-minus-style = 197 bold
     line-numbers-plus-style = 46 bold

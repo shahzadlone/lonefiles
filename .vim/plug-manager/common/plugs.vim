@@ -76,9 +76,6 @@ Plug 'godlygeek/tabular'
 " Emac's narrowing feature.
 Plug 'chrisbra/NrrwRgn'
 
-" Super tab to make compatible YCM and UltiSnip with tab.
-Plug 'ervandew/supertab'
-
 " Fuzzy Finder, keep latest binary and the plugin.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -189,6 +186,9 @@ Plug 'arcticicestudio/nord-vim'
 
 " NeoSolarized theme.
 " Plug 'overcache/NeoSolarized'
+
+" Super tab to make compatible YCM and UltiSnip with tab.
+" Plug 'ervandew/supertab'
 
 " Better JSON support.
 " Plug 'elzr/vim-json'

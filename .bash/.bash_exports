@@ -8,6 +8,10 @@ Exists() { which "${1}" &> /dev/null; echo ${?}; }
 export TERM=tmux-256color;
 # ------------------------------ }}}
 
+# -----[ Pager settings. `most` instead of the default, i.e. `less` ]----- {{{
+export MANPAGER="most";
+# ------------------------------------------------------------------------ }}}
+
 # -----[ EDITOR/VISUAL (Vim) ]----- {{{
 # If I have neovim on my system, then $VISUAL and $EDITOR get overwritten to 'nvim -p'.
 export NORMAL_VIM="vim -p";

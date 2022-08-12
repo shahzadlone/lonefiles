@@ -8,6 +8,7 @@ let g:coc_global_extensions = [
     \ 'coc-cmake',
     \ 'coc-css',
     \ 'coc-cssmodules',
+    \ 'coc-diagnostic',
     \ 'coc-eslint',
     \ 'coc-git',
     \ 'coc-go',
@@ -18,6 +19,7 @@ let g:coc_global_extensions = [
     \ 'coc-lua',
     \ 'coc-prettier',
     \ 'coc-prisma',
+    \ 'coc-sh',
     \ 'coc-snippets',
     \ 'coc-sql',
     \ 'coc-tsserver',
@@ -136,6 +138,10 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
 let g:gitgutter_sign_modified_removed = '-'
 
+" Go to next / previous git hunk.
+nmap g] <Plug>(GitGutterNextHunk)
+nmap g[ <Plug>(GitGutterPrevHunk)
+
 "========================================================================= MatchTagAlways
 " To make MatchTagAlways do the tag matching for these files.
 let g:mta_use_matchparen_group = 1
@@ -185,7 +191,7 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
 
 "===================================================================== RainbowParenthesis
-let g:rainbow#max_level = 11
+let g:rainbow#max_level = 25
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
 
 " Activation based on file type.
@@ -197,9 +203,6 @@ augroup END
 " List of colors that you do not want. ANSI code or #RRGGBB
 " let g:rainbow#blacklist = [233, 234]
 
-"=============================================================================== SuperTab
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 " ========[ Configure Verbose Plugins (plugins with long configuration formats) ]========
 " Configure all the common plugins according to my preference.
 source ~/.vim/plug-manager/common/configs-verbose.vim
@@ -209,6 +212,8 @@ source ~/.vim/plug-manager/common/configs-verbose.vim
 " Below are commented out old or other configs I might turn back on in future.
 "========================================================================================
 
+"=============================================================================== SuperTab
+" let g:SuperTabDefaultCompletionType = '<C-n>'
 
 "===================================================================== VimMarkDownPreview
 " Set markdown preview server (to handle wsl case).

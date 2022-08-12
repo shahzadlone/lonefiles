@@ -4,6 +4,7 @@
  set -g default-terminal "tmux-256color"
 # set -g default-terminal "xterm-256color"
 # set -g default-terminal "screen-256color"
+set-option -sa terminal-overrides ',tmux-256color:RGB'
 
 # By default start with mouse on.
 set -g mouse on
