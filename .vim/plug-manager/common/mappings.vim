@@ -1,5 +1,11 @@
 " Shahzad's ALL Common Plugin Specific Mappings.
 
+"============================================================================== VimRooter
+" note: The config options are defined in `~/.vim/plug-manager/common/configs.vim`
+
+" Mapping to manually call rooter.
+nnoremap <leader>~ :Rooter<CR>
+
 "=============================================================================== TabMerge
 " Mapping to easily merge a tab, as a right vertical split (default <C-w>T undoes this).
 nnoremap <C-w>t :Tabmerge right<CR>

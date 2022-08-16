@@ -270,6 +270,15 @@ nnoremap <Leader>Z :Zoom<CR>
 nnoremap <Leader>dico :set complete+=k <CR>
 nnoremap <Leader>dicc :set complete-=k <CR>
 
+" Manually cd (local) into the current opened files path (only for this file).
+nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
+
+" Open files located in the same dir as the current file (in a new tab).
+nnoremap <leader>tew :tabe <C-R>=expand("%:.:h") . "/"<CR>
+
+" Open files located in the same dir as the current file (in same buffer).
+nnoremap <leader>ew :e <C-R>=expand("%:.:h") . "/"<CR>
+
 " Open my vim config files in opposite order they get sourced, into new tabs.
 nnoremap <Leader>vim :tabe ~/.vim/neovim.vim<CR>
                      \:tabe ~/.vim/plug-manager/manager.vim<CR>

@@ -34,6 +34,22 @@ let g:coc_global_extensions = [
 
 "________________________________________________________________________________________
 
+"============================================================================== VimRooter
+" note: The Mappings are defined in `~/.vim/plug-manager/common/mappings.vim`
+
+" Treat the `.git` folder as the project root.
+let g:rooter_patterns = ['.git/']
+" Use `cd` not `lcd` for rooter's automatically directory changes.
+let g:rooter_cd_cmd = 'cd'
+" Do not change directory if no project root is found (do nothing, default).
+let g:rooter_change_directory_for_non_project_files = ''
+" Run rooter automatically.
+let g:rooter_manual_only = 0
+" Do not resolve symbolic links.
+let g:rooter_resolve_links = 0
+" Do not be silent when directory change happens.
+let g:rooter_silent_chdir = 0
+
 "============================================================================= VimPrinter
 let g:vim_printer_print_below_keybinding = '<Leader>ll'
 let g:vim_printer_print_above_keybinding = '<Leader>lL'
@@ -44,6 +60,7 @@ let g:vim_printer_items = {
 
 "========================================================================== VimPrintDebug
 " note: The Mappings are defined in `~/.vim/plug-manager/common/mappings.vim`
+
 let g:print_debug_default = '"+=+=+=+=+=+= {} +=+=+=+=+=+="'
 let g:print_debug_templates = {
     \ 'go':         'fmt.Printf("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}\n")',

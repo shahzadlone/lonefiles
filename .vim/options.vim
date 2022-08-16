@@ -153,6 +153,13 @@ set showcmd
 " Add full path to the status line.
 set statusline+=%F
 
+" Enable searching and loading of `.exrc` file in the current directory.
+set exrc
+
+" Ensures that shell, autocmd and write commands are not allowed in the `.exrc` file
+"  that was found in the current directory (for security).
+set secure
+
 " -----------------------------------------------------------------[Overwritten Elsewhere]
 " Show the editing mode on the last line. (Turned off in themes.vim for airline).
 set showmode

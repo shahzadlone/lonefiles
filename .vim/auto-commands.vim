@@ -6,9 +6,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Automatically resize windows(to equal sizes) when the terminal size is changed.
 autocmd VimResized * wincmd =
 
-" Automatically update the working directory to the current file's path.
-autocmd BufEnter * silent! lcd %:p:h
-
 " When editing a file, always jump to the last known cursor position, if a valid
 "  position is known. Don't do if inside a commit messages or an event handler.
 autocmd BufReadPost * if &ft != 'gitcommit' &&
@@ -75,6 +72,9 @@ autocmd FileType json vnoremap <buffer> <F5> :!python -m json.tool<CR>
 " Still want to see the notification after file change, so we can be aware.
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" Automatically update the working directory to the current file's path.
+" autocmd BufEnter * silent! lcd %:p:h
 
 "" WSL yank support
 "let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point

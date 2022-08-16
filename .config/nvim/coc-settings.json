@@ -6,7 +6,7 @@
   "snippets.ultisnips.enable": true,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
-    "typescript": ["javascript"],
+    "typescript": ["javascript"]
   },
 
   //"pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`", "\""],
@@ -31,7 +31,7 @@
     "markdown",
     "typescript",
     "typescriptreact",
-    "vue",
+    "vue"
   ],
 
   "tsserver.enable": true,
@@ -50,6 +50,28 @@
 
   // diagnostic-languageserver
   "diagnostic-languageserver": {
+    // With verbose setting we can run `:CocCommand workspace.showOutput`
+    //  and select option diagnostic-languageserver to see the args.
+    "trace.server": "verbose",
+
+    //      "linters": {
+    //        "golangci-lint": {
+    //          "command": "golangci-lint",
+    //          "rootPatterns": [".git", "go.mod"],
+    //          "debounce": 100,
+    //          "args": ["run", "--out-format", "json"],
+    //          "sourceName": "golangci-lint",
+    //          "parseJson": {
+    //            "sourceName": "Pos.Filename",
+    //            "sourceNameFilter": true,
+    //            "errorsRoot": "Issues",
+    //            "line": "Pos.Line",
+    //            "column": "Pos.Column",
+    //            "message": "${Text} [${FromLinter}]"
+    //          }
+    //        }
+    //      },
+
     "filetypes": {
       // "vim": "vint",
       // "email": "languagetool",
@@ -61,6 +83,7 @@
       // "cmake": [ "cmake-lint", "cmakelint" ],
       // "systemd": "systemd-analyze",
       "sh": "shellcheck",
+      "go": "golangci-lint"
     },
 
     "formatFiletypes": {
@@ -71,8 +94,7 @@
       //"lua": "lua-format",
       //"blade": "blade-formatter",
       //"cmake": "cmake-format",
-      "sh": "shfmt",
-    },
-  },
-
+      "sh": "shfmt"
+    }
+  }
 }
