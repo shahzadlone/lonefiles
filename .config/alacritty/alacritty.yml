@@ -115,40 +115,22 @@ colors:
 # ================================================================================== Font
 # Font configuration
 font:
+
+  # Note: might need to use `Fira Code` for family on linux (depending on the font).
   normal:
-    # Windows
     family: "FiraCode Nerd Font"
-
-    # Linux
-    # family: Fira Code
-
     style: Regular
 
   bold:
-    # Windows
     family: "FiraCode Nerd Font"
-
-    # Linux
-    # family: Fira Code
-
     style: Bold
 
   italic:
-    # Windows
-    family: "FiraCode Nerd Font"
-
-    # Linux
-    # family: Fira Code
-
+    family: "Victor Mono"
     style: Italic
 
   bold_italic:
-    # Windows
-    family: "FiraCode Nerd Font"
-
-    # Linux
-    # family: Fira Code
-
+    family: "Victor Mono"
     style: Bold Italic
 
   size: 8
