@@ -69,6 +69,10 @@ let g:print_debug_templates = {
     \ 'c':          'printf("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= {}\n");',
     \}
 
+"========================================================================== SplitJoin.vim
+let g:splitjoin_split_mapping = '<Leader>gs'
+let g:splitjoin_join_mapping  = '<Leader>gj'
+
 "======================================================================== LspCxxHighlight
 " vim-lsp-cxx-highlight's support for text properties.
 let g:lsp_cxx_hl_use_text_props = 1

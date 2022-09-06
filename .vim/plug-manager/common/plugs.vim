@@ -79,6 +79,9 @@ Plug 'godlygeek/tabular'
 " Emac's narrowing feature.
 Plug 'chrisbra/NrrwRgn'
 
+" Split statements into multiple lines or join them into one.
+Plug 'AndrewRadev/splitjoin.vim'
+
 " Fuzzy Finder, keep latest binary and the plugin.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
