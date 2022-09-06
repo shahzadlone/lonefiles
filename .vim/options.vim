@@ -4,9 +4,11 @@
 set colorcolumn=120
 
 " Highlight current line.
+" Note: we have an autocmd to unset this when we leave or are editing.
 set cursorline
 
 " Highlight the current column.
+" Note: we have an autocmd to unset this when we leave or are editing.
 set cursorcolumn
 
 " So that TextEdit doesn't fail.

@@ -70,14 +70,24 @@ let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#par
 set noshowmode
 
 "------------------------------------------------------------------ Other Configurations.
-" Set the color of the column for line character limit indication.
-" note: this should come after the `colorscheme` has been set (to overide it's changes).
+set t_ZH="\e[3m"
+set t_ZR="\e[23m"
+
+"---------------------------------------------------------------------------- Overwrites.
+" Note: The following should come after the `colorscheme` has been set (to overide changes).
+
+" Set the color higlight of the static column for line character limit indication.
 highlight ColorColumn ctermbg=blue guibg=blue
+
+" Highlight and set color of the cursor's line.
+highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=239 guibg=Grey40 guifg=NONE ctermfg=NONE
+
+" Highlight and set color of the cursor's line.
+highlight CursorLine term=bold cterm=bold gui=bold ctermbg=239 guibg=Grey40 guifg=NONE ctermfg=NONE
+
+"Background highlighting colors I like: 24, 186, 237-242, 
+
 
 " To be used with Coc.
 "highlight CocSearch ctermfg=12 guifg=#18A3FF
 "highlight CocMenuSel ctermbg=109 guibg=#13354A
-
-
-set t_ZH="\e[3m"
-set t_ZR="\e[23m"

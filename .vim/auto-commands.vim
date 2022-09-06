@@ -13,10 +13,19 @@ autocmd BufReadPost * if &ft != 'gitcommit' &&
                          \line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 " When entering insert mode, turn relative line numbers off (show absolute line numbers).
-augroup numbertoggle
+augroup lineNumberToggle
   autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" Remove the cursor's line and column highlighting when we leave or are in insert.
+" Inspired by the `conoline.vim plugin`:
+"   https://github.com/miyakogi/conoline.vim/blob/master/autoload/conoline.vim
+augroup cursorHighlightToggle
+  autocmd!
+  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set cursorline cursorcolumn
+  autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set nocursorline nocursorcolumn
 augroup END
 
 " Set the following filetypes only if the filetype was not detected (not set filetype=x).
