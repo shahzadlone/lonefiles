@@ -13,42 +13,62 @@ elseif (&term =~ '^xterm' && &t_Co == 256)
 endif
 
 " Get Nice GUI Colors (vim's built-in color support for terminal).
-if has('nvim') && has('termguicolors')
-    set notermguicolors
-" For normal vim set t_8f and t_8b.
-elseif !has('nvim') && has('termguicolors')
+set termguicolors
+
+if has('nvim')
+    " For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+elseif !has('nvim')
+    " For normal vim set t_8f and t_8b.
     set t_8f=[38;2;%lu;%lu;%lum
     set t_8b=[48;2;%lu;%lu;%lum
-    set notermguicolors
 endif
 
 " Type of Background.
 set background=dark
 
 "======================================================================================== Setting Theme / Colorscheme.
+"---------------------------------------------------------- Theme OneDark configurations.
+colorscheme onedark
+
+" Enable italics.
+let g:onedark_terminal_italics = 1
+
+" OneDark Airline theme.
+let g:airline_theme='onedark'
 "------------------------------------------------------------- Theme Nord configurations.
-colorscheme nord
+" colorscheme nord
+
+" Following was set for nord to work previously.
+" - " Set 256 terminal colors.
+" - set t_Co=256
+" - 
+" - " Disable 'Background Color Erase'.
+" - if &term =~ '256color'
+" -     set t_ut=
+" - elseif (&term =~ '^xterm' && &t_Co == 256)
+" -     set t_ut= | set ttyscroll=1
+" - endif
+" - 
+" - " Get Nice GUI Colors (vim's built-in color support for terminal).
+" - if has('nvim') && has('termguicolors')
+" -     set notermguicolors
+
+" - " For normal vim set t_8f and t_8b.
+" - elseif !has('nvim') && has('termguicolors')
+" -     set t_8f=[38;2;%lu;%lu;%lum
+" -     set t_8b=[48;2;%lu;%lu;%lum
+" -     set notermguicolors
+" - endif
 
 "---------------------------------------------------------- Theme OneNord configurations.
 " colorscheme onenord
-
-"---------------------------------------------------------- Theme OneDark configurations.
-"colorscheme onedark
-"let g:onedark_config = {
-"  \ 'style': 'deep',
-"  \ 'toggle_style_key': '<leader>ts',
-"  \ 'ending_tildes': v:true,
-"  \ 'diagnostics': {
-"    \ 'darker': v:false,
-"    \ 'background': v:false,
-"  \ },
-"\ }
 
 "---------------------------------------------------------- Theme GruvBox configurations.
 " colorscheme gruvbox
 
 " Tells GruvBox to show comments in italics (this line should show in italics).
-" let g:gruvbox_itolic=1
+" let g:gruvbox_italic=1
 
 " Gruvbox Airline.
 " let g:airline_theme='gruvbox'
@@ -69,24 +89,26 @@ let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#par
 " Comment this if not using airline or powerline or some statusline.
 set noshowmode
 
-"------------------------------------------------------------------ Other Configurations.
-set t_ZH="\e[3m"
-set t_ZR="\e[23m"
-
 "---------------------------------------------------------------------------- Overwrites.
 " Note: The following should come after the `colorscheme` has been set (to overide changes).
+" Background highlighting colors I like: 24, 186, 237-242. For there english names look at:
+" - https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
+
+" Tell vim about the escape codes for switching to italic mode.
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
+" Make comments italicized.
+highlight Comment cterm=italic gui=italic
 
 " Set the color higlight of the static column for line character limit indication.
 highlight ColorColumn ctermbg=blue guibg=blue
 
 " Highlight and set color of the cursor's line.
-highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=239 guibg=Grey40 guifg=NONE ctermfg=NONE
+highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=240 guibg=grey30 guifg=NONE ctermfg=NONE
 
 " Highlight and set color of the cursor's line.
-highlight CursorLine term=bold cterm=bold gui=bold ctermbg=239 guibg=Grey40 guifg=NONE ctermfg=NONE
-
-"Background highlighting colors I like: 24, 186, 237-242, 
-
+highlight CursorLine term=bold cterm=bold gui=bold ctermbg=240 guibg=grey30 guifg=NONE ctermfg=NONE
 
 " To be used with Coc.
 "highlight CocSearch ctermfg=12 guifg=#18A3FF

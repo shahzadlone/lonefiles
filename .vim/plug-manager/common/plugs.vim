@@ -176,6 +176,9 @@ Plug 'sentriz/vim-print-debug'
 Plug 'meain/vim-printer'
 
 "============================================================[ Theme Related Vim Plugins ]
+" OneDark theme.
+Plug 'joshdick/onedark.vim'
+
 " Nord theme.
 Plug 'arcticicestudio/nord-vim'
 
