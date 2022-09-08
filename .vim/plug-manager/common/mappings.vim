@@ -15,6 +15,8 @@ nnoremap <C-w>t :Tabmerge right<CR>
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 
 "===================================================================== RainbowParenthesis
+" note: The config options are defined in `~/.vim/plug-manager/common/configs.vim`
+
 " Mapping to toggle rainbow parenthesis on or off.
 nnoremap <Leader>rain :RainbowToggle<CR>
 

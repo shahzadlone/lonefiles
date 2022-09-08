@@ -80,16 +80,34 @@ let g:lsp_cxx_hl_use_text_props = 1
 "============================================================================= FatihVimGo
 let g:go_fmt_command = "goimports"
 let g:go_decls_mode = "fzf"
-let g:go_highlight_trailing_whitespace_error = 0
-let g:go_highlight_array_whitespace_error = 0
-let g:go_highlight_chan_whitespace_error = 0
-let g:go_highlight_space_tab_error = 0
-let g:go_code_completion_enabled = 0
-let g:go_doc_keywordprg_enabled = 0
+
+let g:go_code_completion_enabled = 1
 let g:go_def_mapping_enabled = 0
-let g:go_template_autocreate = 0
+let g:go_doc_keywordprg_enabled = 0
 let g:go_echo_command_info = 0
 let g:go_mod_fmt_autosave = 0
+let g:go_template_autocreate = 0
+
+" Highlights to keep turned off.
+let g:go_highlight_space_tab_error = 0
+let g:go_highlight_chan_whitespace_error = 0
+let g:go_highlight_array_whitespace_error = 0
+let g:go_highlight_trailing_whitespace_error = 0
+let g:go_highlight_variable_assignments = 0
+
+" Highlights to keep.
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_types = 1
+let g:go_highlight_variable_declarations = 1
 
 "==================================================================================== Fzf
 " note: The Mappings are defined in `~/.vim/plug-manager/common/mappings.vim`
@@ -212,6 +230,8 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
 
 "===================================================================== RainbowParenthesis
+" note: The Mappings are defined in `~/.vim/plug-manager/common/mappings.vim`
+
 let g:rainbow#max_level = 25
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
 

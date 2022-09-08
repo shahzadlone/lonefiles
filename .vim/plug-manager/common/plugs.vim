@@ -168,6 +168,9 @@ Plug 'honza/vim-snippets', { 'for': ['c', 'cpp'] }
 " Support for multiple syntax types in one file.
 Plug 'inkarkat/vim-SyntaxRange'
 
+" Language packs for better syntax highlighting.
+Plug 'sheerun/vim-polyglot'
+
 " For Go support. 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
