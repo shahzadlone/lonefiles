@@ -26,12 +26,6 @@ Plug 'tpope/vim-obsession'
 " Fast incrementing and decrementing of date and time formats.
 Plug 'tpope/vim-speeddating'
 
-" TagList for source code browsing.
-Plug 'yegappan/taglist'
-
-" Side panel to show all the tags within scope.
-Plug 'preservim/tagbar'
-
 " For easier commenting using <Leader> and 'c' command with combinations.
 Plug 'preservim/nerdcommenter'
 
@@ -111,6 +105,13 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 " Bazel build.
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+
+" TagList for source code browsing.
+" Plug 'yegappan/taglist'
+
+" Side panel to show all the tags within scope.
+" Plug 'preservim/tagbar'
+
 
 "---------------------------------------------( Frontend )
 " Syntax highlighting, matching rules and mappings for markdown and extensions.

@@ -96,9 +96,6 @@ vnoremap < <gv
 " Apply the built in formating / indenting command.
 vnoremap <F5> =
 
-" Toggle case sensitivity of the search.
-nnoremap <F9> :set ignorecase! ignorecase?<CR>
-
 " Only open the visually selected file in a new tab if it exists.
 vnoremap gf <C-w>gf
 
@@ -175,6 +172,15 @@ nnoremap <Leader>url :OpenUrl<CR>
 
 " Indent, retab (tabs to spaces) and trim trailing white space in the entire file.
 nnoremap <silent> <F5> mmgg=G:retab<CR>:Tws<CR>`mzz
+
+" Toggle case sensitivity of the search.
+nnoremap <F9> :set ignorecase! ignorecase?<CR>
+
+" Show highlight group of whats under the cursor.
+nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 
 " Only open the file under the cursor in a new tab if it exists.
 nnoremap gf <C-w>gf

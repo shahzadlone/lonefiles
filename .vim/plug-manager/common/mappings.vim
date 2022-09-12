@@ -20,10 +20,6 @@ nnoremap <Leader>nt :NERDTreeToggle<CR>
 " Mapping to toggle rainbow parenthesis on or off.
 nnoremap <Leader>rain :RainbowToggle<CR>
 
-"================================================================================= TagBar
-" Toggle the tag bar which contains the tags for this file.
-nmap <F8> :TagbarToggle<CR>
-
 "============================================================================== TableMode
 " Mapping to table mode.
 nnoremap <Leader>tm :TableModeToggle<CR>
@@ -328,6 +324,10 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Remap keys for applying codeAction to the current buffer.
 " nmap <leader>ac  <Plug>(coc-codeaction)
+
+"================================================================================= TagBar
+" Toggle the tag bar which contains the tags for this file.
+" nmap <F8> :TagbarToggle<CR>
 
 "========================================================================== YouCompleteMe
 " Mapping to quickly open the YCM extra global config file.

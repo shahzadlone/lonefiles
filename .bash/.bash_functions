@@ -231,6 +231,7 @@ TestGPU() {
 }
 
 TestColor() {
+    printf "\nTest basic 256color support:\n";
     awk 'BEGIN{
         s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
         for (colnum = 0; colnum<77; colnum++) {
@@ -244,6 +245,10 @@ TestColor() {
         }
         printf "\n";
     }';
+
+
+    printf "\nTest true 24-bit support:\n";
+    sh ~/.local/bin/24-bit-color.sh
 }
 
 fixDockerMountpoint() {

@@ -2,7 +2,7 @@
 
 # Fix Tmux colors (xterm-256 or tmux-256 does the trick for me).
 set -g default-terminal "tmux-256color"
-set-option -sa terminal-overrides ',tmux-256color:RGB'
+set -ag terminal-overrides ",tmux-256color:RGB,alacritty:RGB,xterm-256color:RGB,gnome*:RGB"
 
 # By default start with mouse on.
 set -g mouse on
