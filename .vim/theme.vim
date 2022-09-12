@@ -79,6 +79,9 @@ colorscheme onedark
 " Gruvbox Airline.
 " let g:airline_theme='gruvbox'
 
+"---------------------------------------------------------- Theme Monokai configurations.
+" colorscheme monokai
+
 "================================================================================================ After Setting Theme.
 
 "---------------------------------------------------------------- Airline Configurations.

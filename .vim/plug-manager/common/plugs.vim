@@ -112,7 +112,6 @@ Plug 'bazelbuild/vim-bazel'
 " Side panel to show all the tags within scope.
 " Plug 'preservim/tagbar'
 
-
 "---------------------------------------------( Frontend )
 " Syntax highlighting, matching rules and mappings for markdown and extensions.
 Plug 'plasticboy/vim-markdown'
@@ -186,6 +185,8 @@ Plug 'joshdick/onedark.vim'
 " Nord theme.
 Plug 'arcticicestudio/nord-vim'
 
+" Monokai theme.
+Plug 'sickill/vim-monokai'
 
 "============================================================[ Old / Deactivated Plugins ]
 " OneNord theme.

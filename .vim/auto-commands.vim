@@ -12,25 +12,18 @@ autocmd BufReadPost * if &ft != 'gitcommit' &&
                          \line("'\"") > 0 &&
                          \line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-" When entering insert mode, turn relative line numbers off (show absolute line numbers).
-augroup lineNumberToggle
-  autocmd!
-  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
 " Remove the cursor's line and column highlighting when we leave or are in insert.
 " Inspired by the `conoline.vim plugin`:
 "   https://github.com/miyakogi/conoline.vim/blob/master/autoload/conoline.vim
-augroup cursorHighlightToggle
+" Also when in insert mode, turn relative line numbers off (show absolute line numbers).
+augroup ToggleFocusEvents
   autocmd!
-  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set cursorline cursorcolumn
-  autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set nocursorline nocursorcolumn
+  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set cursorline cursorcolumn relativenumber
+  autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set nocursorline nocursorcolumn norelativenumber
 augroup END
 
 " Set the following filetypes only if the filetype was not detected (not set filetype=x).
-augroup setFileTypes
-
+augroup SetFileTypes
   autocmd BufWinEnter,BufRead,BufNewFile *.ru set filetype=ruby
   autocmd BufWinEnter,BufRead,BufNewFile *.css.erb,*.spriter set filetype=css
   autocmd BufWinEnter,BufRead,BufNewFile *.mkd,*.md,*.markdown set filetype=markdown
@@ -42,10 +35,20 @@ augroup setFileTypes
   autocmd BufWinEnter,BufRead,BufNewFile *.json set filetype=json
   autocmd BufWinEnter,BufRead,BufNewFile *.prisma set filetype=graphql
   autocmd BufWinEnter,BufRead,BufNewFile go.mod set filetype=go
-
   " Detect/overide any hidden file whose name starts with bash_ or bash- as a bash file.
   autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
+augroup END
 
+" Set Space and Tab Settings.
+augroup SpaceAndTabs
+  autocmd FileType go setlocal ts=4 sts=4 sw=4
+  autocmd FileType graphql setlocal ts=4 sts=4 sw=4
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 " Enable the following whitespace symbols for all files by default.
@@ -53,30 +56,18 @@ autocmd FileType * setlocal listchars=tab:┃━,trail:·,eol:☆,nbsp:¬,extend
 
 " Update the default whitespace and tab settings for go files.
 autocmd FileType go setlocal listchars=tab:\ \ ⋮,trail:·,eol:☆,nbsp:¬,extends:»,precedes:«
-autocmd FileType go setlocal ts=4 sts=4 sw=4
 
-" Update the tab settings for other files.
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2 expandtab
-
-autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab
-
-autocmd FileType graphql setlocal ts=4 sts=4 sw=4
-
-autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
 " Fix json comment highlighting..
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
 " Indent visually selected JSON according to my preference.
 autocmd FileType json vnoremap <buffer> <F5> :!python -m json.tool<CR>
 
 
 " Trigger `autoread` when changing buffers or if cursor was not moved. This is to
 "  reload a changed buffer automatically, to avoid locking us from writing to the file.
-    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+  \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 
 " Still want to see the notification after file change, so we can be aware.
 autocmd FileChangedShellPost *

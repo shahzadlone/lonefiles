@@ -78,6 +78,6 @@
 set -g window-style "bg=black fg=default"
 set -g window-active-style "bg=terminal fg=default"
 
-# Set active and inactive window styles (to Dim inactive panes).
+# Make borders a double lined separator.
 set -g pane-border-lines "double"
 
