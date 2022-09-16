@@ -80,4 +80,5 @@ set -g window-active-style "bg=terminal fg=default"
 
 # Make borders a double lined separator.
 set -g pane-border-lines "double"
+# set -g pane-active-border-style 'fg=colour51,bg=colour236'
 

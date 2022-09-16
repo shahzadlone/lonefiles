@@ -34,7 +34,6 @@ augroup SetFileTypes
   autocmd BufWinEnter,BufRead,BufNewFile *.ejs,*.hbs set filetype=html
   autocmd BufWinEnter,BufRead,BufNewFile *.json set filetype=json
   autocmd BufWinEnter,BufRead,BufNewFile *.prisma set filetype=graphql
-  autocmd BufWinEnter,BufRead,BufNewFile go.mod set filetype=go
   " Detect/overide any hidden file whose name starts with bash_ or bash- as a bash file.
   autocmd BufWinEnter,BufRead,BufNewFile .bash[_-]* set filetype=sh
 augroup END
@@ -62,7 +61,6 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Indent visually selected JSON according to my preference.
 autocmd FileType json vnoremap <buffer> <F5> :!python -m json.tool<CR>
-
 
 " Trigger `autoread` when changing buffers or if cursor was not moved. This is to
 "  reload a changed buffer automatically, to avoid locking us from writing to the file.
@@ -93,3 +91,30 @@ autocmd FileChangedShellPost *
 
 " Open new buffers/files in a new tab (stops piling or opening things on top of one pane).
 " autocmd BufAdd,BufNewFile * nested tab sball
+
+" ====================================[ File specific mappings ]==================================== 
+
+augroup GoLangMappings
+  " Set quick mappings for making debug statements.
+  autocmd FileType go nnoremap <buffer> <Leader>l! msOfmt.Println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l@ msOfmt.Println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l# msOfmt.Println("####################################")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l$ msOfmt.Println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l% msOfmt.Println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l^ msOfmt.Println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l& msOfmt.Println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l* msOfmt.Println("************************************")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l- msOfmt.Println("------------------------------------")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l= msOfmt.Println("====================================")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l+ msOfmt.Println("++++++++++++++++++++++++++++++++++++")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l0 msOfmt.Println("000000000000000000000000000000000000")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l1 msOfmt.Println("111111111111111111111111111111111111")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l2 msOfmt.Println("222222222222222222222222222222222222")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l3 msOfmt.Println("333333333333333333333333333333333333")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l4 msOfmt.Println("444444444444444444444444444444444444")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l5 msOfmt.Println("555555555555555555555555555555555555")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l6 msOfmt.Println("666666666666666666666666666666666666")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l7 msOfmt.Println("777777777777777777777777777777777777")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l8 msOfmt.Println("888888888888888888888888888888888888")mp.`sdd`pP
+  autocmd FileType go nnoremap <buffer> <Leader>l9 msOfmt.Println("999999999999999999999999999999999999")mp.`sdd`pP
+augroup END

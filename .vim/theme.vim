@@ -150,7 +150,7 @@ let &t_ZR="\e[23m"
 highlight Comment cterm=italic gui=italic
 
 " Set the color higlight of the static column for line character limit indication.
-highlight ColorColumn ctermbg=blue guibg=blue
+highlight ColorColumn ctermbg=blue guibg=deepskyblue3
 
 " Highlight and set color of the cursor's line.
 " highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=240 guibg=grey30 guifg=NONE ctermfg=NONE
@@ -158,9 +158,20 @@ highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=236 guibg=#2C323C g
 
 " Highlight and set color of the cursor's line.
 " highlight CursorLine term=bold cterm=bold gui=bold ctermbg=240 guibg=grey30 guifg=NONE ctermfg=NONE
-highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=236 guibg=#2C323C guifg=NONE ctermfg=NONE
+highlight CursorLine term=bold cterm=bold gui=bold ctermbg=236 guibg=#2C323C guifg=NONE ctermfg=NONE
 
 
 " To be used with Coc.
 "highlight CocSearch ctermfg=12 guifg=#18A3FF
 "highlight CocMenuSel ctermbg=109 guibg=#13354A
+
+
+" Here is a dirty hack to make the dimming work with termguicolors set:
+" highlight Normal guibg=NONE ctermbg=NONE
+" highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=236 guibg=PaleTurquoise4 guifg=NONE ctermfg=NONE
+" highlight CursorLine term=bold cterm=bold gui=bold ctermbg=236 guibg=PaleTurquoise4 guifg=NONE ctermfg=NONE
+
+" However I want to find a cleaner solution to it. Rough work:
+" NoGUITERM
+"   Normal(nord)         xxx guifg=#D8DEE9 guibg=#2E3440
+"   Normal(onedark)      xxx ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#282C34

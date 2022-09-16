@@ -86,6 +86,9 @@ Plug 'junegunn/goyo.vim'
 " To get rainbow nested parenthesis.
 Plug 'junegunn/rainbow_parentheses.vim'
 
+" Better macro and copy register visualization.
+Plug 'junegunn/vim-peekaboo'
+
 " Easy motion.
 Plug 'easymotion/vim-easymotion'
 

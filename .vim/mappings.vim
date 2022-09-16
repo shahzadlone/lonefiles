@@ -23,6 +23,9 @@ command! Xa :xa
 " Open help in a vertical window instead of a horizontal window.
 cnoreabbrev help vert help
 
+" Open man page info in a vertical split.
+cnoreabbrev man vert Man
+
 " Open a file in read-only mode, in a vertical spilt.
 cnoreabbrev vview vert sview
 
@@ -89,6 +92,10 @@ vnoremap <Leader>y "+y
 vnoremap ; :
 vnoremap : ;
 
+" Move vertically by concrete vim line (makes easy to work on wrapped lines).
+vnoremap j gj
+vnoremap k gk
+
 " Stay in visual mode when indenting.
 vnoremap > >gv
 vnoremap < <gv
@@ -132,7 +139,7 @@ nnoremap <silent> <Enter> :w<CR>:nohls<CR>zz
 nnoremap <Leader>p "0p
 nnoremap <Leader>P "0P
 
-" Move vertically by visual line (makes easy to work on wrapped lines).
+" Move vertically by concrete vim line (makes easy to work on wrapped lines).
 nnoremap j gj
 nnoremap k gk
 
