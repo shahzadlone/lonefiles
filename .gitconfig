@@ -9,7 +9,7 @@
     conflictstyle = diff3
 
 [push]
-    default = current
+    default = simple
 
 [pull]
     ff = only
@@ -79,9 +79,29 @@
 [url "git@bitbucket.com:shahzadlone/"]
     insteadOf = "bbs:"
 
-# Use SSH instead of https for github.
-[url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
+## Use SSH instead of https for github.
+#[url "ssh://git@github.com/"]
+#    insteadOf = https://github.com/
+
+# force authentication to use SSH rather than HTTPS.
+# be aware this affects everything that tries to use git.
+# for example, vim (and other tools) will try to clone plugins using SSH.
+#
+# git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+# avoid issues where the cargo-edit tool tries to clone from a repo you do not have WRITE access to.
+# we already use SSH for every github repo, and so this puts the clone back to using HTTPS.
+[url "https://github.com/rust-lang/crates.io-index"]
+  insteadOf = https://github.com/rust-lang/crates.io-index
+
+# avoid issues where the `cargo audit` command tries to clone from a repo you do not have WRITE access to.
+# we already use SSH for every github repo, and so this puts the clone back to using HTTPS.
+[url "https://github.com/RustSec/advisory-db"]
+  insteadOf = https://github.com/RustSec/advisory-db
+
+
 
 [pretty]
     custom = "%C(bold yellow)%h%C(bold magenta)%d %C(bold white)%ar %C(bold cyan)%s %C(bold blue)(%an)"
@@ -119,11 +139,14 @@
     ap = add -p
     au  = add -u
     auc  = !git add -u && git commit -v
+    auca  = !git add -u && git commit --amend
+    aucak  = !git add -u && git commit --amend --no-edit
     b = branch
     ba = branch --all
     bl = blame
     c = commit -v
     ca = commit --amend
+    cak = commit --amend --no-edit
     ch = checkout
     chb = checkout -b
     cl = clone
@@ -149,6 +172,7 @@
     o = origin
     p = push
     pbo = push branch origin
+    pf = push --force-with-lease --force-if-includes
     pl = pull
     plm = pull --no-rebase
     plo = pull origin
@@ -213,9 +237,12 @@
     # Push current branch to a newly created upstream branch.
     pbr = "!pushb() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pushb"
 
+    # Show current commit information during rebase.
+    rebsh = "!pushb() { echo \"Current commit:\n\"; cat .git/rebase-merge/message; }; pushb"
+
     # Reverts to one commit ahead of the specified commit, keeping all the previous
     #  history upto HEAD. Basically, commits one on top of the previous history.
-    revhis =  "!keephistory() { git revert --no-commit \"${1}\"..HEAD; }; keephistory"
+    revhis = "!keephistory() { git revert --no-commit \"${1}\"..HEAD; }; keephistory"
 
     # Show me back that many commit. NOTE: back 1 commit is the latest commit (HEAD~0).
     shb = "!showback() { git show --pretty HEAD~\"${1}\"; }; showback"
@@ -228,9 +255,13 @@
 
     # Reset commits that were ontop / different than the given target (commit / branch).
     uncommit =  "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
+    # Uncommit the last commit, and leave everything in the staging area.
+    uncommitlast =  "!uncommitLast() { git reset --soft HEAD~1; }; uncommitLast"
 
     # Reset commits and remove from the staging area, as it were before adding files.
     unindex =  "!unindex() { git reset --mixed \"${1}\"; }; unindex"
+    # Unindex (uncommit + unadd) the last commit.
+    unindexlast =  "!unIndexLast() { git reset --mixed HEAD~1; }; unIndexLast"
 
     # Unadds / Unstages a file or directory.
     unadd =  "!unadd() { git reset \"${@:1}\"; }; unadd"
