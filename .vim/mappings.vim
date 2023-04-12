@@ -45,7 +45,6 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 " ---------------------------------------------------------------------------------------
-
 " =================================[ INOREMAP mappings ]=================================
 
 " To quickly jump to normal mode from insert mode.
@@ -116,21 +115,29 @@ vnoremap <Leader>j J
 vnoremap K 3gk
 
 " Search for visually selected text, forwards.
-vnoremap <silent> * :<C-U>let old_reg=getreg('"')
+vnoremap <silent> * mi
+                    \:<C-U>let old_reg=getreg('"')
                     \<Bar>let old_regtype=getregtype('"')<CR>
                     \gvy/<C-r><C-r>=substitute(escape(@", '/\.*$^~['), '\_s\+',
                     \                          '\\_s\\+', 'g')<CR>
                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
+                    \`i
 
 " Search for visually selected text, backwards.
-vnoremap <silent> # :<C-U>let old_reg=getreg('"')
+vnoremap <silent> # mi
+                    \:<C-U>let old_reg=getreg('"')
                     \<Bar>let old_regtype=getregtype('"')<CR>
                     \gvy?<C-r><C-r>=substitute(escape(@", '?\.*$^~['), '\_s\+',
                     \                          '\\_s\\+', 'g')<CR>
                     \<CR>gV:call setreg('"', old_reg, old_regtype)<CR>
+                    \`i
 " ---------------------------------------------------------------------------------------
 
 " =================================[ NNOREMAP mappings ]=================================
+
+" Don't jump on * and # search initiation.
+nnoremap * :keepjumps normal! mi*`i<CR>
+nnoremap # :keepjumps normal! mi#`i<CR>
 
 " Make enter save the current file/buffer, turn highlight off and center the current line.
 nnoremap <silent> <Enter> :w<CR>:nohls<CR>zz
@@ -153,6 +160,12 @@ nnoremap G Gzz
 
 " Make Y yank till end of the line (so behaves kind of like C and D).
 nnoremap Y y$
+
+" Visual select from begining of the line till last non-blank charcter in this line.
+nnoremap <Leader>vv 0vg_
+
+" Visual select from here till last non-blank charcter in this line.
+nnoremap <Leader>V vg_
 
 " Insert the contents of the clipboard, in normal mode.
 nnoremap <Localleader>P :set paste<CR>"+P:set nopaste<CR>
