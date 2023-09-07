@@ -3,6 +3,13 @@
 [user]
     email = shahzadlone@gmail.com
     name = Shahzad Lone
+    signingkey = ~/.ssh/shahzadlone@gmail.com_ed25519.pub
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgsign = true
 
 [merge]
     tool = vimdiff
@@ -14,6 +21,9 @@
 [pull]
     ff = only
 
+[checkout]
+    defaultRemote = origin
+
 [difftool]
     prompt = false
 
@@ -22,7 +32,7 @@
     wsErrorHighlight = all
 
 [color]
-  ui = auto
+    ui = auto
 
 [color "diff"]
     meta = yellow bold
@@ -89,17 +99,17 @@
 #
 # git config --global --add url."git@github.com:".insteadOf "https://github.com/"
 [url "git@github.com:"]
-  insteadOf = https://github.com/
+    insteadOf = https://github.com/
 
 # avoid issues where the cargo-edit tool tries to clone from a repo you do not have WRITE access to.
-# we already use SSH for every github repo, and so this puts the clone back to using HTTPS.
+# we already use SSH for every github repo, and so this puts the clone back to using HTTPS for all
+# the below rust dependencies:
 [url "https://github.com/rust-lang/crates.io-index"]
-  insteadOf = https://github.com/rust-lang/crates.io-index
-
-# avoid issues where the `cargo audit` command tries to clone from a repo you do not have WRITE access to.
-# we already use SSH for every github repo, and so this puts the clone back to using HTTPS.
+    insteadOf = https://github.com/rust-lang/crates.io-index
 [url "https://github.com/RustSec/advisory-db"]
-  insteadOf = https://github.com/RustSec/advisory-db
+     insteadOf = https://github.com/RustSec/advisory-db
+[url "https://github.com/lens-vm/lens.git"]
+     insteadOf = https://github.com/lens-vm/lens.git
 
 
 
@@ -135,20 +145,22 @@
 [alias]
     a = add
     aa = add -A
-    ac  = !git add -A && git commit -v
+    ac = !git add -A && git commit -v
     ap = add -p
-    au  = add -u
-    auc  = !git add -u && git commit -v
-    auca  = !git add -u && git commit --amend
-    aucak  = !git add -u && git commit --amend --no-edit
-    b = branch
+    au = add -u
+    auc = !git add -u && git commit -v
+    auca = !git add -u && git commit --amend
+    aucak = !git add -u && git commit --amend --no-edit
+    b = branch -vv
     ba = branch --all
     bl = blame
     c = commit -v
     ca = commit --amend
     cak = commit --amend --no-edit
+    cad = !git commit --amend --no-edit --date \"$(date)\"
     ch = checkout
     chb = checkout -b
+    cht = checkout --track
     cl = clone
     cl1 = clone --depth 1
     clb = clone --bare
@@ -160,9 +172,9 @@
     f = fetch
     fp = fetch --all --prune
     l = log --pretty=custom
-    lf = log --first-parent
-    lg   = log --graph --decorate --pretty=custom --abbrev-commit
-    ln = log
+    lf = log --first-parent --format=fuller
+    lg = log --graph --decorate --pretty=custom --abbrev-commit
+    ln = log --format=fuller
     lo = log --graph --decorate --pretty=oneline --abbrev-commit
     loa = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
@@ -185,6 +197,7 @@
     rebc = rebase --continue
     rebe = rebase --edit-todo
     rebi = rebase -i
+    rebtc = !git commit --amend --no-edit --date \"$(date)\" && git rebase --continue
     res = reset
     rhar = reset --hard
     rl = reflog
@@ -203,8 +216,14 @@
     st = stash
     stl = stash list
     u =  reset --hard "@{u}"
-    up  = !git reset --hard "@{u}" && git pull
+    up = !git reset --hard "@{u}" && git pull
     wt = worktree
+
+    # ==========[ Aliases based on my bash functions. ]==========
+
+    # Pull all branches from all remotes, using my bash function.
+    # Alternative but not clean: pla  = !bash -ci 'GitPullAllBranches'
+    pla = !bash -c 'source $HOME/.bash/.bash_functions && GitPullAllBranches'
 
     # ==========[ Slightly advance git aliases. ]==========
 
@@ -223,7 +242,7 @@
 
     # Checksout (resets) the staged or non-staged file(s) to HEAD's state.
     # Example: `git clear query.go collection.go`
-    clear =  "!clear() { git checkout HEAD -- \"${@:1}\"; }; clear"
+    clear = "!clear() { git checkout HEAD -- \"${@:1}\"; }; clear"
 
     # Commit as if ${1} days ago.
     cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"
@@ -231,11 +250,17 @@
     # Diff with the commit that was back ${1} commit(s).
     dback = "!diffback() { git diff --color HEAD~\"${1}\"; }; diffback"
 
-    # Delete remote branch.
+    # Delete remote branch on origin remote.
     dbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
 
-    # Push current branch to a newly created upstream branch.
+    # Delete remote branch on specified remote.
+    dbrr = "!delrrbranch() { git push \"${1}\" --delete \"${2}\"; }; delrrbranch"
+
+    # Push current branch as a new branch on origin remote.
     pbr = "!pushb() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pushb"
+
+    # Push current branch as a new branch on specified remote.
+    pbrr = "!pushb() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u \"${1}\" @; }; pushb"
 
     # Show current commit information during rebase.
     rebsh = "!pushb() { echo \"Current commit:\n\"; cat .git/rebase-merge/message; }; pushb"
@@ -254,15 +279,15 @@
     squish = "!squish() { git rebase -i HEAD~\"${1}\"; }; squish"
 
     # Reset commits that were ontop / different than the given target (commit / branch).
-    uncommit =  "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
+    uncommit = "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
     # Uncommit the last commit, and leave everything in the staging area.
-    uncommitlast =  "!uncommitLast() { git reset --soft HEAD~1; }; uncommitLast"
+    uncommitlast = "!uncommitLast() { git reset --soft HEAD~1; }; uncommitLast"
 
     # Reset commits and remove from the staging area, as it were before adding files.
-    unindex =  "!unindex() { git reset --mixed \"${1}\"; }; unindex"
+    unindex = "!unindex() { git reset --mixed \"${1}\"; }; unindex"
     # Unindex (uncommit + unadd) the last commit.
-    unindexlast =  "!unIndexLast() { git reset --mixed HEAD~1; }; unIndexLast"
+    unindexlast = "!unIndexLast() { git reset --mixed HEAD~1; }; unIndexLast"
 
     # Unadds / Unstages a file or directory.
-    unadd =  "!unadd() { git reset \"${@:1}\"; }; unadd"
-    unstage =  "!unstage() { git reset HEAD -- \"${@:1}\"; }; unstage"
+    unadd = "!unadd() { git reset \"${@:1}\"; }; unadd"
+    unstage = "!unstage() { git reset HEAD -- \"${@:1}\"; }; unstage"
