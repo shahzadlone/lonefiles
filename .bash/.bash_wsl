@@ -25,3 +25,6 @@ SyncWSLConfigs() {
     echo -e "To [Windows]    = ${ALACRITTY_WINDOWS_CONFIG}\n"
     mkdir -p "${ALACRITTY_WINDOWS_CONFIG}" && cp -i "${ALACRITTY_WSL_CONFIG}" "${ALACRITTY_WINDOWS_CONFIG}";
 }
+
+########################################################################################## COMMANDS
+# To help start wsl with no bash rc: `wsl.exe -e bash --norc`

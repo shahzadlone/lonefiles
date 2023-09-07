@@ -27,7 +27,15 @@
 #}
 
 git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ {\ \1\ }/'
+    # old implementation: git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ {\ \1\ }/'
+
+    if \git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        BRANCH=$(\git branch --show-current)
+        if \git rev-parse --abbrev-ref --symbolic-full-name "@{u}" > /dev/null 2>&1; then
+            BRANCH=$(\git rev-parse --abbrev-ref --symbolic-full-name "@{u}");
+        fi
+        printf " { %s }" "${BRANCH}";
+    fi
 }
 
 

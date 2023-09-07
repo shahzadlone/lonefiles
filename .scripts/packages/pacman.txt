@@ -1,4 +1,5 @@
 base-devel
+pacman-static
 hyperfine
 btop
 binutils
@@ -49,6 +50,7 @@ blueman
 pavucontrol
 kmix
 cheese
+wireless_tools
 
 mono
 xdotool

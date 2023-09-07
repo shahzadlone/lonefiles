@@ -12,7 +12,7 @@ RED() { echo -e "\e[1;31m${1}\e[0m"; }
 
 # Make a directory and cd into it.
 cdm() {
-    mkdir -p -- "${1}" && cd -P -- "${1}";
+    \mkdir -p -- "${1}" && \cd -P -- "${1}";
 }
 
 # Open graphically the selected directory or location.
@@ -366,19 +366,21 @@ sob() {
 # Helps delete (or force delete if user consents), the branches which still exist
 #  locally but were merged in the remote repository.
 GitSyncBranches(){
-
-    git fetch --prune;
-
-    if [ ${?} -ne 0 ]; then
-        printf "\nSomething went wrong while doing 'git fetch --prune'\n";
-        return 123;
-    fi
+    REMOTES=$(git remote);
+    echo "${REMOTES}" | while read REMOTE; do
+        BLUE "Sync branches with remote=[${REMOTE}]"
+        git fetch --prune "${REMOTE}";
+        if [ ${?} -ne 0 ]; then
+            printf "\nSomething went wrong while doing 'git fetch --prune %s'\n" "${REMOTE}";
+            return 123;
+        fi
+    done
 
     BRANCHES=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads \
              | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}');
 
     if [ -z "${BRANCHES}" ]; then
-        MAGENTA "You are already in sync.";
+        MAGENTA "You are already in sync!\n";
         return 0;
     fi
 
@@ -422,6 +424,8 @@ GitSyncBranches(){
     else
         BLUE "Ok, no branches were deleted.\n"
     fi
+
+
 }
 
 GitPullAllBranches() {
@@ -436,9 +440,8 @@ GitPullAllBranches() {
 
     echo "${REMOTES}" | while read REMOTE; do
 
-    git remote update ${REMOTE};
-    git remote show ${REMOTE} -n | awk '/merges with remote/{print $5" "$1}' | \
-
+        git remote update ${REMOTE};
+        git remote show ${REMOTE} -n | awk '/merges with remote/{print $5" "$1}' | \
         while read RB LB; do
 
             ARB="refs/remotes/${REMOTE}/${RB}";
@@ -447,13 +450,13 @@ GitPullAllBranches() {
             NAHEAD=$(( $(git rev-list --count ${ARB}..${ALB} 2>/dev/null) +0));
 
             if [ "${NBEHIND}" -gt 0 ]; then
-
                 if [ "${NAHEAD}" -gt 0 ]; then
-
                     echo " branch ${LB} is ${NBEHIND} commit(s) behind and ${NAHEAD} commit(s) ahead of ${REMOTE}/${RB}. could not be fast-forwarded";
+
                 elif [ "${LB}" = "$CLB" ]; then
                     echo " branch ${LB} was ${NBEHIND} commit(s) behind of ${REMOTE}/${RB}. fast-forward merge";
                     git merge -q ${ARB};
+
                 else
                     echo " branch ${LB} was ${NBEHIND} commit(s) behind of ${REMOTE}/${RB}. resetting local branch to remote";
                     git branch -f ${LB} -t ${ARB} >/dev/null;
@@ -462,5 +465,32 @@ GitPullAllBranches() {
 
         done
     done
+}
+
+GitDefraConfigureRemotes() {
+    # Add all the remotes I want to add.
+    GitDefraAddAllRemotes;
+
+    # Change the url of the `origin` remote to my fork.
+    git rurl origin "https://github.com/shahzadlone/defradb.git";
+
+    # Pull all branches from all remotes.
+    git pla;
+
+    # Show a list of all the remotes in the end.
+    git lsr;
+}
+
+GitDefraAddAllRemotes() {
+    # Re-add the sourcenetwork organization remote as `U`.
+    git addr U "https://github.com/sourcenetwork/defradb.git";
+
+    # Add other peoples repos as remotes.
+    git addr A "https://github.com/AndrewSisley/defradb.git";
+    git addr F "https://github.com/fredcarle/defradb.git";
+    git addr K "https://github.com/nasdf/defradb.git";
+    # git addr O "https://github.com/orpheuslummis/defradb.git";
+    # git addr D "https://github.com/djat/defradb.git";
+
 
 }

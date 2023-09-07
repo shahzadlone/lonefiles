@@ -104,8 +104,11 @@ alias lh='ls -dF .!(|.)';
 # To easily untar(unzip) a tarball.
 alias untar='tar -xvzf';
 
-# A short cut to reset/clear my terminal screen (similar to clear command).
+# A short cut to reset my terminal screen (can still scroll up).
 alias r='reset';
+
+# A short cut to clear my terminal screen (can't scroll up, gone for good).
+alias cl='clear';
 
 # Short cut for docker.
 alias d='sudo docker';

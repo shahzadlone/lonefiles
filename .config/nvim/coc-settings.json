@@ -2,6 +2,7 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnType": false,
   "coc.preferences.willSaveHandlerTimeout": 1000,
+  //"coc.preferences.jumpCommand": "tabe",
 
   "snippets.ultisnips.enable": true,
   "snippets.extends": {
@@ -48,53 +49,30 @@
   "typescript.preferences.quoteStyle": "single",
   "typescript.format.semicolons": "insert",
 
-  // diagnostic-languageserver
-  "diagnostic-languageserver": {
-    // With verbose setting we can run `:CocCommand workspace.showOutput`
-    //  and select option diagnostic-languageserver to see the args.
-    "trace.server": "verbose",
+  "diagnostic-languageserver.filetypes": {
+    // "vim": "vint",
+    // "email": "languagetool",
+    // "markdown": [ "write-good", "markdownlint" ],
+    // "elixir": ["mix_credo", "mix_credo_compile"],
+    // "eelixir": ["mix_credo", "mix_credo_compile"],
+    // "php": ["phpstan", "psalm"],
+    // "yaml": [ "yamllint" ],
+    // "cmake": [ "cmake-lint", "cmakelint" ],
+    // "systemd": "systemd-analyze",
+    "sh": "shellcheck",
+    "go": "golangci-lint"
+  },
 
-    //      "linters": {
-    //        "golangci-lint": {
-    //          "command": "golangci-lint",
-    //          "rootPatterns": [".git", "go.mod"],
-    //          "debounce": 100,
-    //          "args": ["run", "--out-format", "json"],
-    //          "sourceName": "golangci-lint",
-    //          "parseJson": {
-    //            "sourceName": "Pos.Filename",
-    //            "sourceNameFilter": true,
-    //            "errorsRoot": "Issues",
-    //            "line": "Pos.Line",
-    //            "column": "Pos.Column",
-    //            "message": "${Text} [${FromLinter}]"
-    //          }
-    //        }
-    //      },
+  "diagnostic-languageserver.formatFiletypes": {
+    //"dart": "dartfmt",
+    //"elixir": "mix_format",
+    //"eelixir": "mix_format",
+    //"python": ["black", "isort"],
+    //"lua": "lua-format",
+    //"blade": "blade-formatter",
+    //"cmake": "cmake-format",
+    "sh": "shfmt"
+  },
+  "snippets.ultisnips.pythonPrompt": false
 
-    "filetypes": {
-      // "vim": "vint",
-      // "email": "languagetool",
-      // "markdown": [ "write-good", "markdownlint" ],
-      // "elixir": ["mix_credo", "mix_credo_compile"],
-      // "eelixir": ["mix_credo", "mix_credo_compile"],
-      // "php": ["phpstan", "psalm"],
-      // "yaml": [ "yamllint" ],
-      // "cmake": [ "cmake-lint", "cmakelint" ],
-      // "systemd": "systemd-analyze",
-      "sh": "shellcheck",
-      "go": "golangci-lint"
-    },
-
-    "formatFiletypes": {
-      //"dart": "dartfmt",
-      //"elixir": "mix_format",
-      //"eelixir": "mix_format",
-      //"python": ["black", "isort"],
-      //"lua": "lua-format",
-      //"blade": "blade-formatter",
-      //"cmake": "cmake-format",
-      "sh": "shfmt"
-    }
-  }
 }

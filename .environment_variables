@@ -19,6 +19,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
 #----------------------------------------------- }}}
 
 # ------------[ Go ]------------ {{{
@@ -28,7 +29,9 @@ export LANGUAGE=en_US.UTF-8
 
 # Set the path to the go folder which has the binary we want to run when we
 #  call the `go` program.
-export GOROOT="${LOCAL_BIN}/go1.18.5"
+# export GOROOT="${LOCAL_BIN}/go1.18.5"
+# export GOROOT="${LOCAL_BIN}/go1.19.5"
+export GOROOT="${LOCAL_BIN}/go1.20.6"
 
 # Set GOPATH to the "~/go"
 export GOPATH="${HOME}/go"
