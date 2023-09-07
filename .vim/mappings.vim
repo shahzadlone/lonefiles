@@ -146,10 +146,6 @@ nnoremap <silent> <Enter> :w<CR>:nohls<CR>zz
 nnoremap <Leader>p "0p
 nnoremap <Leader>P "0P
 
-" Move vertically by concrete vim line (makes easy to work on wrapped lines).
-nnoremap j gj
-nnoremap k gk
-
 " Fix searching next and previous to center the screen, after taking me there.
 nnoremap n nzz
 nnoremap N Nzz
@@ -190,6 +186,12 @@ nnoremap <Leader>sudo :w !sudo tee %
 " Opens the url in the browser of my choice.
 nnoremap <Leader>url :OpenUrl<CR>
 
+" Selects block including braces/brackets.
+nnoremap <Leader>0 $v%
+
+" Selects block without the braces/brackets.
+nnoremap <Leader>9 $v%hOl
+
 " Indent, retab (tabs to spaces) and trim trailing white space in the entire file.
 nnoremap <silent> <F5> mmgg=G:retab<CR>:Tws<CR>`mzz
 
@@ -229,17 +231,21 @@ nnoremap <Leader>low L
 " Preserve M (go to the middle of the screen).
 nnoremap <Leader>mid M
 
-" Map J to go down with x3 times the speed, on normal lines in normal mode.
-nnoremap J 3j
-
 " Join lines using leader, with only one space (preserve J's behaviour).
 nnoremap <Leader>j J
 
 " Join lines without any spaces(only works in normal mode).
 nnoremap <Leader>J Jx
 
-" Map K to go up with x3 times the speed, on normal lines in normal mode.
-nnoremap K 3k
+" Move vertically by concrete vim line (makes easy to work on wrapped lines).
+nnoremap j gj
+nnoremap k gk
+
+" Map J to go down with x3 times the speed, on wrapped lines in normal mode.
+nnoremap J 3gj
+
+" Map K to go up with x3 times the speed, on wrapped lines in normal mode.
+nnoremap K 3gk
 
 " Preserve K's behaviour (open man page of the command the cursor is on).
 nnoremap <Leader>man K
@@ -300,10 +306,13 @@ nnoremap <Leader>dicc :set complete-=k <CR>
 nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Open files located in the same dir as the current file (in a new tab).
-nnoremap <leader>tew :tabe <C-R>=expand("%:.:h") . "/"<CR>
+nnoremap <leader>tew :tabedit <C-R>=expand("%:.:h") . "/"<CR>
+
+" Open files located in the same dir as the current file (in a vertical split).
+nnoremap <leader>vew :vsplit <C-R>=expand("%:.:h") . "/"<CR>
 
 " Open files located in the same dir as the current file (in same buffer).
-nnoremap <leader>ew :e <C-R>=expand("%:.:h") . "/"<CR>
+nnoremap <leader>ew :edit <C-R>=expand("%:.:h") . "/"<CR>
 
 " Open my vim config files in opposite order they get sourced, into new tabs.
 nnoremap <Leader>vim :tabe ~/.vim/neovim.vim<CR>

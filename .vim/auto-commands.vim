@@ -6,6 +6,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Automatically resize windows(to equal sizes) when the terminal size is changed.
 autocmd VimResized * wincmd =
 
+" When I close current tab, go to the last recent tab I was in before this one.
+autocmd TabClosed * execute "wincmd g\<Tab>"
+
 " When editing a file, always jump to the last known cursor position, if a valid
 "  position is known. Don't do if inside a commit messages or an event handler.
 autocmd BufReadPost * if &ft != 'gitcommit' &&
@@ -20,6 +23,14 @@ augroup ToggleFocusEvents
   autocmd!
   autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set cursorline cursorcolumn relativenumber
   autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set nocursorline nocursorcolumn norelativenumber
+augroup END
+
+" Keep my cursor on the middle of the screen, so equal number of lines are above and below.
+" Inspired by:
+"   https://vim.fandom.com/wiki/Keep_your_cursor_centered_vertically_on_the_screen
+augroup CenterCursor
+  autocmd!
+  autocmd WinEnter,BufEnter,WinNew,VimResized *,*.* let &scrolloff=winheight(win_getid())/2
 augroup END
 
 " Set the following filetypes only if the filetype was not detected (not set filetype=x).

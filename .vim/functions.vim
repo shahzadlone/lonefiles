@@ -1,5 +1,25 @@
 " Shahzad's Vim Functions
 
+" nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+" autocmd TabLeave * let g:lasttab = tabpagenr()
+" autocmd TabClosed * if g:lasttab >= tabpagenr() | execute "tabn" g:lasttab-1
+"autocmd TabClosed * if g:lasttab > tabpagenr()
+"                 \|     execute "tabn" g:lasttab
+"                 \|     echo "yes minuso
+"                 \|     echo g:lasttab
+"                 \| else
+"                 \|     execute "tabn" g:lasttab-1
+"                 \|     echo "no minus"
+"                 \|     echo g:lasttab
+"                 \| endif
+" function OnCloseGoToThisTab(currentTab, recentTab)
+"   if a:currentTab >= a:recentTab
+"     execute "tabn" a:recentTab
+"   else
+"     execute "tabn" g:lasttab-1
+"   endif
+" endfunction
+
 "======================================[Start]===========================================
 "----------------------------------------------------------------------------------------
 " Functions to map command-mode commands. Use by call MapCommand(new, old)

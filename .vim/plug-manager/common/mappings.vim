@@ -216,11 +216,16 @@ nmap <silent> <Space>t <Plug>(coc-type-definition)
 nmap <silent> <Space>i <Plug>(coc-implementation)
 nmap <silent> <Space>ref <Plug>(coc-references)
 
+
 " Call eslint to fix all linting errors by using F1.
 nnoremap <buffer> <F1> :CocCommand eslint.executeAutofix<CR>
 
 " What I want to accomplish.
 " nmap <silent> <Space>ref :vsplit<CR><Plug>(coc-references)<C-W>T
+" nmap <silent> <Space>dt :call CocAction('jumpDefinition', 'split')<CR>
+" nmap <silent> <Space>dt :call CocAction('jumpDefinition', 'vsplit')<CR>
+" nmap <silent> <Space>dt :call CocAction('jumpDefinition', 'tabe')<CR>
+
 " nmap <silent> <Space>d :call CocAction('jumpDefinition', 'tabe')<CR>
 " nmap <silent> <Leader><Space>vd :call CocAction('jumpDefinition', 'vsplit')<CR>
 " nmap <silent> <Leader><Space>d <Plug>(coc-definition)
