@@ -70,6 +70,9 @@ Plug 'mattn/calendar-vim'
 " Help align text that matches a pattern.
 Plug 'godlygeek/tabular'
 
+" Extend matching behaviour of % like match-it plugin.
+Plug 'andymass/vim-matchup'
+
 " Emac's narrowing feature.
 Plug 'chrisbra/NrrwRgn'
 
