@@ -15,6 +15,12 @@
     tool = vimdiff
     conflictstyle = diff3
 
+[rebase]
+    # https://andrewlock.net/smoother-rebases-with-auto-squashing-git-commits/
+    autosquash = true
+    # https://andrewlock.net/working-with-stacked-branches-in-git-is-easier-with-update-refs
+    updateRefs = true
+
 [push]
     default = simple
 
@@ -159,11 +165,14 @@
     cak = commit --amend --no-edit
     cad = !git commit --amend --no-edit --date \"$(date)\"
     ch = checkout
+    chsm = checkout --recurse-submodules
     chb = checkout -b
+    chbsm = checkout --recurse-submodules -b 
     cht = checkout --track
     cl = clone
     cl1 = clone --depth 1
     clb = clone --bare
+    clsm = clone --recurse-submodules
     co = commit --date=\"1 day ago\" -v
     cp = cherry-pick
     d = diff --color
@@ -181,6 +190,7 @@
     lsf = !git ls-files | egrep -i
     lsr = remote -v
     m = merge
+    ma = merge --abort
     o = origin
     p = push
     pbo = push branch origin
@@ -213,6 +223,8 @@
     s = status
     sh = show
     sm = submodule
+    smup = submodule update --init --recursive
+    smupr = submodule update --recursive --remote
     st = stash
     stl = stash list
     u =  reset --hard "@{u}"
@@ -272,21 +284,29 @@
     # Show me back that many commit. NOTE: back 1 commit is the latest commit (HEAD~0).
     shb = "!showback() { git show --pretty HEAD~\"${1}\"; }; showback"
 
-    # Squash commits uptill (non-inclusive) the given commit hash into one commit.
-    squash = "!squash() { git rebase -i \"${1}\"; }; squash"
+    # Rebase commits uptill the given commit hash range (non-inclusive) .
+    re = "!re() { git rebase -i \"${1}\"; }; re"
+    # Rebase last x# of commits.
+    rex = "!rex() { git rebase -i HEAD~\"${1}\"; }; rex"
 
-    # Squash last x# of commits into one commit.
-    squish = "!squish() { git rebase -i HEAD~\"${1}\"; }; squish"
+    # Give diff statistics uptill the given commit hash range (non-inclusive) .
+    stat = "!stat() { git diff --stat \"${1}\"; }; stat"
+    # Give diff statistics of the last x# of commits.
+    statx = "!statx() { git diff --stat HEAD~\"${1}\"; }; statx"
 
-    # Reset commits that were ontop / different than the given target (commit / branch).
+    # Reset commits that were ontop / different than the given target (commit range / branch).
     uncommit = "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
     # Uncommit the last commit, and leave everything in the staging area.
     uncommitlast = "!uncommitLast() { git reset --soft HEAD~1; }; uncommitLast"
+    # Uncommit the last x# of commits, and leave everything in the staging area.
+    uncommitx = "!uncommitx() { git reset --soft HEAD~\"${1}\"; }; uncommitx"
 
-    # Reset commits and remove from the staging area, as it were before adding files.
+    # Reset commits and remove from the staging area, as it were before adding files (commit range / branch).
     unindex = "!unindex() { git reset --mixed \"${1}\"; }; unindex"
     # Unindex (uncommit + unadd) the last commit.
     unindexlast = "!unIndexLast() { git reset --mixed HEAD~1; }; unIndexLast"
+    # Unindex (uncommit + unadd) the last x# of commits.
+    unindexx = "!unindexx() { git reset --mixed HEAD~\"${1}\"; }; unindexx"
 
     # Unadds / Unstages a file or directory.
     unadd = "!unadd() { git reset \"${@:1}\"; }; unadd"
