@@ -38,6 +38,16 @@ fs() {
     fi
 }
 
+TrimTrailingYAML() {
+    \find . -type f -name "*.yaml" | xargs sed -i 's/[ \t]*$//';
+    \find . -type f -name "*.yml" | xargs sed -i 's/[ \t]*$//';
+}
+
+TrimTrailingLeadingYAML() {
+    \find . -type f -name "*.yaml" | xargs sed -i 's/^[ \t]*//;s/[ \t]*$//';
+    \find . -type f -name "*.yml" | xargs sed -i 's/^[ \t]*//;s/[ \t]*$//';
+}
+
 # Copy the contents of the given file to the clipboard (xclip).
 Copy() {
     xclip -selection clipboard < "${1}";
@@ -342,6 +352,10 @@ TrimTo() {
 
 TrimFromTo() {
     ffmpeg -i "${1}" -ss "${2}" -to "${3}" -c copy "trimmed_${1}";
+}
+
+ReplaceRg() {
+    \rg "${1}" --files-with-matches | \xargs \sed -i "s/${1}/${2}/g";
 }
 
 # Source these files if they exist .bash_profile, .profile, .bashrc, tmux.conf.

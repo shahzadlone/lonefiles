@@ -93,6 +93,11 @@ if [ "$(Exists 'fzf')" -eq 0 ]; then
     alias vimm='vim $(fzf --height 40% --reverse)';
 fi
 
+# Rip grep aliases if we have it installed.
+if [ "$(Exists 'rg')" -eq 0 ]; then
+    alias rgf='rg --files | rg';
+fi
+
 # For easier/faster listing to my liking.
 alias ll='ls -alF';
 alias la='ls -AF';
