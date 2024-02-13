@@ -10,10 +10,6 @@ nnoremap <leader>~ :Rooter<CR>
 " Mapping to easily merge a tab, as a right vertical split (default <C-w>T undoes this).
 nnoremap <C-w>t :Tabmerge right<CR>
 
-"=============================================================================== NerdTree
-" Mapping to nerd tree.
-nnoremap <Leader>nt :NERDTreeToggle<CR>
-
 "===================================================================== RainbowParenthesis
 " note: The config options are defined in `~/.vim/plug-manager/common/configs.vim`
 

@@ -52,8 +52,11 @@ set -g @copycat_ip_search 'C-i'
 set -g @plugin 'tmux-plugins/tmux-open'
 # set -g @open-S 'https://www.google.com/search?q='
 
-#=================================================================================== Nord
-set -g @plugin 'arcticicestudio/nord-tmux'
+#============================================================================= Nord Theme
+# set -g @plugin 'arcticicestudio/nord-tmux'
+
+#========================================================================== OneDark Theme
+set -g @plugin 'odedlaz/tmux-onedark-theme'
 
 #==================================================================================== TPM
 set -g @plugin 'tmux-plugins/tpm'

@@ -29,13 +29,6 @@ Plug 'tpope/vim-speeddating'
 " For easier commenting using <Leader> and 'c' command with combinations.
 Plug 'preservim/nerdcommenter'
 
-" Nerd Tree for easier files, directory navigation.
-Plug 'preservim/nerdtree'
-" Nerd Tree git support,
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" For nerd tree highlighting (needs devicons).
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 " Provide a start screen.
 Plug 'mhinz/vim-startify'
 
@@ -97,7 +90,6 @@ Plug 'easymotion/vim-easymotion'
 
 " Conquer of Completion for fast LSP language completion.
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
-
 
 "========================================================[ Language Specific Vim Plugins ]
 
@@ -244,3 +236,11 @@ Plug 'sickill/vim-monokai'
 " Nerd Tree syncronized with vim tabs.
 " Plug 'jistr/vim-nerdtree-tabs'
 
+" Replaced by CHADTree
+"" Nerd Tree for easier files, directory navigation.
+"Plug 'preservim/nerdtree'
+"" Nerd Tree git support,
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"" For nerd tree highlighting (needs devicons).
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"

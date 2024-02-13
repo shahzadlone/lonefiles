@@ -2,4 +2,8 @@
 
 if !has('nvim')
 
+"=============================================================================== NerdTree
+" Mapping to nerd tree.
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+
 endif

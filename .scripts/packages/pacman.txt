@@ -15,10 +15,12 @@ alacritty
 vim
 git
 git-delta
+git-absorb
 bash-completion
 ripgrep
 lsd
 sd
+sad
 fd
 fzf
 bat

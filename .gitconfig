@@ -36,6 +36,7 @@
 [diff]
     tool = vimdiff
     wsErrorHighlight = all
+    colorMoved = plain
 
 [color]
     ui = auto
@@ -128,24 +129,34 @@
     #                         └─ hash (abbreviated)
 
 [core]
-    editor = $VISUAL
+    editor = ${VISUAL}
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitignore
     filemode = true
     # ==========[ Use delta as my pager, other delta configurations below. ]==========
     pager = delta
 
+[pager]
+    diff = delta
+    show = delta
+    log = delta
+    blame = delta
+    reflog = delta
+
 # Include delta configuration file that has the features I want to use.
 [include]
     path = ~/.delta.gitconfig
 
 [delta]
-    features = lone-config lone-theme
+    #features = lone-config lone-theme
     # side-by-side = true
+    features = lone-config lone-theme
 
 [interactive]
     diffFilter = delta --color-only --features='lone-config lone-theme'
 
+[absorb]
+    maxStack=50
 
 # ==========[ My Git Aliases that I have found handy time to time. ]==========
 [alias]
@@ -181,11 +192,12 @@
     f = fetch
     fp = fetch --all --prune
     l = log --pretty=custom
-    lf = log --first-parent --format=fuller
     lg = log --graph --decorate --pretty=custom --abbrev-commit
     ln = log --format=fuller
+    lnf = log --first-parent --format=fuller
     lo = log --graph --decorate --pretty=oneline --abbrev-commit
     loa = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lp = log -p
     ls = ls-files
     lsf = !git ls-files | egrep -i
     lsr = remote -v
@@ -231,7 +243,10 @@
     up = !git reset --hard "@{u}" && git pull
     wt = worktree
 
-    # ==========[ Aliases based on my bash functions. ]==========
+    # ==========[ Aliases based on external stuff, i.e. my bash functions. ]==========
+
+    # Uses git-absorb tool, have to have it installed: github.com/tummychow/git-absorb
+    absorb = !git-absorb
 
     # Pull all branches from all remotes, using my bash function.
     # Alternative but not clean: pla  = !bash -ci 'GitPullAllBranches'
@@ -268,14 +283,21 @@
     # Delete remote branch on specified remote.
     dbrr = "!delrrbranch() { git push \"${1}\" --delete \"${2}\"; }; delrrbranch"
 
+    # Show log history of a file (with the custom compact log).
+    lf = "!lf() { git log --pretty=custom -- \"${@:1}\"; }; lf"
+    # Show log history of a file.
+    logf = "!logf() { git log -- \"${@:1}\"; }; logf"
+    # Show log history of a file with the commit's patch.
+    lfp = "!lfp() { git log -p --pretty=custom -- \"${@:1}\"; }; lfp"
+
     # Push current branch as a new branch on origin remote.
-    pbr = "!pushb() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pushb"
+    pbr = "!pbr() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pbr"
 
     # Push current branch as a new branch on specified remote.
-    pbrr = "!pushb() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u \"${1}\" @; }; pushb"
+    pbrr = "!pbrr() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u \"${1}\" @; }; pbrr"
 
     # Show current commit information during rebase.
-    rebsh = "!pushb() { echo \"Current commit:\n\"; cat .git/rebase-merge/message; }; pushb"
+    rebsh = "!rebsh() { echo \"Current commit:\n\"; cat .git/rebase-merge/message; }; rebsh"
 
     # Reverts to one commit ahead of the specified commit, keeping all the previous
     #  history upto HEAD. Basically, commits one on top of the previous history.
@@ -294,17 +316,20 @@
     # Give diff statistics of the last x# of commits.
     statx = "!statx() { git diff --stat HEAD~\"${1}\"; }; statx"
 
+    # Give diff statistics of whatever is in the staging area.
+    stats = "!stats() { git diff --cached --stat; }; stats"
+
     # Reset commits that were ontop / different than the given target (commit range / branch).
     uncommit = "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
     # Uncommit the last commit, and leave everything in the staging area.
-    uncommitlast = "!uncommitLast() { git reset --soft HEAD~1; }; uncommitLast"
+    uncommitlast = "!uncommitlast() { git reset --soft HEAD~1; }; uncommitlast"
     # Uncommit the last x# of commits, and leave everything in the staging area.
     uncommitx = "!uncommitx() { git reset --soft HEAD~\"${1}\"; }; uncommitx"
 
     # Reset commits and remove from the staging area, as it were before adding files (commit range / branch).
     unindex = "!unindex() { git reset --mixed \"${1}\"; }; unindex"
     # Unindex (uncommit + unadd) the last commit.
-    unindexlast = "!unIndexLast() { git reset --mixed HEAD~1; }; unIndexLast"
+    unindexlast = "!unindexlast() { git reset --mixed HEAD~1; }; unindexlast"
     # Unindex (uncommit + unadd) the last x# of commits.
     unindexx = "!unindexx() { git reset --mixed HEAD~\"${1}\"; }; unindexx"
 

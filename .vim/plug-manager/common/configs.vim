@@ -204,20 +204,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-"============================================================================ NerdTreeGit
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \}
-
 "========================================================================== NerdCommenter
 " NerdCommenter configurations.
 " Enable trimming of trailing whitespace when uncommenting, for nerdcommenter.

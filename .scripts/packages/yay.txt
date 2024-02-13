@@ -1,5 +1,7 @@
 google-cloud-sdk
 neovide
+vimpager
+nvimpager
 powerline-fonts-git
 
 displaylink

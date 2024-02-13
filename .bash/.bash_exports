@@ -8,8 +8,20 @@ Exists() { which "${1}" &> /dev/null; echo ${?}; }
 export TERM=tmux-256color;
 # ------------------------------ }}}
 
-# -----[ Pager settings. `most` instead of the default, i.e. `less` ]----- {{{
-export MANPAGER="most";
+# -----[ Pager settings. ]----- {{{
+#if [ "$(Exists "nvimpager")" -eq 0 ]; then
+#    export PAGER="nvimpager -c -p";
+#
+#elif [ "$(Exists "vimpager")" -eq 0 ]; then
+#    export PAGER="vimpager";
+#
+#else
+#    # Use `most` instead of the default, i.e. `less`
+#    export PAGER="most";
+#fi
+export PAGER="less -F";
+
+
 # ------------------------------------------------------------------------ }}}
 
 # -----[ EDITOR/VISUAL (Vim) ]----- {{{
@@ -17,13 +29,18 @@ export MANPAGER="most";
 export NORMAL_VIM="vim -p";
 export VISUAL="vim -p";
 export EDITOR="vim -p";
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\"";
+
 
 # To help us not recursively open another nvim process inside neovim's :terminal, we
 #  overwrite $VISUAL, $EDITOR and $NORMAL_VIM to now open the buffer in a new tab of the
 #  parent neovim that is already opened. $NORMAL_VIM is a way for me to use normal vim
 #  if I am not inside NeoVim (quite rare).
 if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
-
+    # TODO man man page open in existing buffer
+    #if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+    #  export MANPAGER="/usr/local/bin/nvr -c 'Man!' -o -"
+    #fi
     # export VISUAL="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
     # export EDITOR="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
     # export NORMAL_VIM="nvr -cc tabe --remote-wait +'set bufhidden=wipe'"
@@ -31,10 +48,10 @@ if [ -n "${NVIM_LISTEN_ADDRESS}" ]; then
     export EDITOR="nvr --remote-tab-wait"
     export NORMAL_VIM="nvr --remote-tab-wait"
 
-elif [ $(Exists "nvim") -eq 0 ]; then
-
+elif [ "$(Exists "nvim")" -eq 0 ]; then
     export VISUAL="nvim -p";
     export EDITOR="nvim -p";
+    export MANPAGER="nvim +Man!";
 
 fi
 # ------------------------------ }}}

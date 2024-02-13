@@ -358,6 +358,16 @@ ReplaceRg() {
     \rg "${1}" --files-with-matches | \xargs \sed -i "s/${1}/${2}/g";
 }
 
+
+# Usage: IncreaseSwapTo 8
+IncreaseSwapTo() {
+    sudo swapoff -a;
+    sudo dd if=/dev/zero of=/swapfile bs=1G count="${1}";
+    sudo chmod 0600 /swapfile;
+    sudo mkswap /swapfile;
+    sudo swapon /swapfile;
+}
+
 # Source these files if they exist .bash_profile, .profile, .bashrc, tmux.conf.
 sob() {
     if [ -f ~/.bash_profile ]; then

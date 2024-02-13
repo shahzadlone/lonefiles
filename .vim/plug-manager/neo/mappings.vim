@@ -7,4 +7,6 @@ if has('nvim')
 
     endif
 
+    nnoremap <leader>nt <cmd>CHADopen<cr>
+
 endif

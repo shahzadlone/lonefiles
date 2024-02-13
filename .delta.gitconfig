@@ -32,14 +32,40 @@
     # author: https://github.com/shahzadlone
     dark = true
 
+    #syntax-theme = Nord
+    syntax-theme = TwoDark
+
+    keep-plus-minus-markers = true
+
+    # minus-style = syntax bold 197 # 197 is a bright pink that looks good in some schemes.
+    minus-style = syntax bold 1
+    minus-emph-style = syntax bold 197
+    minus-non-emph-style = syntax bold red
+
+    # plus-style = syntax bold 195 # 195 is a beautiful color for nord.
+    plus-style = syntax bold 193
+    plus-emph-style = syntax bold 123
+    plus-non-emph-style = syntax bold 194
+
+    whitespace-error-style = "#280050" reverse
+    zero-style = syntax
+
+    # To figure colors, do: git ds --color=always | delta --parse-ansi
+    map-styles = \
+       bold purple => syntax bold "#330f29", \
+       bold blue => syntax bold "#271344", \
+       bold cyan => syntax bold "#0d3531", \
+       bold yellow => syntax bold "#222f14"
+
     commit-decoration-style = blue ol
     commit-style = raw
 
-    file-added-label = [Added]
-    file-copied-label = [Copied]
-    file-modified-label = [Changed]
-    file-removed-label = [Removed]
-    file-renamed-label = [Renamed]
+    file-added-label = [Added +]
+    file-copied-label = [Copied ==]
+    file-modified-label = [Changed *]
+    file-removed-label = [Removed -]
+    file-renamed-label = [Renamed ->]
+
     file-decoration-style = purple ol ul
     file-style = "#03a4ff" bold
 
@@ -56,17 +82,6 @@
     line-numbers-right-style = blue
     line-numbers-zero-style = "#999999"
 
-    # minus-style = syntax bold 197 # 197 is a bright pink that looks good in some schemes.
-    minus-style = syntax bold 1
-    minus-emph-style = syntax bold "#780000"
-
-    # plus-style = syntax bold 195 # 195 is a beautiful color for nord.
-    plus-style = syntax bold 193
-    plus-emph-style = syntax bold "#007800"
-
-    whitespace-error-style = "#280050" reverse
-    zero-style = syntax
-    syntax-theme = Nord
 
 [delta "default-decorations"]
     commit-decoration-style = blue ol

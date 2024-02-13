@@ -31,7 +31,8 @@ export LC_TYPE=en_US.UTF-8
 #  call the `go` program.
 # export GOROOT="${LOCAL_BIN}/go1.18.5"
 # export GOROOT="${LOCAL_BIN}/go1.19.5"
-export GOROOT="${LOCAL_BIN}/go1.20.6"
+# export GOROOT="${LOCAL_BIN}/go1.20.6"
+export GOROOT="${LOCAL_BIN}/go1.21.6"
 
 # Set GOPATH to the "~/go"
 export GOPATH="${HOME}/go"

@@ -3,4 +3,11 @@
 
 if !has('nvim')
 
+" Nerd Tree for easier files, directory navigation.
+Plug 'preservim/nerdtree'
+" Nerd Tree git support,
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" For nerd tree highlighting (needs devicons).
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 endif

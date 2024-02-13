@@ -24,6 +24,11 @@ if has('nvim')
     " Integrate GDB into neovim.
     Plug 'huawenyu/neogdb.vim'
 
+    " Navigational tree, CHADTree (try it out, swapping for nerdtree).
+    Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
+
+
 
     " ================================================ These require Lua configurations or mappings.
     " Dim inactive neovim windows.
