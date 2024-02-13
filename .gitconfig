@@ -192,6 +192,12 @@
     f = fetch
     fp = fetch --all --prune
     l = log --pretty=custom
+    # Show log history of a file (with the custom compact log).
+    lf = log --pretty=custom --
+    # Show log history of a file with the commit's patch.
+    lfp = log -p --pretty=custom --
+    # Show log history of a file.
+    logf = log --
     lg = log --graph --decorate --pretty=custom --abbrev-commit
     ln = log --format=fuller
     lnf = log --first-parent --format=fuller
@@ -282,13 +288,6 @@
 
     # Delete remote branch on specified remote.
     dbrr = "!delrrbranch() { git push \"${1}\" --delete \"${2}\"; }; delrrbranch"
-
-    # Show log history of a file (with the custom compact log).
-    lf = "!lf() { git log --pretty=custom -- \"${@:1}\"; }; lf"
-    # Show log history of a file.
-    logf = "!logf() { git log -- \"${@:1}\"; }; logf"
-    # Show log history of a file with the commit's patch.
-    lfp = "!lfp() { git log -p --pretty=custom -- \"${@:1}\"; }; lfp"
 
     # Push current branch as a new branch on origin remote.
     pbr = "!pbr() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pbr"
