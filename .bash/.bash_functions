@@ -391,13 +391,27 @@ GitStatus() {
     git status;
 
     # First run it supressed to ensure unpushed information is available.
-    git log --stat --oneline @{push}.. > /dev/null 2>&1;
+    git --no-pager log --oneline @{push}.. > /dev/null 2>&1;
     if [ ${?} -ne 0 ]; then
         RED "\nNo unpushed commits";
     else
         BLUE "\nUnpushed commits:";
         # Run it again, but now show the output.
-        git log --stat --oneline @{push}..;
+        git --no-pager log --oneline @{push}..;
+    fi
+}
+
+GitStatusVerbose() {
+    git status;
+
+    # First run it supressed to ensure unpushed information is available.
+    git --no-pager log --stat --oneline @{push}.. > /dev/null 2>&1;
+    if [ ${?} -ne 0 ]; then
+        RED "\nNo unpushed commits";
+    else
+        BLUE "\nUnpushed commits:";
+        # Run it again, but now show the output.
+        git --no-pager log --stat --oneline @{push}..;
     fi
 }
 

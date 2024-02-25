@@ -215,13 +215,13 @@
 
 
     #===================[ Diff ]===================
-    d = diff --color
+    d = diff --patch-with-stat --color
     df = diff --color --name-status
-    ds = diff --color --cached
+    ds = diff --patch-with-stat --color --cached
     # Diff with the commit that was back x# of commit(s).
-    dx = "!diffBackX() { git diff --color HEAD~\"${1}\"; }; diffBackX"
+    dx = "!diffBackX() { git diff --patch-with-stat --color HEAD~\"${1}\"; }; diffBackX"
     # Diff with the common base commit with specified branch. Eg. `g dbase develop`
-    dbase = "!diffCommonBase() { git diff --color \"${1}\"...; }; diffCommonBase"
+    dbase = "!diffCommonBase() { git diff --patch-with-stat --color \"${1}\"...; }; diffCommonBase"
 
 
     #===================[ Fetch ]===================
@@ -254,7 +254,10 @@
     lg = log --graph --decorate --pretty=custom --abbrev-commit
     la = log --graph --decorate --pretty=oneline --abbrev-commit --all
     # Show unpushed commits of this branch.
-    lup = log --stat --oneline @{push}..
+    lup = log --oneline @{push}..
+    lsup = log --stat --oneline @{push}..
+    nplup = !git --no-pager log --oneline @{push}..
+    nplsup = !git --no-pager log --stat --oneline @{push}..
     # Show reflog
     lr = reflog
 
@@ -373,7 +376,8 @@
     pla = !bash -c 'source $HOME/.bash/.bash_functions && GitPullAllBranches'
 
     # Custom git status, that will also show unpushed commits of this branch.
-    s = !bash -c 'source $HOME/.bash/.bash_functions && GitStatus'
+    s   = !bash -c 'source $HOME/.bash/.bash_functions && GitStatus'
+    sup = !bash -c 'source $HOME/.bash/.bash_functions && GitStatusVerbose'
 
     # ==========[ Slightly advance git aliases. ]==========
 
@@ -413,7 +417,8 @@
     # Unindex (uncommit + unadd) the last x# of commits.
     unix = "!unindexx() { git reset --mixed HEAD~\"${1}\"; }; unindexx"
 
-    dPath = "!dPath() { git filter-repo --invert-paths --path \"${1}\"--refs $(git branch --show-currrent); }; dpath"
+    dPath = "!dPath() { git filter-repo --invert-paths --path \"${1}\" --refs $(git branch --show-current); }; dPath"
+    dPathX = "!dPathX() { git filter-repo --force --invert-paths --path \"${1}\" --refs HEAD~\"${2}\"..$(git branch --show-current); }; dPathX"
 
 
     # Unadds / Unstages a file or directory.
