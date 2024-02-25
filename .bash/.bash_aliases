@@ -118,6 +118,11 @@ alias cl='clear';
 # Short cut for docker.
 alias d='sudo docker';
 
+# Quickly see terminal size (rows and columns).
+alias termSize='echo "Rows=$(tput lines) Cols=$(tput cols)"';
+# Quick demo of terminal size.
+alias termSizeDemo='yes = | head -n$(($(tput lines) * COLUMNS)) | tr -d "\n"';
+
 # Help me see whitespaces. Example: `bash --help | whitespace`
 alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'";
 # ----------------------------- }}}
