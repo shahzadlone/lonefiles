@@ -3,6 +3,31 @@
 # When using multiline prompt (prompt that spans multiple lines), don't forget to
 # adjust the LESS_LINES exported environment variable accordingly.
 # Note: LESS settings are in: `${HOME}/.bash/.bash_exports`
+
+git_branch() {
+    # old implementation: git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ {\ \1\ }/'
+
+    if \git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        BRANCH=$(\git branch --show-current)
+        if \git rev-parse --abbrev-ref --symbolic-full-name "@{u}" > /dev/null 2>&1; then
+            BRANCH=$(\git rev-parse --abbrev-ref --symbolic-full-name "@{u}");
+        fi
+        printf " { %s }" "${BRANCH}";
+    fi
+}
+
+
+PS1="\n\[\e[01;32m\]\u@\h \[\e[01;34m\]\w \`
+       if [ \${?} = 0 ]; then
+           echo -e '\[\e[01;33m\]\xE2\x98\xBA';
+       else
+           echo -e '\[\e[01;31m\]\xE2\x98\xB9';
+       fi
+    \`\$(git_branch)\n\[\e[01;34m\]$ \[\e[00m\]"
+
+
+
+################################## OLD STUFF I USED ##################################
 # Set a :) (happy) if the last command was successful, otherwise show a :( (sad).
 # PS1="\[\e[01;32m\]\u@\h \[\e[01;34m\]\W \`
         # if [ \${?} = 0 ]; then
@@ -28,24 +53,55 @@
 #        echo -e '\[\e[01;31m\]\xE2\x98\xB9';
 #    fi
 #}
-
-git_branch() {
-    # old implementation: git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ {\ \1\ }/'
-
-    if \git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-        BRANCH=$(\git branch --show-current)
-        if \git rev-parse --abbrev-ref --symbolic-full-name "@{u}" > /dev/null 2>&1; then
-            BRANCH=$(\git rev-parse --abbrev-ref --symbolic-full-name "@{u}");
-        fi
-        printf " { %s }" "${BRANCH}";
-    fi
-}
+######################################################################################
 
 
-PS1="\n\[\e[01;32m\]\u@\h \[\e[01;34m\]\w \`
-       if [ \${?} = 0 ]; then
-           echo -e '\[\e[01;33m\]\xE2\x98\xBA';
-       else
-           echo -e '\[\e[01;31m\]\xE2\x98\xB9';
-       fi
-    \`\$(git_branch)\n\[\e[01;34m\]$ \[\e[00m\]"
+
+
+
+######################################################################################
+# TODO: Maka a similar prompt like:
+# https://www.reddit.com/r/DistroTube/comments/phnth1/how_do_i_create_a_multiline_line_bash_prompt_like/
+######################################################################################
+# function title_bar() {
+#     # If this is an xterm set the title to user@host:dir
+#     case "$TERM" in
+#     xterm*|rxvt*)
+#         PS1="\[\e]0;\w\a\]$PS1"
+#         ;;
+#     *)
+#         ;;
+#     esac
+# }
+# 
+# function parse_git_branch() {
+#     BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+#     if [ "${BRANCH}" == "" ]
+#     then
+#         echo ""
+#     else
+#         echo " (${BRANCH})"
+#     fi
+# }
+# 
+# function multiline_prompt() {
+#     GREEN='\[\033[01;32m\]'
+#     BLUE='\[\033[01;34m\]'
+#     ORANGE='\[\033[38;5;202m\]'
+#     RESET='\[\033[00m\]'
+#     if [ "$color_prompt" = yes ]; then
+#         MODLINE="(${GREEN}\u@\h${RESET})-[${BLUE}\w${RESET}]${ORANGE}\`parse_git_branch\`${RESET}"
+#     else
+#         MODLINE="(\u@\h)-[\[\w\]]\`parse_git_branch\`"
+#     fi
+#     if [ "$1" = "kali" ]; then
+#         export PS1="┌──$MODLINE
+# └─\$ "
+#     else
+#         export PS1="$MODLINE
+# \$ "
+#     fi
+#     unset color_prompt force_color_prompt
+#     title_bar
+# }
+######################################################################################
