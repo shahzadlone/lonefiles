@@ -8,6 +8,29 @@ Exists() { which "${1}" &> /dev/null; echo ${?}; }
 export TERM=tmux-256color;
 # ------------------------------ }}}
 
+# -----[ LESS settings. ]----- {{{
+# Reduce the screen height according to our set prompt (usefull if prompt spans multiple lines).
+# Note: Prompt settings are in: `${HOME}/.bash/.bash_prompt`
+# export LESS_LINES="-1";
+
+# -F : Automatically Quit if fits on one screen (like cat-ing).
+# -R : Display color control characters.
+# -X : Cat mode, i.e. don't clear terminal output upon quit (cat scrolled).
+# -J : Display status column.
+# -M : Longer / verbose prompt.
+# -W : Highlight the first unread line after scrolling window size.
+# -i : Case in-sensitive search.
+# -z : Reduce the scrolling window size by specified lines (default is 1 screen).
+# -x : Set tabs character width.
+export LESS="-F -R -X -J -M -W -i -z-3 -x4"
+
+# Old options:
+# -S : Chop long lines instead wrapping (can scroll).
+# export LESS="-F -R -X -S -J -M -W -i -z-3 -x4"
+
+export LESS_WITH_FLAGS="less ${LESS}";
+
+
 # -----[ Pager settings. ]----- {{{
 #if [ "$(Exists "nvimpager")" -eq 0 ]; then
 #    export PAGER="nvimpager -c -p";
@@ -19,8 +42,8 @@ export TERM=tmux-256color;
 #    # Use `most` instead of the default, i.e. `less`
 #    export PAGER="most";
 #fi
-export PAGER="less -F";
 
+export PAGER=${LESS_WITH_FLAGS};
 
 # ------------------------------------------------------------------------ }}}
 
