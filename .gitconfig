@@ -121,17 +121,19 @@
 
 
 [pretty]
-    custom = "%C(bold yellow)%h%C(bold magenta)%d %C(bold white)%ar %C(bold cyan)%s %C(bold blue)(%an)"
-    #                         │                 │                │                │                └─ author name
-    #                         │                 │                │                └─ message
-    #                         │                 │                └─ date (relative)
-    #                         │                 └─ decorations (branch, heads or tags)
-    #                         └─ hash (abbreviated)
+    custom = "%n%C(bold yellow)%h%C(bold magenta)%d %C(bold white)%ar %C(bold cyan)%s %C(bold blue)(%an)"
+    #          │                │                 │                │                │                └─ author name
+    #          │                │                 │                │                └─ message
+    #          │                │                 │                └─ date (relative)
+    #          │                │                 └─ decorations (branch, heads or tags)
+    #          │                └─ hash (abbreviated)
+    #          └─ new-line (I like the extra space)
 
 [core]
     editor = ${VISUAL}
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitignore
+    symlinks = true
     filemode = true
     # ==========[ Use delta as my pager, other delta configurations below. ]==========
     pager = delta
@@ -142,6 +144,7 @@
     log = delta
     blame = delta
     reflog = delta
+    branch = delta
 
 # Include delta configuration file that has the features I want to use.
 [include]
@@ -160,6 +163,7 @@
 
 # ==========[ My Git Aliases that I have found handy time to time. ]==========
 [alias]
+    #===================[ Adding ]===================
     a = add
     aa = add -A
     ac = !git add -A && git commit -v
@@ -168,85 +172,195 @@
     auc = !git add -u && git commit -v
     auca = !git add -u && git commit --amend
     aucak = !git add -u && git commit --amend --no-edit
+
+
+    #===================[ Branch ]===================
     b = branch -vv
     ba = branch --all
+
+
+    #===================[ Base ]===================
+    # Find the current base.
+    base = "!getbase() { git merge-base \"${1}\" $(git branch --show-current); }; getbase"
+
+
+    #===================[ Blame ]===================
     bl = blame
+
+
+    #===================[ Commit ]===================
     c = commit -v
     ca = commit --amend
     cak = commit --amend --no-edit
     cad = !git commit --amend --no-edit --date \"$(date)\"
+    co = commit --date=\"1 day ago\" -v
+
+
+    #===================[ Checkout ]===================
     ch = checkout
     chsm = checkout --recurse-submodules
     chb = checkout -b
     chbsm = checkout --recurse-submodules -b 
     cht = checkout --track
+
+    #===================[ Clone ]===================
     cl = clone
     cl1 = clone --depth 1
     clb = clone --bare
     clsm = clone --recurse-submodules
-    co = commit --date=\"1 day ago\" -v
+
+
+    #===================[ Cherry Pick ]===================
     cp = cherry-pick
+
+
+    #===================[ Diff ]===================
     d = diff --color
-    drb = push -d origin 
+    df = diff --color --name-status
     ds = diff --color --cached
-    f = fetch
+    # Diff with the commit that was back x# of commit(s).
+    dx = "!diffBackX() { git diff --color HEAD~\"${1}\"; }; diffBackX"
+    # Diff with the common base commit with specified branch. Eg. `g dbase develop`
+    dbase = "!diffCommonBase() { git diff --color \"${1}\"...; }; diffCommonBase"
+
+
+    #===================[ Fetch ]===================
+    f  = fetch
     fp = fetch --all --prune
+
+
+    #===================[ Pretty style log output formats ]===================
     l = log --pretty=custom
-    # Show log history of a file (with the custom compact log).
+    lp = log --patch-with-stat --pretty=custom
+    # Log with only names of the files in that commit.
+    ln = log --full-diff --name-status --pretty=custom 
+    # Log with all commits that modified this file.
     lf = log --pretty=custom --
+    # Log with all commits that modified this file, and all file names changed in each commit.
+    lnf = log --full-diff --name-status --pretty=custom  --
     # Show log history of a file with the commit's patch.
-    lfp = log -p --pretty=custom --
-    # Show log history of a file.
+    lpf = log --full-diff --patch-with-stat --pretty=custom --
+
+    #===================[ Similar to above but normal format ]===================
+    log = log
+    logp = log --patch-with-stat
+    logn = log --full-diff --name-status
     logf = log --
+    lognf = log --full-diff --name-status  --
+    logpf = log --full-diff --patch-with-stat --
+
+    #===================[ Other Logs ]===================
+    lfpa = log --first-parent --format=fuller
     lg = log --graph --decorate --pretty=custom --abbrev-commit
-    ln = log --format=fuller
-    lnf = log --first-parent --format=fuller
-    lo = log --graph --decorate --pretty=oneline --abbrev-commit
-    loa = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    lp = log -p
+    la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    # Show unpushed commits of this branch.
+    lup = log --stat --oneline @{push}..
+    # Show reflog
+    lr = reflog
+
+
+    #===================[ LS ]===================
     ls = ls-files
     lsf = !git ls-files | egrep -i
-    lsr = remote -v
+
+
+    #===================[ Merge ]===================
     m = merge
     ma = merge --abort
+
+
+    #===================[ Origin ]===================
     o = origin
+
+
+    #===================[ Push ]===================
     p = push
-    pbo = push branch origin
+    po = push origin
     pf = push --force-with-lease --force-if-includes
+    pfo = push --force-with-lease --force-if-includes origin
+    # Push current branch as a new branch on origin remote.
+    pbr = "!pbr() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pbr"
+    # Push current branch as a new branch on specified remote.
+    pbrr = "!pbrr() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u \"${1}\" @; }; pbrr"
+    # Delete remote branch on origin remote.
+    dbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
+    # Delete remote branch on specified remote.
+    dbrr = "!delrrbranch() { git push \"${1}\" --delete \"${2}\"; }; delrrbranch"
+
+
+    #===================[ Pull ]===================
     pl = pull
     plm = pull --no-rebase
     plo = pull origin
     plr = pull --rebase
-    po = push origin
-    r = remote
-    ra = remote add
-    reb = rebase
-    reba = rebase --abort
-    rebc = rebase --continue
-    rebe = rebase --edit-todo
-    rebi = rebase -i
-    rebtc = !git commit --amend --no-edit --date \"$(date)\" && git rebase --continue
-    res = reset
-    rhar = reset --hard
-    rl = reflog
+
+
+    #===================[ Remote ]===================
+    rem = remote
+    rema = remote add
+    remls = remote -v
+    remrem = remote remove
+    remremup = remote remove upstream
+    remurl = remote set-url
+    # Add a remote and fetch it.
+    remadd = "!addremote() { git remote add \"${1}\" \"${2}\" && git fetch \"${1}\"; }; addremote"
+    # Add an upstream remote and fetch upstream.
+    remaddup = "!addup() { git remote add upstream \"${1}\" && git fetch upstream; }; addup"
+
+
+    #===================[ Rebase ]===================
+    r = rebase
+    ri = rebase -i
+    rist = rebase -i --autostash
+    rab = rebase --abort
+    rc = rebase --continue
+    red = rebase --edit-todo
+    rcad = !git commit --amend --no-edit --date \"$(date)\" && git rebase --continue
+    # Rebase last x# of commits.
+    rx = "!rx() { git rebase HEAD~\"${1}\"; }; rx"
+    rix = "!rix() { git rebase -i HEAD~\"${1}\"; }; rix"
+    # Show current commit information during rebase.
+    rsh = "!rsh() { echo \"Current commit:\n\"; cat .git/rebase-merge/message; }; rsh"
+
+
+    #===================[ RM ]===================
     rm = rm -r
     rmc = rm -r --cached
     rmf = rm -r -f
-    rmix = reset --mixed
-    rmlc = reset --soft HEAD~1
-    rr = remote remove
-    rrup = remote remove upstream
-    rsof = reset --soft
-    rurl = remote set-url
-    s = status
-    sh = show
+
+
+    #===================[ Reset ]===================
+    res = reset
+    resh = reset --hard
+    resm = reset --mixed
+    ress = reset --soft
+    resu =  reset --hard "@{u}"
+    resup = !git reset --hard "@{u}" && git pull
+    unadd = reset HEAD --
+    unstage = git restore --staged
+
+
+    #===================[ Show ]===================
+    sh = show --patch-with-stat
+    shf = show --name-status
+    # Show me back that many commit. NOTE: back 0th commit is the latest commit (HEAD~0).
+    shx = "!showBackX() { git show --patch-with-stat HEAD~\"${1}\"; }; showBackX"
+    shfx = "!showFileNameX() { git show --name-status HEAD~\"${1}\"; }; showFileNameX"
+
+
+    #===================[ Sub Module ]===================
     sm = submodule
     smup = submodule update --init --recursive
     smupr = submodule update --recursive --remote
+
+
+    #===================[ Stash ]===================
     st = stash
+    stp = stash pop
     stl = stash list
-    u =  reset --hard "@{u}"
-    up = !git reset --hard "@{u}" && git pull
+
+
+    #===================[ Worktree ]===================
     wt = worktree
 
     # ==========[ Aliases based on external stuff, i.e. my bash functions. ]==========
@@ -258,16 +372,10 @@
     # Alternative but not clean: pla  = !bash -ci 'GitPullAllBranches'
     pla = !bash -c 'source $HOME/.bash/.bash_functions && GitPullAllBranches'
 
+    # Custom git status, that will also show unpushed commits of this branch.
+    s = !bash -c 'source $HOME/.bash/.bash_functions && GitStatus'
+
     # ==========[ Slightly advance git aliases. ]==========
-
-    # Add a remote and fetch it.
-    addr = "!addremote() { git remote add \"${1}\" \"${2}\" && git fetch \"${1}\"; }; addremote"
-
-    # Add an upstream remote and fetch upstream.
-    addup = "!addup() { git remote add upstream \"${1}\" && git fetch upstream; }; addup"
-
-    # Find the base o
-    base = "!getbase() { git merge-base \"${1}\" $(git branch --show-current); }; getbase"
 
     # Checkout a file(s) from another branch.
     # Example: `git chf develop query.go collection.go` will reset both the files to their state in develop.
@@ -280,58 +388,34 @@
     # Commit as if ${1} days ago.
     cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"
 
-    # Diff with the commit that was back ${1} commit(s).
-    dback = "!diffback() { git diff --color HEAD~\"${1}\"; }; diffback"
-
-    # Delete remote branch on origin remote.
-    dbr = "!delrbranch() { git push origin --delete \"${1}\"; }; delrbranch"
-
-    # Delete remote branch on specified remote.
-    dbrr = "!delrrbranch() { git push \"${1}\" --delete \"${2}\"; }; delrrbranch"
-
-    # Push current branch as a new branch on origin remote.
-    pbr = "!pbr() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u origin @; }; pbr"
-
-    # Push current branch as a new branch on specified remote.
-    pbrr = "!pbrr() { git symbolic-ref --short -q HEAD | xargs -I @ git push -u \"${1}\" @; }; pbrr"
-
-    # Show current commit information during rebase.
-    rebsh = "!rebsh() { echo \"Current commit:\n\"; cat .git/rebase-merge/message; }; rebsh"
-
     # Reverts to one commit ahead of the specified commit, keeping all the previous
     #  history upto HEAD. Basically, commits one on top of the previous history.
     revhis = "!keephistory() { git revert --no-commit \"${1}\"..HEAD; }; keephistory"
-
-    # Show me back that many commit. NOTE: back 1 commit is the latest commit (HEAD~0).
-    shb = "!showback() { git show --pretty HEAD~\"${1}\"; }; showback"
-
-    # Rebase commits uptill the given commit hash range (non-inclusive) .
-    re = "!re() { git rebase -i \"${1}\"; }; re"
-    # Rebase last x# of commits.
-    rex = "!rex() { git rebase -i HEAD~\"${1}\"; }; rex"
 
     # Give diff statistics uptill the given commit hash range (non-inclusive) .
     stat = "!stat() { git diff --stat \"${1}\"; }; stat"
     # Give diff statistics of the last x# of commits.
     statx = "!statx() { git diff --stat HEAD~\"${1}\"; }; statx"
-
     # Give diff statistics of whatever is in the staging area.
     stats = "!stats() { git diff --cached --stat; }; stats"
 
     # Reset commits that were ontop / different than the given target (commit range / branch).
-    uncommit = "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
+    unc = "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
     # Uncommit the last commit, and leave everything in the staging area.
-    uncommitlast = "!uncommitlast() { git reset --soft HEAD~1; }; uncommitlast"
+    unclast = "!uncommitlast() { git reset --soft HEAD~1; }; uncommitlast"
     # Uncommit the last x# of commits, and leave everything in the staging area.
-    uncommitx = "!uncommitx() { git reset --soft HEAD~\"${1}\"; }; uncommitx"
+    uncx = "!uncommitx() { git reset --soft HEAD~\"${1}\"; }; uncommitx"
 
     # Reset commits and remove from the staging area, as it were before adding files (commit range / branch).
-    unindex = "!unindex() { git reset --mixed \"${1}\"; }; unindex"
+    uni = "!unindex() { git reset --mixed \"${1}\"; }; unindex"
     # Unindex (uncommit + unadd) the last commit.
-    unindexlast = "!unindexlast() { git reset --mixed HEAD~1; }; unindexlast"
+    unilast = "!unindexlast() { git reset --mixed HEAD~1; }; unindexlast"
     # Unindex (uncommit + unadd) the last x# of commits.
-    unindexx = "!unindexx() { git reset --mixed HEAD~\"${1}\"; }; unindexx"
+    unix = "!unindexx() { git reset --mixed HEAD~\"${1}\"; }; unindexx"
+
+    dPath = "!dPath() { git filter-repo --invert-paths --path \"${1}\"--refs $(git branch --show-currrent); }; dpath"
+
 
     # Unadds / Unstages a file or directory.
-    unadd = "!unadd() { git reset \"${@:1}\"; }; unadd"
-    unstage = "!unstage() { git reset HEAD -- \"${@:1}\"; }; unstage"
+    #unadd = "!unadd() { git reset \"${@:1}\"; }; unadd"
+    #unstage = "!unstage() { git reset HEAD -- \"${@:1}\"; }; unstage"

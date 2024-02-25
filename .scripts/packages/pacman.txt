@@ -16,6 +16,7 @@ vim
 git
 git-delta
 git-absorb
+git-filter-repo
 bash-completion
 ripgrep
 lsd

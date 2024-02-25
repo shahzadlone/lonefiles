@@ -387,6 +387,20 @@ sob() {
     fi
 }
 
+GitStatus() {
+    git status;
+
+    # First run it supressed to ensure unpushed information is available.
+    git log --stat --oneline @{push}.. > /dev/null 2>&1;
+    if [ ${?} -ne 0 ]; then
+        RED "\nNo unpushed commits";
+    else
+        BLUE "\nUnpushed commits:";
+        # Run it again, but now show the output.
+        git log --stat --oneline @{push}..;
+    fi
+}
+
 # Helps delete (or force delete if user consents), the branches which still exist
 #  locally but were merged in the remote repository.
 GitSyncBranches(){
@@ -492,29 +506,39 @@ GitPullAllBranches() {
 }
 
 GitDefraConfigureRemotes() {
+    local ORIGIN_REMOTE="https://github.com/shahzadlone/defradb.git";
+
     # Add all the remotes I want to add.
     GitDefraAddAllRemotes;
 
     # Change the url of the `origin` remote to my fork.
-    git rurl origin "https://github.com/shahzadlone/defradb.git";
+    git remote set-url origin "${ORIGIN_REMOTE}";
+
+    if [ ${?} -ne 0 ]; then
+        RED "\nCouldn't rename remote origin as it's likely not there, so try adding it:";
+        git remadd origin "${ORIGIN_REMOTE}";
+    else
+        BLUE "Successfully set origin.\n";
+    fi
 
     # Pull all branches from all remotes.
     git pla;
 
     # Show a list of all the remotes in the end.
-    git lsr;
+    git remote -v;
 }
 
 GitDefraAddAllRemotes() {
     # Re-add the sourcenetwork organization remote as `U`.
-    git addr U "https://github.com/sourcenetwork/defradb.git";
+    git remadd U "https://github.com/sourcenetwork/defradb.git";
 
     # Add other peoples repos as remotes.
-    git addr A "https://github.com/AndrewSisley/defradb.git";
-    git addr F "https://github.com/fredcarle/defradb.git";
-    git addr K "https://github.com/nasdf/defradb.git";
-    # git addr O "https://github.com/orpheuslummis/defradb.git";
-    # git addr D "https://github.com/djat/defradb.git";
+    git remadd A "https://github.com/AndrewSisley/defradb.git";
+    git remadd F "https://github.com/fredcarle/defradb.git";
+    git remadd I "https://github.com/islamaliev/defradb.git";
+    git remadd K "https://github.com/nasdf/defradb.git";
+    # git remadd O "https://github.com/orpheuslummis/defradb.git";
+    # git remadd D "https://github.com/djat/defradb.git";
 
 
 }
