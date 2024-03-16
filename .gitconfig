@@ -119,7 +119,6 @@
      insteadOf = https://github.com/lens-vm/lens.git
 
 
-
 [pretty]
     custom = "%n%C(bold yellow)%h%C(bold magenta)%d %C(bold white)%ar %C(bold cyan)%s %C(bold blue)(%an)"
     #          │                │                 │                │                │                └─ author name
@@ -340,7 +339,7 @@
     resu =  reset --hard "@{u}"
     resup = !git reset --hard "@{u}" && git pull
     unadd = reset HEAD --
-    unstage = git restore --staged
+    unstage = restore --staged
 
 
     #===================[ Show ]===================
