@@ -163,6 +163,23 @@ let g:vim_markdown_edit_url_in = 'tab'
 au! BufEnter *.cpp,*.cc,*.c let b:fswitchdst = 'h,hpp' | let b:fswitchlocs = './,./**'
 au! BufEnter *.hpp,*.h let b:fswitchdst = 'cpp,cc,c' | let b:fswitchlocs = './,./**'
 
+"=================================================================================== GOYO
+" " Source and header files configurations for f-switch.
+" autocmd BufNewFile,BufRead *.vimp call SetVimPresentationMode()
+" function SetVimPresentationMode()
+" 
+"   nnoremap <buffer> <Right> :n<CR>
+"   nnoremap <buffer> <Left> :N<CR>
+" 
+"   autocmd BufWinEnter,BufRead,BufNewFile *.vimp set filetype=markdown
+" 
+"   if !exists('#goyo')
+"       Goyo
+"   endif
+" 
+" endfunction
+
+
 "============================================================================== GitGutter
 " GitGutter default configurations.
 let g:gitgutter_enabled = 1         " Default 1.

@@ -3,6 +3,7 @@
 
 if has('nvim')
 
+
     " If we are using the NyaoVim for GUI and WEB stuff (can only use if using NyaoVim).
     if exists('g:nyaovim_version')
 
@@ -28,11 +29,12 @@ if has('nvim')
     Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 
-
-
     " ================================================ These require Lua configurations or mappings.
+
+    " Add lsp lens
+    Plug 'VidocqH/lsp-lens.nvim'
+
     " Dim inactive neovim windows.
     " Plug 'sunjon/shade.nvim'
-
 
 endif
