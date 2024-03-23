@@ -161,11 +161,6 @@ highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=236 guibg=#2C323C g
 highlight CursorLine term=bold cterm=bold gui=bold ctermbg=236 guibg=#2C323C guifg=NONE ctermfg=NONE
 
 
-" To be used with Coc.
-"highlight CocSearch ctermfg=12 guifg=#18A3FF
-"highlight CocMenuSel ctermbg=109 guibg=#13354A
-
-
 " Here is a dirty hack to make the dimming work with termguicolors set:
 " highlight Normal guibg=NONE ctermbg=NONE
 " highlight CursorColumn term=bold cterm=bold gui=bold ctermbg=236 guibg=PaleTurquoise4 guifg=NONE ctermfg=NONE

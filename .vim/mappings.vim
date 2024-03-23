@@ -177,9 +177,6 @@ nnoremap : ;
 " Source ~/.vimrc file.
 nnoremap <Leader>sov mm:wa<CR>:source $MYVIMRC<CR>:nohls<CR>`mzz
 
-" Source ~/.vimrc file, update plugins and their extensions.
-nnoremap <Leader>soe :wa<CR>:source $MYVIMRC<CR>:CocRestart<CR>:CocUpdate<CR>:nohls<CR>
-
 " Do the sudo action (default: write option, don't do a <CR>).
 nnoremap <Leader>sudo :w !sudo tee %
 
@@ -333,14 +330,19 @@ nnoremap <Leader>cvim :bd *.vim<C-a><CR>
 " Open my vim mappings files (including plugin mappings).
 nnoremap <Leader>vmap :tabe ~/.vim/mappings.vim<CR>
                       \:tabe ~/.vim/plug-manager/common/mappings.vim<CR>
-"                      \:tabe ~/.vim/plug-manager/neo/mappings.vim<CR>
-"                      \:tabe ~/.vim/plug-manager/normal/mappings.vim<CR>
+                      \:tabe ~/.vim/plug-manager/neo/mappings.vim<CR>
+                      \:tabe ~/.vim/plug-manager/normal/mappings.vim<CR>
 
 " Open my common vim plugin files (manager, plugins, configs and mappings).
 nnoremap <Leader>vplug :tabe ~/.vim/plug-manager/manager.vim<CR>
+                       \:tabe ~/.vim/plug-manager/neo/plugs.vim<CR>
                        \:tabe ~/.vim/plug-manager/common/plugs.vim<CR>
+                       \:tabe ~/.vim/plug-manager/normal/plugs.vim<CR>
+                       \:tabe ~/.vim/plug-manager/neo/configs.vim<CR>
+                       \:tabe ~/.vim/plug-manager/neo/configs.lua<CR>
                        \:tabe ~/.vim/plug-manager/common/configs.vim<CR>
-"                       \:tabe ~/.vim/plug-manager/common/mappings.vim<CR>
+                       \:tabe ~/.vim/plug-manager/normal/configs.vim<CR>
+
 
 " Open the file I track my TODO's in.
 nnoremap <Leader>todo :tabe ~/Desktop/Shahzad/Todo/TODO<CR>

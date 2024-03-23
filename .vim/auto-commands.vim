@@ -96,10 +96,6 @@ autocmd FileChangedShellPost *
 
 " autocmd BufWinEnter,BufRead,BufNewFile prettierrc set filetype=yaml
 
-"" Indent and fix my files using eslint if they use it.
-"autocmd FileType javascript,typescript,javascriptreact,typescriptreact,json,yaml
-"                    \nnoremap <buffer> <F1> :CocCommand eslint.executeAutofix<CR>
-
 " Open new buffers/files in a new tab (stops piling or opening things on top of one pane).
 " autocmd BufAdd,BufNewFile * nested tab sball
 

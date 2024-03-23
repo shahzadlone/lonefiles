@@ -3,6 +3,9 @@
 
 if !has('nvim')
 
+" Conquer of Completion for fast LSP language completion.
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
+
 " Nerd Tree for easier files, directory navigation.
 Plug 'preservim/nerdtree'
 " Nerd Tree git support,

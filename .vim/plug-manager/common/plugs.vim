@@ -88,9 +88,6 @@ Plug 'junegunn/vim-peekaboo'
 " Easy motion.
 Plug 'easymotion/vim-easymotion'
 
-" Conquer of Completion for fast LSP language completion.
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
-
 "========================================================[ Language Specific Vim Plugins ]
 
 "--------------------------------------------------( C++ )
