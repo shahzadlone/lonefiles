@@ -1,6 +1,19 @@
 # Shahzad's WSL Specifc Configurations (only sourced if under WSL).
 
 ############################################################################################ EXPORTS
+# Don't forget to setup `vcxsrv` to enable proper copy pasting with clipboard, here are the steps:
+#
+# 1) Download `VcXsrv` from: https://sourceforge.net/projects/vcxsrv
+# 2) Install `VcXsrv` by running the install binary.
+# 3) Make a shortcut of `vcxsrv.exe` located in `C:\Program Files\VcXsrv`
+# 4) Right click the shortcut then select properties -> shortcut -> target
+# 5) Paste: `"C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto`
+# 6) Now run the shortcut, to enable the clipboard, bonus do the below to automate this:
+# 7) To autostart either press: `WindowsKey + R` then type: `shell:startup` and hit enter,
+#    OR just open `C:\Users\shahz\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
+# 8) Then just paste the shortcut there so it gets started automatically.
+#
+# More Info: https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=0
 
