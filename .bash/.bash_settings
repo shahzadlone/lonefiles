@@ -37,3 +37,8 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 HISTSIZE=3000000
 HISTFILESIZE=6000000
 # ------------------------------ }}}
+
+# -----[ Other default settings / commands ]----- {{{
+ulimit -n 50000
+# ----------------------------------------------- }}}
+

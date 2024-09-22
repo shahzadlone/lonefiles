@@ -551,6 +551,7 @@ GitDefraAddAllRemotes() {
     git remadd F "https://github.com/fredcarle/defradb.git";
     git remadd I "https://github.com/islamaliev/defradb.git";
     git remadd K "https://github.com/nasdf/defradb.git";
+    git remadd B "https://github.com/Lodek/defradb.git";
     # git remadd O "https://github.com/orpheuslummis/defradb.git";
     # git remadd D "https://github.com/djat/defradb.git";
 
