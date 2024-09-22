@@ -8,8 +8,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-loc
 
 " Nerd Tree for easier files, directory navigation.
 Plug 'preservim/nerdtree'
+
 " Nerd Tree git support,
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Git gutter to show modified lines in file.
+" Note: moved from common stuff as caused issues in neovim (not sure if works for normal vim).
+Plug 'airblade/vim-gitgutter'
+
 " For nerd tree highlighting (needs devicons).
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 

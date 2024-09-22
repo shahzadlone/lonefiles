@@ -146,24 +146,6 @@ au! BufEnter *.hpp,*.h let b:fswitchdst = 'cpp,cc,c' | let b:fswitchlocs = './,.
 " endfunction
 
 
-"============================================================================== GitGutter
-" GitGutter default configurations.
-let g:gitgutter_enabled = 1         " Default 1.
-let g:gitgutter_signs = 1           " Default 1.
-let g:gitgutter_highlight_lines = 0 " Default 0.
-let g:gitgutter_max_signs = 5000    " Default 500.
-
-" Sign styles.
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '✹'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '-'
-
-" Go to next / previous git hunk.
-nmap g] <Plug>(GitGutterNextHunk)
-nmap g[ <Plug>(GitGutterPrevHunk)
-
 "========================================================================= MatchTagAlways
 " To make MatchTagAlways do the tag matching for these files.
 let g:mta_use_matchparen_group = 1

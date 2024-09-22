@@ -7,6 +7,9 @@ if has('nvim')
     " Dressing - Better UI input and selection.
     Plug 'stevearc/dressing.nvim'
 
+    " Tree sitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
     " Telescope
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -34,6 +37,9 @@ if has('nvim')
 
     " Add lsp lens
     Plug 'VidocqH/lsp-lens.nvim'
+
+    " Add Git Signs
+    Plug 'lewis6991/gitsigns.nvim'
 
     " Dim inactive neovim windows.
     " Plug 'sunjon/shade.nvim'

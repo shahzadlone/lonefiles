@@ -36,6 +36,28 @@ let g:coc_global_extensions = [
 "________________________________________________________________________________________
 
 
+"============================================================================== GitGutter
+" GitGutter default configurations.
+let g:gitgutter_enabled = 1         " Default 1.
+let g:gitgutter_signs = 1           " Default 1.
+let g:gitgutter_highlight_lines = 0 " Default 0.
+let g:gitgutter_max_signs = 5000    " Default 500.
+
+" Sign styles.
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
+
+" For focus events reporting.
+let g:gitgutter_terminal_reports_focus=0
+
+" Go to next / previous git hunk.
+nmap g] <Plug>(GitGutterNextHunk)
+nmap g[ <Plug>(GitGutterPrevHunk)
+
+
 "============================================================================ NerdTreeGit
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",

@@ -46,9 +46,6 @@ Plug 'dhruvasagar/vim-table-mode'
 " Org mode for vim.
 Plug 'jceb/vim-orgmode'
 
-" Git gutter to show modified lines in file.
-Plug 'airblade/vim-gitgutter'
-
 " Change the directory to the root of the project.
 Plug 'airblade/vim-rooter'
 
