@@ -168,7 +168,7 @@ set showmode
 " ----------------------------------------------------------------------------------------
 
 " Use the "+ register for clipboard.
-"set clipboard=unnamedplus
+" set clipboard+=unnamedplus
 
 " Set an other column on the left for signs (or other information).
 " set signcolumn=yes

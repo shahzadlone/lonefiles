@@ -14,8 +14,8 @@
 # 8) Then just paste the shortcut there so it gets started automatically.
 #
 # More Info: https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3
-export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-export LIBGL_ALWAYS_INDIRECT=0
+# export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+# export LIBGL_ALWAYS_INDIRECT=0
 
 ########################################################################################## VARIABLES
 

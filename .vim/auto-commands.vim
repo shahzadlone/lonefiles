@@ -85,14 +85,15 @@ autocmd FileChangedShellPost *
 " Automatically update the working directory to the current file's path.
 " autocmd BufEnter * silent! lcd %:p:h
 
-"" WSL yank support
-"let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
-"if executable(s:clip)
-"        augroup WSLYank
-"                    autocmd!
-"                    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-"                        augroup END
-"                    endif"
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
+
 
 " autocmd BufWinEnter,BufRead,BufNewFile prettierrc set filetype=yaml
 
