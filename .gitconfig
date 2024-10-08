@@ -180,6 +180,7 @@
 
     #===================[ Base ]===================
     # Find the current base.
+    # Example: git base develop
     base = "!getbase() { git merge-base \"${1}\" $(git branch --show-current); }; getbase"
 
 
@@ -192,6 +193,9 @@
     ca = commit --amend
     cak = commit --amend --no-edit
     cad = !git commit --amend --no-edit --date \"$(date)\"
+    # Find count of commits on top of branch.
+    # Example: git ccount develop
+    ccount = !git rev-list --count HEAD...\"${1}\"
     co = commit --date=\"1 day ago\" -v
 
 
@@ -340,6 +344,8 @@
     resup = !git reset --hard "@{u}" && git pull
     unadd = reset HEAD --
     unstage = restore --staged
+    # Nice Read: https://www.baeldung.com/ops/git-commit-ammend-undo
+    unamend = reset --soft HEAD@{1}
 
 
     #===================[ Show ]===================
@@ -394,6 +400,13 @@
     # Reverts to one commit ahead of the specified commit, keeping all the previous
     #  history upto HEAD. Basically, commits one on top of the previous history.
     revhis = "!keephistory() { git revert --no-commit \"${1}\"..HEAD; }; keephistory"
+
+    # Redate upto commit hash range to the time now.
+    redate = "!redate() { git rebase \"${1}\" -x \"git commit --amend --no-edit --date \\\"$(date)\\\"\"; }; redate"
+    # Redate x# of last commits to now's time
+    redatex = "!redatex() { git rebase HEAD~\"${1}\" -x \"git commit --amend --no-edit --date \\\"$(date)\\\"\"; }; redatex"
+    # Redate upto commit hash range to the current time, using rebase interactively (will need to confirm edit).
+    redatei = "!redatei() { git rebase -i \"${1}\" -x \"git commit --amend --no-edit --date \\\"$(date)\\\"\"; }; redatei"
 
     # Give diff statistics uptill the given commit hash range (non-inclusive) .
     stat = "!stat() { git diff --stat \"${1}\"; }; stat"

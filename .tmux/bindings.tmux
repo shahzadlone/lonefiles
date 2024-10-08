@@ -19,6 +19,9 @@ bind m set-option -g mouse off \; display 'Mouse: OFF'
 unbind C-m
 bind C-m set-option -g mouse \; display 'Mouse: Toggled'
 
+# Paste Windows clipboard using middle mouse button (helps avoid extra EOL on WSL),
+bind-key -n MouseDown2Pane run "tmux set-buffer \"$(powershell.exe -command Get-Clipboard | sed 's/\r//g')\"" \; paste-buffer
+
 # Make splitting panes more intuitive (and also open the new panes to be in same path).
 unbind |
 unbind -

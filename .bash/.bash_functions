@@ -84,13 +84,28 @@ CloneAll() {
     done
 }
 
+# Execute a command X times.
+RepeatX() {
+    for ((x=0; x<$1; x++))
+        do eval "${*:2}"
+    done
+}
+
+RepeatSafeX() {
+    local success=0;
+    for ((x=0; x<$1 && success==0; x++))
+        do eval "${*:2}"
+        success=$?
+    done
+}
+
 # Execute a script by using curl to pass the script's text on to bash.
-BashCurl() {
+Curl() {
     sudo curl -skL "${1}" | sudo bash;
 }
 
 # Execute a script by using wget to pass the script's text on to bash.
-BashWget() {
+Wget() {
     sudo wget -O - "${1}" | sudo bash;
 }
 
@@ -412,6 +427,19 @@ GitStatusVerbose() {
         BLUE "\nUnpushed commits:";
         # Run it again, but now show the output.
         git --no-pager log --stat --oneline @{push}..;
+    fi
+}
+
+GitRedate() {
+    # TODO: Check if there are conflicts, before redating.
+    redate = "!redate() { git rebase -i \"${1}\"  }; redate"
+
+    git rebase -i "${1}" ;
+    if [ ${?} -ne 0 ]; then
+        RED "\nRebase failed, so can not redate";
+    else
+        BLUE "\nTrying to redate:";
+        RepeatSafeX $(git ccount \"${1}\") git rcad
     fi
 }
 
