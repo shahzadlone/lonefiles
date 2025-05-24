@@ -114,9 +114,9 @@ set lazyredraw
 " Tell vim where to put backup, undo and swapfiles.
 set writebackup
 set backup
-set backupdir=~/.vim/.recover/backup//
-set directory=~/.vim/.recover/swap//
-set undodir=~/.vim/.recover/undo//
+set backupdir=~/.lone_backups/vim/backup//
+set directory=~/.lone_backups/vim/swap//
+set undodir=~/.lone_backups/vim/undo//
 
 " To set path for searching file.
 set path=.,,**
