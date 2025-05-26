@@ -430,18 +430,49 @@ GitStatusVerbose() {
     fi
 }
 
-GitRedate() {
-    # TODO: Check if there are conflicts, before redating.
-    redate = "!redate() { git rebase -i \"${1}\"  }; redate"
+GitDiffSave() {
+    # Ensure we're in a Git repository
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        RED "Error: Not in a Git repository" >&2;
+        exit 1;
+    fi
 
-    git rebase -i "${1}" ;
-    if [ ${?} -ne 0 ]; then
-        RED "\nRebase failed, so can not redate";
-    else
-        BLUE "\nTrying to redate:";
-        RepeatSafeX $(git ccount \"${1}\") git rcad
+    local GIT_DIFF_BACKUP_DIR="${HOME}/.lone_backups/git/diffs"
+
+    # Ensure diff backup directory exists
+    mkdir -p "${GIT_DIFF_BACKUP_DIR}" || { RED "Error: Could not create ${GIT_DIFF_BACKUP_DIR}" >&2; return 1; }
+
+    # Change to repository root
+    cd "$(git rev-parse --show-toplevel)" || { RED "Error: Could not change to repository root" >&2; return 1; }
+
+    # Create timestamped directory
+    local TIMESTAMPED_DIFF_DIR=${GIT_DIFF_BACKUP_DIR}/$(date +D%F-T%H-%M-%S)
+    mkdir -p "${TIMESTAMPED_DIFF_DIR}" || { RED "Error: Could not create ${TIMESTAMPED_DIFF_DIR}" >&2; return 1; }
+
+    # Generate diff files
+    git diff --patch-with-stat HEAD > "${TIMESTAMPED_DIFF_DIR}/full.diff" || { RED "Error: Failed to create full.diff" >&2; return 1; }
+    git diff --patch-with-stat > "${TIMESTAMPED_DIFF_DIR}/unstaged.diff" || { RED "Error: Failed to create unstaged.diff" >&2; return 1; }
+    git diff --patch-with-stat --cached > "${TIMESTAMPED_DIFF_DIR}/staged.diff" || { RED "Error: Failed to create staged.diff" >&2; return 1; }
+
+    BLUE "Diffs saved in:";
+    GREEN "${TIMESTAMPED_DIFF_DIR}";
+
+    if [ ! -s "${TIMESTAMPED_DIFF_DIR}/full.diff" ] && [ ! -s "${TIMESTAMPED_DIFF_DIR}/unstaged.diff" ] && [ ! -s "${TIMESTAMPED_DIFF_DIR}/staged.diff" ]; then
+        YELLOW "Warning: No changes detected; all saved diff files are empty" >&2;
     fi
 }
+
+##GitRedate() {
+##    # TODO: Check if there are conflicts, before redating.
+##
+##    git rebase -i "${1}" ;
+##    if [ ${?} -ne 0 ]; then
+##        RED "\nRebase failed, so can not redate";
+##    else
+##        BLUE "\nTrying to redate:";
+##        RepeatSafeX $(git ccount \"${1}\") git rcad
+##    fi
+##}
 
 # Helps delete (or force delete if user consents), the branches which still exist
 #  locally but were merged in the remote repository.

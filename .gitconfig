@@ -114,9 +114,9 @@
 [url "https://github.com/rust-lang/crates.io-index"]
     insteadOf = https://github.com/rust-lang/crates.io-index
 [url "https://github.com/RustSec/advisory-db"]
-     insteadOf = https://github.com/RustSec/advisory-db
+    insteadOf = https://github.com/RustSec/advisory-db
 [url "https://github.com/lens-vm/lens.git"]
-     insteadOf = https://github.com/lens-vm/lens.git
+    insteadOf = https://github.com/lens-vm/lens.git
 
 
 [pretty]
@@ -173,11 +173,6 @@
     aucak = !git add -u && git commit --amend --no-edit
 
 
-    #===================[ Branch ]===================
-    b = branch -vv
-    ba = branch --all
-
-
     #===================[ Base ]===================
     # Find the current base.
     # Example: git base develop
@@ -186,6 +181,25 @@
 
     #===================[ Blame ]===================
     bl = blame
+
+
+    #===================[ Branch ]===================
+    b = branch -vv
+    ba = branch --all
+
+
+    #===================[ Checkout ]===================
+    # Trying to force myself to get out of habit of restoring files and switching branches using `checkout`
+    # command, because of this issue:
+    # https://stackoverflow.com/questions/61130412/what-is-the-difference-between-git-checkout-vs-git-restore-for-reverting-un/61132733#61132733
+    # Eventhough it's less ambiguous now with newer git versions, I want to just make the `checkout` command
+    # behave like the new `switch` command, and to restore files, use the new `restore` command.
+    checkout = switch
+    ch = switch
+    chb = switch --create
+    chbsm = switch --create --recurse-submodules
+    chsm = switch --recurse-submodules
+    cht = switch --track
 
 
     #===================[ Commit ]===================
@@ -198,13 +212,6 @@
     ccount = !git rev-list --count HEAD...\"${1}\"
     co = commit --date=\"1 day ago\" -v
 
-
-    #===================[ Checkout ]===================
-    ch = checkout
-    chsm = checkout --recurse-submodules
-    chb = checkout -b
-    chbsm = checkout --recurse-submodules -b 
-    cht = checkout --track
 
     #===================[ Clone ]===================
     cl = clone
@@ -221,6 +228,7 @@
     d = diff --patch-with-stat --color
     df = diff --color --name-status
     ds = diff --patch-with-stat --color --cached
+    dd = diff --patch-with-stat --color HEAD
     # Diff with the commit that was back x# of commit(s).
     dx = "!diffBackX() { git diff --patch-with-stat --color HEAD~\"${1}\"; }; diffBackX"
     # Diff with the common base commit with specified branch. Eg. `g dbase develop`
@@ -237,12 +245,15 @@
     lp = log --patch-with-stat --pretty=custom
     # Log with only names of the files in that commit.
     ln = log --full-diff --name-status --pretty=custom 
+
     # Log with all commits that modified this file.
     lf = log --pretty=custom --
     # Log with all commits that modified this file, and all file names changed in each commit.
     lnf = log --full-diff --name-status --pretty=custom  --
-    # Show log history of a file with the commit's patch.
+    # Show log history of a file with the commit's full patch of all files.
     lpf = log --full-diff --patch-with-stat --pretty=custom --
+    # Show log history of a file with the commit's patch of only target files.
+    lpff = log --patch-with-stat --pretty=custom --
 
     #===================[ Similar to above but normal format ]===================
     log = log
@@ -251,9 +262,10 @@
     logf = log --
     lognf = log --full-diff --name-status  --
     logpf = log --full-diff --patch-with-stat --
+    logpff = log --patch-with-stat --
 
     #===================[ Other Logs ]===================
-    lfpa = log --first-parent --format=fuller
+    lp1 = log --first-parent --format=fuller
     lg = log --graph --decorate --pretty=custom --abbrev-commit
     la = log --graph --decorate --pretty=oneline --abbrev-commit --all
     # Show unpushed commits of this branch.
@@ -342,10 +354,34 @@
     ress = reset --soft
     resu =  reset --hard "@{u}"
     resup = !git reset --hard "@{u}" && git pull
-    unadd = reset HEAD --
-    unstage = restore --staged
     # Nice Read: https://www.baeldung.com/ops/git-commit-ammend-undo
     unamend = reset --soft HEAD@{1}
+
+
+    #===================[ Restore ]===================
+    re = !git stash push -m "sts:re" && git stash apply --index && git restore
+    rep = !git stash push -m "sts:re" && git stash apply --index && git restore --patch
+
+    # To unstage only the staged files (same as `reset HEAD --` or `restore --staged`).
+    unadd = restore --source=HEAD --staged
+    unaddp = restore --source=HEAD --staged --patch
+
+    # To restore only the unstaged/worktree files to their state of HEAD.
+    undo = !git stash push -m "sts:undo" && git stash apply --index && git restore --source=HEAD --worktree
+    undop = !git stash push -m "sts:undo" && git stash apply --index && git restore --source=HEAD --worktree --patch
+
+    # Restore/clear all (staged and/or non-staged) file(s) to HEAD's state.
+    # Before using `restore` I achieved the same effect using:
+    # clear = "!clear() { git checkout HEAD -- \"${@:1}\"; }; clear"
+    # Example: `git clear query.go collection.go`
+    clear = !git stash push -m "sts:clear" && git stash apply --index && git restore --source=HEAD --staged --worktree
+    clearp = !git stash push -m "sts:clear" && git stash apply --index && git restore --source=HEAD --staged --worktree --patch
+
+    # Restore (or old checkout) file(s) to be exactly as their state on given ref (branch/commit).
+    # Before using `restore` I achieved the same effect using:
+    # chf = "!chfile() { git fetch && git checkout \"${1}\" -- \"${@:2}\"; }; chfile"
+    # Example: `git ref develop query.go collection.go` will reset all the given files to their state in develop.
+    ref = "!ref() { git fetch && git restore --worktree --source=\"${1}\" \"${@:2}\"; }; ref"
 
 
     #===================[ Show ]===================
@@ -364,12 +400,28 @@
 
     #===================[ Stash ]===================
     st = stash
-    stp = stash pop
+    stp = stash push
+    stpp = stash pop
     stl = stash list
+    stcl = stash clear
+
+    # Fix this command to not apply the stash when the stash push returns "No local changes to save", draft:
+    # sts = !out=$(git stash push -m "sts:manual" 2>&1) && [ "$out" != "No local changes to save" ] && git stash apply --index
+    sts = !git stash push -m "sts:manual" && git stash apply --index
+
+    sta = stash apply --index
+    stax = "!stax() { git stash apply --index stash@{\"${1}\"}; }; stax"
+
+    stsh = stash show --patch-with-stat
+    stshx = "!stshx() { git stash show --patch-with-stat \"${1}\"; }; stshx"
+
+    stshf = stash show --name-status
+    stshfx = "!stshfx() { git stash show --name-status \"${1}\"; }; stshfx"
 
 
     #===================[ Worktree ]===================
     wt = worktree
+
 
     # ==========[ Aliases based on external stuff, i.e. my bash functions. ]==========
 
@@ -384,15 +436,11 @@
     s   = !bash -c 'source $HOME/.bash/.bash_functions && GitStatus'
     sup = !bash -c 'source $HOME/.bash/.bash_functions && GitStatusVerbose'
 
+    # Save current diff state.
+    save   = !bash -c 'source $HOME/.bash/.bash_functions && GitDiffSave'
+
+
     # ==========[ Slightly advance git aliases. ]==========
-
-    # Checkout a file(s) from another branch.
-    # Example: `git chf develop query.go collection.go` will reset both the files to their state in develop.
-    chf = "!chfile() { git fetch && git checkout \"${1}\" -- \"${@:2}\"; }; chfile"
-
-    # Checksout (resets) the staged or non-staged file(s) to HEAD's state.
-    # Example: `git clear query.go collection.go`
-    clear = "!clear() { git checkout HEAD -- \"${@:1}\"; }; clear"
 
     # Commit as if ${1} days ago.
     cod = "!oldcommit() { git commit --date=\"\"${1}\" day ago\" -v; }; oldcommit"
@@ -414,6 +462,18 @@
     statx = "!statx() { git diff --stat HEAD~\"${1}\"; }; statx"
     # Give diff statistics of whatever is in the staging area.
     stats = "!stats() { git diff --cached --stat; }; stats"
+
+    # Give diff statistics with each file's status.
+    statn = "!statn() { git diff --stat --name-status \"${1}\"; }; statn"
+    # Give diff statistics with each file's status of the last x# of commits.
+    statnx = "!statn() { git diff --stat --name-status HEAD~\"${1}\"; }; statnx"
+    # Give diff statistics with each file's status that is in the staging area.
+    statns = "!statns() { git diff --cached --stat --name-status; }; statns"
+
+    # Give diff statistics like above but with shorter one line stat.
+    ss = "!ss() { git diff --shortstat \"${1}\"; }; ss"
+    ssx = "!ssx() { git diff --shortstat HEAD~\"${1}\"; }; ssx"
+    sss = "!sss() { git diff --cached --shortstat; }; sss"
 
     # Reset commits that were ontop / different than the given target (commit range / branch).
     unc = "!uncommit() { git reset --soft \"${1}\"; }; uncommit"
