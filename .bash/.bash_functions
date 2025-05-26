@@ -1,5 +1,8 @@
 # Shahzad's Bash Functions.
 
+# Helper function to find if a package / program exists or not.
+Exists() { which "${1}" &> /dev/null; echo ${?}; }
+
 # My color helper functions.
 MAGENTA() { echo -e "\e[1;35m${1}\e[0m"; }
 YELLOW() { echo -e "\e[1;33m${1}\e[0m"; }
@@ -23,6 +26,17 @@ o() {
         xdg-open "${@}";
     fi
 }
+
+# Open in vim all files that match rip grep pattern.
+if [ "$(Exists 'rg')" -eq 0 ]; then
+    rgv() {
+        eval "vim $(rg -l "${@}" | tr '\n' ' ')";
+    }
+
+    rgfv() {
+        eval "vim $(rg -l -F "${@}" | tr '\n' ' ')";
+    }
+fi
 
 # Determine size of a file or total size of a directory.
 fs() {
@@ -371,6 +385,10 @@ TrimFromTo() {
 
 ReplaceRg() {
     \rg "${1}" --files-with-matches | \xargs \sed -i "s/${1}/${2}/g";
+}
+
+ReplaceRgF() {
+    \rg -F "${1}" --files-with-matches | \xargs \sed -i "s/${1}/${2}/g";
 }
 
 
