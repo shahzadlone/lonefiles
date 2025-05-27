@@ -405,8 +405,8 @@
     stl = stash list
     stcl = stash clear
 
-    # Fix this command to not apply the stash when the stash push returns "No local changes to save", draft:
-    # sts = !out=$(git stash push -m "sts:manual" 2>&1) && [ "$out" != "No local changes to save" ] && git stash apply --index
+    # Fix this command to not apply the stash when the stash push returns "No local changes to save", can
+    # use the bash function that does this and handles this case.
     sts = !git stash push -m "sts:manual" && git stash apply --index
 
     sta = stash apply --index
@@ -427,6 +427,9 @@
 
     # Uses git-absorb tool, have to have it installed: github.com/tummychow/git-absorb
     absorb = !git-absorb
+
+    # Splits the removed changes into a commit B and makes commit A be the commit without those changes.
+    unabsorb   = !bash -c 'source $HOME/.bash/.bash_functions && GitUnabsorb'
 
     # Pull all branches from all remotes, using my bash function.
     # Alternative but not clean: pla  = !bash -ci 'GitPullAllBranches'

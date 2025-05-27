@@ -448,6 +448,32 @@ GitStatusVerbose() {
     fi
 }
 
+GitStashSaveApply() {
+    # Check for stash message argument
+    if [ ${#} -ne 1 ]; then
+        RED "Error: Stash message argument required" >&2;
+        exit 1;
+    fi
+
+    local STASH_MESSAGE="$1"
+    # Ensure we're in a Git repository
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        RED "Error: Not in a Git repository" >&2;
+        exit 1;
+    fi
+
+    # Stash changes and capture output
+    local STASH_PUSH_OUTPUT
+    STASH_PUSH_OUTPUT=$(git stash push -m "${STASH_MESSAGE}" 2>&1) || { RED "Error: Failed to save stash with message '${STASH_MESSAGE}'" >&2; exit 1; }
+
+    # Apply stash only if changes were stashed
+    if [ "$STASH_PUSH_OUTPUT" != "No local changes to save" ]; then
+        git stash apply --index || { RED "Error: Failed to apply stash with message '${STASH_MESSAGE}'" >&2; exit 1; }
+    fi
+}
+
+GIT_DIFF_BACKUP_DIR="${HOME}/.lone_backups/git/diffs";
+
 GitDiffSave() {
     # Ensure we're in a Git repository
     if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -455,7 +481,6 @@ GitDiffSave() {
         exit 1;
     fi
 
-    local GIT_DIFF_BACKUP_DIR="${HOME}/.lone_backups/git/diffs"
 
     # Ensure diff backup directory exists
     mkdir -p "${GIT_DIFF_BACKUP_DIR}" || { RED "Error: Could not create ${GIT_DIFF_BACKUP_DIR}" >&2; return 1; }
@@ -479,6 +504,71 @@ GitDiffSave() {
         YELLOW "Warning: No changes detected; all saved diff files are empty" >&2;
     fi
 }
+
+GitUnabsorb() {
+    # Ensure we're in a Git repository
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        RED "Error: Not in a Git repository" >&2;
+        exit 1;
+    fi
+
+    # Check for staged changes
+    if git diff --cached --quiet; then
+        YELLOW "Warning: No staged changes to unabsorb" >&2;
+        exit 1;
+    fi
+
+    # Check for unstaged changes
+    if ! git diff --quiet; then
+        RED "Error: Unstaged changes detected; all changes must be staged" >&2;
+        exit 1;
+    fi
+
+    # Ensure diff backup directory exists
+    mkdir -p "${GIT_DIFF_BACKUP_DIR}" || { RED "Error: Could not create ${GIT_DIFF_BACKUP_DIR}" >&2; exit 1; }
+
+    # Change to repository root
+    cd "$(git rev-parse --show-toplevel)" || { RED "Error: Could not change to repository root" >&2; exit 1; }
+
+    # For extra assurance save a stash
+    GitStashSaveApply "sts:unabsorb" || { RED "Error: Failed to save/apply stash before unabsorb" >&2; exit 1; }
+
+    # Create timestamped directory
+    local TIMESTAMPED_UNABSORB_DIR=${GIT_DIFF_BACKUP_DIR}/unabsorb
+    mkdir -p "${TIMESTAMPED_UNABSORB_DIR}" || { RED "Error: Could not create ${TIMESTAMPED_UNABSORB_DIR}" >&2; exit 1; }
+
+    # Save the patch of staged changes that will be reverse applied.
+    local GIT_UNABSORB_REVERSE_PATCH="${TIMESTAMPED_UNABSORB_DIR}/$(date +%s).diff"
+    git diff --cached --full-index > "${GIT_UNABSORB_REVERSE_PATCH}" || { RED "Error: Failed to save reverse patch" >&2; exit 1; }
+
+    BLUE "Unabsorb patch saved in:";
+    GREEN "${GIT_UNABSORB_REVERSE_PATCH}";
+
+    if [ ! -s "${GIT_UNABSORB_REVERSE_PATCH}" ]; then
+        YELLOW "Warning: No changes detected; the patch diff for absorb is empty" >&2;
+    fi
+
+    # Commit staged changes (Commit A: Remove undesired changes)
+    git commit -m "Commit A: Remove undesired changes" || { RED "Error: Failed to commit staged changes" >&2; exit 1; }
+
+    # Apply the reverse patch
+    git apply --reverse "${GIT_UNABSORB_REVERSE_PATCH}" || { RED "Error: Failed to apply reverse patch" >&2; exit 1; }
+
+    # Commit the reapplied changes (Commit B: Reapply undesired changes)
+    git commit -a -m "Commit B: Reapply undesired changes" || { RED "Error: Failed to commit reverse patch" >&2; exit 1; }
+
+    # If want to clean up the patch file after can do this:
+    # git commit -m "Commit A: Remove undesired changes" || { RED "Error: Failed to commit staged changes" >&2; rm -f "${GIT_UNABSORB_REVERSE_PATCH}"; exit 1; }
+    # git apply --reverse "${GIT_UNABSORB_REVERSE_PATCH}" || { RED "Error: Failed to apply reverse patch" >&2; rm -f "${GIT_UNABSORB_REVERSE_PATCH}"; exit 1; }
+    # git commit -a -m "Commit B: Reapply undesired changes" || { RED "Error: Failed to commit reverse patch" >&2; rm -f "${GIT_UNABSORB_REVERSE_PATCH}"; exit 1; }
+    # rm -f "${GIT_UNABSORB_REVERSE_PATCH}"
+
+    BLUE "Unabsorb complete: Commit A and Commit B created"
+}
+
+
+
+
 
 ##GitRedate() {
 ##    # TODO: Check if there are conflicts, before redating.
